@@ -1,7 +1,7 @@
 """Recompute the published five-policy comparison without training dependencies.
 
 Run after `python -m pip install -e .`. This is an execution check of saved
-evidence, not a security sandbox or a reproduction of the undistributed weights.
+evidence, not a security sandbox or a reproduction of model training.
 """
 
 from __future__ import annotations

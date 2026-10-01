@@ -16,6 +16,8 @@ jobs:
       - run: python -m pytest -q -p no:cacheprovider
       - name: Replay published evidence without a training stack or raw data
         run: python scripts/replay_published_results.py
+      - name: Recompute saved reliability and diversity diagnostics
+        run: python scripts/replay_published_diagnostics.py
   training-math:
     runs-on: ubuntu-latest
     env:

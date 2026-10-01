@@ -69,6 +69,12 @@ parameter counts. It performs no generation, market scoring, backward pass or
 optimizer update. This check does not establish identical sampled behavior on
 another machine.
 
+The [published load verification](../results/financial_adapter_load_verification_v1.json)
+records a successful download from the public release followed by loading all
+five checkpoints on the original local CUDA host. All five parameter digests
+and counts match the original training records. The downloadable archive and
+manifest also matched GitHub's returned SHA-256 digests after upload.
+
 To rerun an evaluation after independently obtaining the exact market snapshot,
 use a fresh result path, the original label and published freeze:
 

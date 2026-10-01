@@ -131,3 +131,13 @@ an actual saved multi-step LLM action sequence and its feedback interface; it
 does not demonstrate learned adaptive research or incremental RL benefit.
 The separate real-data financial policy remains a one-action contextual
 bandit, and the failed sequential feasibility branch remains stopped.
+
+## Subsequent public CI evidence — 2026-10-01 UTC
+
+After the portability review above, public GitHub Actions run
+[36822130448](https://github.com/Siquan-Wang/alpha-research-rl/actions/runs/36822130448)
+at commit `dd2a2ec65d4613cf7f27f73c999279af8c2edb99` completed successfully.
+The Linux Python 3.11 and 3.12 CPU jobs and the training-math job all passed.
+This resolves the earlier pending remote rerun. It verifies the tested replay
+and arithmetic paths across those environments; it does not establish identical
+model training or stochastic generation across hardware.

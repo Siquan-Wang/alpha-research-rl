@@ -9,3 +9,4 @@
 - Use deterministic seed manifests, finite evaluation budgets, and record invalid/duplicate proposals. No unrestricted execution of generated Python; use a validated expression grammar.
 - Subagents own disjoint files. Root integrates, runs checks, reviews publication contents, and alone commits/pushes. Keep independent review findings in docs/audits/.
 - Checkpoint after meaningful milestones. Record observed results, commands, environment, limitations, and next steps in CHECKPOINT.md. Avoid cosmetic iterations or redundant testing merely to consume usage.
+- At each meaningful completed iteration, tell the user in Chinese: the problem found, concrete change, observed validation/results, remaining limits, and next iteration. Keep an evidence-linked iteration log; distinguish completed work from plans and draft work from publication. Use up to three independent subagents concurrently when useful; prioritize substantive work over repeated reviews for quota consumption.

@@ -30,7 +30,13 @@ These controls have their own prospective plan within an exploratory follow-up.
 They do not retroactively turn the original development comparison into a sealed
 confirmatory study.
 
+## Post-hoc retained-evidence diagnostics
+
+- [Fixed-panel generation error and yearly omissions](reliability-analysis-review.md)
+- [Formula diversity, empirical rank equivalence and saved-diagnostic replay](retained-diagnostics-review.md)
+
 ## Reproduction and publication
 
 - [Sequential saved-action replay and reconstruction limits](sequential-replay-review.md)
 - [Five-adapter release source, packaging and byte-identity review](adapter-release-review.md)
+- [Installed-wheel replay boundary on the original host](installed-package-reproduction-review.md)

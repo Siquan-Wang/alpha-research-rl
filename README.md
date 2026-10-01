@@ -16,6 +16,14 @@ neither sampled policy beat the uniform formula-grid reference. Correct-feedback
 inconsistent across seeds. These results do not establish a useful financial
 alpha or a learned full research agent.
 
+The [iteration log](docs/iteration-log.md) records what each research round
+changed, what its evidence supports, and which directions stopped.
+Post-hoc [reliability checks](docs/reliability-analysis-v1.md) separate
+fixed-panel generation noise from market uncertainty. The
+[diversity analysis](docs/proposal-diversity-v1.md) finds that 861 of 881 usable
+proposals match teacher-grid formulas; different strings are not evidence of
+new alpha. Both analyses retain all policies and evidence conditions.
+
 | Completed study | Evidence | Main result |
 | --- | --- | --- |
 | Sequential synthetic pilot | SFT and trajectory RLOO, six development tasks | Identical SFT/RL greedy actions and rewards; no incremental RL benefit |

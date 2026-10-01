@@ -1,0 +1,112 @@
+# Research iteration log
+
+This retrospective index was assembled on 2026-10-01 UTC after the initial
+experiments. It summarizes actual changes and decisions; it did not preregister
+them. Linked plans, manifests, freezes and Git history retain their chronology.
+
+## 1. Sequential environment and local training — completed
+
+**Problem:** a scripted interface alone would not demonstrate generative modeling
+or learned decisions.
+
+**Change:** implemented bounded formula generation, evidence actions, explicit
+budgets, LoRA SFT and trajectory RLOO, with parameter and reload checks.
+
+**Evidence:** [six-task synthetic results](results-v1.md) showed identical
+SFT/RLOO greedy behavior. The [144-action explorer](trajectory-explorer.html)
+retains the repeated seven-step script and base-parser failures. This establishes
+an implemented sequential interface and actual training, not useful adaptation.
+
+## 2. Evidence conditioning and sampling — completed
+
+**Problem:** familiar action scripts could ignore feedback; model defaults could
+change the requested sampling law.
+
+**Change:** ran a paired-feedback curriculum, audited generation configuration,
+and measured cached/full-forward likelihood disagreement. The separate financial
+actor adopted the tested FP32 configuration.
+
+**Evidence:** [the curriculum](curriculum-results-v2.md) reached 8/24 correct
+pairs, below its declared 80% gate; that branch stopped. The
+[sampler correction](audits/2026-10-01-generation-config-merge.md) is an engineering
+finding, not evidence of better financial prediction.
+
+## 3. Chronological financial proposals — completed
+
+**Problem:** synthetic rewards do not establish performance on market histories.
+
+**Change:** ran a one-action study on pinned French49 data: 96 SFT and 31 actual
+RLOO updates across two seeds, freezes, paired evidence interventions and simple
+numerical references.
+
+**Evidence:** [original results](financial-proposal-results-v1.md) retain 540
+draws. RL reward gains over SFT were +.03146 / +.02618; in each case +.025 came
+from fewer invalid formulas. Neither sampled RL policy exceeded the uniform
+formula-grid reference. The financial task remains a contextual bandit.
+
+## 4. Sequential feasibility and reward-linkage controls — completed
+
+**Problem:** higher reward did not identify useful evidence acquisition or the
+effect of correct reward assignment.
+
+**Change:** tested a training-only sequential gate, then separately trained two
+fresh on-policy reward-permutation controls with a declared plan and a new freeze
+before their evaluation.
+
+**Evidence:** the [sequential gate](sequential-gate-results-v1.md) failed and its
+controller branch stopped. The [five-policy comparison](reward-linkage-results-v1.md)
+contains 900 total draws, including the original 540. Correct RL exceeds matched
+controls by +.02303 / +.01837 reward, but IC-contribution differences have opposite
+signs. Both controls also improve over SFT. These findings narrow the supported claim.
+
+## 5. Inspectable evidence and published checkpoints — completed
+
+**Problem:** reports and local adapters were difficult for another reader to
+inspect or reproduce. Local tests missed a Python-version difference.
+
+**Change:** published three standalone explorers, CPU arithmetic replay, exact
+adapter verification and the
+[v0.1.0 release](https://github.com/Siquan-Wang/alpha-research-rl/releases/tag/v0.1.0).
+Reconstructed states remain distinct from missing historical prompt tokens.
+Fixed AST portability and protected published benchmark files from accidental
+CLI overwrites.
+
+**Validation:** 431 local tests passed. Public
+[Python 3.11/3.12 CPU and training-math jobs](https://github.com/Siquan-Wang/alpha-research-rl/actions/runs/36822130448)
+passed. All five publicly downloaded adapters were actually loaded and their
+parameter digests matched the original records; see the
+[load verification](../results/financial_adapter_load_verification_v1.json).
+This verifies distribution and loading, not cross-hardware stochastic behavior
+or additional financial performance.
+
+## 6. Reliability, diversity and installed-package replay — completed locally
+
+**Problem:** an average reward and a count of different formulas do not explain
+sampling uncertainty, period sensitivity, or effective signal diversity.
+Editable-source execution also leaves an installation boundary untested.
+
+**Change:** three parallel checks retained all six policy contrasts, both
+evidence conditions, all five yearly omissions, and all 900 original draws.
+The new public replay script recomputes both complete diagnostic reports using
+saved evidence, with no training imports, weights, raw data or network access.
+
+**Evidence:** the [reliability report](reliability-analysis-v1.md) gives
+true-evidence correct-RL-minus-control reward differences +.023032 / +.018368,
+with conditional generation MCSEs .013041 / .018558. These are not market
+standard errors or significance claims. Seed 29's IC contribution remains
+negative under every yearly omission. The
+[diversity report](proposal-diversity-v1.md) finds 861 teacher-template matches
+among 881 usable proposals; all 19 failures remain counted. Correct RL does not
+consistently increase entropy, and all 100 greedy proposals remain identical.
+
+**Validation:** 463 local tests and Ruff passed. Separate reviewers
+[reconstructed the reliability arithmetic](audits/reliability-analysis-review.md)
+and [checked diversity and the replay verifier](audits/retained-diagnostics-review.md).
+An [installed-wheel check](audits/installed-package-reproduction-review.md)
+reproduced the 900-draw analysis and 144-action synthetic replay on the original
+host while importing project modules from a fresh installation. This is not a
+fresh-machine training reproduction. Remote CI for the new diagnostics is
+pending publication; the earlier release CI is recorded in round 5.
+
+These are post-hoc robustness and reproduction checks. No new model training,
+transfer-period scoring, stopped-branch restart or financial advantage is claimed.
