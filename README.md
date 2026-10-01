@@ -212,6 +212,20 @@ run; existing files are refused. Published experiments remain under
 `artifacts/development/`. Assessment scores in this command are development
 scores, not sealed final tests.
 
+## Validate actor-visible splits
+
+Different task IDs can expose identical actor inputs. The standard-library-only
+[presentation checker](docs/presentation-integrity.md) reports exact prompt-byte
+collisions and, when supplied, token collisions within the same declared namespace.
+Missing token evidence stays unchecked. Its exhaustive synthetic regression
+retains 1,152 rows with 144 visible groups: naive raw-ID splitting leaks every
+group across splits; whole-group assignment removes those exact collisions.
+This is validation tooling, not a trained-policy or financial-performance result.
+
+```bash
+python -m alpha_research_rl.presentation_integrity --input presentations.json --output NEW_REPORT.json
+```
+
 ## Train the local language-model actor
 
 Install a CUDA-compatible PyTorch build for your machine, then the optional

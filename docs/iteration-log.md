@@ -498,3 +498,45 @@ No new draws or prompt tuning follow this failed gate. The next design review
 asks whether a separately named, constructed evidence-acquisition task can
 isolate a response-dependent query decision; it has not started a new model
 experiment and does not revive the stopped financial or local-training branches.
+
+
+## Iteration 12 — exact actor-visible split integrity
+
+**Problem:** raw task IDs can appear disjoint while the actor sees the same
+input. The earlier constructed-query review found 1,152 raw transformations
+but only 144 visible kernels, with eight aliases each. That finding lacked a
+reusable exact-input checker. Existing temporal, sampling-law and metric tests
+already cover their distinct properties, so this iteration does not repackage
+those tests or run another easy hosted benchmark.
+
+**Change:** a new standard-library-only checker groups exact final prompt bytes
+and optionally supplied token sequences within a declared tokenizer/template
+namespace. It retains duplicates, exposes cross-split witnesses, rejects
+inconsistent metadata, preserves literal Unicode/newlines and marks missing
+or incomparable token evidence explicitly. It cannot attest actual hosted
+context or completeness of an omitted population. The [guide](presentation-integrity.md)
+includes a CLI and API; no model or network access is required.
+
+**Observed validation:** an independent integer-matrix construction retained
+all 1,152 aliases and matched all 144 prompt groups. Raw-index splitting creates
+144 cross-split groups and 2,952 equal cross-split pairs; whole-group splitting
+creates none. A single moved alias creates exactly one conflict group and seven
+pairs. All three fixture populations remain complete. Root ran 72 author,
+independent-reviewer and fixture tests in .28 seconds, with Ruff clean. The
+normal exclusive-output CLI then wrote the [complete regression](../results/presentation_alias_regression_v1.json).
+One additional published-artifact rebuild check passed separately on root
+and the author; normal CPU CI now exercises that saved-result identity.
+The expected alias collapse was known beforehand: this is engineering
+validation, not an empirical discovery or a held-out-policy result.
+
+**Limits and next:** tokenization was not run in the exhaustive fixture and its
+token checks remain UNCHECKED. Exact distinctness does not establish semantic
+novelty, independent mechanisms or absence of pretraining exposure. All 144
+presentations relabel one constructed mechanism. Complete deterministic
+checking solves this declared task; no hosted LLM experiment is justified by
+that result. The failed financial and matched-prefix branches stay stopped.
+A possible separate statistical calibration fixture remains design advice only.
+
+The prior completed financial publication `7e0f7b3` passed both Python CPU jobs
+and the training-math job in run `36863716268`; Pages run `36863714569` succeeded.
+Root verified the live 200-slot explorer and its exact report identity.

@@ -89,3 +89,7 @@ confirmatory study.
 - [Completed revision narrative review](astra-revision-narrative-review-v1.md): manipulated-condition framing and historical zero-signal failures clarified.
 - [Grounding interpretation](astra-revision-grounding-interpretation-v1.md): source-indexed textual mechanisms and their limits.
 - [Revision CI integration](astra-revision-ci-integration-v1.md): unconditional complete-report and HTML replay on Python 3.11/3.12.
+
+## Actor-visible presentation integrity
+
+- [Exact prompt/token collision checker review](presentation-integrity-review-v1.md): independent partitions, byte preservation, namespace limits and digest-collision counterexamples; synthetic regression only.
