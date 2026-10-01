@@ -1,0 +1,106 @@
+{
+  "study": "financial-reward-linkage-control-v1",
+  "frozen_utc": "2026-10-01T04:58:36.053875+00:00",
+  "checkpoints": {
+    "financial-sft-v1": {
+      "adapter_name": "financial-sft-v1",
+      "files": [
+        {
+          "file": "adapter_config.json",
+          "sha256": "1d2ce245257ca545da1369b02b4ce1bde04cc2f75428654e186db38791efacc7",
+          "bytes": 1039
+        },
+        {
+          "file": "adapter_model.safetensors",
+          "sha256": "be860bc2dd4dfc9a1f2e25f1532bfdcbf63ac4cd664a2cff1de8993aacb7db3b",
+          "bytes": 9204512
+        }
+      ],
+      "combined_sha256": "d95793e5192be85fe4ceb15109a481c86ad13e804ffc01c56815683b1f21e360"
+    },
+    "financial-rloo23-v1": {
+      "adapter_name": "financial-rloo23-v1",
+      "files": [
+        {
+          "file": "adapter_config.json",
+          "sha256": "f40d007be9ba3ce18bfa06050caf9e9ddf6850e9b538595604aa39ea28a260ab",
+          "bytes": 1039
+        },
+        {
+          "file": "adapter_model.safetensors",
+          "sha256": "32e075f906b32374c2c153c01bd83930ff31f89f370aa2b261c84b0ac3e0342d",
+          "bytes": 9204512
+        }
+      ],
+      "combined_sha256": "595d8270efc5f035618e5682624e10db0037d3842df4d21b451fd85cc8ae2a05"
+    },
+    "financial-rloo29-v1": {
+      "adapter_name": "financial-rloo29-v1",
+      "files": [
+        {
+          "file": "adapter_config.json",
+          "sha256": "97c936b99ed86575a60885e6dcde9a7fcb66cb6d405fe62a881eb8a53ea7b459",
+          "bytes": 1039
+        },
+        {
+          "file": "adapter_model.safetensors",
+          "sha256": "8084784c7bfa8ae41fc52c3b9d45862ed42491cecac348676f8faa8d84fdadf0",
+          "bytes": 9204512
+        }
+      ],
+      "combined_sha256": "98e40d8f19f2cf88cde123097952866b90c9d4bb50210827f80ef0f7a57586c5"
+    },
+    "financial-placebo23-v1": {
+      "adapter_name": "financial-placebo23-v1",
+      "files": [
+        {
+          "file": "adapter_config.json",
+          "sha256": "6e94e2ccecdee96fed10b34b15952202291d2572e7464a729bc24750aec3af08",
+          "bytes": 1039
+        },
+        {
+          "file": "adapter_model.safetensors",
+          "sha256": "74485b3a9bd1d5e73287ffff4358d05b1cd01cbd0db7f6cb5fa96ad419bf3291",
+          "bytes": 9204512
+        }
+      ],
+      "combined_sha256": "5c7f172f12aaa43eab95d2310c8d9ccfcf2314d1cdcc7c0c7a3e4c7cb5ce03b8"
+    },
+    "financial-placebo29-v1": {
+      "adapter_name": "financial-placebo29-v1",
+      "files": [
+        {
+          "file": "adapter_config.json",
+          "sha256": "6f660d449029b7b85379871565b07fba47b111fc647c09eac7211d4cf4aa8220",
+          "bytes": 1039
+        },
+        {
+          "file": "adapter_model.safetensors",
+          "sha256": "28f31ee08723e20e35f9ca220b41ce13cd329b7c26b5d9c6c6a824a8dea5092f",
+          "bytes": 9204512
+        }
+      ],
+      "combined_sha256": "ab8d0fafa233bb634775c4b3ac173dcd80676459f48f95e869aa90c0ae33d0c0"
+    }
+  },
+  "fixed_reference": "delay(returns,1)",
+  "fixed_reference_selection": "best mean reward on 2002-2017 training grid, frozen before transfer",
+  "seed_rule": "80000 + task_index*100 + draw; greedy draw=99; identical across checkpoints/conditions",
+  "stochastic_draws_per_task_condition": 8,
+  "greedy_draws_per_task_condition": 1,
+  "original_frozen_suite_sha256": "7673892a39c4203d0371aad0f33c8ec5001d1e112bc671e544dd1a4a6dd87811",
+  "original_reports": {
+    "financial-sft-v1": {
+      "file": "financial-sft-transfer-v1.json",
+      "sha256": "a1de37b17e113cbde41c42f7baa39869756dd95974748f16e89ec68545959eb1"
+    },
+    "financial-rloo23-v1": {
+      "file": "financial-rloo23-transfer-v1.json",
+      "sha256": "25bd93004bf47f088ad701fa4e2856f0843b040b468c6d21e6c98565daec6c85"
+    },
+    "financial-rloo29-v1": {
+      "file": "financial-rloo29-transfer-v1.json",
+      "sha256": "ddae0c86b9d38c7706efaea0635771c4480e4503a5da4e3464ef5275abd66c73"
+    }
+  }
+}
