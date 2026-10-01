@@ -9,6 +9,11 @@ that leakage, invalid actions, reward design, and actual parameter updates can b
 tested independently.
 
 **Status: measured research prototype, with mixed and negative results.**
+Start with the [seven-page research note](output/pdf/alpha-research-note-v1.pdf)
+([text version](docs/research-note-v1.md)) for the question, counterfactuals,
+negative results and limits across the hosted-agent and weight-training studies.
+The [build guide](docs/research-note-build.md) explains its saved-data figures and review scope.
+
 The original study used **Astra as the actual research actor**:
 180 decisions, three feedback conditions, six proposals per episode, and
 30 candidate pools published before assessment. Full quantitative feedback

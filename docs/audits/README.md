@@ -14,6 +14,12 @@ manifests, full outcomes and limitations remain the evidence to inspect.
 
 ## Actual Astra feedback study
 
+The [seven-page synthesis](../../output/pdf/alpha-research-note-v1.pdf) has separate
+[evidence](research-note-evidence-review-v1.md) and
+[reader](research-note-reader-review-v1.md) reviews. Its
+[build record](../../artifacts/research-note-v1/build-and-qa.json) distinguishes
+coordinator PDF inspection from those internal content reviews. It adds no study.
+
 - [Prospective design critique](astra-agent-research-design-review-v1.md)
 - [Broker feedback masks and provider boundary](astra-broker-review-v1.md)
 - [Frozen orchestration and interruption handling](astra-study-review-v1.md)

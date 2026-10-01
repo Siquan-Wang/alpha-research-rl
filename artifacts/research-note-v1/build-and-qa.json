@@ -1,0 +1,147 @@
+{
+  "created_at_utc": "2026-10-01T15:39:20.166849+00:00",
+  "scope": "Formatting and saved-report plotting only; no new experiments or evaluations",
+  "evidence_commit": "21bf13e4888c24f2f05f1ff21708a175bcb155c5",
+  "artifacts": [
+    {
+      "path": "docs/research-note-v1.md",
+      "bytes": 19423,
+      "sha256": "ed3882b51ac0f66d97fd10bfe374cadf2e342209abd50eaa2b3c93e784c5dd0a"
+    },
+    {
+      "path": "scripts/build_research_note.py",
+      "bytes": 11798,
+      "sha256": "c3181bb52fcb0b29128958e77d0ea399bf6aad10a59c0196ace6cee4ccc6b149"
+    },
+    {
+      "path": "scripts/plot_research_note.py",
+      "bytes": 6835,
+      "sha256": "2c7694505268fce2e6600d3445bfd9b4f43cc790ec653b51856dd41ba669d8c3"
+    },
+    {
+      "path": "docs/figures/research-note-matched-prefix-v1.png",
+      "bytes": 108978,
+      "sha256": "d7abe586e4d7cde2fb84b4495518c5805fd12c68b30d4e3021372eba018b8241"
+    },
+    {
+      "path": "docs/figures/research-note-reward-credit-v1.png",
+      "bytes": 128155,
+      "sha256": "db9647f9c675818f1bb8216dfbfe0e7fd196c535831541bb84221553b1d64067"
+    },
+    {
+      "path": "output/pdf/alpha-research-note-v1.pdf",
+      "bytes": 341396,
+      "sha256": "2682dc0798e5ece5d9f4280badfe311c3f9ea4ba899dbf8d7c2274af7eea1842"
+    }
+  ],
+  "software": {
+    "python": "3.12.14",
+    "reportlab": "4.4.9",
+    "matplotlib": "3.11.2",
+    "pdf_renderer": "bundled Poppler pdftoppm at 110 DPI"
+  },
+  "checks": {
+    "page_count": 7,
+    "source_segments_checked": 83,
+    "unmatched_segments": 0,
+    "out_of_page_characters": 0,
+    "replacement_characters": 0,
+    "uri_annotations": 18,
+    "pages": [
+      {
+        "page": 1,
+        "text_characters": 3175,
+        "uri_annotations": 2,
+        "size_points": [
+          612.0,
+          792.0
+        ]
+      },
+      {
+        "page": 2,
+        "text_characters": 2962,
+        "uri_annotations": 1,
+        "size_points": [
+          612.0,
+          792.0
+        ]
+      },
+      {
+        "page": 3,
+        "text_characters": 3188,
+        "uri_annotations": 1,
+        "size_points": [
+          612.0,
+          792.0
+        ]
+      },
+      {
+        "page": 4,
+        "text_characters": 1979,
+        "uri_annotations": 2,
+        "size_points": [
+          612.0,
+          792.0
+        ]
+      },
+      {
+        "page": 5,
+        "text_characters": 2597,
+        "uri_annotations": 6,
+        "size_points": [
+          612.0,
+          792.0
+        ]
+      },
+      {
+        "page": 6,
+        "text_characters": 2042,
+        "uri_annotations": 1,
+        "size_points": [
+          612.0,
+          792.0
+        ]
+      },
+      {
+        "page": 7,
+        "text_characters": 2530,
+        "uri_annotations": 5,
+        "size_points": [
+          612.0,
+          792.0
+        ]
+      }
+    ],
+    "visual_review": {
+      "reviewer": "root coordinator; not an external independent review",
+      "rendered_pages_inspected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "checked": [
+        "readable text",
+        "tables and values",
+        "both figures and captions",
+        "equation blocks",
+        "page boundaries",
+        "headers and footers"
+      ],
+      "observed_layout_blockers": []
+    },
+    "renderer_warnings": [
+      "No display font for Symbol",
+      "No display font for ArialUnicode"
+    ],
+    "warning_disposition": "Vera prose fonts embedded; Courier equations. No observed missing glyphs in final page inspection."
+  },
+  "limitations": [
+    "Not a tagged-PDF or formal accessibility conformance audit",
+    "Renderer versions can change PDF bytes and pagination",
+    "Does not reproduce any underlying scientific study"
+  ]
+}

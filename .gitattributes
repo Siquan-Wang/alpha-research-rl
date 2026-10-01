@@ -2,6 +2,7 @@
 # Preserve the recorded mixed historical line endings rather than rewriting them.
 *.py -text
 *.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.pdf binary
 docs/financial-adapters-model-card.md -text
 docs/mechanism-gate-plan-v1.md -text
 docs/astra-agent-research-plan-v1.md -text
@@ -14,3 +15,4 @@ docs/audits/astra-revision-grounding-plan-v1.md -text
 docs/sealed-confirmation-plan-v1.md -text
 artifacts/sealed-confirmation-v1/**/*.jsonl -text
 docs/reward-credit-plan-v1.md -text
+docs/research-note-v1.md -text

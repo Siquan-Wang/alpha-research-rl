@@ -695,3 +695,36 @@ mixed-group example, execution/inspection records, static figure and commands.
 All frozen scientific inputs remain unchanged. Internal reviews disclose their
 roles; this is post-hoc accounting, not external replication or new causal
 learning evidence.
+
+Publication at `21bf13e` passed Python 3.11, Python 3.12 and training-math in CPU
+run `36883178509`; Pages run `36883176988` succeeded.
+
+## Iteration 16 — connect the evidence in a compact research note
+
+**Problem:** individual reports preserved their evidence, but a reader had to
+assemble the controlled questions, follow-up decisions and scope limits across
+many files. That obscured both the agentic implementation and what the financial
+results actually establish.
+
+**Change:** a [seven-page English research note](../output/pdf/alpha-research-note-v1.pdf)
+connects the original Astra comparison, explicitly post-hoc pool analysis,
+prospective matched-prefix test, separate Qwen weight training and controls,
+and the saved training-credit finding. Two paper-sized figures read exact
+published JSON bytes; no model, training or market assessment ran. The original
+figures, results and stopped scientific branches remain unchanged.
+
+**Review and verification:** two internal review lanes corrected winner-versus-
+admission counts, control seed naming, comparison populations, remaining masked
+information, gate interpretation and gradient-attribution wording. The final
+source has 2,581 whitespace-delimited words. The coordinator rendered and
+visually inspected all seven final pages and checked 83 source text segments,
+page geometry and 18 link annotations. Ruff passed for the two new scripts.
+The [build guide](research-note-build.md) records commands, review boundaries,
+artifact digests and renderer warnings; it does not claim accessibility
+certification or external peer review.
+
+**Limit:** this is a synthesis of existing evidence, not a new algorithm or a
+claim of top-conference readiness. Further methodological research requires a
+distinct contribution, close prior-art comparison and decisive controls. Merely
+repeating the failed comparisons on the same development periods would not
+provide that contribution.
