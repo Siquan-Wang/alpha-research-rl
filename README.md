@@ -37,6 +37,16 @@ have negative mean IC; the full-feedback pool ceiling also trails both controls.
 The [pool explorer](https://siquan-wang.github.io/alpha-research-rl/astra-pool-explorer.html)
 shows every candidate and selector. The original Astra result remains unchanged.
 
+The [next study](docs/astra-matched-prefix-overview.md) fixes identical two-proposal
+starting states, compares displayed versus masked candidate feedback, and adds
+copy, one-edit and one-draw references. Its fixed budget is 80 hosted calls and
+120 cheap slots. Proposal quality and gains after historical selection are
+separate endpoints; no follow-up result is reported yet.
+
+For a short technical review, start with the
+[five-minute walkthrough](docs/research-walkthrough.md), including the negative
+results and the distinction between inference-time agency and weight training.
+
 In a separate learning path,
 local Qwen3-0.6B LoRA training, saved-model checks, and chronological financial
 comparisons have run. In the financial proposal study, two RL runs improved the
@@ -56,6 +66,7 @@ new alpha. Both analyses retain all policies and evidence conditions.
 | Completed study | Evidence | Main result |
 | --- | --- | --- |
 | Actual Astra feedback study | 180 decisions, three conditions, 30 pools publicly frozen before assessment | Full − validity mean future IC −.00636; all outcomes valid, no observed feedback benefit on this development bank |
+| Post-hoc Astra pool diagnosis | All 180 original slots; 108 new CPU evaluations and 24 reused keys | All three tested feasible selectors remain negative in every arm's overall mean; full-feedback candidate ceiling is lower and selection gap smaller than controls |
 | Sequential synthetic pilot | SFT and trajectory RLOO, six development tasks | Identical SFT/RL greedy actions and rewards; no incremental RL benefit |
 | Constructed feedback curriculum | 384 updates, 24 held-out paired interventions | 8/24 pairs correct; the predeclared 80% gate failed |
 | Financial formula proposal | 96 SFT and 31 RL updates; two RL seeds, ten 2020–2024 half-years | Reward gains +.03146 / +.02618 over SFT; +.025 in each comes from reduced failure penalties |

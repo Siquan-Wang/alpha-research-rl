@@ -35,6 +35,16 @@ not establish predictive improvement or hidden model-context equality.
 The additional 108 evaluations preserve the original study. Hindsight ceilings
 describe fixed candidate pools; they are not attainable selection policies.
 
+## Matched-prefix follow-up before execution
+
+- [Independent protocol, arithmetic and durable-driver review](astra-matched-prefix-review-v1.md)
+- [Protocol-author lag/control validation and publication-helper review](astra-matched-prefix-lag-review-v1.md)
+
+These records concern the fixed-start follow-up's design and implementation.
+Synthetic checks and source review do not establish that its 80 hosted calls
+or 200-slot financial comparison have run. The second record discloses the
+reviewer's protocol authorship; it is not an independent protocol review.
+
 ## Financial proposal study
 
 - [Training execution evidence](2026-10-01-financial-training-evidence.md)

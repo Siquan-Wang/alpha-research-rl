@@ -77,13 +77,15 @@ This narrows the explanation of the original deficit, without identifying a
 causal generation effect or a deployable selector. The original v1 result is
 unchanged.
 
-The current result also lacks repeated hosted generations within each condition
-and period. Repeating fixed trajectories could quantify conditional generation
-variation; it would not create independent market histories. A matched-prefix
-revision experiment could test feedback's conditional effect on newly proposed
-formulas, but needs a predictive-quality endpoint and cheap deterministic
-controls. Different strings and accurate citations of old scores are
-insufficient. Neither follow-up model experiment is registered or executed.
+The original result lacks repeated hosted generations within each condition
+and period. The separate [matched-prefix study](astra-matched-prefix-overview.md)
+now has a reviewed protocol and prepared execution contract. It compares four
+fresh one-proposal calls per condition and state against copying, scheduled
+window edits and seeded grammar draws, at a finite budget of 80 hosted calls
+and 120 cheap slots. Public-byte verification must precede collection, and
+no result is reported yet. This estimates conditional generation variation,
+not independent market histories or long-horizon adaptation. Different strings
+and accurate citations of old scores remain insufficient evidence.
 
 The [sequential acquisition branch](sequential-gate-results-v1.md) remains
 **stopped**: the privileged selector harmed one chronological fold and failed

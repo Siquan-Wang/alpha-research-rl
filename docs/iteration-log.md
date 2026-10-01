@@ -362,8 +362,42 @@ The pre-score publication's
 passed both Python versions and training-math. Results, final explorer and the
 expanded CI replay are a subsequent publication batch.
 
+The completed batch was published at `5640368`. Its
+[public CI](https://github.com/Siquan-Wang/alpha-research-rl/actions/runs/36850046341)
+passed Python 3.11, Python 3.12 and training-math. Pages deployed successfully;
+the live [pool explorer](https://siquan-wang.github.io/alpha-research-rl/astra-pool-explorer.html)
+shows the exact completed report identity and corrected oracle interpretation.
+
 **Next decision:** a separately reviewed matched-prefix proposal-quality study
 is being designed. The reason is the remaining conditional generation question
 under identical starting states, not merely the presence of positive hindsight
 headroom. It will not restart local-model or stopped financial branches. No
 new hosted calls have been made for that proposed follow-up.
+
+## Iteration 11 — matched starts and proposal-quality controls
+
+**Problem:** the original feedback conditions followed different sampled
+trajectories. The pool diagnosis cannot isolate how the same starting evidence
+changes the next generated formula, and an improved historical selector alone
+would not demonstrate better generation.
+
+**Change:** the [new protocol](astra-matched-prefix-plan-v1.md) fixes ten
+two-proposal starts, four fresh calls per displayed/masked condition, and three
+cheap references. Its 200-slot population separates proposed-factor quality Q
+from gain G after a frozen historical selector. Two public-byte gates precede
+hosted collection and later-period scoring; failures consume their slots.
+The implementation records quota checks, actual starts, raw-response digests,
+historical cache reuse and terminal incomplete states without replacement calls.
+
+**Validation before execution:** root's full integrated suite passed **968 tests**
+with one Windows symlink-permission skip in **427.33 seconds**. Ruff passed.
+Independent reviews cover the scoring decomposition, cumulative lag limit,
+publication gates, interruption handling and synthetic replay. Preparation then
+created the exact contract, ten states, twenty prompts and 120 cheap packets,
+with no model call or new financial score. Publication verification and actual
+collection remain the next steps; test success is not a research result.
+
+**Limit:** this remains a development-panel study. Common probes can reveal some
+masked information, four provider draws need not be independent, and Astra's
+weights are not trained. The next decision follows the fixed allocation rule,
+not a favorable subset of periods or post-hoc prompt changes.

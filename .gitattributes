@@ -7,3 +7,6 @@ docs/mechanism-gate-plan-v1.md -text
 docs/astra-agent-research-plan-v1.md -text
 docs/astra-pool-diagnosis-plan-v1.md -text
 docs/reproduce-astra-pool-diagnosis.md -text
+docs/astra-matched-prefix-plan-v1.md -text
+docs/reproduce-astra-revision-study.md -text
+artifacts/astra-matched-prefix-v1/**/*.txt -text
