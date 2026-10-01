@@ -16,11 +16,14 @@ neither sampled policy beat the uniform formula-grid reference. Correct-feedback
 inconsistent across seeds. These results do not establish a useful financial
 alpha or a learned full research agent.
 
-The next mainline study uses **Astra as the actual factor-research actor** through
+The new mainline study uses **Astra as the actual factor-research actor** through
 the existing Codex CLI. Its [prospective protocol](docs/astra-agent-research-plan-v1.md)
 compares six-step generation with full quantitative feedback, validity-only
-feedback and withheld feedback, under the same final selector. A real structured
-transport check has passed; registered financial collection is in progress. This is a study
+feedback and withheld feedback, under the same final selector. All **180 actual
+decisions and 30 candidate pools are now frozen**, with
+[complete submissions](results/astra_agent_v1_submissions.json) and a
+[successful structural replay](results/astra_agent_v1_submission_replay.json).
+Future assessment has not run at this publication checkpoint. This is a study
 of inference-time adaptation, separate from the completed Qwen weight-training
 experiments. Existing 2020–2024 periods remain development data.
 The [public-evidence replay tool](docs/replay-astra-evidence.md) checks complete
@@ -85,13 +88,36 @@ flowchart LR
 
 ## What is agentic and generative here?
 
+The Astra study implements this six-decision research loop. The model generates
+the formula and a brief public justification; the broker runs the bounded
+historical evaluation and controls which evidence returns to the next decision.
+The actor is instructed not to use native shell/web tools; a recorded tool
+event fails the study. The research tool is the brokered formula evaluation,
+and final selection is held common across
+the three arms.
+
+```mermaid
+flowchart LR
+    H[Initial probes and permitted history] --> A[Astra generates a formula]
+    A --> V[Validate and charge one attempt]
+    V --> F[Evaluated, cached or invalid feedback]
+    F --> M[Apply the assigned feedback mask]
+    M --> H
+    V --> P[Retain all six attempts]
+    P --> S[Common feedback-only selector]
+    S --> Z[Freeze and publish all 30 pools]
+    Z --> E[Assess frozen selections on later periods]
+```
+
+The completed local-model training studies below are a separate learning path.
+
 - **Agentic environment:** each decision receives acquired evidence, remaining
   budget and previous failures. Propose, mutate, screen, stability, select and
   stop have explicit costs; invalid and duplicate attempts still consume budget.
   Whether a trained policy uses that evidence successfully is an experimental
   question, not a property established by connecting the tools.
 - **Generative:** a language model emits action JSON and factor expressions.
-  Completed training studies use local Qwen; the next sequential study uses Astra
+  Completed training studies use local Qwen; the new sequential study uses Astra
   through Codex. Expressions run through a restricted AST interpreter, and
   generation alone does not establish formula originality.
 - **Learning:** SFT teaches the action interface. REINFORCE with a leave-one-out

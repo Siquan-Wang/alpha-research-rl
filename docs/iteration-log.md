@@ -212,3 +212,26 @@ and published. There is no completed financial comparison yet. The
 collection, freeze, publication and assessment stages. Astra inference-time
 adaptation is not Astra reinforcement-learning weight updates. The same
 previously examined financial periods cannot become an untouched holdout.
+
+### Collection freeze before assessment — 2026-10-01 09:03 UTC
+
+All sixty registered three-arm rounds completed: **180 actual Astra decisions,
+30 six-proposal episodes**, with every provider stream accepted. All 180
+proposals were grammar-valid and usable on historical feedback; none repeated
+an earlier canonical AST within its episode. This does not establish semantic
+signal diversity or future predictive value. All ten periods had byte-identical
+supplied first prompts across the three conditions.
+
+The [complete candidate pools](../results/astra_agent_v1_submissions.json) were
+frozen at `2026-10-01T09:03:42.501498+00:00`, with **zero future assessment calls**.
+Root ran the [structural replay](../results/astra_agent_v1_submission_replay.json)
+successfully against the full bank and exact frozen source/plan bytes. It made
+no model/network calls or market-data reads. All 30 feedback-only selections
+exist. A targeted export scan found no email, host path, private-zone identifier,
+unexpected URL or credential-prefix match; raw provider streams remain private.
+
+This checkpoint publishes the complete submissions before later-period scoring.
+It contains no assessment headline. Recorded token usage is complete for all
+180 calls but differs across conditions; equal proposal counts are not a claim
+of equal hidden context or computation. The next step is to verify the public
+commit's exact files, then assess only its 30 fixed selections.
