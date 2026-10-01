@@ -652,3 +652,46 @@ The [guide](reproduce-pinned-studies.md) provides the two commands and prerequis
 score, synthetic panel or evidence of research-policy improvement. Installed
 binary dependencies are recorded rather than reconstructed; process checks
 are not an adversarial security sandbox.
+
+Publication at `ff40981` passed both Python 3.11/3.12 jobs and the training-math
+job in CPU run `36878839035`; Pages run `36878837388` succeeded. The CPU jobs
+exercise the artificial launcher tests and existing saved-study routes; the
+two actual historical launcher invocations above remain Windows runtime evidence.
+
+## Iteration 15 — separate evaluated reward gains from training credit
+
+**Question:** fewer failed outputs accounted for much of the original evaluated
+RL reward gain. That accounting did not determine which reward components
+supplied the training coefficients. A proposed switch to public financial QA
+was declined after three design reviews: it would change the task without
+resolving the existing research-policy question. No QA corpus or question bank
+was downloaded, and no hosted calls were allocated to it.
+
+**Change:** a compact standard-library analysis reconstructs R=-1.01+V+C and
+the corresponding leave-one-out advantages and sampled surrogate values from
+all four saved correct/permuted training runs. It applies each control's exact
+logged permutation jointly to all reward components and retains all 64 groups
+and 256 attempts. The [post-hoc plan](reward-credit-plan-v1.md) explicitly
+discloses prior knowledge of the outcomes and missing component gradients.
+
+**Observed result:** 62/64 groups have zero direct validity coefficients;
+61/63 actual optimizer steps do. The two mixed groups appear in correct seed 23
+and permuted seed 29. One additional all-valid group had constant rewards and
+skipped its update. This refines interpretation without changing the previous
+evaluation results or claiming that RL learned useful prediction. Counts and
+coefficient magnitudes are not gradient or Adam-update shares.
+
+**Verification:** review exposed a tolerance accepting an impossible tiny
+logged advantage for exactly constant rewards. Exact-zero validation repaired
+that case without suppressing genuine tiny nonconstant variation. Direct reward
+copies and indexed assignments now also require exact numeric equality.
+The combined 64 artificial tests passed in .26 seconds and Ruff passed. One
+actual saved-data run completed at 15:08:12 UTC; root's separate 60-digit Decimal
+check passed 3,752 comparisons with maximum absolute discrepancy 2.93e-16.
+No model, gradient, training, market-data or financial-scoring execution occurred.
+
+The [complete report](reward-credit-results-v1.md) links all groups, the observed
+mixed-group example, execution/inspection records, static figure and commands.
+All frozen scientific inputs remain unchanged. Internal reviews disclose their
+roles; this is post-hoc accounting, not external replication or new causal
+learning evidence.

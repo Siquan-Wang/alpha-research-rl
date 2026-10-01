@@ -1,0 +1,16 @@
+{
+  "record_type": "root summary of the successful independent inspection invocation",
+  "method": "60-digit Decimal direct other-three means; no project imports",
+  "actual_command": "python -I -S -B .local/verify_reward_credit.py",
+  "inspection_source_sha256": "83cc4b1fd2402476dfbe487f0f2569d9d4c8550c92f90d70fc21493dd08b4179",
+  "result_sha256": "59d31578928894581208c8928fd38690b839d0c12264c38e64779ffc19957cb7",
+  "status": "PASS",
+  "numeric_comparisons": 3752,
+  "maximum_absolute_error": "2.9300000000000000000000000000000000000000000E-16",
+  "groups_checked": 64,
+  "samples_checked": 256,
+  "validation_scope": "arithmetic and reported denominators; not a substitute for the strict parser or a new model evaluation",
+  "public_source": "scripts/inspect_reward_credit.py",
+  "public_source_sha256": "cb7e4f78fde5ede5c130addd7aad721eeb911e8459b345fd2525525819827a21",
+  "public_source_difference": "Only standard-library import ordering/formatting; all subsequent source bytes unchanged"
+}

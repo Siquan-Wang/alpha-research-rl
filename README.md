@@ -60,6 +60,13 @@ neither sampled policy beat the uniform formula-grid reference. Correct-feedback
 inconsistent across seeds. These results do not establish a useful financial
 alpha or a learned full research agent.
 
+A [saved training-credit analysis](docs/reward-credit-results-v1.md) clarifies
+that evaluation finding: 61 of 63 recorded RL/control updates had zero direct
+validity-advantage coefficients. Reward improvement from fewer failures does
+not imply that most training groups received failure-penalty contrasts. The
+analysis retains all 64 groups and does not identify gradient shares or prove
+financial learning.
+
 The [iteration log](docs/iteration-log.md) records what each research round
 changed, what its evidence supports, and which directions stopped.
 Post-hoc [reliability checks](docs/reliability-analysis-v1.md) separate

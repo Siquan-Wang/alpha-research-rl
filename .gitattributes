@@ -13,3 +13,4 @@ artifacts/astra-matched-prefix-v1/**/*.txt -text
 docs/audits/astra-revision-grounding-plan-v1.md -text
 docs/sealed-confirmation-plan-v1.md -text
 artifacts/sealed-confirmation-v1/**/*.jsonl -text
+docs/reward-credit-plan-v1.md -text

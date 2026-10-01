@@ -1,0 +1,9 @@
+{
+  "started_utc": "2026-10-01T15:08:12.0994327+00:00",
+  "finished_utc": "2026-10-01T15:08:12.2794228+00:00",
+  "elapsed_seconds": 0.1770803,
+  "exit_code": 0,
+  "command": "python -I -S -B scripts/analyze_reward_credit.py --output results/reward_credit_v1.json",
+  "result_sha256": "59d31578928894581208c8928fd38690b839d0c12264c38e64779ffc19957cb7",
+  "result_bytes": 340901
+}

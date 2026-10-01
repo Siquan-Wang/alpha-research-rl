@@ -105,3 +105,8 @@ confirmatory study.
 - [Fixed recipe and import contract review](pinned-replay-contract-review-v1.md): exact summaries, missing-module failures and fresh-process import contamination fixtures.
 - [Extraction and failure-handling review](pinned-replay-security-review-v1.md): Git blob/path checks, resource limits and retained failures; ordinary execution checks, not a security sandbox.
 - [Actual two-recipe integration](pinned-replay-integration-v1.md): the retained Windows failure, reviewed correction, two successful saved replays and independent full-tree inspection.
+
+## Saved training-credit accounting
+
+- [Design and interpretation review](reward-credit-design-review-v1.md): fixed four-run population, additive coefficients and why gradient attribution is unavailable; plan authorship disclosed.
+- [Independent implementation review](reward-credit-review-v1.md): exact-copy and constant-reward repairs, artificial arithmetic checks and read-only inspection of the complete saved result.

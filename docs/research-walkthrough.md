@@ -68,6 +68,14 @@ contribution differences are **+.010532 / −.006632**. Both signs must remain i
 the conclusion. All five stochastic financial checkpoints still lose to the uniform formula grid
 on registered utility; greedy behavior is identical across checkpoints.
 
+The [saved training-credit analysis](reward-credit-results-v1.md) asks a separate
+question. In 61 of 63 actual optimizer steps across original and permutation-control
+runs, the explicit validity term supplied zero direct advantage coefficients.
+Evaluated gains from fewer failures therefore
+do not imply that most training groups received failure-penalty contrasts.
+Coefficient counts still do not identify gradient shares or financial learning;
+the two mixed groups may matter, and IC credit is itself validity-gated.
+
 **3. How are leakage and repeated development use handled?**
 
 The financial contract uses a five-session target, purged temporal boundaries
