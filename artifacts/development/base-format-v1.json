@@ -1,0 +1,1147 @@
+{
+  "manifest": {
+    "created_utc": "2026-10-01T03:36:23.416212+00:00",
+    "python": "3.12.14",
+    "platform": "Windows",
+    "packages": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "torch": "2.8.0+cu128",
+      "transformers": "4.57.6",
+      "peft": "0.18.1"
+    },
+    "git_revision": "99eda9525831e9ec01e857ca2f5546f5e7b97760",
+    "source_sha256": "9484196ff46077bc5bf6198352ec3ba5c657423bfeebd995ee529116e74deba5",
+    "config": {
+      "label": "base",
+      "tasks": [
+        {
+          "seed": 11000,
+          "regime": "signal"
+        },
+        {
+          "seed": 11001,
+          "regime": "null"
+        },
+        {
+          "seed": 11002,
+          "regime": "decay"
+        },
+        {
+          "seed": 11003,
+          "regime": "signal"
+        },
+        {
+          "seed": 11004,
+          "regime": "null"
+        },
+        {
+          "seed": 11005,
+          "regime": "decay"
+        }
+      ],
+      "decoding": "greedy",
+      "seed": 31,
+      "data": "synthetic development only",
+      "max_action_tokens": 64,
+      "budget": 10,
+      "parser_version": "whole-json-or-single-json-fence-v1",
+      "requires_termination": true,
+      "accepted_formats": [
+        "whole JSON object",
+        "one whole lowercase json Markdown fence"
+      ],
+      "ablation": "container formatting tolerance; original strict evaluator unchanged",
+      "not_final_holdout": true,
+      "training": false
+    }
+  },
+  "summary": {
+    "mean_reward": -0.006333333333333333,
+    "n_episodes": 6,
+    "n_actions": 44,
+    "invalid_actions": 26,
+    "duplicate_actions": 6,
+    "accepted_proposals": 0,
+    "format_acceptance": {
+      "json_fence": 33
+    },
+    "parse_failures": {
+      "unterminated_completion": 11
+    },
+    "strict_format_accepted": 0,
+    "attempted_action_counts": {
+      "screen": 12,
+      "stop": 21,
+      "invalid": 11
+    },
+    "successful_action_counts": {
+      "screen": 6,
+      "stop": 6
+    }
+  },
+  "episodes": [
+    {
+      "seed": 11000,
+      "regime": "signal",
+      "reward": -0.007,
+      "spent_budget": 7,
+      "selected": [],
+      "history": [
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "duplicate",
+          "reason": "already_acquired"
+        },
+        {
+          "action": "invalid",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "invalid",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 0,
+          "status": "ok",
+          "reason": null
+        }
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "```json\n{\n  \"action\": \"screen\",\n  \"candidate\": 0\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "The terminal objective is met with the budget used."
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"The terminal objective is met with the budget used.\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "more research is unpromising"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"more research is unpromising\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "The terminal objective is met with the budget used."
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"The terminal objective is met with the budget used.\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "```json\n{\n  \"action\": \"screen\",\n  \"candidate\": 0\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "duplicate",
+          "reason": "already_acquired"
+        },
+        {
+          "action": {
+            "action": "invalid"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"selected\": [],\n  \"evidence\": {\n    \"0\": {\n      \"screen\": {\n        \"mean_ic\": 0.15176470588235294,\n        \"n_dates\": ",
+          "terminated": false,
+          "accepted_format": null,
+          "parse_failure": "unterminated_completion",
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "invalid"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"selected\": [],\n  \"evidence\": {\n    \"0\": {\n      \"screen\": {\n        \"mean_ic\": 0.15176470588235294,\n        \"n_dates\": ",
+          "terminated": false,
+          "accepted_format": null,
+          "parse_failure": "unterminated_completion",
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11001,
+      "regime": "null",
+      "reward": -0.007,
+      "spent_budget": 7,
+      "selected": [],
+      "history": [
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "duplicate",
+          "reason": "already_acquired"
+        },
+        {
+          "action": "invalid",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "invalid",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 0,
+          "status": "ok",
+          "reason": null
+        }
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "```json\n{\n  \"action\": \"screen\",\n  \"candidate\": 0\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "No more research is needed as the terminal objective is met."
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"No more research is needed as the terminal objective is met.\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "more research is unpromising"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"more research is unpromising\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "more research is unpromising"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"more research is unpromising\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "```json\n{\n  \"action\": \"screen\",\n  \"candidate\": 0\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "duplicate",
+          "reason": "already_acquired"
+        },
+        {
+          "action": {
+            "action": "invalid"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"candidates\": [],\n  \"budget\": 5,\n  \"spent_budget\": 5,\n  \"candidates\": [\n    {\n      \"id\": 0,\n      \"expression\": \"returns\"\n    }\n  ],\n  \"evidence\": {\n    \"",
+          "terminated": false,
+          "accepted_format": null,
+          "parse_failure": "unterminated_completion",
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "invalid"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"candidates\": [],\n  \"budget\": 4,\n  \"spent_budget\": 6,\n  \"candidates\": [\n    {\n      \"id\": 0,\n      \"expression\": \"returns\"\n    }\n  ],\n  \"evidence\": {\n    \"",
+          "terminated": false,
+          "accepted_format": null,
+          "parse_failure": "unterminated_completion",
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11002,
+      "regime": "decay",
+      "reward": -0.007,
+      "spent_budget": 7,
+      "selected": [],
+      "history": [
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "duplicate",
+          "reason": "already_acquired"
+        },
+        {
+          "action": "invalid",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "invalid",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 0,
+          "status": "ok",
+          "reason": null
+        }
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "```json\n{\n  \"action\": \"screen\",\n  \"candidate\": 0\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "The terminal objective is met with the budget used."
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"The terminal objective is met with the budget used.\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "more research is unpromising"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"more research is unpromising\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "more research is unpromising"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"more research is unpromising\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "```json\n{\n  \"action\": \"screen\",\n  \"candidate\": 0\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "duplicate",
+          "reason": "already_acquired"
+        },
+        {
+          "action": {
+            "action": "invalid"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"selected\": [],\n  \"evidence\": {\n    \"0\": {\n      \"screen\": {\n        \"mean_ic\": \"-0.009273356401384079\",\n        \"n_dates\":",
+          "terminated": false,
+          "accepted_format": null,
+          "parse_failure": "unterminated_completion",
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "invalid"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"selected\": [],\n  \"orientation\": {\n    \"0\": -1\n  },\n  \"generation\": {\n    \"enabled\": true,\n    \"max_candidates\": 64,\n    \"proposal_cost\": 2,\n    \"mutation_cost\": ",
+          "terminated": false,
+          "accepted_format": null,
+          "parse_failure": "unterminated_completion",
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11003,
+      "regime": "signal",
+      "reward": -0.007,
+      "spent_budget": 7,
+      "selected": [],
+      "history": [
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "invalid",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "duplicate",
+          "reason": "already_acquired"
+        },
+        {
+          "action": "invalid",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "invalid",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 0,
+          "status": "ok",
+          "reason": null
+        }
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "```json\n{\n  \"action\": \"screen\",\n  \"candidate\": 0\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "The terminal objective is met with the budget used."
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"The terminal objective is met with the budget used.\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "invalid"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"selected\": [],\n  \"evidence\": {\n    \"0\": {\n      \"screen\": {\n        \"mean_ic\": 0.12650519031141869,\n        \"n_dates\": ",
+          "terminated": false,
+          "accepted_format": null,
+          "parse_failure": "unterminated_completion",
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "The terminal objective is met with the budget used."
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"The terminal objective is met with the budget used.\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "```json\n{\n  \"action\": \"screen\",\n  \"candidate\": 0\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "duplicate",
+          "reason": "already_acquired"
+        },
+        {
+          "action": {
+            "action": "invalid"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"selected\": [],\n  \"evidence\": {\n    \"0\": {\n      \"screen\": {\n        \"mean_ic\": 0.12650519031141869,\n        \"n_dates\": ",
+          "terminated": false,
+          "accepted_format": null,
+          "parse_failure": "unterminated_completion",
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "invalid"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"selected\": [],\n  \"evidence\": {\n    \"0\": {\n      \"screen\": {\n        \"mean_ic\": 0.12650519031141869,\n        \"n_dates\": ",
+          "terminated": false,
+          "accepted_format": null,
+          "parse_failure": "unterminated_completion",
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11004,
+      "regime": "null",
+      "reward": -0.005,
+      "spent_budget": 5,
+      "selected": [],
+      "history": [
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "invalid",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "duplicate",
+          "reason": "already_acquired"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 0,
+          "status": "ok",
+          "reason": null
+        }
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "```json\n{\n  \"action\": \"screen\",\n  \"candidate\": 0\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "No more research is needed as the terminal objective is met."
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"No more research is needed as the terminal objective is met.\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "invalid"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"selected\": [],\n  \"evidence\": {\n    \"0\": {\n      \"screen\": {\n        \"mean_ic\": \"-0.051626297577854655\",\n        \"n_dates\":",
+          "terminated": false,
+          "accepted_format": null,
+          "parse_failure": "unterminated_completion",
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "more research is unpromising"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"more research is unpromising\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "```json\n{\n  \"action\": \"screen\",\n  \"candidate\": 0\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "duplicate",
+          "reason": "already_acquired"
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11005,
+      "regime": "decay",
+      "reward": -0.005,
+      "spent_budget": 5,
+      "selected": [],
+      "history": [
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "invalid",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 1,
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "duplicate",
+          "reason": "already_acquired"
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 0,
+          "status": "ok",
+          "reason": null
+        }
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "```json\n{\n  \"action\": \"screen\",\n  \"candidate\": 0\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "No more research is unpromising with the current budget and selection criteria."
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"No more research is unpromising with the current budget and selection criteria.\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "invalid"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"selected\": [],\n  \"evidence\": {\n    \"0\": {\n      \"screen\": {\n        \"mean_ic\": 0.07349480968858133,\n        \"n_dates\": ",
+          "terminated": false,
+          "accepted_format": null,
+          "parse_failure": "unterminated_completion",
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "stop",
+            "reason": "more research is unpromising"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\",\n  \"reason\": \"more research is unpromising\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "invalid",
+          "reason": "invalid_action"
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "```json\n{\n  \"action\": \"screen\",\n  \"candidate\": 0\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "duplicate",
+          "reason": "already_acquired"
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "```json\n{\n  \"action\": \"stop\"\n}\n```",
+          "terminated": true,
+          "accepted_format": "json_fence",
+          "parse_failure": null,
+          "strict_format_accepted": false,
+          "strict_action": {
+            "action": "invalid"
+          },
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 from dataclasses import dataclass
+from pathlib import Path
 
 from .artifacts import json_safe
 
@@ -78,7 +79,7 @@ class LocalActor:
     def __init__(self, model_path: str, adapter_path: str | None = None, trainable: bool = False):
         import torch
         from peft import LoraConfig, PeftModel, get_peft_model
-        from transformers import AutoModelForCausalLM, AutoTokenizer
+        from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig
 
         if not torch.cuda.is_available():
             raise RuntimeError("Local training requires a CUDA GPU; CPU baseline commands remain available")
@@ -96,6 +97,21 @@ class LocalActor:
             ))
         self.model.eval()  # No dropout in either sampling or likelihood recomputation.
         self.tokenizer.pad_token = self.tokenizer.eos_token
+        eos = self.model.generation_config.eos_token_id
+        self.sampling_config = GenerationConfig(
+            do_sample=True, temperature=1.0, top_p=1.0, top_k=0,
+            repetition_penalty=1.0, no_repeat_ngram_size=0, typical_p=1.0,
+            eos_token_id=eos, pad_token_id=self.tokenizer.pad_token_id,
+        )
+        self.greedy_config = GenerationConfig(
+            do_sample=False, eos_token_id=eos, pad_token_id=self.tokenizer.pad_token_id,
+        )
+        source_path = Path(model_path) / "source-manifest.json"
+        source = json.loads(source_path.read_text(encoding="utf-8")) if source_path.exists() else None
+        self.provenance = {"base_model": source, "sampling_distribution": "untruncated autoregressive softmax",
+                           "generation_config": self.sampling_config.to_dict(),
+                           "max_prompt_tokens": 4096, "lora_trainable": trainable,
+                           "starting_adapter_name": Path(adapter_path).parent.name if adapter_path else None}
 
     def prompt_ids(self, observation: dict) -> list[int]:
         return self.tokenizer.apply_chat_template(
@@ -111,11 +127,8 @@ class LocalActor:
         if len(prompt) > 4096:
             raise ValueError("Prompt exceeds the explicit 4096-token study limit")
         tokens = torch.tensor([prompt], device=self.model.device)
-        options = {"do_sample": stochastic, "max_new_tokens": max_tokens,
-                   "pad_token_id": self.tokenizer.pad_token_id}
-        if stochastic:
-            # Exact full-softmax pi used by completion_log_prob: no hidden truncation/temperature mismatch.
-            options.update(temperature=1.0, top_p=1.0, top_k=0)
+        options = {"generation_config": self.sampling_config if stochastic else self.greedy_config,
+                   "max_new_tokens": max_tokens}
         with torch.no_grad():
             output = self.model.generate(input_ids=tokens, attention_mask=torch.ones_like(tokens), **options)
         completion = output[0, len(prompt):].tolist()

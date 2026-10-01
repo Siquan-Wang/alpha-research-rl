@@ -81,6 +81,7 @@ def train_sft(model_path: str, output: str, seed: int = 17, episodes: int = 12, 
         "learning_rate": 2e-4, "lora_rank": 8, "initial_factors": INITIAL_FACTORS,
         "proposal_templates": PROPOSALS, "budget": 10, "horizon": 5})
     actor = LocalActor(model_path, trainable=True)
+    manifest["actor"] = getattr(actor, "provenance", None)
     examples = []
     for index in range(episodes):
         regime = ["signal", "null", "decay"][index % 3]
@@ -129,6 +130,7 @@ def train_rloo(model_path: str, adapter: str, output: str, seed: int = 23,
         "budget": 10, "horizon": 5,
         "claim": "training-path development; not evidence of improved market alpha"})
     actor = LocalActor(model_path, adapter, trainable=True)
+    manifest["actor"] = getattr(actor, "provenance", None)
     optimizer = torch.optim.AdamW([p for p in actor.model.parameters() if p.requires_grad], lr=1e-5,
                                  weight_decay=0.0)
     before = adapter_digest(actor.model)
@@ -157,12 +159,16 @@ def train_rloo(model_path: str, adapter: str, output: str, seed: int = 23,
         advantages = leave_one_out_advantages(rewards)
         optimizer.zero_grad(set_to_none=True)
         loss_value = 0.0
+        action_logps = []
         for trajectory, advantage in zip(trajectories, advantages):
+            trajectory_logps = []
             for sample, _ in trajectory:
-                loss = -completion_log_prob(actor.model, sample.prompt_ids, sample.completion_ids) \
-                    * float(advantage) / group_size
+                logp = completion_log_prob(actor.model, sample.prompt_ids, sample.completion_ids)
+                trajectory_logps.append(float(logp.detach()))
+                loss = -logp * float(advantage) / group_size
                 loss.backward()
                 loss_value += float(loss.detach())
+            action_logps.append(trajectory_logps)
         grad_norm = float(torch.nn.utils.clip_grad_norm_(actor.model.parameters(), 1.0))
         if np.any(advantages != 0):
             optimizer.step()
@@ -173,10 +179,12 @@ def train_rloo(model_path: str, adapter: str, output: str, seed: int = 23,
                "trajectories": [[{"text": sample.text, "action": sample.action,
                                    "completion_ids": sample.completion_ids,
                                    "completion_token_count": len(sample.completion_ids),
+                                   "behavior_completion_logp": logp,
                                    "terminated": sample.terminated, "status": info["status"],
                                    "prompt_sha256": hashlib.sha256(
                                        str(sample.prompt_ids).encode()).hexdigest()}
-                                  for sample, info in trajectory] for trajectory in trajectories]}
+                                  for (sample, info), logp in zip(trajectory, logps)]
+                                for trajectory, logps in zip(trajectories, action_logps)]}
         logs.append(row)
         write_json(Path(output) / "progress.json", {"groups": logs})
     actor.save(str(Path(output) / "adapter"))

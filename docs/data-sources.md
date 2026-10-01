@@ -1,6 +1,6 @@
 # Public data sources and provenance policy
 
-Verification date: 2026-09-30. Availability and terms can change. This is a source-selection record, not a claim that an adapter or a completed market experiment exists. Use existing/free resources only; do not substitute paid APIs, purchased datasets, or private workspace files.
+Initial source verification date: 2026-09-30. Availability and terms can change. This source-selection record now accompanies the integrated downloader/parser and [fixed development baseline](../results/french49_fixed_baselines_development_v1.json); see the [implementation audit](audits/2026-10-01-implementation-review.md) for the later evidence review. Use existing/free resources only; do not substitute paid APIs, purchased datasets, or private workspace files.
 
 ## Recommended first numerical market task
 
@@ -16,7 +16,7 @@ The details page currently lists daily coverage from July 1, 1926 through August
 
 The official pages offer public downloads, but no blanket redistribution license was verified. Repository policy is **downloader-only**: do not commit raw CSV/ZIP, converted return panels, or wealth-index panels. Commit original downloader/parser code, attribution, source URLs, a provenance/hash manifest, and compact original experiment summaries. Free access is not a verified grant to relicense downloaded data under the code license. This conservative publication rule is a project decision, not a claim that the source explicitly bans every use.
 
-The HTML pages and their official download link were verified. The web reader could not render the binary ZIP; a successful local download, archive inspection, numeric parsing, and recorded SHA256 remain required before calling the data usable.
+The HTML pages and their official download link were verified during source selection. The web reader could not render the binary ZIP. Subsequent local integration completed the download, archive inspection and parsing, recording raw SHA256 `8f394fe34bea54d41b9aafed410425ee8f8e252ede3c71a7c1cd20bab83040de` in the development baseline. Its retained 2000-2024 segment has no missing return cells; earlier source-table missingness is recorded separately.
 
 ## Adapter requirements
 

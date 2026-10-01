@@ -1,0 +1,1173 @@
+{
+  "manifest": {
+    "created_utc": "2026-10-01T03:37:35.320967+00:00",
+    "python": "3.12.14",
+    "platform": "Windows",
+    "packages": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "torch": "2.8.0+cu128",
+      "transformers": "4.57.6",
+      "peft": "0.18.1"
+    },
+    "git_revision": "99eda9525831e9ec01e857ca2f5546f5e7b97760",
+    "source_sha256": "9484196ff46077bc5bf6198352ec3ba5c657423bfeebd995ee529116e74deba5",
+    "config": {
+      "label": "rloo",
+      "tasks": [
+        {
+          "seed": 11000,
+          "regime": "signal"
+        },
+        {
+          "seed": 11001,
+          "regime": "null"
+        },
+        {
+          "seed": 11002,
+          "regime": "decay"
+        },
+        {
+          "seed": 11003,
+          "regime": "signal"
+        },
+        {
+          "seed": 11004,
+          "regime": "null"
+        },
+        {
+          "seed": 11005,
+          "regime": "decay"
+        }
+      ],
+      "decoding": "greedy",
+      "seed": 31,
+      "data": "synthetic development only",
+      "max_action_tokens": 64,
+      "budget": 10,
+      "parser_version": "whole-json-or-single-json-fence-v1",
+      "requires_termination": true,
+      "accepted_formats": [
+        "whole JSON object",
+        "one whole lowercase json Markdown fence"
+      ],
+      "ablation": "container formatting tolerance; original strict evaluator unchanged",
+      "not_final_holdout": true,
+      "training": false
+    }
+  },
+  "summary": {
+    "mean_reward": 0.032832756632064586,
+    "n_episodes": 6,
+    "n_actions": 42,
+    "invalid_actions": 0,
+    "duplicate_actions": 0,
+    "accepted_proposals": 6,
+    "format_acceptance": {
+      "strict_json": 42
+    },
+    "parse_failures": {},
+    "strict_format_accepted": 42,
+    "attempted_action_counts": {
+      "propose": 6,
+      "screen": 24,
+      "select": 6,
+      "stop": 6
+    },
+    "successful_action_counts": {
+      "propose": 6,
+      "screen": 24,
+      "select": 6,
+      "stop": 6
+    }
+  },
+  "episodes": [
+    {
+      "seed": 11000,
+      "regime": "signal",
+      "reward": 0.14071626297577855,
+      "spent_budget": 7,
+      "selected": [
+        0
+      ],
+      "history": [
+        {
+          "action": "propose",
+          "candidate": 3,
+          "cost": 2,
+          "status": "ok",
+          "reason": null,
+          "expression": "delta(log(volume),1)",
+          "parent": null
+        },
+        {
+          "action": "screen",
+          "candidate": 3,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 1,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 2,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "select",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 0,
+          "status": "ok",
+          "reason": null
+        }
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":3}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":0}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":1}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":2}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"select\",\"candidate\":0}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "stop"
+          },
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11001,
+      "regime": "null",
+      "reward": -0.015096885813148782,
+      "spent_budget": 7,
+      "selected": [
+        0
+      ],
+      "history": [
+        {
+          "action": "propose",
+          "candidate": 3,
+          "cost": 2,
+          "status": "ok",
+          "reason": null,
+          "expression": "delta(log(volume),1)",
+          "parent": null
+        },
+        {
+          "action": "screen",
+          "candidate": 3,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 1,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 2,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "select",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 0,
+          "status": "ok",
+          "reason": null
+        }
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":3}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":0}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":1}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":2}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"select\",\"candidate\":0}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "stop"
+          },
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11002,
+      "regime": "decay",
+      "reward": -0.029802768166089972,
+      "spent_budget": 7,
+      "selected": [
+        0
+      ],
+      "history": [
+        {
+          "action": "propose",
+          "candidate": 3,
+          "cost": 2,
+          "status": "ok",
+          "reason": null,
+          "expression": "delta(log(volume),1)",
+          "parent": null
+        },
+        {
+          "action": "screen",
+          "candidate": 3,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 1,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 2,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "select",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 0,
+          "status": "ok",
+          "reason": null
+        }
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":3}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":0}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":1}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":2}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"select\",\"candidate\":0}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "stop"
+          },
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11003,
+      "regime": "signal",
+      "reward": 0.1129653979238754,
+      "spent_budget": 7,
+      "selected": [
+        0
+      ],
+      "history": [
+        {
+          "action": "propose",
+          "candidate": 3,
+          "cost": 2,
+          "status": "ok",
+          "reason": null,
+          "expression": "delta(log(volume),1)",
+          "parent": null
+        },
+        {
+          "action": "screen",
+          "candidate": 3,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 1,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 2,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "select",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 0,
+          "status": "ok",
+          "reason": null
+        }
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":3}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":0}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":1}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":2}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"select\",\"candidate\":0}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "stop"
+          },
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11004,
+      "regime": "null",
+      "reward": 0.029089965397923877,
+      "spent_budget": 7,
+      "selected": [
+        0
+      ],
+      "history": [
+        {
+          "action": "propose",
+          "candidate": 3,
+          "cost": 2,
+          "status": "ok",
+          "reason": null,
+          "expression": "delta(log(volume),1)",
+          "parent": null
+        },
+        {
+          "action": "screen",
+          "candidate": 3,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 1,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 2,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "select",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 0,
+          "status": "ok",
+          "reason": null
+        }
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":3}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":0}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":1}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":2}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"select\",\"candidate\":0}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "stop"
+          },
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11005,
+      "regime": "decay",
+      "reward": -0.04087543252595156,
+      "spent_budget": 7,
+      "selected": [
+        0
+      ],
+      "history": [
+        {
+          "action": "propose",
+          "candidate": 3,
+          "cost": 2,
+          "status": "ok",
+          "reason": null,
+          "expression": "delta(log(volume),1)",
+          "parent": null
+        },
+        {
+          "action": "screen",
+          "candidate": 3,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 1,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "screen",
+          "candidate": 2,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "select",
+          "candidate": 0,
+          "cost": 1,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": "stop",
+          "candidate": null,
+          "cost": 0,
+          "status": "ok",
+          "reason": null
+        }
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":3}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":0}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":1}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":2}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"select\",\"candidate\":0}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "accepted_format": "strict_json",
+          "parse_failure": null,
+          "strict_format_accepted": true,
+          "strict_action": {
+            "action": "stop"
+          },
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    }
+  ]
+}
