@@ -4,3 +4,4 @@
 *.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/financial-adapters-model-card.md -text
 docs/mechanism-gate-plan-v1.md -text
+docs/astra-agent-research-plan-v1.md -text

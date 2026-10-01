@@ -48,3 +48,12 @@ rerun the public Python 3.11/3.12 jobs before making that claim.
 No blocking issue remained in the reviewed fix. This portability repair adds
 no new market evidence or learned-policy result, and does not change the
 statistical limitations of eight draws on the existing fixed episodes.
+
+## Subsequent public verification by root
+
+On 2026-10-01 at 06:48 UTC, root read the public GitHub jobs API for
+[run 36825754766](https://github.com/Siquan-Wang/alpha-research-rl/actions/runs/36825754766)
+at `b2c0beb`. All three jobs had completed successfully: training-math
+(`110250953485`), Linux Python 3.11 (`110250953658`) and Python 3.12
+(`110250953868`). This closes the pending cross-version CI check above without
+changing the earlier failure record or the reviewer's original observations.

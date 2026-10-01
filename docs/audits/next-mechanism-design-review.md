@@ -126,3 +126,16 @@ This establishes compatibility of the checked token forms and prefixes only.
 It does not validate model probabilities, sampling, log-probability roundtrips,
 gradients, numerical precision, or a future policy implementation. No training
 or evaluation budget was chosen.
+
+An additional static combinatorial check, requested by the design author,
+enumerated only presentation matrices: 24 candidate-column permutations times
+6 query-row permutations times 8 response-bit flips. Using the exact integer
+kernel entries 9/1/5 (denominator 10), the 1,152 raw transformations produce
+only **144 distinct visible 3-by-4 kernels**, with exactly eight aliases per
+kernel. No hidden outcomes, returns, policy values or model calls were computed.
+If displayed labels and formatting are canonical, those aliases give identical
+initial actor observations, so splitting raw transformation IDs would leak
+identical presentations across banks. All aliases must share a split, with
+group identity checked against the complete initial actor-visible prompt and
+its tokenization. The reviewer sent this finding to the author; it does not
+choose presentation-bank sizes or training budgets.

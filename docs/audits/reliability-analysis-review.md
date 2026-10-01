@@ -85,3 +85,62 @@ pretraining exposure, and post-hoc analysis selection. The review does not
 establish significance, causality, profitability, holdout alpha, or general
 sequential research behavior. The published interpretation respects these
 limits and leaves the original policy comparison unchanged.
+
+## Subsequent public-CI portability diagnosis
+
+The actual Linux Python 3.11 CI later failed the exact
+`rebuilt == saved_analysis` assertion, after the preceding saved-diagnostic
+replay accepted its aggregate arithmetic at `1e-12`. Python 3.12 passed.
+The [Python 3.12 documentation for `sum`](https://docs.python.org/3.12/library/functions.html#sum)
+documents a change to more accurate float summation on most builds. This is
+relevant background, not proof of the entire failing runner's execution path.
+
+The reviewer performed a bounded local diagnostic on actual Python **3.12.14**:
+first regenerate the five-report analysis natively, then replace only the
+`sum` name in `financial_analysis` and `linkage_analysis` module namespaces
+with `total = total + value` left-fold arithmetic. Restore those namespaces
+afterward. No source files or original evidence were changed. Native rebuilding
+equaled the saved full analysis exactly; the left-fold version differed at
+26 float leaves, with maximum absolute difference
+`6.938893903907228e-18`. Every difference was inside absolute/relative `1e-12`.
+No keys, collection sizes, types, token IDs, checkpoints, hashes, or nonfloat
+values differed. No market panel or new model/scorer execution was involved.
+
+The complete set of differing values is summarized below. Each reference
+field appears at both `original_results/overall/references` and
+`overall/references`; this accounts for 14 leaves. The two IC fields in each
+listed row have the same values.
+
+| Reference / field | Saved and native 3.12 | Emulated left-fold | Absolute difference |
+|---|---:|---:|---:|
+| Uniform grid / mean_reward | -.015410820748547624 | -.015410820748547627 | 3.469446951953614e-18 |
+| Uniform grid / all_proposal_ic_contribution and mean_oriented_ic_valid_only | -.005410820748547625 | -.005410820748547624 | 8.673617379884035e-19 |
+| Feedback-greedy grid / mean_reward | -.015812982332572143 | -.015812982332572147 | 3.469446951953614e-18 |
+| Feedback-greedy grid / all_proposal_ic_contribution and mean_oriented_ic_valid_only | -.005812982332572142 | -.005812982332572140 | 1.734723475976807e-18 |
+| Training fixed lag-1 / mean_reward | -.020188992685050686 | -.020188992685050690 | 3.469446951953614e-18 |
+
+The remaining 12 leaves are derived `reward_delta` values under
+`original_results/overall/metrics/{strict,fence_tolerant_secondary}/`
+`{stochastic,greedy}/policy_vs_training_fixed/<policy>`. Both parser branches
+have the same values; all three greedy policies share the listed greedy value.
+
+| Decoding / policy | Saved and native 3.12 | Emulated left-fold | Absolute difference |
+|---|---:|---:|---:|
+| Stochastic / financial-sft-v1 | -.031396621930907840 | -.031396621930907836 | 6.938893903907228e-18 |
+| Stochastic / financial-rloo23-v1 | .00006098134414912054 | .00006098134414912401 | 3.469446951953614e-18 |
+| Stochastic / financial-rloo29-v1 | -.005216599184880037 | -.005216599184880034 | 3.469446951953614e-18 |
+| Greedy / all three original policies | .025195590476735960 | .025195590476735967 | 6.938893903907228e-18 |
+
+The affected ordinary sums occur in the reference-summary arithmetic; the
+principal paired-policy means already use `math.fsum` and did not change in
+this diagnostic. This strongly supports interpreter-dependent summation as
+the explanation for exact full-dictionary equality failing on tiny aggregate
+roundoff. It is **not an actual Python 3.11 or Linux reproduction** and cannot
+exclude additional runner differences. The ignored diagnostic script and JSON
+retain all 26 explicit paths and actual report-byte/source identities.
+
+The appropriate repair is a finite-float arithmetic comparator at `1e-12`
+while preserving exact types, structure, all nonfloat values, and source/report
+byte hashes. It must not relax frozen raw scorer records or original contracts.
+Actual public Linux 3.11/3.12 CI success remains the required portability check;
+local emulation does not substitute for it.

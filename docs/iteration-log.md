@@ -79,7 +79,7 @@ parameter digests matched the original records; see the
 This verifies distribution and loading, not cross-hardware stochastic behavior
 or additional financial performance.
 
-## 6. Reliability, diversity and installed-package replay — completed locally
+## 6. Reliability, diversity and installed-package replay — completed
 
 **Problem:** an average reward and a count of different formulas do not explain
 sampling uncertainty, period sensitivity, or effective signal diversity.
@@ -108,19 +108,22 @@ host while importing project modules from a fresh installation. This is not a
 fresh-machine training reproduction. Public CI at `3defd2c` passed Python
 3.12 and training-math, but Python 3.11 failed the new reliability wrapper's
 full-object equality check after the existing tolerance-based full replay
-passed. The round remains locally verified while that numerical-portability
-fix and a new remote run are pending; the earlier release CI is in round 5.
+passed. That failure was retained and repaired before claiming a cross-version
+pass; the earlier release CI is in round 5.
 
 The subsequent [portability correction](audits/reliability-portability-review.md)
 keeps metadata, types and input bytes exact while using the existing `1e-12`
 arithmetic tolerance for computed floats. All reliability values are unchanged;
 only the analysis-source identity was updated. The complete local suite now
-passes 503 tests. A new remote run is still required for cross-version claims.
+passes 503 tests. The subsequent public run at `b2c0beb`
+[passed all three jobs](https://github.com/Siquan-Wang/alpha-research-rl/actions/runs/36825754766):
+Linux Python 3.11, Python 3.12 and training-math. Their completed success states
+were independently read from the public jobs API on 2026-10-01 at 06:48 UTC.
 
 These are post-hoc robustness and reproduction checks. No new model training,
 transfer-period scoring, stopped-branch restart or financial advantage is claimed.
 
-## 7. Constructed adaptive-query opportunity — completed locally
+## 7. Constructed adaptive-query opportunity — completed
 
 **Problem:** weak financial information and a policy that ignores useful evidence
 can both produce a failed agent. A new mechanism test needs an identifiable
@@ -144,8 +147,54 @@ source hashes and plan hashes checked. A tokenizer-only check identifies a
 compatible action alphabet and a prefix-boundary pitfall; it does not validate
 a future sampling law or model behavior.
 
+The complete gate and corrected financial diagnostics were published at
+`b2c0beb` and passed the same three-job public CI run linked in round 6.
+
 **Next:** freeze a separate parent-policy preflight before any new RL. Check
 the action law and whether the untrained model already reaches the constructed
 ceiling. The [design advice](research-next-steps.md) and its
 [critique](audits/next-mechanism-design-review.md) distinguish this narrow task
 from general research and formula discovery. No new GPU experiment has run.
+
+## 8. Actual Astra research agent — implementation verified, collection pending
+
+**Problem:** developer-side LLM assistance does not show that a strong model can
+conduct the factor search. The completed financial study tested a small local
+model and mostly reduced invalid outputs.
+
+**Change:** the next mainline uses actual Astra decisions through the existing
+Codex CLI. The prospective three-arm protocol fixes ten development periods,
+six proposals per episode, quantitative/validity-only/withheld feedback, and a
+common selector. All thirty candidate pools must be frozen before assessment.
+The unrun local-model mechanism preflight is deferred; old results stay intact.
+
+**Observed validation:** the feedback broker and native CLI provider passed 81
+focused tests before the final mask correction tests were added. A real
+nonfinancial structured-packet check completed at 07:34 UTC on 2026-10-01 with
+requested `gpt-6-astra`, `ultra`, and default service tier. The saved stream
+contained exactly one final assistant message, no tool event, and reported
+15,282 input tokens, 395 output tokens and 317 reasoning tokens. These are
+reported usage fields, not an attestation of model weights or private context.
+
+Independent review removed extra syntax-error detail from the full-feedback arm
+so it differs from the validity control only by quantitative candidate feedback.
+A separate review caught task/arm names in the subprocess working directory;
+the runner now uses one common neutral context before any study call.
+
+The final integrated suite passed **613 tests** in 203.51 seconds, and Ruff
+passed. The [orchestration review](audits/astra-study-review-v1.md) checked
+quota stops, interruption retention, full-bank CRLF replay, all three nonzero
+contrasts and negative annual values using artificial providers/tasks. The
+[broker review](audits/astra-broker-review-v1.md) independently checked the
+feedback masks and real nonfinancial transport evidence. Actual cached-data
+initial observations validated for all ten periods with zero assessment calls.
+The [prepared contract](../artifacts/astra-agent-v1/contract.json) binds the
+reviewed source, plan, executable, data and task identities; all fourteen
+contract-bound staged files match their exact local bytes.
+
+**Limits and next:** no Astra financial candidate has been collected or scored.
+Publish and verify the implementation/data contract before collection. The
+[execution guide](reproduce-astra-agent-study.md) explains the separate
+collection, freeze, publication and assessment stages. Astra inference-time
+adaptation is not Astra reinforcement-learning weight updates. The same
+previously examined financial periods cannot become an untouched holdout.

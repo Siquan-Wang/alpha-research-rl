@@ -16,6 +16,14 @@ neither sampled policy beat the uniform formula-grid reference. Correct-feedback
 inconsistent across seeds. These results do not establish a useful financial
 alpha or a learned full research agent.
 
+The next mainline study uses **Astra as the actual factor-research actor** through
+the existing Codex CLI. Its [prospective protocol](docs/astra-agent-research-plan-v1.md)
+compares six-step generation with full quantitative feedback, validity-only
+feedback and withheld feedback, under the same final selector. A real structured
+transport check has passed; financial collection has not started. This is a study
+of inference-time adaptation, separate from the completed Qwen weight-training
+experiments. Existing 2020–2024 periods remain development data.
+
 The [iteration log](docs/iteration-log.md) records what each research round
 changed, what its evidence supports, and which directions stopped.
 Post-hoc [reliability checks](docs/reliability-analysis-v1.md) separate
@@ -79,8 +87,10 @@ flowchart LR
   stop have explicit costs; invalid and duplicate attempts still consume budget.
   Whether a trained policy uses that evidence successfully is an experimental
   question, not a property established by connecting the tools.
-- **Generative:** a local causal language model emits action JSON and new factor
-  expressions token by token. Expressions run through a restricted AST interpreter.
+- **Generative:** a language model emits action JSON and factor expressions.
+  Completed training studies use local Qwen; the next sequential study uses Astra
+  through Codex. Expressions run through a restricted AST interpreter, and
+  generation alone does not establish formula originality.
 - **Learning:** SFT teaches the action interface. REINFORCE with a leave-one-out
   baseline updates LoRA parameters from whole-trajectory reward. This compact
   trainer is deliberately named precisely; it is not GRPO or a claim of large-scale RL.
