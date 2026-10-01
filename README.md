@@ -31,6 +31,8 @@ Start with the [financial results](docs/financial-proposal-results-v1.md),
 Open the [public evidence preview](https://siquan-wang.github.io/alpha-research-rl/)
 or the [offline evidence explorer](docs/evidence-explorer.html) locally to
 inspect all 540 original-study recorded draws, actual observed probes and evaluator outputs.
+The separate [reward-control explorer](docs/linkage-explorer.html) adds both
+permutation controls, for 900 total draws across five checkpoints.
 The [viewing and rebuild guide](docs/evidence-explorer-guide.md) covers local
 opening and serving; GitHub's file view displays HTML source.
 The [original results](docs/results-v1.md) and

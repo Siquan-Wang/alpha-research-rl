@@ -1,4 +1,9 @@
-# View and rebuild the evidence explorer
+# View and rebuild the evidence explorers
+
+The [public preview](https://siquan-wang.github.io/alpha-research-rl/) links two
+separate records: the original 540-draw proposal study and the exploratory
+900-draw reward-linkage follow-up. The second includes the original 540 draws;
+these are not 1,440 distinct observations.
 
 [`evidence-explorer.html`](evidence-explorer.html) is a self-contained record of
 the completed one-step financial proposal experiment. It includes the full
@@ -83,3 +88,36 @@ replace the recorded financial results.
 | `financial-rloo29-transfer-v1.json` | `ddae0c86b9d38c7706efaea0635771c4480e4503a5da4e3464ef5275abd66c73` |
 | `financial_proposal_paired_v1.json` | `b16ce069aaab127f3cb11dc7b71d627f35b8a7f4d10303cd7cd8a51959fccc44` |
 | `sequential-grid-gate-v1.json` | `488424123a6a70273e93107d036a9283fba156bfe9e036f77a7fba53e881043c` |
+
+## Reward-linkage follow-up
+
+[`linkage-explorer.html`](linkage-explorer.html) adds two on-policy
+reward-permutation controls, preserving all five checkpoints and all 900 draws.
+Its primary contrast is correctly linked RL versus the seed-matched control;
+the original SFT comparisons remain available. It displays reward, failure and
+IC contributions separately, all task/year contrasts, and each actual proposal.
+The control plan followed inspection of the original results. Both new controls
+were frozen before their own evaluation; the page does not present the five-way
+comparison as a prospectively registered original experiment.
+
+Use the same local-opening instructions above, substituting
+`docs/linkage-explorer.html`. Rebuild from the repository root:
+
+```bash
+python -m alpha_research_rl.linkage_explorer \
+  --sft artifacts/development/financial-sft-transfer-v1.json \
+  --rl23 artifacts/development/financial-rloo23-transfer-v1.json \
+  --rl29 artifacts/development/financial-rloo29-transfer-v1.json \
+  --placebo23 artifacts/development/financial-placebo23-transfer-v1.json \
+  --placebo29 artifacts/development/financial-placebo29-transfer-v1.json \
+  --analysis results/financial_linkage_paired_v1.json \
+  --tokenizer models/Qwen3-0.6B \
+  --output docs/linkage-explorer.html
+```
+
+The same optional cached-tokenizer rule applies. Source hashes are embedded in
+the generated page. For an independent CPU-only arithmetic and input-hash
+check, run `python scripts/replay_published_results.py`; this does not require
+the tokenizer, model weights or market data. See the
+[control reproduction method](reproduce-linkage-control.md) for training and
+checkpoint limitations.

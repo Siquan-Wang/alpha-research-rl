@@ -3,12 +3,69 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=evidence-explorer.html">
-  <title>AlphaResearch-RL evidence explorer</title>
+  <meta name="description" content="Inspect a local LLM post-training study for factor research, including reward controls, all saved proposals, and failed experiments.">
+  <title>AlphaResearch-RL · Research evidence</title>
+  <style>
+    :root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#203442;background:#f1f5f7}
+    *{box-sizing:border-box}body{margin:0}main{max-width:1060px;margin:auto;padding:56px 28px 40px}
+    .eyebrow{font-size:12px;letter-spacing:.15em;font-weight:750;color:#386176;text-transform:uppercase}
+    h1{font-size:clamp(32px,5vw,58px);max-width:800px;line-height:1.08;letter-spacing:-.04em;margin:16px 0 22px}
+    .intro{font-size:19px;line-height:1.65;max-width:770px;color:#546570}a{color:#145a78;text-underline-offset:3px}
+    nav{display:flex;gap:20px;flex-wrap:wrap;margin:24px 0 40px;font-weight:600}.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    article,.findings{background:#fff;border:1px solid #dce5e9;border-radius:18px;padding:28px;box-shadow:0 3px 12px #20344204}
+    .number{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#687983}h2{font-size:24px;line-height:1.25;margin:12px 0}
+    p,li{line-height:1.65}.muted{color:#64737d}.button{display:inline-block;margin:12px 0 5px;background:#1e536c;color:white;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:650}
+    .button:hover{background:#153f54}a:focus-visible{outline:3px solid #cc7e35;outline-offset:4px}.facts{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+    .facts span{font-size:13px;padding:7px 11px;border:1px solid #dce5e9;border-radius:50px;background:#fff}.findings{margin-top:24px}
+    .findings h2{font-size:21px}.findings ul{padding-left:22px}.findings li{margin:10px 0}.scope{font-size:14px;color:#667680;border-top:1px solid #d8e1e6;padding-top:24px;margin-top:32px}
+    @media(max-width:650px){main{padding:32px 18px}.cards{grid-template-columns:1fr}article,.findings{padding:22px}.intro{font-size:17px}nav{margin-bottom:28px}}
+  </style>
 </head>
 <body>
-  <h1>AlphaResearch-RL evidence explorer</h1>
-  <p><a href="evidence-explorer.html">Open the complete recorded experiment.</a></p>
-  <p>This is saved research evidence, not a live trading or research agent.</p>
+<main>
+  <div class="eyebrow">AlphaResearch-RL · Open research record</div>
+  <h1>What does a language model learn from a financial reward?</h1>
+  <p class="intro">A local Qwen3-0.6B post-training experiment for bounded factor research.
+  Inspect actual proposals, the evidence each actor saw, and the controls that limit our conclusions.</p>
+  <div class="facts"><span>5 frozen checkpoints</span><span>900 retained evaluation draws</span><span>10 dependent half-years</span><span>Mixed and negative findings preserved</span></div>
+  <nav aria-label="Project resources">
+    <a href="https://github.com/Siquan-Wang/alpha-research-rl">Source repository</a>
+    <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/research-positioning.md">Research positioning</a>
+    <a href="https://github.com/Siquan-Wang/alpha-research-rl/tree/main/docs/audits">Audit scope and records</a>
+  </nav>
+  <div class="cards">
+    <article>
+      <div class="number">01 · Original proposal study</div>
+      <h2>Did RL improve on supervised training?</h2>
+      <p>Compare SFT with two correctly linked RL runs. Inspect all 540 saved draws,
+      matched true/exchanged evidence, and the validity–IC decomposition.</p>
+      <a class="button" href="evidence-explorer.html">Explore the original study</a>
+      <p class="muted">Three checkpoints frozen before transfer evaluation.</p>
+    </article>
+    <article>
+      <div class="number">02 · Exploratory follow-up</div>
+      <h2>Did the reward–action link matter?</h2>
+      <p>Compare each RL run with a matched on-policy reward-permutation control.
+      Inspect all five policies: the original 540 draws plus 360 new control draws.</p>
+      <a class="button" href="linkage-explorer.html">Explore the reward controls</a>
+      <p class="muted">Declared after the original results; both controls frozen before their evaluation.</p>
+    </article>
+  </div>
+  <section class="findings" aria-labelledby="findings">
+    <h2 id="findings">What the completed experiments show</h2>
+    <ul>
+      <li>Both original RL runs improved the declared reward over SFT. Most of that gain came from fewer invalid proposals; neither sampled policy exceeded the uniform formula-grid reference.</li>
+      <li>Correctly linked RL also exceeded its matched reward-permutation control in both seeds. The predictive-IC contribution changed in opposite directions across seeds, and greedy behavior was unchanged.</li>
+      <li>The sequential evidence-acquisition gate failed. Candidate-bank generation and sequential-controller training for that branch stopped.</li>
+    </ul>
+    <p><a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/financial-proposal-results-v1.md">Original results</a>
+    · <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/reward-linkage-results-v1.md">Reward-linkage results</a>
+    · <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/sequential-gate-results-v1.md">Failed sequential gate</a></p>
+  </section>
+  <p class="scope">These are saved development experiments on revised French49 industry-portfolio histories.
+  The financial actor makes one proposal per episode. This record does not establish profitable alpha,
+  a useful learned multistep researcher, or a clean pretraining holdout. Generated draws are not independent markets.
+  The explorers require no model, account or live data connection.</p>
+</main>
 </body>
 </html>
