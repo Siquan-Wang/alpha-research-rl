@@ -24,6 +24,7 @@ manifests, full outcomes and limitations remain the evidence to inspect.
 
 - [Prospective trainer and analysis review](reward-linkage-control-review.md)
 - [Actual training and five-checkpoint freeze review](reward-linkage-training-independent-review.md)
+- [All five saved results and narrative reconstruction](reward-linkage-results-independent-review.md)
 
 These controls have their own prospective plan within an exploratory follow-up.
 They do not retroactively turn the original development comparison into a sealed

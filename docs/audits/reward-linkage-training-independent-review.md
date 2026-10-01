@@ -6,6 +6,10 @@ checkpoint file bytes, saved roundtrip records, and the declared five-checkpoint
 registry. No model generation, new market scoring, GPU operation, or scorer
 edit was performed by the reviewer.
 
+This is an internal AI-assisted review separate from the implementation author,
+under the [audit scope statement](README.md), not external peer review or human
+certification.
+
 ## Training mechanism and retained evidence
 
 `linkage_training.py` samples four fresh completions from its own current actor

@@ -1,0 +1,296 @@
+{
+  "created_utc": "2026-10-01T05:00:53.361711+00:00",
+  "python": "3.12.14",
+  "platform": "Windows",
+  "packages": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6",
+    "peft": "0.18.1"
+  },
+  "git_revision": "7553e2d56e7bbb5b4ce11eb908c79b7b9441edf7",
+  "source_sha256": "718750ee3226826bd1876554eddf91c62dd57ed9506e13ff17a091e0ab00fd46",
+  "config": {
+    "study": "financial-proposal-v1",
+    "label": "financial-placebo23-v1",
+    "split": "transfer",
+    "snapshot_sha256": "8f394fe34bea54d41b9aafed410425ee8f8e252ede3c71a7c1cd20bab83040de",
+    "checkpoint": {
+      "adapter_name": "financial-placebo23-v1",
+      "files": [
+        {
+          "file": "adapter_config.json",
+          "sha256": "6e94e2ccecdee96fed10b34b15952202291d2572e7464a729bc24750aec3af08",
+          "bytes": 1039
+        },
+        {
+          "file": "adapter_model.safetensors",
+          "sha256": "74485b3a9bd1d5e73287ffff4358d05b1cd01cbd0db7f6cb5fa96ad419bf3291",
+          "bytes": 9204512
+        }
+      ],
+      "combined_sha256": "5c7f172f12aaa43eab95d2310c8d9ccfcf2314d1cdcc7c0c7a3e4c7cb5ce03b8"
+    },
+    "frozen_suite": {
+      "study": "financial-reward-linkage-control-v1",
+      "frozen_utc": "2026-10-01T04:58:36.053875+00:00",
+      "checkpoints": {
+        "financial-sft-v1": {
+          "adapter_name": "financial-sft-v1",
+          "files": [
+            {
+              "file": "adapter_config.json",
+              "sha256": "1d2ce245257ca545da1369b02b4ce1bde04cc2f75428654e186db38791efacc7",
+              "bytes": 1039
+            },
+            {
+              "file": "adapter_model.safetensors",
+              "sha256": "be860bc2dd4dfc9a1f2e25f1532bfdcbf63ac4cd664a2cff1de8993aacb7db3b",
+              "bytes": 9204512
+            }
+          ],
+          "combined_sha256": "d95793e5192be85fe4ceb15109a481c86ad13e804ffc01c56815683b1f21e360"
+        },
+        "financial-rloo23-v1": {
+          "adapter_name": "financial-rloo23-v1",
+          "files": [
+            {
+              "file": "adapter_config.json",
+              "sha256": "f40d007be9ba3ce18bfa06050caf9e9ddf6850e9b538595604aa39ea28a260ab",
+              "bytes": 1039
+            },
+            {
+              "file": "adapter_model.safetensors",
+              "sha256": "32e075f906b32374c2c153c01bd83930ff31f89f370aa2b261c84b0ac3e0342d",
+              "bytes": 9204512
+            }
+          ],
+          "combined_sha256": "595d8270efc5f035618e5682624e10db0037d3842df4d21b451fd85cc8ae2a05"
+        },
+        "financial-rloo29-v1": {
+          "adapter_name": "financial-rloo29-v1",
+          "files": [
+            {
+              "file": "adapter_config.json",
+              "sha256": "97c936b99ed86575a60885e6dcde9a7fcb66cb6d405fe62a881eb8a53ea7b459",
+              "bytes": 1039
+            },
+            {
+              "file": "adapter_model.safetensors",
+              "sha256": "8084784c7bfa8ae41fc52c3b9d45862ed42491cecac348676f8faa8d84fdadf0",
+              "bytes": 9204512
+            }
+          ],
+          "combined_sha256": "98e40d8f19f2cf88cde123097952866b90c9d4bb50210827f80ef0f7a57586c5"
+        },
+        "financial-placebo23-v1": {
+          "adapter_name": "financial-placebo23-v1",
+          "files": [
+            {
+              "file": "adapter_config.json",
+              "sha256": "6e94e2ccecdee96fed10b34b15952202291d2572e7464a729bc24750aec3af08",
+              "bytes": 1039
+            },
+            {
+              "file": "adapter_model.safetensors",
+              "sha256": "74485b3a9bd1d5e73287ffff4358d05b1cd01cbd0db7f6cb5fa96ad419bf3291",
+              "bytes": 9204512
+            }
+          ],
+          "combined_sha256": "5c7f172f12aaa43eab95d2310c8d9ccfcf2314d1cdcc7c0c7a3e4c7cb5ce03b8"
+        },
+        "financial-placebo29-v1": {
+          "adapter_name": "financial-placebo29-v1",
+          "files": [
+            {
+              "file": "adapter_config.json",
+              "sha256": "6f660d449029b7b85379871565b07fba47b111fc647c09eac7211d4cf4aa8220",
+              "bytes": 1039
+            },
+            {
+              "file": "adapter_model.safetensors",
+              "sha256": "28f31ee08723e20e35f9ca220b41ce13cd329b7c26b5d9c6c6a824a8dea5092f",
+              "bytes": 9204512
+            }
+          ],
+          "combined_sha256": "ab8d0fafa233bb634775c4b3ac173dcd80676459f48f95e869aa90c0ae33d0c0"
+        }
+      },
+      "fixed_reference": "delay(returns,1)",
+      "fixed_reference_selection": "best mean reward on 2002-2017 training grid, frozen before transfer",
+      "seed_rule": "80000 + task_index*100 + draw; greedy draw=99; identical across checkpoints/conditions",
+      "stochastic_draws_per_task_condition": 8,
+      "greedy_draws_per_task_condition": 1,
+      "original_frozen_suite_sha256": "7673892a39c4203d0371aad0f33c8ec5001d1e112bc671e544dd1a4a6dd87811",
+      "original_reports": {
+        "financial-sft-v1": {
+          "file": "financial-sft-transfer-v1.json",
+          "sha256": "a1de37b17e113cbde41c42f7baa39869756dd95974748f16e89ec68545959eb1"
+        },
+        "financial-rloo23-v1": {
+          "file": "financial-rloo23-transfer-v1.json",
+          "sha256": "25bd93004bf47f088ad701fa4e2856f0843b040b468c6d21e6c98565daec6c85"
+        },
+        "financial-rloo29-v1": {
+          "file": "financial-rloo29-transfer-v1.json",
+          "sha256": "ddae0c86b9d38c7706efaea0635771c4480e4503a5da4e3464ef5275abd66c73"
+        }
+      }
+    },
+    "stochastic_draws_per_task_condition": 8,
+    "greedy_draws_per_task_condition": 1,
+    "conditions": [
+      "true",
+      "exchanged"
+    ],
+    "seed_rule": "80000 + task_index*100 + draw; greedy draw=99",
+    "max_tokens": 64,
+    "sampling": "temperature1,top_p1,top_k0,full_softmax",
+    "strict_primary": true,
+    "secondary_reparse_same_completion": true,
+    "fixed_reference": "delay(returns,1)",
+    "evaluation_contract": {
+      "proposal_system_sha256": "1a03f32e0ffa65059c9f164b2fe4b4e714eb8324a89e35ea90db8977b18f3234",
+      "source_files_sha256": {
+        "financial_evaluation.py": "e36a677a42296e7874bd97af25822ec2bbb0596403b70847ef98e06af145a41f",
+        "financial_policy.py": "7a2326fb46271a803fa464dbc46e1c4a9029bf2d0256da8575e0d1026b4a8bd6",
+        "financial_tasks.py": "3ffd294c0b0e71b3d77e29d529554bb7bf9218a9b6becc0ae8fc6a22cea0ad6f",
+        "dsl.py": "47c311c0d2b4074653789bf1275081a58517822d0f1fc0a6fb811fd796e8ba97",
+        "evaluation.py": "19262b9412b2f6cfe275650d2f6b27096b0140ccc85e3f73d69005c3bdd872c7",
+        "llm.py": "7d2a8b02c438e9396da99172882d26673db8af777f673c6c2d8377d893b0cf3c",
+        "format_ablation.py": "428e40cb4febae0cdf82358e4cd37b069186e4b2af0d1d0a3a0d78718bab2d8f"
+      },
+      "tokenizer_files_sha256": {
+        "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+        "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+        "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+        "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+      },
+      "numeric_protocol": {
+        "horizon": 5,
+        "cost": 0.01,
+        "invalid_reward": -1.01,
+        "min_coverage": 0.8,
+        "min_valid_fraction": 0.8,
+        "min_valid_dates": 20,
+        "orientation": "feedback mean IC<0 => -1; otherwise +1",
+        "supported_features": [
+          "returns"
+        ],
+        "max_lookback": 60,
+        "purged_signal_rows_at_each_halfyear_end": 5
+      },
+      "action_schema": {
+        "exact_keys": [
+          "action",
+          "expression"
+        ],
+        "action": "propose",
+        "requires_eos": true,
+        "strict_json_primary": true
+      },
+      "sampling": {
+        "temperature": 1.0,
+        "top_p": 1.0,
+        "top_k": 0,
+        "max_tokens": 64,
+        "seed_rule": "80000 + task_index*100 + draw; greedy draw=99"
+      },
+      "secondary": "whole-json-fence reparse of same completion; no new generations",
+      "fixed_reference": "delay(returns,1)",
+      "shared_contract_sha256": "001dd03271d27ff55a2d1e7763f364afba991655f3747d8bc8e970f573499df6"
+    },
+    "manifest_capture": "entry before actor load and evaluation scoring"
+  },
+  "actor": {
+    "base_model": {
+      "model_id": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "model_card_license": "apache-2.0",
+      "source": "https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca",
+      "weights_published_in_repository": false
+    },
+    "sampling_distribution": "untruncated autoregressive softmax",
+    "generation_config": {
+      "max_length": 20,
+      "max_new_tokens": null,
+      "min_length": 0,
+      "min_new_tokens": null,
+      "early_stopping": false,
+      "max_time": null,
+      "stop_strings": null,
+      "do_sample": true,
+      "num_beams": 1,
+      "use_cache": true,
+      "cache_implementation": null,
+      "cache_config": null,
+      "return_legacy_cache": null,
+      "prefill_chunk_size": null,
+      "temperature": 1.0,
+      "top_k": 0,
+      "top_p": 1.0,
+      "min_p": null,
+      "typical_p": 1.0,
+      "epsilon_cutoff": 0.0,
+      "eta_cutoff": 0.0,
+      "repetition_penalty": 1.0,
+      "encoder_repetition_penalty": 1.0,
+      "length_penalty": 1.0,
+      "no_repeat_ngram_size": 0,
+      "bad_words_ids": null,
+      "renormalize_logits": false,
+      "forced_bos_token_id": null,
+      "forced_eos_token_id": null,
+      "remove_invalid_values": false,
+      "exponential_decay_length_penalty": null,
+      "suppress_tokens": null,
+      "begin_suppress_tokens": null,
+      "sequence_bias": null,
+      "token_healing": false,
+      "guidance_scale": null,
+      "watermarking_config": null,
+      "num_return_sequences": 1,
+      "output_attentions": false,
+      "output_hidden_states": false,
+      "output_scores": false,
+      "output_logits": null,
+      "return_dict_in_generate": false,
+      "pad_token_id": 151645,
+      "bos_token_id": null,
+      "eos_token_id": [
+        151645,
+        151643
+      ],
+      "encoder_no_repeat_ngram_size": 0,
+      "decoder_start_token_id": null,
+      "is_assistant": false,
+      "num_assistant_tokens": 20,
+      "num_assistant_tokens_schedule": "constant",
+      "assistant_confidence_threshold": 0.4,
+      "prompt_lookup_num_tokens": null,
+      "max_matching_ngram_size": null,
+      "assistant_early_exit": null,
+      "assistant_lookbehind": 10,
+      "target_lookbehind": 10,
+      "disable_compile": false,
+      "low_memory": null,
+      "penalty_alpha": null,
+      "dola_layers": null,
+      "diversity_penalty": 0.0,
+      "num_beam_groups": 1,
+      "constraints": null,
+      "force_words_ids": null,
+      "_from_model_config": false,
+      "transformers_version": "4.57.6"
+    },
+    "use_model_defaults": false,
+    "precision": "float32",
+    "max_prompt_tokens": 4096,
+    "lora_trainable": false,
+    "starting_adapter_name": "financial-placebo23-v1",
+    "tf32": false,
+    "actor_type": "one-shot-return-formula"
+  }
+}
