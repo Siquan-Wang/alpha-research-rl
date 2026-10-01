@@ -1,0 +1,31 @@
+{
+  "api_modules_present": [],
+  "callable": true,
+  "domain": "m10_be_distribution",
+  "imported_project_modules": {
+    "modules.common.types": {
+      "path": "modules/common/types.py",
+      "sha256": "f5814e8adfd4266eeb3def1253adfef99f0c4e3da0dc632feadd1bee0c0518b7"
+    },
+    "modules.m10_be_distribution.core": {
+      "path": "modules/m10_be_distribution/core.py",
+      "sha256": "b78856b75797f0144d772f4045652e968c23d7a1dc0b07df768b74d9546ab9f6"
+    },
+    "modules.m10_be_distribution.laws": {
+      "path": "modules/m10_be_distribution/laws.py",
+      "sha256": "c6d065d3bde4aa89cb981a245f45126a9f2dee160d8881f8fca14d209c46c338"
+    },
+    "modules.m10_be_distribution.m10_types": {
+      "path": "modules/m10_be_distribution/m10_types.py",
+      "sha256": "06b41b598e4420c7cb5ba061d263a57216c371c90aa86a440bb470119f0ed2ff"
+    },
+    "utils.noise": {
+      "path": "utils/noise.py",
+      "sha256": "f239b80240ea33bd61ab08c5bf64d9d8edf11250708cba023d2d94cc1f0f6c67"
+    }
+  },
+  "oracle_queries": 0,
+  "started_at_utc": "2026-10-01T16:37:11.156493+00:00",
+  "status": "IMPORTED_WITHOUT_MEASUREMENT",
+  "worker_sha256": "4f9a23e93a11e71a5064ab3902cff926b9417e33de384768854a60a57fee3152"
+}

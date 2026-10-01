@@ -1,0 +1,14 @@
+{
+  "codex_cli_contract": "0.159.2",
+  "codex_executable_sha256": "34549ded6e2aee87c911c62d025e52e26c488683d0f489cd68f756baef1a6df6",
+  "implementation": "CPython",
+  "machine": "AMD64",
+  "numpy": "2.5.3",
+  "platform": "Windows",
+  "python": "3.12.14",
+  "reasoning_effort": "ultra",
+  "requested_model": "gpt-6-astra",
+  "scipy": "1.18.1",
+  "scope": "Version record, not hermetic runtime or remote model-weight attestation",
+  "service_tier": "default"
+}

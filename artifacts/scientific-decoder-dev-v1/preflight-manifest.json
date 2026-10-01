@@ -1,0 +1,197 @@
+{
+  "confirmation_targets": 0,
+  "created_at_utc": "2026-10-01T17:00:10.188959+00:00",
+  "existing_transport": {
+    "path": "src/alpha_research_rl/codex_actor.py",
+    "sha256": "fe6c964e4563216d13122b0db456cc74b66b0b6982942933ea8eedbcd7f946d0"
+  },
+  "files": {
+    "adaptivity-decoder-dev-plan-v1.md": {
+      "bytes": 24805,
+      "reconstruct_at": ".local/adaptivity-decoder-dev-plan-v1.md",
+      "sha256": "6080e0bb27814ca872564a128c2bfaba5f8cca188e3d092dff56b575c5f1b6bb"
+    },
+    "adaptivity-dev-coordinates-v1.json": {
+      "bytes": 307869,
+      "reconstruct_at": ".local/adaptivity-dev-coordinates-v1.json",
+      "sha256": "1555c66e856f1451dbf151bb1aafe48474cae2fe1885f9cf37762d966e26211d"
+    },
+    "adaptivity-launch-review-v1.md": {
+      "bytes": 7069,
+      "reconstruct_at": ".local/adaptivity-launch-review-v1.md",
+      "sha256": "ecb7b207c94556115f91c571e202087ecb840096f33bbdd3b2ac00935889adf8"
+    },
+    "adaptivity-metadata-order-v1.json": {
+      "bytes": 14238,
+      "reconstruct_at": ".local/adaptivity-metadata-order-v1.json",
+      "sha256": "7defbfbc0fe602a59bade3941e0442cb5b0cbd6b40976a06f4e216fa6fa4fb4c"
+    },
+    "adaptivity-preflight-validation-v1.json": {
+      "bytes": 8384,
+      "reconstruct_at": ".local/adaptivity-preflight-validation-v1.json",
+      "sha256": "808b0e9ed884bdd684805db9d611e4e220c39a453bcaef34baa670da0b070d9e"
+    },
+    "adaptivity-runtime-environment-v1.json": {
+      "bytes": 459,
+      "reconstruct_at": ".local/adaptivity-runtime-environment-v1.json",
+      "sha256": "a2e38cb6196d5d440abba1b38ea10246bdfaff76619b0f584a42c622ef0a0557"
+    },
+    "adaptivity-runtime-review-v1.md": {
+      "bytes": 16111,
+      "reconstruct_at": ".local/adaptivity-runtime-review-v1.md",
+      "sha256": "4a4af496e27a7752e613204c6250ede102b8b82bae122a3243cca642cbab61d1"
+    },
+    "adaptivity_adapter_contract.py": {
+      "bytes": 11176,
+      "reconstruct_at": ".local/adaptivity_adapter_contract.py",
+      "sha256": "c79610ef27bfa70cc8ec153e8848e8345bf299ee49225287317dc00096bc8fb8"
+    },
+    "adaptivity_dev_prompts_v1.py": {
+      "bytes": 7799,
+      "reconstruct_at": ".local/adaptivity_dev_prompts_v1.py",
+      "sha256": "659bccfd0932eae0f1bd3545fed56279801757e42f4ce13c458a060c1aed6cb7"
+    },
+    "freeze_adaptivity_coordinates_v1.py": {
+      "bytes": 4425,
+      "reconstruct_at": ".local/freeze_adaptivity_coordinates_v1.py",
+      "sha256": "c2867b734e117384a8452242da734b722edf6eabc6f3672b4e511c6446910d25"
+    },
+    "import_newton_dev_runtime_v1.py": {
+      "bytes": 1769,
+      "reconstruct_at": ".local/import_newton_dev_runtime_v1.py",
+      "sha256": "06d43d628bd1ba1c39220e56624a166d513470f52b76fc0e08976e317996641c"
+    },
+    "newton-adapter-contract-v1.md": {
+      "bytes": 10987,
+      "reconstruct_at": ".local/newton-adapter-contract-v1.md",
+      "sha256": "c6f588532c0031dfa307196ca703e899e593d008efba06e664042e790b00ea42"
+    },
+    "newton-adapter-metadata-v1.json": {
+      "bytes": 43090,
+      "reconstruct_at": ".local/newton-adapter-metadata-v1.json",
+      "sha256": "df3b5f05bbb3c9e4d259577aa180a4a2178fcda768ede1b2315ac1511d309028"
+    },
+    "newton-import-m10_be_distribution-v1.json": {
+      "bytes": 1233,
+      "reconstruct_at": ".local/newton-import-m10_be_distribution-v1.json",
+      "sha256": "49f8fa5fc9cb526faabdffaadc51634b789c364c89ef2dd2c93bdfa8a24862e7"
+    },
+    "newton-import-m8_sound_speed-v1.json": {
+      "bytes": 1381,
+      "reconstruct_at": ".local/newton-import-m8_sound_speed-v1.json",
+      "sha256": "1ec2a6a7597f8ddef2cbcebc4653c9401a5d114b410c8b8e50819a30b4a7dba0"
+    },
+    "newton-source-determinism-audit-v1.json": {
+      "bytes": 3900,
+      "reconstruct_at": ".local/newton-source-determinism-audit-v1.json",
+      "sha256": "fc66899332a83fe6adeb49a2c9b985cc524f0536c159039c3dec7993f55bdc88"
+    },
+    "newton_scalar_worker_v1.py": {
+      "bytes": 11878,
+      "reconstruct_at": ".local/newton_scalar_worker_v1.py",
+      "sha256": "4f9a23e93a11e71a5064ab3902cff926b9417e33de384768854a60a57fee3152"
+    },
+    "newtonbench-source-912a4ba/LICENSE": {
+      "bytes": 1071,
+      "reconstruct_at": ".local/newtonbench-source-912a4ba/LICENSE",
+      "sha256": "47158d3a1eb6cbebe82fab657c11d4959c453f4d803b103a132b4627b63719f0"
+    },
+    "newtonbench-source-912a4ba/manifest.json": {
+      "bytes": 1491,
+      "reconstruct_at": ".local/newtonbench-source-912a4ba/manifest.json",
+      "sha256": "87c7d18f6987461b403c3f87b95873cc4f8fa7b19caf32ca52964ee87d9f9010"
+    },
+    "newtonbench-source-912a4ba/modules/common/physics_base.py": {
+      "bytes": 1480,
+      "reconstruct_at": ".local/newtonbench-source-912a4ba/modules/common/physics_base.py",
+      "sha256": "dc911c47ab4ca454b2e88d29e60d1a0f53bb4df3eb17054a415e9fdaa73c287d"
+    },
+    "newtonbench-source-912a4ba/modules/common/types.py": {
+      "bytes": 412,
+      "reconstruct_at": ".local/newtonbench-source-912a4ba/modules/common/types.py",
+      "sha256": "f5814e8adfd4266eeb3def1253adfef99f0c4e3da0dc632feadd1bee0c0518b7"
+    },
+    "newtonbench-source-912a4ba/modules/m10_be_distribution/core.py": {
+      "bytes": 4741,
+      "reconstruct_at": ".local/newtonbench-source-912a4ba/modules/m10_be_distribution/core.py",
+      "sha256": "b78856b75797f0144d772f4045652e968c23d7a1dc0b07df768b74d9546ab9f6"
+    },
+    "newtonbench-source-912a4ba/modules/m10_be_distribution/laws.py": {
+      "bytes": 6491,
+      "reconstruct_at": ".local/newtonbench-source-912a4ba/modules/m10_be_distribution/laws.py",
+      "sha256": "c6d065d3bde4aa89cb981a245f45126a9f2dee160d8881f8fca14d209c46c338"
+    },
+    "newtonbench-source-912a4ba/modules/m10_be_distribution/m10_types.py": {
+      "bytes": 502,
+      "reconstruct_at": ".local/newtonbench-source-912a4ba/modules/m10_be_distribution/m10_types.py",
+      "sha256": "06b41b598e4420c7cb5ba061d263a57216c371c90aa86a440bb470119f0ed2ff"
+    },
+    "newtonbench-source-912a4ba/modules/m10_be_distribution/prompts.py": {
+      "bytes": 17359,
+      "reconstruct_at": ".local/newtonbench-source-912a4ba/modules/m10_be_distribution/prompts.py",
+      "sha256": "62b9fca291554e2e10efc9b0631d8b0809265ff7d27a493fe1c2fe4ac73ff436"
+    },
+    "newtonbench-source-912a4ba/modules/m8_sound_speed/core.py": {
+      "bytes": 5465,
+      "reconstruct_at": ".local/newtonbench-source-912a4ba/modules/m8_sound_speed/core.py",
+      "sha256": "12b1d812a1a8ac8aaa371b66732b188dd815ce076c0ae70b23ac0d9e18acee4f"
+    },
+    "newtonbench-source-912a4ba/modules/m8_sound_speed/laws.py": {
+      "bytes": 4197,
+      "reconstruct_at": ".local/newtonbench-source-912a4ba/modules/m8_sound_speed/laws.py",
+      "sha256": "f1644d1e90d922708cdc6d21cc25689334e0d57615a94e4a20a0a26aa5a74b33"
+    },
+    "newtonbench-source-912a4ba/modules/m8_sound_speed/m8_types.py": {
+      "bytes": 612,
+      "reconstruct_at": ".local/newtonbench-source-912a4ba/modules/m8_sound_speed/m8_types.py",
+      "sha256": "fe10c17082fa57859539983be0a5c8811008282821c88b658a871d0f9d321dc2"
+    },
+    "newtonbench-source-912a4ba/modules/m8_sound_speed/physics.py": {
+      "bytes": 1020,
+      "reconstruct_at": ".local/newtonbench-source-912a4ba/modules/m8_sound_speed/physics.py",
+      "sha256": "913c810b3ead73a38ae0fd79ce97cdc975a9ad95bd1e45d4acc349b27e081395"
+    },
+    "newtonbench-source-912a4ba/modules/m8_sound_speed/prompts.py": {
+      "bytes": 12985,
+      "reconstruct_at": ".local/newtonbench-source-912a4ba/modules/m8_sound_speed/prompts.py",
+      "sha256": "47d02e5e455a5a02eb4523c578e23f5f1250d6385e65215713ceb935451732c2"
+    },
+    "newtonbench-source-912a4ba/utils/noise.py": {
+      "bytes": 1363,
+      "reconstruct_at": ".local/newtonbench-source-912a4ba/utils/noise.py",
+      "sha256": "f239b80240ea33bd61ab08c5bf64d9d8edf11250708cba023d2d94cc1f0f6c67"
+    },
+    "run_adaptivity_decoder_dev_v1.py": {
+      "bytes": 11836,
+      "reconstruct_at": ".local/run_adaptivity_decoder_dev_v1.py",
+      "sha256": "ac4c60030af29819966280a170bfcb22c3246573e4565ff29dffeb32fdc35b8d"
+    },
+    "score_adaptivity_decoder_dev_v1.py": {
+      "bytes": 10945,
+      "reconstruct_at": ".local/score_adaptivity_decoder_dev_v1.py",
+      "sha256": "e7f9fec2fdf9eb7e33bfbafdb5321a52db7dd06924221241d274efaef8fe7f74"
+    },
+    "test_adaptivity_adapter_contract.py": {
+      "bytes": 8815,
+      "reconstruct_at": ".local/test_adaptivity_adapter_contract.py",
+      "sha256": "327d693f27ba4cbaa0b1fa730afba09ff42e164bf29dadf3c4acc05c32254cf2"
+    },
+    "test_adaptivity_dev_pipeline_v1.py": {
+      "bytes": 17961,
+      "reconstruct_at": ".local/test_adaptivity_dev_pipeline_v1.py",
+      "sha256": "eff31525cca55b34596d8bd39a9e1bb2b19758ea273426003d6f8bcc1212bf3c"
+    },
+    "test_adaptivity_dev_scoring_v1.py": {
+      "bytes": 8653,
+      "reconstruct_at": ".local/test_adaptivity_dev_scoring_v1.py",
+      "sha256": "2c2cbfa4aeb4ea8bb4829c0d46581816c4be663b6f665f1cd1f2dbdc34c076ce"
+    }
+  },
+  "hosted_calls": 0,
+  "limits": "Snapshots preserve executed-source layout via reconstruction; no scientific outcomes yet.",
+  "schema": "scientific-decoder-dev-preflight-v1",
+  "scope": "Four-law joint decoder/representation development feasibility, not adaptivity or a main study",
+  "source_license": "NewtonBench MIT license included in snapshot/newtonbench-source-912a4ba/LICENSE",
+  "stage": "PRE_TARGETS_PRE_HOSTED_CALLS",
+  "training_targets": 0
+}

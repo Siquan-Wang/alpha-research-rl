@@ -1,0 +1,23 @@
+{
+  "actor_executable_sha256": "34549ded6e2aee87c911c62d025e52e26c488683d0f489cd68f756baef1a6df6",
+  "created_at_utc": "2026-10-01T16:58:47.216758+00:00",
+  "files": {
+    ".local/adaptivity-decoder-dev-plan-v1.md": "6080e0bb27814ca872564a128c2bfaba5f8cca188e3d092dff56b575c5f1b6bb",
+    ".local/adaptivity-dev-coordinates-v1.json": "1555c66e856f1451dbf151bb1aafe48474cae2fe1885f9cf37762d966e26211d",
+    ".local/adaptivity-metadata-order-v1.json": "7defbfbc0fe602a59bade3941e0442cb5b0cbd6b40976a06f4e216fa6fa4fb4c",
+    ".local/adaptivity_adapter_contract.py": "c79610ef27bfa70cc8ec153e8848e8345bf299ee49225287317dc00096bc8fb8",
+    ".local/adaptivity_dev_prompts_v1.py": "659bccfd0932eae0f1bd3545fed56279801757e42f4ce13c458a060c1aed6cb7",
+    ".local/newton-adapter-metadata-v1.json": "df3b5f05bbb3c9e4d259577aa180a4a2178fcda768ede1b2315ac1511d309028",
+    ".local/newton_scalar_worker_v1.py": "4f9a23e93a11e71a5064ab3902cff926b9417e33de384768854a60a57fee3152",
+    ".local/newtonbench-source-912a4ba/manifest.json": "87c7d18f6987461b403c3f87b95873cc4f8fa7b19caf32ca52964ee87d9f9010",
+    ".local/run_adaptivity_decoder_dev_v1.py": "ac4c60030af29819966280a170bfcb22c3246573e4565ff29dffeb32fdc35b8d",
+    ".local/score_adaptivity_decoder_dev_v1.py": "e7f9fec2fdf9eb7e33bfbafdb5321a52db7dd06924221241d274efaef8fe7f74",
+    "src/alpha_research_rl/codex_actor.py": "fe6c964e4563216d13122b0db456cc74b66b0b6982942933ea8eedbcd7f946d0"
+  },
+  "omitted_fields": [
+    "neutral_actor_cwd",
+    "actor_executable"
+  ],
+  "private_binding_sha256": "a8d37a03164d7492eda85abc2f68a8b2aee0ce705fc41401abe1ba36b6699c72",
+  "scope": "Four-law decoder development only; no main bank or adaptive planner allocation"
+}

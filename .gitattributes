@@ -16,3 +16,7 @@ docs/sealed-confirmation-plan-v1.md -text
 artifacts/sealed-confirmation-v1/**/*.jsonl -text
 docs/reward-credit-plan-v1.md -text
 docs/research-note-v1.md -text
+artifacts/scientific-decoder-dev-v1/** -text
+# Preserve upstream MIT source byte-for-byte, including historical whitespace.
+artifacts/scientific-decoder-dev-v1/snapshot/newtonbench-source-912a4ba/** -whitespace
+docs/scientific-decoder-dev-plan-v1.md -text

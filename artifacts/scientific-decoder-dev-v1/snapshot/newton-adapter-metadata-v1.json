@@ -1,0 +1,1442 @@
+{
+  "schema": "newtonbench-interface-metadata-v1",
+  "commit": "912a4ba5f4356ddd06acc16e44460ca30be4abc2",
+  "scope": "Public interface metadata and AST-only law registry keys/imports; no law bodies displayed or executed; no oracle outputs. Bounds are not yet adapted study boxes.",
+  "domains": [
+    {
+      "domain_id": "m8_sound_speed",
+      "source_metadata": {
+        "core.py": {
+          "path": "modules/m8_sound_speed/core.py",
+          "sha256": "12b1d812a1a8ac8aaa371b66732b188dd815ce076c0ae70b23ac0d9e18acee4f",
+          "imports": [
+            "laws",
+            "m8_types",
+            "modules.common.evaluation",
+            "numpy",
+            "physics",
+            "re",
+            "typing",
+            "utils.noise"
+          ]
+        },
+        "laws.py": {
+          "path": "modules/m8_sound_speed/laws.py",
+          "sha256": "f1644d1e90d922708cdc6d21cc25689334e0d57615a94e4a20a0a26aa5a74b33",
+          "imports": [
+            "math",
+            "random",
+            "typing"
+          ]
+        },
+        "prompts.py": {
+          "path": "modules/m8_sound_speed/prompts.py",
+          "sha256": "47d02e5e455a5a02eb4523c578e23f5f1250d6385e65215713ceb935451732c2",
+          "imports": [
+            "m8_types",
+            "modules.common.prompts_base"
+          ]
+        },
+        "m8_types.py": {
+          "path": "modules/m8_sound_speed/m8_types.py",
+          "sha256": "fe10c17082fa57859539983be0a5c8811008282821c88b658a871d0f9d321dc2",
+          "imports": [
+            "modules.common.types"
+          ]
+        }
+      },
+      "public_prompt_metadata": {
+        "PARAM_DESCRIPTION": {
+          "value": "- gamma: adiabatic index of the gas. It should be a positive real number.\n- T: temperature of the medium in Kelvin. It should be a positive real number.\n- M: molar mass of the medium. It should be a positive real number.",
+          "line": 10
+        },
+        "FUNCTION_SIGNATURE": {
+          "value": "def discovered_law(gamma, T, M):",
+          "line": 15
+        },
+        "RETURN_DESCRIPTION": {
+          "line": 16,
+          "value": "the speed of sound (v)"
+        },
+        "VANILLA_EQUATION_PROMPT": {
+          "line": 31,
+          "value": "**Experimental Apparatus:**\nYou have access to a device that can directly measure the speed of sound in various ideal gases under controlled conditions.\n**Control Parameters:**\n- `adiabatic_index`: The adiabatic index of the gas.\n- `temperature`: The temperature of the gas in Kelvin.\n- `molar_mass`: The molar mass of the gas in kg/mol.\n\n{RUN_EXPERIMENT_INSTRUCTION}\n\n**CRITICAL: Strict Format Adherence**\n- You MUST use the exact <run_experiment> tag format shown below\n- If your format is incorrect, the system will ask you to read the initial prompt again\n- Double-check your JSON syntax before submitting\n- Ensure all required parameters are included with correct names\n\n**Input/Output Format:**\nYou must use the following JSON format for your requests and don't add any comments inside the JSON. The system will respond with a corresponding output array.\n\n*Your Request:*\n<run_experiment>\n[\n  {{\"adiabatic_index\": ..., \"temperature\": ..., \"molar_mass\": ...}},\n  {{\"adiabatic_index\": ..., \"temperature\": ..., \"molar_mass\": ...}}\n]\n</run_experiment>\n\n*System Response:*\nThe system will return a list of measured sound speeds (v).\n<experiment_output>\n[..., ...]\n</experiment_output>"
+        }
+      },
+      "law_version_ids": {
+        "easy": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "medium": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "hard": [
+          "v0",
+          "v1",
+          "v2"
+        ]
+      },
+      "experiment_parameters": [
+        {
+          "line": 81,
+          "key": "adiabatic_index",
+          "default_source": "ECHO_METHOD_DEFAULTS['adiabatic_index']"
+        },
+        {
+          "line": 82,
+          "key": "temperature",
+          "default_source": "ECHO_METHOD_DEFAULTS['temperature']"
+        },
+        {
+          "line": 83,
+          "key": "molar_mass",
+          "default_source": "ECHO_METHOD_DEFAULTS['molar_mass']"
+        }
+      ],
+      "type_defaults": {
+        "ECHO_METHOD_DEFAULTS": {
+          "line": 8,
+          "value": {
+            "adiabatic_index": 1.4,
+            "molar_mass": 0.02897,
+            "temperature": 293.15,
+            "distance": 100.0
+          }
+        },
+        "RESONANCE_TUBE_DEFAULTS": {
+          "line": 16,
+          "value": {
+            "adiabatic_index": 1.4,
+            "molar_mass": 0.02897,
+            "temperature": 293.15,
+            "driving_frequency": 440.0,
+            "tube_diameter": 0.1
+          }
+        }
+      },
+      "experiment_function_line": 70,
+      "direct_argument_names": [
+        "noise_level",
+        "difficulty",
+        "system",
+        "law_version"
+      ],
+      "law_registry_line": 77
+    },
+    {
+      "domain_id": "m10_be_distribution",
+      "source_metadata": {
+        "core.py": {
+          "path": "modules/m10_be_distribution/core.py",
+          "sha256": "b78856b75797f0144d772f4045652e968c23d7a1dc0b07df768b74d9546ab9f6",
+          "imports": [
+            "laws",
+            "m10_types",
+            "modules.common.evaluation",
+            "numpy",
+            "re",
+            "scipy.integrate",
+            "typing",
+            "utils.noise"
+          ]
+        },
+        "laws.py": {
+          "path": "modules/m10_be_distribution/laws.py",
+          "sha256": "c6d065d3bde4aa89cb981a245f45126a9f2dee160d8881f8fca14d209c46c338",
+          "imports": [
+            "math",
+            "numpy",
+            "random",
+            "typing"
+          ]
+        },
+        "prompts.py": {
+          "path": "modules/m10_be_distribution/prompts.py",
+          "sha256": "62b9fca291554e2e10efc9b0631d8b0809265ff7d27a493fe1c2fe4ac73ff436",
+          "imports": [
+            "m10_types",
+            "modules.common.prompts_base"
+          ]
+        },
+        "m10_types.py": {
+          "path": "modules/m10_be_distribution/m10_types.py",
+          "sha256": "06b41b598e4420c7cb5ba061d263a57216c371c90aa86a440bb470119f0ed2ff",
+          "imports": [
+            "modules.common.types"
+          ]
+        }
+      },
+      "public_prompt_metadata": {
+        "PARAM_DESCRIPTION": {
+          "value": "- omega: angular frequency. It should be a positive real number.\n- T: temperature. It should be a positive real number.",
+          "line": 10
+        },
+        "FUNCTION_SIGNATURE": {
+          "value": "def discovered_law(omega, T):",
+          "line": 14
+        },
+        "RETURN_DESCRIPTION": {
+          "line": 15,
+          "value": "the average occupation number of photons (n) in quantum state"
+        },
+        "VANILLA_EQUATION_PROMPT": {
+          "line": 28,
+          "value": "**Experimental Apparatus:**\nYou have access to a photons analyzer that can directly measure the average occupation number `n` of photons in quantum state for a system.\n\n**Control Parameters:**\n- `omega`: The angular frequency of the photons.\n    - the scale should be at least 1e8\n    - remember to test among different scales of `omega`\n- `temperature`: The temperature of the system.\n    - the scale should be at least 1e1\n    - remember to test among different scales of `temperature`\n\n{RUN_EXPERIMENT_INSTRUCTION}\n\n**CRITICAL: Strict Format Adherence**\n- You MUST use the exact <run_experiment> tag format shown below.\n- If your format is incorrect, the system will ask you to read the initial prompt again.\n- Double-check your JSON syntax before submitting.\n- Ensure all required parameters are included with correct names.\n\n**Input/Output Format:**\nYou must use the following JSON format for your requests and don't add any comments inside the JSON. The system will respond with a corresponding output array.\n\n*Your Request:*\n<run_experiment>\n[\n  {{\"omega\": ..., \"temperature\": ...}},\n  {{\"omega\": ..., \"temperature\": ...}}\n]\n</run_experiment>\n\n*System Response:*\nThe system will return a list of measured average occupation numbers (n).\n<experiment_output>\n[..., ...]\n</experiment_output>\n\n**Strategy**: Analyze the functional roles of parameters in relation to the average occupation number of photons:\n- **Similar roles**: Identify parameters that influence the average occupation number of photons in comparable ways (e.g., both increasing or decreasing it proportionally).\n- **Different roles** Identify parameters that affect fundamentally different aspects of the system.\n- The relationship you are trying to discover is highly non-linear (e.g. containing exponential function, trigonometric function, etc) and sensitive to the scale of your inputs. A robust experimental strategy is essential.\n    - **Explore Orders of Magnitude:** Probing parameters at very different scales is critical. Small, incremental changes to your inputs will likely yield very similar, uninformative outputs. **Your goal is to map the function's behavior across its entire dynamic range.**\n    - **The Law is Not a Simple Constant:** Be aware that the occupation number `n` is a strong function of both `omega` and `T`. If your experiments consistently return a constant value (e.g., always near zero or a very large number), it is a sign that your tests are confined to an asymptotic regime (a flat part of the curve). This means you must drastically change your parameters to find the interesting, transitional behavior.\n        - Please remember that the law will **NEVER** be a simple constant\n    - **Combine Parameters:** The physics of this system depends on how `omega` and `T` relate to each other. After exploring each parameter individually, design experiments where you change both simultaneously. For example, investigate if doubling `omega` can be compensated for by a change in `T`."
+        }
+      },
+      "law_version_ids": {
+        "easy": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "medium": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "hard": [
+          "v0",
+          "v1",
+          "v2"
+        ]
+      },
+      "experiment_parameters": [
+        {
+          "line": 71,
+          "key": "omega",
+          "default_source": "100000000.0"
+        },
+        {
+          "line": 72,
+          "key": "temperature",
+          "default_source": "1000.0"
+        }
+      ],
+      "type_defaults": {
+        "BLACK_BODY_DEFAULTS": {
+          "line": 9,
+          "value": {
+            "temperature": 1000.0,
+            "probe_frequency": 100000000.0
+          }
+        },
+        "DIFFICULT_MODEL_DEFAULTS": {
+          "line": 15,
+          "value": {
+            "temperature": 1000.0,
+            "center_frequency": 1000000000.0,
+            "bandwidth": 10.0
+          }
+        }
+      },
+      "experiment_function_line": 60,
+      "direct_argument_names": [
+        "noise_level",
+        "difficulty",
+        "system",
+        "law_version"
+      ],
+      "law_registry_line": 123
+    },
+    {
+      "domain_id": "m1_coulomb_force",
+      "source_metadata": {
+        "core.py": {
+          "path": "modules/m1_coulomb_force/core.py",
+          "sha256": "e58850728fcd057608d113abd1cb280a7a340b55e8483cb81df5812afee33610",
+          "imports": [
+            "laws",
+            "m1_types",
+            "math",
+            "modules.common.evaluation",
+            "numpy",
+            "re",
+            "typing",
+            "utils.noise"
+          ]
+        },
+        "laws.py": {
+          "path": "modules/m1_coulomb_force/laws.py",
+          "sha256": "13fc65447751d5d44ed56bac1741b7a4f13e2b4f5a5f2501d324b18cb3ac0ab3",
+          "imports": [
+            "numpy",
+            "random",
+            "typing"
+          ]
+        },
+        "prompts.py": {
+          "path": "modules/m1_coulomb_force/prompts.py",
+          "sha256": "98897e447aaa2bd25df23c95b3ae12991c70dd982dfd992a2b66a91a0d9e50f5",
+          "imports": [
+            "m1_types",
+            "modules.common.prompts_base"
+          ]
+        },
+        "m1_types.py": {
+          "path": "modules/m1_coulomb_force/m1_types.py",
+          "sha256": "35f06d83d1d9b881b8a70d27528a9431f02f7cea1853ac67f72d67ceb641f62a",
+          "imports": [
+            "modules.common.types"
+          ]
+        }
+      },
+      "public_prompt_metadata": {
+        "PARAM_DESCRIPTION": {
+          "value": "- q1: magnitude of the charge of the first object. It should be a positive real number.\n- q2: magnitude of the charge of the second object. It should be a positive real number.\n- distance: distance between the two objects. It should be a positive real number.",
+          "line": 10
+        },
+        "FUNCTION_SIGNATURE": {
+          "value": "def discovered_law(q1, q2, distance):",
+          "line": 15
+        }
+      },
+      "law_version_ids": {
+        "easy": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "medium": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "hard": [
+          "v0",
+          "v1",
+          "v2"
+        ]
+      },
+      "experiment_parameters": [
+        {
+          "line": 184,
+          "key": "q1",
+          "default_source": "1.0"
+        },
+        {
+          "line": 185,
+          "key": "q2",
+          "default_source": "1.0"
+        },
+        {
+          "line": 186,
+          "key": "distance",
+          "default_source": "1.0"
+        },
+        {
+          "line": 209,
+          "key": "pos1",
+          "default_source": "[0.0, 0.0]"
+        },
+        {
+          "line": 210,
+          "key": "pos2",
+          "default_source": "[distance, 0.0]"
+        },
+        {
+          "line": 198,
+          "key": "m1",
+          "default_source": "1.0"
+        },
+        {
+          "line": 200,
+          "key": "m2",
+          "default_source": "1.0"
+        },
+        {
+          "line": 213,
+          "key": "m1",
+          "default_source": "1.0"
+        },
+        {
+          "line": 215,
+          "key": "m2",
+          "default_source": "1.0"
+        }
+      ],
+      "type_defaults": {
+        "TWO_DIM_DEFAULTS": {
+          "line": 6,
+          "value": {
+            "time_step": 0.1,
+            "duration": 10.0
+          }
+        },
+        "LINEAR_DEFAULTS": {
+          "line": 12,
+          "value": {
+            "time_step": 0.01,
+            "duration": 5.0
+          }
+        }
+      },
+      "experiment_function_line": 162,
+      "direct_argument_names": [
+        "noise_level",
+        "difficulty",
+        "system",
+        "law_version"
+      ],
+      "law_registry_line": 64
+    },
+    {
+      "domain_id": "m7_malus_law",
+      "source_metadata": {
+        "core.py": {
+          "path": "modules/m7_malus_law/core.py",
+          "sha256": "33038f8afaf96fbdb292dc85dc795d2d62b22500749688d55bb70caac5147082",
+          "imports": [
+            "ast",
+            "laws",
+            "m7_types",
+            "modules.common.evaluation",
+            "modules.common.types",
+            "numpy",
+            "physics",
+            "re",
+            "typing",
+            "utils.noise"
+          ]
+        },
+        "laws.py": {
+          "path": "modules/m7_malus_law/laws.py",
+          "sha256": "dc8a2d24ce1ebc17efe52b6d082216c06b165200738a3887abdbef289edc8224",
+          "imports": [
+            "numpy",
+            "random",
+            "typing"
+          ]
+        },
+        "prompts.py": {
+          "path": "modules/m7_malus_law/prompts.py",
+          "sha256": "363b55eaf2c5acb0a948ff257128e281300aa7e4f5750ef2f7d38aca69c3c973",
+          "imports": [
+            "modules.common.prompts_base",
+            "modules.common.types"
+          ]
+        },
+        "m7_types.py": {
+          "path": "modules/m7_malus_law/m7_types.py",
+          "sha256": "3c4f75f421066fc1d6ea74549fd440cf81c6e1569d12098bd05a4231ecddb116",
+          "imports": [
+            "modules.common.types",
+            "typing"
+          ]
+        }
+      },
+      "public_prompt_metadata": {
+        "PARAM_DESCRIPTION": {
+          "value": "- I_0: initial intensity of the light. It should be a positive real number.\n- theta: angle between the polarization axis of the polarizer and the polarization direction of the incident light in radians. It should be a real number between 0 and π/2.",
+          "line": 17
+        },
+        "FUNCTION_SIGNATURE": {
+          "value": "def discovered_law(I_0, theta):",
+          "line": 21
+        }
+      },
+      "law_version_ids": {
+        "easy": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "medium": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "hard": [
+          "v0",
+          "v1",
+          "v2"
+        ]
+      },
+      "experiment_parameters": [
+        {
+          "line": 146,
+          "key": "I_0",
+          "default_source": "MALUS_DEFAULTS['default_initial_intensity']"
+        },
+        {
+          "line": 147,
+          "key": "theta",
+          "default_source": "MALUS_DEFAULTS['default_angle']"
+        },
+        {
+          "line": 148,
+          "key": "num_points",
+          "default_source": "MALUS_DEFAULTS['num_points']"
+        }
+      ],
+      "type_defaults": {
+        "MALUS_DEFAULTS": {
+          "line": 4,
+          "value": {
+            "default_initial_intensity": 1000.0,
+            "default_angle": 0.785,
+            "num_points": 20
+          }
+        }
+      },
+      "experiment_function_line": 120,
+      "direct_argument_names": [
+        "noise_level",
+        "difficulty",
+        "system",
+        "law_version"
+      ],
+      "law_registry_line": 132
+    },
+    {
+      "domain_id": "m6_underdamped_harmonic",
+      "source_metadata": {
+        "core.py": {
+          "path": "modules/m6_underdamped_harmonic/core.py",
+          "sha256": "3c9662320ca3976ff9b3a0ae9fe458e994aa667e7734ae080bbd503c843aa343",
+          "imports": [
+            "laws",
+            "m6_types",
+            "modules.common.evaluation",
+            "numpy",
+            "re",
+            "typing",
+            "utils.noise"
+          ]
+        },
+        "laws.py": {
+          "path": "modules/m6_underdamped_harmonic/laws.py",
+          "sha256": "02a02873e250524fa0d611bdaf5ea0915b5517b7a0d7dd5eec5001851206011f",
+          "imports": [
+            "math",
+            "random",
+            "typing"
+          ]
+        },
+        "prompts.py": {
+          "path": "modules/m6_underdamped_harmonic/prompts.py",
+          "sha256": "fd80196778d5c235457882e6f1aaa9900de74f6e4d33cf70129f73ac69d1da9e",
+          "imports": [
+            "m6_types",
+            "modules.common.prompts_base"
+          ]
+        },
+        "m6_types.py": {
+          "path": "modules/m6_underdamped_harmonic/m6_types.py",
+          "sha256": "6f40dc704ce4b99d22d211dd8e80bea867042bd6d7c75d015a4b68c2e986be62",
+          "imports": [
+            "modules.common.types"
+          ]
+        }
+      },
+      "public_prompt_metadata": {
+        "PARAM_DESCRIPTION": {
+          "value": "- k: It should be a positive real number.\n- m: mass of the object. It should be a positive real number.\n- b: It should be a positive real number.",
+          "line": 10
+        },
+        "FUNCTION_SIGNATURE": {
+          "value": "def discovered_law(k, m, b):",
+          "line": 15
+        }
+      },
+      "law_version_ids": {
+        "easy": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "medium": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "hard": [
+          "v0",
+          "v1",
+          "v2"
+        ]
+      },
+      "experiment_parameters": [
+        {
+          "line": 77,
+          "key": "k_constant",
+          "default_source": "DAMPED_OSCILLATOR_DEFAULTS['k_constant']"
+        },
+        {
+          "line": 78,
+          "key": "mass",
+          "default_source": "DAMPED_OSCILLATOR_DEFAULTS['mass']"
+        },
+        {
+          "line": 79,
+          "key": "b_constant",
+          "default_source": "DAMPED_OSCILLATOR_DEFAULTS['b_constant']"
+        }
+      ],
+      "type_defaults": {
+        "DAMPED_OSCILLATOR_DEFAULTS": {
+          "line": 9,
+          "value": {
+            "k_constant": 10.0,
+            "mass": 1.0,
+            "b_constant": 0.5,
+            "initial_amplitude": 1.0
+          }
+        }
+      },
+      "experiment_function_line": 66,
+      "direct_argument_names": [
+        "noise_level",
+        "difficulty",
+        "system",
+        "law_version"
+      ],
+      "law_registry_line": 77
+    },
+    {
+      "domain_id": "m5_radioactive_decay",
+      "source_metadata": {
+        "core.py": {
+          "path": "modules/m5_radioactive_decay/core.py",
+          "sha256": "19d5f25a1eee5770aac13fea2883f026db21e6fb64a8cf313cd3c95b46d966cd",
+          "imports": [
+            "laws",
+            "m5_types",
+            "math",
+            "modules.common.evaluation",
+            "modules.common.types",
+            "numpy",
+            "re",
+            "typing",
+            "utils.noise"
+          ]
+        },
+        "laws.py": {
+          "path": "modules/m5_radioactive_decay/laws.py",
+          "sha256": "5a8f2842dde390d2d8e7cbcd24bb5ea3da95ec37a4289f153e45057afda33e9c",
+          "imports": [
+            "numpy",
+            "random",
+            "typing"
+          ]
+        },
+        "prompts.py": {
+          "path": "modules/m5_radioactive_decay/prompts.py",
+          "sha256": "d8b1cb9d1bff528c8594c1e277611c223ec02e673baad2d7468443fff3aeb81f",
+          "imports": [
+            "modules.common.prompts_base",
+            "modules.common.types"
+          ]
+        },
+        "m5_types.py": {
+          "path": "modules/m5_radioactive_decay/m5_types.py",
+          "sha256": "a294d095457a81706dd7fe7c34400b7d8da24bcd450afbb02c6c9b3de3612a97",
+          "imports": [
+            "modules.common.types",
+            "typing"
+          ]
+        }
+      },
+      "public_prompt_metadata": {
+        "PARAM_DESCRIPTION": {
+          "value": "- N0: initial number of atoms. It should be a positive real number.\n- lambda_constant: It should be a positive real number.\n- t: time elapsed. It should be a positive real number.",
+          "line": 10
+        },
+        "FUNCTION_SIGNATURE": {
+          "value": "def discovered_law(N0, lambda_constant, t):",
+          "line": 15
+        }
+      },
+      "law_version_ids": {
+        "easy": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "medium": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "hard": [
+          "v0",
+          "v1",
+          "v2"
+        ]
+      },
+      "experiment_parameters": [
+        {
+          "line": 135,
+          "key": "N0",
+          "default_source": "1.0"
+        },
+        {
+          "line": 136,
+          "key": "lambda_constant",
+          "default_source": "1.0"
+        },
+        {
+          "line": 137,
+          "key": "t",
+          "default_source": "1.0"
+        },
+        {
+          "line": 138,
+          "key": "N0a",
+          "default_source": "1.0"
+        },
+        {
+          "line": 139,
+          "key": "N0b",
+          "default_source": "1.0"
+        },
+        {
+          "line": 140,
+          "key": "lambda_a",
+          "default_source": "1.0"
+        },
+        {
+          "line": 141,
+          "key": "lambda_b",
+          "default_source": "1.0"
+        },
+        {
+          "line": 154,
+          "key": "num_points",
+          "default_source": "20"
+        },
+        {
+          "line": 165,
+          "key": "num_points",
+          "default_source": "20"
+        }
+      ],
+      "type_defaults": {
+        "LINEAR_DEFAULTS": {
+          "line": 5,
+          "value": {
+            "num_points": 20
+          }
+        },
+        "TWO_DIM_DEFAULTS": {
+          "line": 9,
+          "value": {
+            "num_points": 20
+          }
+        }
+      },
+      "experiment_function_line": 106,
+      "direct_argument_names": [
+        "noise_level",
+        "difficulty",
+        "system",
+        "law_version"
+      ],
+      "law_registry_line": 109
+    },
+    {
+      "domain_id": "m3_fourier_law",
+      "source_metadata": {
+        "core.py": {
+          "path": "modules/m3_fourier_law/core.py",
+          "sha256": "668321d74b4340f0bf7806bf621ca2a2e83097434898fe14c30f380f35767dc8",
+          "imports": [
+            "laws",
+            "m3_types",
+            "math",
+            "modules.common.evaluation",
+            "modules.common.types",
+            "numpy",
+            "re",
+            "typing",
+            "utils.noise"
+          ]
+        },
+        "laws.py": {
+          "path": "modules/m3_fourier_law/laws.py",
+          "sha256": "27ae2e06874b9f5661d24a3041542777d1bb382e4abb3a54189b59937676a55a",
+          "imports": [
+            "math",
+            "numpy",
+            "random",
+            "typing"
+          ]
+        },
+        "prompts.py": {
+          "path": "modules/m3_fourier_law/prompts.py",
+          "sha256": "e8e375c0e38f4e28428219969d3906346162b1869afcc709c2674f535d52e7af",
+          "imports": [
+            "modules.common.prompts_base",
+            "modules.common.types"
+          ]
+        },
+        "m3_types.py": {
+          "path": "modules/m3_fourier_law/m3_types.py",
+          "sha256": "28b00e9b62563a454ddad794d0dfd95d461b6ecd2df25ef13078f10b45831870",
+          "imports": [
+            "modules.common.types",
+            "typing"
+          ]
+        }
+      },
+      "public_prompt_metadata": {
+        "PARAM_DESCRIPTION": {
+          "value": "- k: It should be a positive real number.\n- A: cross-sectional area. It should be a positive real number.\n- delta_T: temperature difference. It can be assumed to be a positive real number.\n- d: thickness of the material. It should be a positive real number.",
+          "line": 10
+        },
+        "FUNCTION_SIGNATURE": {
+          "value": "def discovered_law(k, A, delta_T, d):",
+          "line": 16
+        }
+      },
+      "law_version_ids": {
+        "easy": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "medium": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "hard": [
+          "v0",
+          "v1",
+          "v2"
+        ]
+      },
+      "experiment_parameters": [
+        {
+          "line": 117,
+          "key": "k",
+          "default_source": "1.0"
+        },
+        {
+          "line": 118,
+          "key": "A",
+          "default_source": "1.0"
+        },
+        {
+          "line": 119,
+          "key": "delta_T",
+          "default_source": "1.0"
+        },
+        {
+          "line": 120,
+          "key": "d",
+          "default_source": "1.0"
+        },
+        {
+          "line": 135,
+          "key": "num_points",
+          "default_source": "20"
+        },
+        {
+          "line": 145,
+          "key": "num_points",
+          "default_source": "20"
+        }
+      ],
+      "type_defaults": {
+        "LINEAR_DEFAULTS": {
+          "line": 5,
+          "value": {
+            "num_points": 20
+          }
+        },
+        "TWO_DIM_DEFAULTS": {
+          "line": 9,
+          "value": {
+            "num_points": 20
+          }
+        }
+      },
+      "experiment_function_line": 94,
+      "direct_argument_names": [
+        "noise_level",
+        "difficulty",
+        "system",
+        "law_version"
+      ],
+      "law_registry_line": 95
+    },
+    {
+      "domain_id": "m2_magnetic_force",
+      "source_metadata": {
+        "core.py": {
+          "path": "modules/m2_magnetic_force/core.py",
+          "sha256": "77ce2053cf15c0ba804fecd049d9c2d29c2b1d1f4eb129deab636142c2f6a843",
+          "imports": [
+            "laws",
+            "m2_types",
+            "modules.common.evaluation",
+            "numpy",
+            "physics",
+            "re",
+            "typing",
+            "utils.noise"
+          ]
+        },
+        "laws.py": {
+          "path": "modules/m2_magnetic_force/laws.py",
+          "sha256": "d8548e77466013aee8fb2d3ed7edf86d5fb50b1747de19ffbfb99af83f1f5f97",
+          "imports": [
+            "numpy",
+            "random",
+            "typing"
+          ]
+        },
+        "prompts.py": {
+          "path": "modules/m2_magnetic_force/prompts.py",
+          "sha256": "d8aaddd6bb4f9deed1db2c502225fb0095ef1fe64d1f6b82d4886eef56d422c6",
+          "imports": [
+            "m2_types",
+            "modules.common.prompts_base"
+          ]
+        },
+        "m2_types.py": {
+          "path": "modules/m2_magnetic_force/m2_types.py",
+          "sha256": "774f5b36b821714cfb56283db0ed7effd0de8a6cbe6a8f22df989489a0fb9260",
+          "imports": [
+            "modules.common.types"
+          ]
+        }
+      },
+      "public_prompt_metadata": {
+        "PARAM_DESCRIPTION": {
+          "value": "- current1: current in the first wire. It can be assumed that it is always positive.\n- current2: current in the second wire. It can be assumed that it is always positive.\n- distance: distance between the two wires. It should be a positive real number.",
+          "line": 10
+        },
+        "FUNCTION_SIGNATURE": {
+          "value": "def discovered_law(current1, current2, distance):",
+          "line": 15
+        }
+      },
+      "law_version_ids": {
+        "easy": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "medium": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "hard": [
+          "v0",
+          "v1",
+          "v2"
+        ]
+      },
+      "experiment_parameters": [],
+      "type_defaults": {
+        "LINEAR_DEFAULTS": {
+          "line": 5,
+          "value": {
+            "time_step": 0.05,
+            "duration": 1.0,
+            "initial_velocity": 0.0,
+            "mass_wire": 1.0
+          }
+        },
+        "FIXED_WIRE_DEFAULTS": {
+          "line": 13,
+          "value": {
+            "current1": 1.0,
+            "current2": 1.0,
+            "mass_wire": 0.01,
+            "distance": 0.1,
+            "initial_velocity": 0.0
+          }
+        }
+      },
+      "experiment_function_line": 144,
+      "direct_argument_names": [
+        "noise_level",
+        "difficulty",
+        "system",
+        "law_version"
+      ],
+      "law_registry_line": 66
+    },
+    {
+      "domain_id": "m9_hooke_law",
+      "source_metadata": {
+        "core.py": {
+          "path": "modules/m9_hooke_law/core.py",
+          "sha256": "61cfa54309a7075f2ecd1216d2447ce48be0587f385e616be964cdd1ae3715d0",
+          "imports": [
+            "laws",
+            "m9_types",
+            "modules.common.evaluation",
+            "modules.common.types",
+            "numpy",
+            "re",
+            "typing",
+            "utils.noise"
+          ]
+        },
+        "laws.py": {
+          "path": "modules/m9_hooke_law/laws.py",
+          "sha256": "017c150015aac67455096ef502a3bd423e8d79914858bcb81161a2241cc4801c",
+          "imports": [
+            "numpy",
+            "random",
+            "typing"
+          ]
+        },
+        "prompts.py": {
+          "path": "modules/m9_hooke_law/prompts.py",
+          "sha256": "43437ab379678cb225123a379f45eda6b82724f008fb4e748d448229c6921a67",
+          "imports": [
+            "modules.common.prompts_base",
+            "modules.common.types"
+          ]
+        },
+        "m9_types.py": {
+          "path": "modules/m9_hooke_law/m9_types.py",
+          "sha256": "a5c61d4bcdbfa158d424e4c9f2f80ad169ff05b28f275f74fc1dfa801f9e7829",
+          "imports": [
+            "modules.common.types",
+            "typing"
+          ]
+        }
+      },
+      "public_prompt_metadata": {
+        "PARAM_DESCRIPTION": {
+          "value": "- x: displacement from the equilibrium position. It should be a positive real number.",
+          "line": 10
+        },
+        "FUNCTION_SIGNATURE": {
+          "value": "def discovered_law(x):",
+          "line": 13
+        }
+      },
+      "law_version_ids": {
+        "easy": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "medium": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "hard": [
+          "v0",
+          "v1",
+          "v2"
+        ]
+      },
+      "experiment_parameters": [
+        {
+          "line": 147,
+          "key": "x",
+          "default_source": "1.0"
+        },
+        {
+          "line": 148,
+          "key": "t",
+          "default_source": "1.0"
+        },
+        {
+          "line": 149,
+          "key": "m",
+          "default_source": "HOOKE_DEFAULTS['default_mass']"
+        },
+        {
+          "line": 150,
+          "key": "x_scale",
+          "default_source": "HOOKE_DEFAULTS['default_displacement_scale']"
+        },
+        {
+          "line": 162,
+          "key": "m",
+          "default_source": "HOOKE_DEFAULTS['default_mass']"
+        },
+        {
+          "line": 169,
+          "key": "m",
+          "default_source": "HOOKE_DEFAULTS['default_mass']"
+        }
+      ],
+      "type_defaults": {
+        "HOOKE_DEFAULTS": {
+          "line": 5,
+          "value": {
+            "default_mass": 1.0,
+            "default_displacement_scale": 0.02,
+            "num_points": 20
+          }
+        },
+        "ENERGY_DEFAULTS": {
+          "line": 11,
+          "value": {
+            "num_points": 20
+          }
+        }
+      },
+      "experiment_function_line": 123,
+      "direct_argument_names": [
+        "noise_level",
+        "difficulty",
+        "system",
+        "law_version"
+      ],
+      "law_registry_line": 103
+    },
+    {
+      "domain_id": "m11_heat_transfer",
+      "source_metadata": {
+        "core.py": {
+          "path": "modules/m11_heat_transfer/core.py",
+          "sha256": "82c18d57819a7fbc6dd93b533f5a1209ebdf5a6b58b9f5ca21d50c88c97587e1",
+          "imports": [
+            "laws",
+            "m11_types",
+            "modules.common.evaluation",
+            "modules.common.types",
+            "modules.m11_heat_transfer.m11_types",
+            "numpy",
+            "pandas",
+            "re",
+            "typing",
+            "utils.noise"
+          ]
+        },
+        "laws.py": {
+          "path": "modules/m11_heat_transfer/laws.py",
+          "sha256": "4525f153163e0730faba2bac0257d87bea63f21f7fce22d65ef73953f69e994c",
+          "imports": [
+            "numpy",
+            "random",
+            "typing"
+          ]
+        },
+        "prompts.py": {
+          "path": "modules/m11_heat_transfer/prompts.py",
+          "sha256": "f0e9459fce864396fa964c910221cbf8b82e483c0417cf075fa0b1be28ace54f",
+          "imports": [
+            "modules.common.prompts_base",
+            "modules.common.types"
+          ]
+        },
+        "m11_types.py": {
+          "path": "modules/m11_heat_transfer/m11_types.py",
+          "sha256": "8e564b0bfe1bdb10b06aa99a7dd9241768c6fd33e6c07fba3b3fd51720a32026",
+          "imports": [
+            "modules.common.types",
+            "typing"
+          ]
+        }
+      },
+      "public_prompt_metadata": {
+        "PARAM_DESCRIPTION": {
+          "value": "- m: mass of the substance. It should be a positive real number.\n- c: It should be a positive real number.\n- delta_T: temperature change. It should be a positive real number.",
+          "line": 10
+        },
+        "FUNCTION_SIGNATURE": {
+          "value": "def discovered_law(m, c, delta_T):",
+          "line": 15
+        }
+      },
+      "law_version_ids": {
+        "easy": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "medium": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "hard": [
+          "v0",
+          "v1",
+          "v2"
+        ]
+      },
+      "experiment_parameters": [
+        {
+          "line": 205,
+          "key": "m",
+          "default_source": "1.0"
+        },
+        {
+          "line": 206,
+          "key": "c",
+          "default_source": "1000.0"
+        },
+        {
+          "line": 207,
+          "key": "delta_T",
+          "default_source": "1.0"
+        }
+      ],
+      "type_defaults": {},
+      "experiment_function_line": 179,
+      "direct_argument_names": [
+        "noise_level",
+        "difficulty",
+        "system",
+        "law_version"
+      ],
+      "law_registry_line": 137
+    },
+    {
+      "domain_id": "m0_gravity",
+      "source_metadata": {
+        "core.py": {
+          "path": "modules/m0_gravity/core.py",
+          "sha256": "9b64f7aef9a1cceea209eed1af8d7c9dac1a3b3b279a28c9f792dbae1f0edaf8",
+          "imports": [
+            "laws",
+            "m0_types",
+            "modules.common.evaluation",
+            "numpy",
+            "physics",
+            "re",
+            "typing",
+            "utils.noise"
+          ]
+        },
+        "laws.py": {
+          "path": "modules/m0_gravity/laws.py",
+          "sha256": "ada4e9cecae8e3420d1bb0760bf71a6de36ec0271fa01ad398847a1ee056be0b",
+          "imports": [
+            "numpy",
+            "random",
+            "typing"
+          ]
+        },
+        "prompts.py": {
+          "path": "modules/m0_gravity/prompts.py",
+          "sha256": "dc0395b0143cc60054e80a653936faba34335f8fc605a5770dc63c32f6cf0e96",
+          "imports": [
+            "m0_types",
+            "modules.common.prompts_base"
+          ]
+        },
+        "m0_types.py": {
+          "path": "modules/m0_gravity/m0_types.py",
+          "sha256": "a1de3945f8ac8945abecbdd3dbe0810cffcc92fd07519bb27b85c4ab82ec6373",
+          "imports": [
+            "modules.common.types"
+          ]
+        }
+      },
+      "public_prompt_metadata": {
+        "PARAM_DESCRIPTION": {
+          "value": "- mass1: mass of the first object. It should be a positive real number.\n- mass2: mass of the second object. It should be a positive real number.\n- distance: distance between the two objects. It should be a positive real number.",
+          "line": 10
+        },
+        "FUNCTION_SIGNATURE": {
+          "value": "def discovered_law(mass1, mass2, distance):",
+          "line": 15
+        }
+      },
+      "law_version_ids": {
+        "easy": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "medium": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "hard": [
+          "v0",
+          "v1",
+          "v2"
+        ]
+      },
+      "experiment_parameters": [],
+      "type_defaults": {
+        "TWO_DIM_DEFAULTS": {
+          "line": 4,
+          "value": {
+            "time_step": 0.1,
+            "duration": 10.0
+          }
+        },
+        "LINEAR_DEFAULTS": {
+          "line": 10,
+          "value": {
+            "time_step": 0.01,
+            "duration": 5.0
+          }
+        }
+      },
+      "experiment_function_line": 210,
+      "direct_argument_names": [
+        "mass1",
+        "mass2",
+        "distance",
+        "noise_level",
+        "difficulty",
+        "system",
+        "law_version"
+      ],
+      "law_registry_line": 67
+    },
+    {
+      "domain_id": "m4_snell_law",
+      "source_metadata": {
+        "core.py": {
+          "path": "modules/m4_snell_law/core.py",
+          "sha256": "83303db7c9db8af376176970680580a8d641583b3a6d13d04e406e19fa15f2d2",
+          "imports": [
+            "laws",
+            "m4_types",
+            "modules.common.evaluation",
+            "numpy",
+            "physics",
+            "re",
+            "typing",
+            "utils.noise"
+          ]
+        },
+        "laws.py": {
+          "path": "modules/m4_snell_law/laws.py",
+          "sha256": "1faecfa85838eb9bcb781a71271da7e0ceb923b249584eac640787059709268f",
+          "imports": [
+            "math",
+            "random",
+            "typing"
+          ]
+        },
+        "prompts.py": {
+          "path": "modules/m4_snell_law/prompts.py",
+          "sha256": "e6a8eb4c813b02086f0d9fb027805240a9aaa8602d4f33da5be99020581df588",
+          "imports": [
+            "m4_types",
+            "modules.common.prompts_base"
+          ]
+        },
+        "m4_types.py": {
+          "path": "modules/m4_snell_law/m4_types.py",
+          "sha256": "58a87e31c2dc03de3b3a695cd51b5251fd48d331c1c0f6d5d3bbd8a9f98d0cbb",
+          "imports": [
+            "modules.common.types"
+          ]
+        }
+      },
+      "public_prompt_metadata": {
+        "PARAM_DESCRIPTION": {
+          "value": "- n1: refractive index of the first medium. It should be a positive real number, typically >= 1.\n- n2: refractive index of the second medium. It should be a positive real number, typically >= 1.\n- angle1: angle of incidence in degrees. It should be a real number, typically between 0 and 90.",
+          "line": 10
+        },
+        "FUNCTION_SIGNATURE": {
+          "value": "def discovered_law(n1, n2, angle1):",
+          "line": 186
+        }
+      },
+      "law_version_ids": {
+        "easy": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "medium": [
+          "v0",
+          "v1",
+          "v2"
+        ],
+        "hard": [
+          "v0",
+          "v1",
+          "v2"
+        ]
+      },
+      "experiment_parameters": [
+        {
+          "line": 101,
+          "key": "refractive_index_1",
+          "default_source": "1.1"
+        },
+        {
+          "line": 102,
+          "key": "refractive_index_2",
+          "default_source": "1.2"
+        },
+        {
+          "line": 103,
+          "key": "incidence_angle",
+          "default_source": "0.0"
+        },
+        {
+          "line": 115,
+          "key": "speed_medium1",
+          "default_source": "LIGHT_PROPAGATION_DEFAULTS['speed_medium1']"
+        },
+        {
+          "line": 116,
+          "key": "speed_medium2",
+          "default_source": "LIGHT_PROPAGATION_DEFAULTS['speed_medium2']"
+        },
+        {
+          "line": 117,
+          "key": "incidence_angle",
+          "default_source": "LIGHT_PROPAGATION_DEFAULTS['incidence_angle']"
+        },
+        {
+          "line": 130,
+          "key": "refractive_index_1",
+          "default_source": "TRIPLE_LAYER_DEFAULTS['refractive_index_1']"
+        },
+        {
+          "line": 131,
+          "key": "refractive_index_2",
+          "default_source": "TRIPLE_LAYER_DEFAULTS['refractive_index_2']"
+        },
+        {
+          "line": 132,
+          "key": "refractive_index_3",
+          "default_source": "TRIPLE_LAYER_DEFAULTS['refractive_index_3']"
+        },
+        {
+          "line": 133,
+          "key": "incidence_angle",
+          "default_source": "TRIPLE_LAYER_DEFAULTS['incidence_angle']"
+        }
+      ],
+      "type_defaults": {
+        "LIGHT_PROPAGATION_DEFAULTS": {
+          "line": 10,
+          "value": {
+            "speed_medium1": 300000000.0,
+            "speed_medium2": 200000000.0,
+            "incidence_angle": 30.0
+          }
+        },
+        "TRIPLE_LAYER_DEFAULTS": {
+          "line": 17,
+          "value": {
+            "refractive_index_1": 1.0,
+            "refractive_index_2": 1.5,
+            "refractive_index_3": 1.33,
+            "incidence_angle": 30.0
+          }
+        }
+      },
+      "experiment_function_line": 90,
+      "direct_argument_names": [
+        "noise_level",
+        "difficulty",
+        "system",
+        "law_version"
+      ],
+      "law_registry_line": 74
+    }
+  ]
+}

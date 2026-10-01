@@ -728,3 +728,30 @@ claim of top-conference readiness. Further methodological research requires a
 distinct contribution, close prior-art comparison and decisive controls. Merely
 repeating the failed comparisons on the same development periods would not
 provide that contribution.
+
+## Iteration 17 — prospective decoder and representation feasibility
+
+**Question:** before allocating a larger adaptive experiment, can a fixed fresh
+terminal model use a declared observation dataset beyond its public-domain prior?
+The [prospective protocol](scientific-decoder-dev-plan-v1.md) fixes four adapted
+NewtonBench laws, 64 training and 256 confirmation coordinates per law, two
+calls per condition and law, and signed predictive utility with trivial references.
+
+**Change:** the protocol, coordinate bytes, deterministic prompt recipe, restricted
+expression interpreter, pinned MIT upstream source and staged collection/scoring
+code are published before target generation. Eight literal prompt records must
+then be published before the maximum 16 hosted calls. All responses must freeze
+before confirmation targets. No retry, favorable task replacement or post-outcome
+prompt/grammar repair is permitted for this version.
+
+**Review:** separate internal lanes reviewed metadata, source determinism, prompt
+exclusions, event and evidence binding, numeric scoring and interruption behavior.
+Artificial tests found and corrected isolated-point diagnostic handling and saved
+training-ledger identity checks. The public validation record distinguishes tests,
+source inspection and two import-only checks from actual scientific measurements.
+
+**Limit:** this first publication contains no benchmark outcomes or new hosted
+responses. The gate measures the joint model, grammar and dataset configuration;
+failure cannot identify which component limits inference. Even a pass would not
+establish useful adaptive acquisition, exact symbolic recovery, a financial result,
+or conference-level novelty. The earlier failed financial branches remain stopped.

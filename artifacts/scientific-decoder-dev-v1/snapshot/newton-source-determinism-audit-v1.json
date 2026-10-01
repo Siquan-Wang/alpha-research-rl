@@ -1,0 +1,100 @@
+{
+  "schema": "newton-source-determinism-audit-v1",
+  "scope": "AST-only fixed selected function closure; no law execution or formula/body/operators/constants displayed. Known pure numeric calls and exception constructors permitted; numeric globals checked structurally, not evaluated. Assumes pinned source/unmodified modules/fixed numeric runtime; not a totality or domain-validity proof. Numeric allowlist includes ordinary math builtins and explicit NumPy scalar conversions; no NumPy or law module was imported for this check. Scoped NumPy numeric-error-policy context managers with fixed string configuration are recognized as deterministic policy, not RNG or arbitrary receiver methods.",
+  "tasks": [
+    {
+      "domain": "m8_sound_speed",
+      "difficulty": "medium",
+      "law_version": "v0",
+      "source_sha256": "f1644d1e90d922708cdc6d21cc25689334e0d57615a94e4a20a0a26aa5a74b33",
+      "selected_function_closure_count": 1,
+      "selected_rng_reachable": false,
+      "selected_rng_names": [],
+      "unknown_call_count": 0,
+      "unknown_external_name_count": 0,
+      "state_mutation_or_dynamic_import": false,
+      "explicit_version_supplied": true,
+      "selector_rng_call_names": [
+        "choice"
+      ],
+      "selector_rng_not_proven_excluded_count": 0,
+      "determinism_status": "SOURCE_CONDITIONAL_CLEAR"
+    },
+    {
+      "domain": "m8_sound_speed",
+      "difficulty": "hard",
+      "law_version": "v1",
+      "source_sha256": "f1644d1e90d922708cdc6d21cc25689334e0d57615a94e4a20a0a26aa5a74b33",
+      "selected_function_closure_count": 1,
+      "selected_rng_reachable": false,
+      "selected_rng_names": [],
+      "unknown_call_count": 0,
+      "unknown_external_name_count": 0,
+      "state_mutation_or_dynamic_import": false,
+      "explicit_version_supplied": true,
+      "selector_rng_call_names": [
+        "choice"
+      ],
+      "selector_rng_not_proven_excluded_count": 0,
+      "determinism_status": "SOURCE_CONDITIONAL_CLEAR"
+    },
+    {
+      "domain": "m10_be_distribution",
+      "difficulty": "medium",
+      "law_version": "v2",
+      "source_sha256": "c6d065d3bde4aa89cb981a245f45126a9f2dee160d8881f8fca14d209c46c338",
+      "selected_function_closure_count": 1,
+      "selected_rng_reachable": false,
+      "selected_rng_names": [],
+      "unknown_call_count": 0,
+      "unknown_external_name_count": 0,
+      "state_mutation_or_dynamic_import": false,
+      "explicit_version_supplied": true,
+      "selector_rng_call_names": [
+        "choice"
+      ],
+      "selector_rng_not_proven_excluded_count": 0,
+      "determinism_status": "SOURCE_CONDITIONAL_CLEAR",
+      "unknown_call_categories": [
+        "scoped_numpy_error_policy"
+      ],
+      "safe_conversion_audit": [],
+      "scoped_error_policy_audit": [
+        {
+          "receiver_is_numpy_module": true,
+          "is_scoped_numpy_error_policy": true,
+          "constant_configuration": true
+        }
+      ]
+    },
+    {
+      "domain": "m10_be_distribution",
+      "difficulty": "hard",
+      "law_version": "v0",
+      "source_sha256": "c6d065d3bde4aa89cb981a245f45126a9f2dee160d8881f8fca14d209c46c338",
+      "selected_function_closure_count": 1,
+      "selected_rng_reachable": false,
+      "selected_rng_names": [],
+      "unknown_call_count": 0,
+      "unknown_external_name_count": 0,
+      "state_mutation_or_dynamic_import": false,
+      "explicit_version_supplied": true,
+      "selector_rng_call_names": [
+        "choice"
+      ],
+      "selector_rng_not_proven_excluded_count": 0,
+      "determinism_status": "SOURCE_CONDITIONAL_CLEAR",
+      "unknown_call_categories": [
+        "scoped_numpy_error_policy"
+      ],
+      "safe_conversion_audit": [],
+      "scoped_error_policy_audit": [
+        {
+          "receiver_is_numpy_module": true,
+          "is_scoped_numpy_error_policy": true,
+          "constant_configuration": true
+        }
+      ]
+    }
+  ]
+}

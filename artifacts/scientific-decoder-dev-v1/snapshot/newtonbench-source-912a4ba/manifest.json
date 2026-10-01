@@ -1,0 +1,19 @@
+{
+  "commit": "912a4ba5f4356ddd06acc16e44460ca30be4abc2",
+  "files": {
+    "LICENSE": "47158d3a1eb6cbebe82fab657c11d4959c453f4d803b103a132b4627b63719f0",
+    "modules/common/physics_base.py": "dc911c47ab4ca454b2e88d29e60d1a0f53bb4df3eb17054a415e9fdaa73c287d",
+    "modules/common/types.py": "f5814e8adfd4266eeb3def1253adfef99f0c4e3da0dc632feadd1bee0c0518b7",
+    "modules/m10_be_distribution/core.py": "b78856b75797f0144d772f4045652e968c23d7a1dc0b07df768b74d9546ab9f6",
+    "modules/m10_be_distribution/laws.py": "c6d065d3bde4aa89cb981a245f45126a9f2dee160d8881f8fca14d209c46c338",
+    "modules/m10_be_distribution/m10_types.py": "06b41b598e4420c7cb5ba061d263a57216c371c90aa86a440bb470119f0ed2ff",
+    "modules/m10_be_distribution/prompts.py": "62b9fca291554e2e10efc9b0631d8b0809265ff7d27a493fe1c2fe4ac73ff436",
+    "modules/m8_sound_speed/core.py": "12b1d812a1a8ac8aaa371b66732b188dd815ce076c0ae70b23ac0d9e18acee4f",
+    "modules/m8_sound_speed/laws.py": "f1644d1e90d922708cdc6d21cc25689334e0d57615a94e4a20a0a26aa5a74b33",
+    "modules/m8_sound_speed/m8_types.py": "fe10c17082fa57859539983be0a5c8811008282821c88b658a871d0f9d321dc2",
+    "modules/m8_sound_speed/physics.py": "913c810b3ead73a38ae0fd79ce97cdc975a9ad95bd1e45d4acc349b27e081395",
+    "modules/m8_sound_speed/prompts.py": "47d02e5e455a5a02eb4523c578e23f5f1250d6385e65215713ceb935451732c2",
+    "utils/noise.py": "f239b80240ea33bd61ab08c5bf64d9d8edf11250708cba023d2d94cc1f0f6c67"
+  },
+  "schema": "newtonbench-minimal-source-v1"
+}

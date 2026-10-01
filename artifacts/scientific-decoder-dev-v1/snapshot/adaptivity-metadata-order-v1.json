@@ -1,0 +1,423 @@
+{
+  "schema": "adaptivity-metadata-order-v1",
+  "status": "METADATA_ONLY_NO_MEASUREMENTS",
+  "upstream_commit": "912a4ba5f4356ddd06acc16e44460ca30be4abc2",
+  "inventory_provenance": "Root reports source-agent key-only AST verification of the 12 domain IDs and medium/hard version sets v0,v1,v2; this file performs only deterministic string hashing.",
+  "domain_key": "(sha256(UTF8(\"adaptivity-value-v1:domain:\"+domain_id)).hexdigest(),domain_id)",
+  "law_key": "(sha256(UTF8(\"adaptivity-value-v1:law:\"+domain_id+\":\"+difficulty+\":\"+version_id)).hexdigest(),version_id)",
+  "canonical_law_id": "domain_id+\":\"+difficulty+\":\"+selected_version",
+  "selection_note": "Domain/law selection is fixed before outcomes; main-law IDs are prospective only and allocate no simulator data or model calls.",
+  "counts": {
+    "domains": 12,
+    "development_domains": 2,
+    "development_laws": 4,
+    "main_proposed_domains": 6,
+    "main_proposed_laws": 12,
+    "unallocated_domains": 4
+  },
+  "pending": [
+    "adapted compact input domains and units",
+    "public variable/output schema",
+    "expression grammar and scalar oracle adapter",
+    "coordinate seeds and frozen renderer",
+    "prelaunch adoption"
+  ],
+  "domains": [
+    {
+      "rank_1based": 1,
+      "domain_id": "m8_sound_speed",
+      "domain_sha256": "1078654c3d8b44dc5849822a7d5dd418438489d43f16c1bd0e9d5c82aab1ff31",
+      "allocation": "development",
+      "laws": [
+        {
+          "difficulty": "medium",
+          "selected_version": "v0",
+          "canonical_law_id": "m8_sound_speed:medium:v0",
+          "ranked_versions": [
+            {
+              "version": "v0",
+              "sha256": "0b849f3297dd3d03118fbf310d98475f4e93ba51fea5a2e2ddcbe738ce7b22d0"
+            },
+            {
+              "version": "v2",
+              "sha256": "4fe5e26cf9550a4e83a3c1c37c7dae5190a25287e78a994ffba86afb585c7fb0"
+            },
+            {
+              "version": "v1",
+              "sha256": "f4ac610572e0d1f641b780155e4d1b6e49bb753fe7a65706e94358ebc0420a34"
+            }
+          ]
+        },
+        {
+          "difficulty": "hard",
+          "selected_version": "v1",
+          "canonical_law_id": "m8_sound_speed:hard:v1",
+          "ranked_versions": [
+            {
+              "version": "v1",
+              "sha256": "9e2eecd9ae569450eef07dd97644e6118556f78a2122d16cbb6b393a5f7ed539"
+            },
+            {
+              "version": "v0",
+              "sha256": "cadbcb5d6b7abaea8dc7d0290afdd8ad2dc618402004f2bf10d4714ffd1a87e9"
+            },
+            {
+              "version": "v2",
+              "sha256": "d28fc7dc936147aee33567d60bbb32d8044bc63983ec1dd9ba9ae4fb6ccaf78f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rank_1based": 2,
+      "domain_id": "m10_be_distribution",
+      "domain_sha256": "18fc4820634abeb0715d3afbfce22414763b5bb104343bef3acafbab7f3e3ac3",
+      "allocation": "development",
+      "laws": [
+        {
+          "difficulty": "medium",
+          "selected_version": "v2",
+          "canonical_law_id": "m10_be_distribution:medium:v2",
+          "ranked_versions": [
+            {
+              "version": "v2",
+              "sha256": "6bd4494f040f71b7041d23d97c14d5d8921ffbe515b936dfeeac8ab767de7a4f"
+            },
+            {
+              "version": "v0",
+              "sha256": "99affedce7dece99b67faf72453fbf4822dd844144ef19cc1205be2788df8c24"
+            },
+            {
+              "version": "v1",
+              "sha256": "d4affa0de46714bd627b1b745f29d13ad1540a89930cc77735e2860db137f316"
+            }
+          ]
+        },
+        {
+          "difficulty": "hard",
+          "selected_version": "v0",
+          "canonical_law_id": "m10_be_distribution:hard:v0",
+          "ranked_versions": [
+            {
+              "version": "v0",
+              "sha256": "8c608a60a9b30115b23a84880716f4202595774d62d664f3fb8dc510a23924b9"
+            },
+            {
+              "version": "v2",
+              "sha256": "ce8603fe089084c72e14ed34dfb34f2f25c2138c0f092f68cd7a3a773a7716ef"
+            },
+            {
+              "version": "v1",
+              "sha256": "de65cebd5f31395bdbcf8e97156bf5202fa127e53f811d94adf209101521cf55"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rank_1based": 3,
+      "domain_id": "m1_coulomb_force",
+      "domain_sha256": "1c78b635ec934eae35940f88c1f006f6ada0583aa2f02737b2ba57865ca50efb",
+      "allocation": "main_proposal",
+      "laws": [
+        {
+          "difficulty": "medium",
+          "selected_version": "v2",
+          "canonical_law_id": "m1_coulomb_force:medium:v2",
+          "ranked_versions": [
+            {
+              "version": "v2",
+              "sha256": "5a1d82b13b54b32057983d614a0d8d6fd6c3c968f97bc75edad1f00d6c9204f3"
+            },
+            {
+              "version": "v0",
+              "sha256": "ccf41d51b8b3736fda872e198beec178d0429b82b89b56cdab6660e295da491e"
+            },
+            {
+              "version": "v1",
+              "sha256": "eedd2934e27fbaf19c19593c15a552345e80a18c1ed33eccad51c2efe3df8e6a"
+            }
+          ]
+        },
+        {
+          "difficulty": "hard",
+          "selected_version": "v2",
+          "canonical_law_id": "m1_coulomb_force:hard:v2",
+          "ranked_versions": [
+            {
+              "version": "v2",
+              "sha256": "c13c8a78a7637f4efd34ddffb1e091de4b648dfbf635e70002435e43e7b21de7"
+            },
+            {
+              "version": "v1",
+              "sha256": "f24798374914da2de0c41049e1a7a0545374bf452ead10c857a80636f00582a0"
+            },
+            {
+              "version": "v0",
+              "sha256": "f65bb35258a4c10a5fa6349b42d80bfbc32ab49761261f0acff3f7989c1c6588"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rank_1based": 4,
+      "domain_id": "m7_malus_law",
+      "domain_sha256": "2106150514a320ec3eb807036a3ddeb4409d7480f33443881fbce38cc5af0769",
+      "allocation": "main_proposal",
+      "laws": [
+        {
+          "difficulty": "medium",
+          "selected_version": "v0",
+          "canonical_law_id": "m7_malus_law:medium:v0",
+          "ranked_versions": [
+            {
+              "version": "v0",
+              "sha256": "6b16e02c82795743cb4eb0a7109382803bb7b325a78b14109dd58e5993e99629"
+            },
+            {
+              "version": "v2",
+              "sha256": "a0c629de99d53a6218b0b1cfdeda3983212c0eb328b3f009e6ee1e8c53ccdeae"
+            },
+            {
+              "version": "v1",
+              "sha256": "f44345025729be6e7c8c4442ad32406b5e7198dbca3915008017ae7f0f59ef3c"
+            }
+          ]
+        },
+        {
+          "difficulty": "hard",
+          "selected_version": "v0",
+          "canonical_law_id": "m7_malus_law:hard:v0",
+          "ranked_versions": [
+            {
+              "version": "v0",
+              "sha256": "99cd8a0f84ba14ca3a9c5d14b4a91b94dc5d8f1447d0225798c8cf7b2cd6e472"
+            },
+            {
+              "version": "v1",
+              "sha256": "c142d3dc38712df29cbb432402d0d354091ebbf70b9b9cecf36530df616b3aa8"
+            },
+            {
+              "version": "v2",
+              "sha256": "fa539ba7d89c72bddfb8e2e051d4e3006902e509dbadb1a940f0f864e125af0d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rank_1based": 5,
+      "domain_id": "m6_underdamped_harmonic",
+      "domain_sha256": "2e97e8934ef2a26edcd6a950bcedc5a99dd5ca29bb914b832e57cd1a52a603a7",
+      "allocation": "main_proposal",
+      "laws": [
+        {
+          "difficulty": "medium",
+          "selected_version": "v1",
+          "canonical_law_id": "m6_underdamped_harmonic:medium:v1",
+          "ranked_versions": [
+            {
+              "version": "v1",
+              "sha256": "a26f4552a6f48b217f65b831a1e2b986db0e5027170aafad36f900004bb2a8fe"
+            },
+            {
+              "version": "v0",
+              "sha256": "b7127fb90fff4dd1e7d2e7c6fcab3facb1c20afd770cef4c1acdefb8cac7f7ca"
+            },
+            {
+              "version": "v2",
+              "sha256": "dabf6e2967a889ef11d4e6f5758e100da05f125cba8c614ab3bfc70fe18618ec"
+            }
+          ]
+        },
+        {
+          "difficulty": "hard",
+          "selected_version": "v0",
+          "canonical_law_id": "m6_underdamped_harmonic:hard:v0",
+          "ranked_versions": [
+            {
+              "version": "v0",
+              "sha256": "0b6fdd3af105daeabb8dd84a75f400aa6ce2c3e34559fe730ae80241ba7d66b9"
+            },
+            {
+              "version": "v2",
+              "sha256": "f312d79fb649e0d0cbe8c7fd9e00596f548476b1e02cfca0e10a200523103d01"
+            },
+            {
+              "version": "v1",
+              "sha256": "ffd6d75e6b5b15684566545178e3989e740eed6bad3f72aa07e9e5f401e190e6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rank_1based": 6,
+      "domain_id": "m5_radioactive_decay",
+      "domain_sha256": "6bfb03d59fa2ecdff42f96e0e315db046b9b40593c796db499a0d8e93ff44366",
+      "allocation": "main_proposal",
+      "laws": [
+        {
+          "difficulty": "medium",
+          "selected_version": "v2",
+          "canonical_law_id": "m5_radioactive_decay:medium:v2",
+          "ranked_versions": [
+            {
+              "version": "v2",
+              "sha256": "3a0b0a7b6cecfe45cae0e5758e06460a0159c6fa01b8e76b9603c2e3efb011d9"
+            },
+            {
+              "version": "v1",
+              "sha256": "56c31958c9104374b17d70f7ebb3ebac13eaa0dcf56ff667ba9aac236b9680de"
+            },
+            {
+              "version": "v0",
+              "sha256": "d2930b107c50d9e2e41da08dff059ef9ce3d88162c572986e625302a66dd2c78"
+            }
+          ]
+        },
+        {
+          "difficulty": "hard",
+          "selected_version": "v0",
+          "canonical_law_id": "m5_radioactive_decay:hard:v0",
+          "ranked_versions": [
+            {
+              "version": "v0",
+              "sha256": "546626e8cf5cdf099d242096ce79a4440f0788b7af6faac3b31308b2fdf07f9f"
+            },
+            {
+              "version": "v1",
+              "sha256": "bcb3248ee45d2700e8d93c5209a5f0d469a60ceef1c5fe31dc0d414b49b94f7c"
+            },
+            {
+              "version": "v2",
+              "sha256": "f19a8246c4ba4dbcf00f0ef6d62a1b10a626caafd413e962fbbf70d3aec822e4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rank_1based": 7,
+      "domain_id": "m3_fourier_law",
+      "domain_sha256": "7d840ff305d9d9c8f80e927f7160dbeea444fe9bd3fa3c8b563eb051aabfa9a0",
+      "allocation": "main_proposal",
+      "laws": [
+        {
+          "difficulty": "medium",
+          "selected_version": "v2",
+          "canonical_law_id": "m3_fourier_law:medium:v2",
+          "ranked_versions": [
+            {
+              "version": "v2",
+              "sha256": "05f772ab3d6deeccf016bd777849e6c605c322e6b3c1ca24d4e7410fad417634"
+            },
+            {
+              "version": "v1",
+              "sha256": "0c374d692f008b1633a2f5350c46fbd114ac5913affad334706468cb0208d45e"
+            },
+            {
+              "version": "v0",
+              "sha256": "6ffb1b21805819d61e9215a4515baf8e5f59b5fd40edc788fecc0f75f38f1947"
+            }
+          ]
+        },
+        {
+          "difficulty": "hard",
+          "selected_version": "v0",
+          "canonical_law_id": "m3_fourier_law:hard:v0",
+          "ranked_versions": [
+            {
+              "version": "v0",
+              "sha256": "17dfcb06d4546dc1e5bc0ec15525652c9bf080ead5872483955e8fe009a878b2"
+            },
+            {
+              "version": "v1",
+              "sha256": "78359a4514236b5eef65f0d86277d8ec2d381e5d447dd4c6880f6a828d01409f"
+            },
+            {
+              "version": "v2",
+              "sha256": "d661e61d6505d048532adbcd7493c4c0fc086f5f88f67d80b35bfe8b00ac5aa8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rank_1based": 8,
+      "domain_id": "m2_magnetic_force",
+      "domain_sha256": "9f1a4d8b4c9376be78ccd2eef7cc381e1185f6b7fc152e4a8c903241f34ecb4e",
+      "allocation": "main_proposal",
+      "laws": [
+        {
+          "difficulty": "medium",
+          "selected_version": "v1",
+          "canonical_law_id": "m2_magnetic_force:medium:v1",
+          "ranked_versions": [
+            {
+              "version": "v1",
+              "sha256": "1acb93bfefe87c58e95d43f338d3e56514ac240eaf6729016ec4a12edefd9c02"
+            },
+            {
+              "version": "v2",
+              "sha256": "efce2084257fb6d944ce273c49cec569dec026c3a10e238ea92509153712eb60"
+            },
+            {
+              "version": "v0",
+              "sha256": "f4fbdd282affec067c988a616300c99d2fbd101184d873bc643624f769b251dc"
+            }
+          ]
+        },
+        {
+          "difficulty": "hard",
+          "selected_version": "v1",
+          "canonical_law_id": "m2_magnetic_force:hard:v1",
+          "ranked_versions": [
+            {
+              "version": "v1",
+              "sha256": "0791b298c2d712278724f7b0af5a529a0f42d768adc68718edce88d6b24f38a4"
+            },
+            {
+              "version": "v2",
+              "sha256": "114f6fcd6680863b6a86879241d51b069d048fc8011b2aaaed2a6eb44fa69568"
+            },
+            {
+              "version": "v0",
+              "sha256": "3d775567a64bff5d4bb1fd6addd3634e48ae834e5a93f5c8581b23914c4cef56"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rank_1based": 9,
+      "domain_id": "m9_hooke_law",
+      "domain_sha256": "b67c5b8d048cd032f2760f61dbfcfa842ccf025e96e357d2ac1f4dfaa4eb307b",
+      "allocation": "unallocated",
+      "laws": []
+    },
+    {
+      "rank_1based": 10,
+      "domain_id": "m11_heat_transfer",
+      "domain_sha256": "bc00e1d5318f37fc21c3fab07f9f0b96f3371c265064ae88b2ee48befd0ecd38",
+      "allocation": "unallocated",
+      "laws": []
+    },
+    {
+      "rank_1based": 11,
+      "domain_id": "m0_gravity",
+      "domain_sha256": "dc46d53bc44f6da4c709c9ef83b82b89398216aee1b2cc01b980b94410745c43",
+      "allocation": "unallocated",
+      "laws": []
+    },
+    {
+      "rank_1based": 12,
+      "domain_id": "m4_snell_law",
+      "domain_sha256": "ec686960e834d61548e29341a9b53b9e8b00bc43304b62faf13e90b9f4cfc6bc",
+      "allocation": "unallocated",
+      "laws": []
+    }
+  ]
+}

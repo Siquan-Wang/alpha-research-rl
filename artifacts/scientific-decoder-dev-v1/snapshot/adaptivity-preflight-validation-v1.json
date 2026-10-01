@@ -1,0 +1,141 @@
+{
+  "artificial_test_invocations": [
+    {
+      "component": "helper_and_worker",
+      "deselected": 0,
+      "evidence_basis": "Root-reported final invocation after worker repairs; no rerun by record author.",
+      "executed_by": "root",
+      "passed": 39,
+      "seconds": 0.13
+    },
+    {
+      "component": "renderer_and_driver",
+      "deselected": 0,
+      "evidence_basis": "Root-reported invocation before adding the focused sibling-failure regression.",
+      "executed_by": "root",
+      "passed": 36,
+      "seconds": 0.78
+    },
+    {
+      "component": "driver_sibling_failure_retention",
+      "deselected": 36,
+      "evidence_basis": "Root-reported focused invocation; not an additional 37-test full run.",
+      "executed_by": "root",
+      "passed": 1,
+      "seconds": 0.12
+    },
+    {
+      "component": "scorer_initial_review",
+      "deselected": 0,
+      "evidence_basis": "Observed pytest tool result from one artificial invocation; before three training-ledger cases were added.",
+      "executed_by": "mechanism_implementation_astra",
+      "passed": 13,
+      "seconds": 0.75,
+      "tested_source_sha256": "9bd5cb1f1ff41bf5f72e769df196c3229ea642b2c50b3382e7b73ecd7902f3a6",
+      "tested_test_sha256": "31546d812b8b549f705a4857766e9e70ca4193c95f8f56428b25a2013d77df7e"
+    },
+    {
+      "component": "scorer_final",
+      "deselected": 0,
+      "evidence_basis": "Root-reported full invocation after strict training-ledger correction; not rerun by record author.",
+      "executed_by": "root",
+      "passed": 16,
+      "seconds": 0.84,
+      "tested_source_sha256": "e7f9fec2fdf9eb7e33bfbafdb5321a52db7dd06924221241d274efaef8fe7f74",
+      "tested_test_sha256": "2c2cbfa4aeb4ea8bb4829c0d46581816c4be663b6f665f1cd1f2dbdc34c076ce"
+    }
+  ],
+  "current_file_sha256": {
+    ".local/adaptivity_adapter_contract.py": "c79610ef27bfa70cc8ec153e8848e8345bf299ee49225287317dc00096bc8fb8",
+    ".local/adaptivity_dev_prompts_v1.py": "659bccfd0932eae0f1bd3545fed56279801757e42f4ce13c458a060c1aed6cb7",
+    ".local/import_newton_dev_runtime_v1.py": "06d43d628bd1ba1c39220e56624a166d513470f52b76fc0e08976e317996641c",
+    ".local/newton_scalar_worker_v1.py": "4f9a23e93a11e71a5064ab3902cff926b9417e33de384768854a60a57fee3152",
+    ".local/run_adaptivity_decoder_dev_v1.py": "ac4c60030af29819966280a170bfcb22c3246573e4565ff29dffeb32fdc35b8d",
+    ".local/score_adaptivity_decoder_dev_v1.py": "e7f9fec2fdf9eb7e33bfbafdb5321a52db7dd06924221241d274efaef8fe7f74",
+    ".local/test_adaptivity_adapter_contract.py": "327d693f27ba4cbaa0b1fa730afba09ff42e164bf29dadf3c4acc05c32254cf2",
+    ".local/test_adaptivity_dev_pipeline_v1.py": "eff31525cca55b34596d8bd39a9e1bb2b19758ea273426003d6f8bcc1212bf3c",
+    ".local/test_adaptivity_dev_scoring_v1.py": "2c2cbfa4aeb4ea8bb4829c0d46581816c4be663b6f665f1cd1f2dbdc34c076ce",
+    "src/alpha_research_rl/codex_actor.py": "fe6c964e4563216d13122b0db456cc74b66b0b6982942933ea8eedbcd7f946d0"
+  },
+  "determinism_source_review": {
+    "body_formula_operator_constant_text_displayed": false,
+    "executed_law_functions": 0,
+    "explicit_version_selection": true,
+    "interpretation": "Selected function closures contain no observed reachable RNG or unresolved dynamic calls under fixed pinned source and numerical runtime. Selector random.choice is excluded by explicit non-null versions. Fixed scoped NumPy error handling is not RNG.",
+    "limits": [
+      "Not a formal all-input proof.",
+      "Not proof of finite outputs or totality over adapted boxes.",
+      "Not proof that the restricted expression grammar represents selected laws.",
+      "Not proof of benchmark difficulty, model performance, adaptive benefit or lack of pretraining exposure."
+    ],
+    "path": ".local/newton-source-determinism-audit-v1.json",
+    "sha256": "fc66899332a83fe6adeb49a2c9b985cc524f0536c159039c3dec7993f55bdc88",
+    "source_conditional_clear": 4,
+    "tasks": 4
+  },
+  "final_source_review": {
+    "disposition": "No additional concrete blocker identified in final strict training-ledger delta.",
+    "reviewed_by": "mechanism_implementation_astra",
+    "scope_limit": "Source review plus artificial fixtures; no actual score bank, targets, provider or worker executed/read as part of this review.",
+    "scorer_sha256": "e7f9fec2fdf9eb7e33bfbafdb5321a52db7dd06924221241d274efaef8fe7f74"
+  },
+  "hash_scope": "Current exact bytes, not a claim that every earlier invocation tested every later edit. Historical and final invocation provenance is distinguished below.",
+  "import_only_qualifications": [
+    {
+      "domain": "m8_sound_speed",
+      "executed_by": "root",
+      "observed_api_modules": [],
+      "oracle_queries": 0,
+      "path": ".local/newton-import-m8_sound_speed-v1.json",
+      "reviewed_here": "saved metadata and pinned origin hashes only; no import repeated",
+      "sha256": "1ec2a6a7597f8ddef2cbcebc4653c9401a5d114b410c8b8e50819a30b4a7dba0",
+      "started_at_utc": "2026-10-01T16:37:11.131480+00:00",
+      "status": "IMPORTED_WITHOUT_MEASUREMENT",
+      "vendor_source_origin_count": 6
+    },
+    {
+      "domain": "m10_be_distribution",
+      "executed_by": "root",
+      "observed_api_modules": [],
+      "oracle_queries": 0,
+      "path": ".local/newton-import-m10_be_distribution-v1.json",
+      "reviewed_here": "saved metadata and pinned origin hashes only; no import repeated",
+      "sha256": "49f8fa5fc9cb526faabdffaadc51634b789c364c89ef2dd2c93bdfa8a24862e7",
+      "started_at_utc": "2026-10-01T16:37:11.156493+00:00",
+      "status": "IMPORTED_WITHOUT_MEASUREMENT",
+      "vendor_source_origin_count": 5
+    }
+  ],
+  "publication_limits": [
+    "Import-only records establish available callable imports and observed source origins, not successful numerical measurements.",
+    "The ordinary trusted-host/API boundary is not a hostile-process sandbox.",
+    "Public metadata includes domain priors; novelty, contamination freedom and symbolic equivalence are not established.",
+    "Prospective publication, full response freezing and confirmation timing remain root-operated study obligations."
+  ],
+  "recorded_at_utc": "2026-10-01T16:56:11.898485+00:00",
+  "resolved_scorer_findings": [
+    "Frozen response bank is compared exactly to typed validated pair evidence before confirmation targets.",
+    "Any failed prediction makes primary utility zero; valid positions retain secondary utility with the complete position denominator.",
+    "All four tasks are checked for previous confirmation artifacts before the first new target call.",
+    "Response bytes and freeze identity are captured before targets and checked before publication.",
+    "Training ledger requires exactly four ordered integer task identities and canonical output paths; each output contains 64 ordered successful finite numeric values.",
+    "Per-law, per-domain and overall summaries retain the complete scheduled bank; mean reference uses training values only."
+  ],
+  "roles": {
+    "independence_limit": "All are internal AI-agent contributions, not external peer review or independent scientific replication.",
+    "mechanism_audit_astra": "Separate internal source review of helper, worker, runtime accounting and driver/scorer boundaries; no duplicate test or benchmark execution in that lane.",
+    "mechanism_implementation_astra": "Authored expression/utility/broker and scalar worker plus their tests. Separately reviewed root scorer, authored scorer regression tests and metadata-only determinism audit; assembled this record. Not independent of utility core.",
+    "research_design": "Authored prospective plan and prompt renderer, plus renderer/driver artificial tests. Not independent of renderer; reviewed root driver separately.",
+    "root": "Authored driver, scorer and import qualification; executed final reported artificial checks and both import-only qualifications; owns scientific execution/publication."
+  },
+  "schema": "adaptivity-preflight-validation-v1",
+  "scope": "Internal artificial and source/import-only preflight evidence; no scientific or hosted-model result.",
+  "test_interpretation": {
+    "all_fixtures_artificial": true,
+    "benchmark_oracle_queries": 0,
+    "counts_are_invocations_not_additive_unique_tests": true,
+    "model_calls": 0,
+    "this_record_creation_reran_tests": false,
+    "timings_are_reported_pytest_elapsed_seconds_not_end_to_end_research_cost": true
+  }
+}
