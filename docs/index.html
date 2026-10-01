@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Inspect a local LLM post-training study for factor research, including reward controls, all saved proposals, and failed experiments.">
+  <meta name="description" content="Inspect an actual Astra agentic factor-research experiment and separate local LLM post-training studies, including all proposals, controls and negative results.">
   <title>AlphaResearch-RL · Research evidence</title>
   <style>
     :root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#203442;background:#f1f5f7}
@@ -24,10 +24,10 @@
 <body>
 <main>
   <div class="eyebrow">AlphaResearch-RL · Open research record</div>
-  <h1>What does a language model learn from a financial reward?</h1>
-  <p class="intro">A local Qwen3-0.6B post-training experiment for bounded factor research.
-  Inspect actual proposals, the evidence each actor saw, and the controls that limit our conclusions.</p>
-  <div class="facts"><span>5 frozen checkpoints</span><span>900 retained evaluation draws</span><span>10 dependent half-years</span><span>Mixed and negative findings preserved</span></div>
+  <h1>Can language models improve factor research?</h1>
+  <p class="intro">An actual Astra agentic research experiment and separate Qwen3-0.6B post-training studies.
+  Inspect generated formulas, the evidence each actor saw, and the controls that limit our conclusions.</p>
+  <div class="facts"><span>180 actual Astra decisions</span><span>3 feedback conditions</span><span>5 local trained checkpoints</span><span>Negative findings preserved</span></div>
   <nav aria-label="Project resources">
     <a href="https://github.com/Siquan-Wang/alpha-research-rl">Source repository</a>
     <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/research-positioning.md">Research positioning</a>
@@ -35,8 +35,17 @@
     <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/published-adapters.md">Download trained adapters</a>
   </nav>
   <div class="cards">
+    <article class="wide">
+      <div class="number">01 · Actual Astra research loop</div>
+      <h2>Does quantitative feedback improve factor search?</h2>
+      <p>Compare full, validity-only and withheld feedback across 180 actual model decisions.
+      All 30 candidate pools were published before their selected formulas were assessed.
+      Full feedback did not improve the registered comparison: mean future IC difference −0.006364 versus validity only.</p>
+      <a class="button" href="astra-explorer.html">Inspect the Astra experiment</a>
+      <p class="muted">Ten development periods, one trajectory per condition. Inference-time adaptation; no Astra weight training or profitability claim.</p>
+    </article>
     <article>
-      <div class="number">01 · Original proposal study</div>
+      <div class="number">02 · Original local-model proposal study</div>
       <h2>Did RL improve on supervised training?</h2>
       <p>Compare SFT with two correctly linked RL runs. Inspect all 540 saved draws,
       matched true/exchanged evidence, and the validity–IC decomposition.</p>
@@ -44,7 +53,7 @@
       <p class="muted">Three checkpoints frozen before transfer evaluation.</p>
     </article>
     <article>
-      <div class="number">02 · Exploratory follow-up</div>
+      <div class="number">03 · Exploratory reward follow-up</div>
       <h2>Did the reward–action link matter?</h2>
       <p>Compare each RL run with a matched on-policy reward-permutation control.
       Inspect all five policies: the original 540 draws plus 360 new control draws.</p>
@@ -52,7 +61,7 @@
       <p class="muted">Declared after the original results; both controls frozen before their evaluation.</p>
     </article>
     <article class="wide">
-      <div class="number">03 · Earlier synthetic sequential pilot</div>
+      <div class="number">04 · Earlier synthetic sequential pilot</div>
       <h2>What did the agent actually do, step by step?</h2>
       <p>Follow proposal, screening, selection and stopping across 18 saved episodes.
       See verbatim generated actions, charged budgets and explicitly reconstructed evidence states.
@@ -64,16 +73,19 @@
   <section class="findings" aria-labelledby="findings">
     <h2 id="findings">What the completed experiments show</h2>
     <ul>
+      <li>Astra generated six proposals per episode under three feedback conditions. Full feedback's mean future IC was −0.033823, with no observed benefit over the validity-only condition; all 30 assessments were valid.</li>
       <li>Both original RL runs improved the declared reward over SFT. Most of that gain came from fewer invalid proposals; neither sampled policy exceeded the uniform formula-grid reference.</li>
       <li>Correctly linked RL also exceeded its matched reward-permutation control in both seeds. The predictive-IC contribution changed in opposite directions across seeds, and greedy behavior was unchanged.</li>
       <li>The sequential evidence-acquisition gate failed. Candidate-bank generation and sequential-controller training for that branch stopped.</li>
     </ul>
-    <p><a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/financial-proposal-results-v1.md">Original results</a>
+    <p><a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/astra-agent-results-v1.md">Astra results</a>
+    · <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/financial-proposal-results-v1.md">Original local-model results</a>
     · <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/reward-linkage-results-v1.md">Reward-linkage results</a>
     · <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/sequential-gate-results-v1.md">Failed sequential gate</a></p>
   </section>
   <p class="scope">These are saved development experiments on revised French49 industry-portfolio histories.
-  The financial actor makes one proposal per episode. This record does not establish profitable alpha,
+  The local financial policy makes one proposal per episode; the Astra actor makes six.
+  This record does not establish profitable alpha,
   a useful learned multistep researcher, or a clean pretraining holdout. Generated draws are not independent markets.
   The explorers require no model, account or live data connection.</p>
 </main>

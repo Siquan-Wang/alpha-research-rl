@@ -1,34 +1,37 @@
 # AlphaResearch-RL
 
-**An inspectable environment for training language models to conduct sequential factor research.**
+**An inspectable environment for training and evaluating language-model factor-research policies.**
 
 An actor proposes a bounded factor expression, spends a finite budget on evidence,
-revises or selects candidates, and receives a later-period research reward.
+revises or selects candidates, and is assessed on later-period research outcomes.
 The project separates the research process from the financial prediction task so
 that leakage, invalid actions, reward design, and actual parameter updates can be
 tested independently.
 
 **Status: measured research prototype, with mixed and negative results.**
-Local Qwen3-0.6B LoRA training, saved-model checks, and chronological financial
+The latest completed study used **Astra as the actual research actor**:
+180 decisions, three feedback conditions, six proposals per episode, and
+30 candidate pools published before assessment. Full quantitative feedback
+did **not improve** the registered comparison: mean future IC was −0.03382,
+or −0.00636 relative to validity-only feedback. All 30 assessments were valid.
+Read the [complete results](docs/astra-agent-results-v1.md) or
+[inspect all decisions](https://siquan-wang.github.io/alpha-research-rl/astra-explorer.html).
+
+This is **inference-time adaptation, not Astra weight training**. The
+[prospective protocol](docs/astra-agent-research-plan-v1.md) and
+[frozen submissions](results/astra_agent_v1_submissions.json) preserve the full
+budget, feedback masks and common selector. The
+[replay tool](docs/replay-astra-evidence.md) checks saved traces and assessment
+arithmetic without a model login or market-data access. Existing 2020–2024
+periods remain development data; there is one trajectory per condition and period.
+
+In a separate learning path,
+local Qwen3-0.6B LoRA training, saved-model checks, and chronological financial
 comparisons have run. In the financial proposal study, two RL runs improved the
 declared reward over SFT, but most of the gain came from fewer invalid formulas;
 neither sampled policy beat the uniform formula-grid reference. Correct-feedback effects were
 inconsistent across seeds. These results do not establish a useful financial
 alpha or a learned full research agent.
-
-The new mainline study uses **Astra as the actual factor-research actor** through
-the existing Codex CLI. Its [prospective protocol](docs/astra-agent-research-plan-v1.md)
-compares six-step generation with full quantitative feedback, validity-only
-feedback and withheld feedback, under the same final selector. All **180 actual
-decisions and 30 candidate pools are now frozen**, with
-[complete submissions](results/astra_agent_v1_submissions.json) and a
-[successful structural replay](results/astra_agent_v1_submission_replay.json).
-Future assessment has not run at this publication checkpoint. This is a study
-of inference-time adaptation, separate from the completed Qwen weight-training
-experiments. Existing 2020–2024 periods remain development data.
-The [public-evidence replay tool](docs/replay-astra-evidence.md) checks complete
-saved traces without a model login or market-data access; an incomplete bank
-cannot be presented as a completed comparison.
 
 The [iteration log](docs/iteration-log.md) records what each research round
 changed, what its evidence supports, and which directions stopped.
@@ -40,6 +43,7 @@ new alpha. Both analyses retain all policies and evidence conditions.
 
 | Completed study | Evidence | Main result |
 | --- | --- | --- |
+| Actual Astra feedback study | 180 decisions, three conditions, 30 pools publicly frozen before assessment | Full − validity mean future IC −.00636; all outcomes valid, no observed feedback benefit on this development bank |
 | Sequential synthetic pilot | SFT and trajectory RLOO, six development tasks | Identical SFT/RL greedy actions and rewards; no incremental RL benefit |
 | Constructed feedback curriculum | 384 updates, 24 held-out paired interventions | 8/24 pairs correct; the predeclared 80% gate failed |
 | Financial formula proposal | 96 SFT and 31 RL updates; two RL seeds, ten 2020–2024 half-years | Reward gains +.03146 / +.02618 over SFT; +.025 in each comes from reduced failure penalties |

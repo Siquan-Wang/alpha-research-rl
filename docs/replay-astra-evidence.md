@@ -52,7 +52,7 @@ If a completed assessment artifact is available, add its actual path:
 python -m alpha_research_rl.astra_replay `
   --contract artifacts/astra-agent-v1/contract.json `
   --submissions results/astra_agent_v1_submissions.json `
-  --assessment path/to/published-assessment.json `
+  --assessment results/astra_agent_v1_assessment.json `
   --source-root . `
   --output astra-assessment-replay.json
 ```
@@ -69,3 +69,14 @@ The Python API is `replay_study(contract_path, submissions_path,
 source_root=..., assessment_path=None)`. It returns a JSON-compatible summary
 and raises on inconsistent evidence. Tests use small synthetic in-memory
 episodes; their outcomes are not experimental results.
+
+The repository's CPU CI also runs `python scripts/replay_published_astra.py`
+against the actual published bank. It checks all 180 decisions, the 30 saved
+assessments, complete trace bookkeeping, and the explorer's embedded evidence
+and page template. Recomputed floats use absolute tolerance `1e-12`; scalar
+types, keys, order and source identities remain exact. Each bookkeeping digest
+is validated before comparing numerical bodies. Process-level guards reject
+training imports, raw/private data access, replay subprocesses and network
+connections. Standard-library host-platform detection runs first because on
+Windows it may invoke the OS version command. The guards are execution checks
+rather than an adversarial security sandbox.

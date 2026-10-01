@@ -235,3 +235,52 @@ It contains no assessment headline. Recorded token usage is complete for all
 180 calls but differs across conditions; equal proposal counts are not a claim
 of equal hidden context or computation. The next step is to verify the public
 commit's exact files, then assess only its 30 fixed selections.
+
+## 9. Completed Astra comparison and inspectable research traces
+
+**Problem:** valid model-generated formulas and persuasive hypotheses do not
+establish useful research. The completed bank needed a frozen assessment and
+an interface that distinguishes what the actor saw from what the evaluator knew.
+
+**Change:** published all 180 proposals at `b204714`, independently downloaded
+and matched all fifteen bound public files at 09:07 UTC on 2026-10-01, then
+assessed exactly the thirty already selected expressions. Added an
+[interactive explorer](https://siquan-wang.github.io/alpha-research-rl/astra-explorer.html)
+for every supplied history, feedback mask, proposal, fixed selection and outcome.
+Separate [trace bookkeeping](astra-trace-diagnostics.md) uses saved evidence
+without new inference or market scoring.
+
+**Observed result:** mean oriented assessment IC is −0.033823 for full feedback,
+−0.027459 for validity-only and −0.028719 for withheld feedback. Full minus
+validity is **−0.006364** over all ten registered periods. All thirty assessments
+are valid; the common search cost cancels in arm contrasts. There is no observed
+feedback advantage in this realized development sample. This is not proof that
+feedback generally harms research. The [complete report](astra-agent-results-v1.md)
+retains all three comparisons, ten paired periods, five year summaries and
+provider usage fields.
+
+**Validation:** the complete integrated local suite passed **679 tests** in
+195.09 seconds; Ruff passed. Three distinct reviews covered private-to-public
+transport evidence, source-first result arithmetic and interpretation, and the
+new explorer. They are internal agent reviews, with authorship disclosed in
+their records. All 180 rendered formulas across sixty period/attempt controls
+match the saved bank; ten paired rows and five year rows render without browser
+errors. The renderer now validates and embeds the same captured input bytes,
+escapes hostile strings, and preserves full-history hashes and truncation flags.
+No market score is recomputed by either replay or the explorer.
+
+The new public CI step replays the actual complete bank, assessment arithmetic,
+trace bookkeeping and generated page. Its local run passed with raw/private
+data, training imports, network and replay subprocesses prohibited. Windows
+standard-library platform detection precedes those guards; its OS version
+command initially triggered the strict subprocess check and this boundary is
+now explicit. The remote result will be checked after publication.
+
+**Limits and next:** all calls requested Astra Ultra through the existing Codex
+CLI; provider-reported usage and accepted event streams do not attest hidden
+model context or weights. This is inference-time research, not Astra weight RL.
+The previously examined 2020–2024 data are development evidence. A separate,
+explicitly post-hoc frozen-pool diagnosis will distinguish a poor candidate-pool
+ceiling from missed selection opportunities. Its plan and code must be frozen
+before any additional candidate is scored; it cannot change the v1 winner,
+direction, denominator or result.

@@ -18,6 +18,8 @@ jobs:
         run: python scripts/replay_published_results.py
       - name: Recompute saved reliability and diversity diagnostics
         run: python scripts/replay_published_diagnostics.py
+      - name: Replay the complete Astra bank and offline explorer
+        run: python scripts/replay_published_astra.py
   training-math:
     runs-on: ubuntu-latest
     env:
