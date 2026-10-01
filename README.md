@@ -9,7 +9,7 @@ that leakage, invalid actions, reward design, and actual parameter updates can b
 tested independently.
 
 **Status: measured research prototype, with mixed and negative results.**
-The latest completed study used **Astra as the actual research actor**:
+The original study used **Astra as the actual research actor**:
 180 decisions, three feedback conditions, six proposals per episode, and
 30 candidate pools published before assessment. Full quantitative feedback
 did **not improve** the registered comparison: mean future IC was −0.03382,
@@ -37,12 +37,16 @@ have negative mean IC; the full-feedback pool ceiling also trails both controls.
 The [pool explorer](https://siquan-wang.github.io/alpha-research-rl/astra-pool-explorer.html)
 shows every candidate and selector. The original Astra result remains unchanged.
 
-The [next study](docs/astra-matched-prefix-overview.md) fixes identical two-proposal
-starting states, compares displayed versus masked candidate feedback, and adds
-copy, one-edit and one-draw references. Its fixed budget is 80 hosted calls and
-120 cheap slots. Proposal quality and gains after historical selection are
-separate endpoints. All 200 slots are now frozen; financial assessment is pending,
-so no follow-up predictive result is reported yet.
+The latest [matched-prefix study](docs/astra-matched-prefix-results-v1.md)
+completed 80 additional hosted calls and 120 cheap-reference slots from identical
+two-proposal starts. Displaying candidate feedback reduced observed mean proposal
+Q by **.006750** versus masking. Selector gain G improved relatively by .001497,
+but remained negative and below copying or one scheduled window edit. The
+registered allocation gate failed; this version stopped. The
+[new explorer](https://siquan-wang.github.io/alpha-research-rl/astra-revision-explorer.html)
+retains every branch, raw Q/G value and failed inequality. An outcome-blinded
+rationale audit found mostly supported public factual statements, demonstrating
+why grounded explanations and predictive usefulness must be evaluated separately.
 
 For a short technical review, start with the
 [five-minute walkthrough](docs/research-walkthrough.md), including the negative
@@ -68,6 +72,7 @@ new alpha. Both analyses retain all policies and evidence conditions.
 | --- | --- | --- |
 | Actual Astra feedback study | 180 decisions, three conditions, 30 pools publicly frozen before assessment | Full − validity mean future IC −.00636; all outcomes valid, no observed feedback benefit on this development bank |
 | Post-hoc Astra pool diagnosis | All 180 original slots; 108 new CPU evaluations and 24 reused keys | All three tested feasible selectors remain negative in every arm's overall mean; full-feedback candidate ceiling is lower and selection gap smaller than controls |
+| Matched-prefix proposal study | 80 additional hosted calls, 120 cheap slots, 99 new evaluations and 34 reused keys | Truthful − masked Q −.006750; truthful G −.001098; all thirteen allocation checks retained and the gate failed |
 | Sequential synthetic pilot | SFT and trajectory RLOO, six development tasks | Identical SFT/RL greedy actions and rewards; no incremental RL benefit |
 | Constructed feedback curriculum | 384 updates, 24 held-out paired interventions | 8/24 pairs correct; the predeclared 80% gate failed |
 | Financial formula proposal | 96 SFT and 31 RL updates; two RL seeds, ten 2020–2024 half-years | Reward gains +.03146 / +.02618 over SFT; +.025 in each comes from reduced failure penalties |

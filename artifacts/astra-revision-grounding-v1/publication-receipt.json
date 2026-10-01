@@ -1,0 +1,15 @@
+{
+  "commit": "39a3522e8b32525d1fe7a6c02eb8d16cd298c5f5",
+  "files": {
+    "results/astra_revision_grounding_v1.json": {
+      "sha256": "1fd4c13ab8530f0d71ee3d562aa8e1dd099a2fa8d88a028308316b30c395efce",
+      "bytes": 1414803
+    },
+    "docs/audits/astra-revision-grounding-plan-v1.md": {
+      "sha256": "5c7ed55917ac1ba1c4f70a39942fa8aca98f7dafb7780d156a6e17998fce2617",
+      "bytes": 7135
+    }
+  },
+  "verified_utc": "2026-10-01T12:33:10.098947+00:00",
+  "assessment_request_absent": true
+}

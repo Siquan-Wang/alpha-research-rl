@@ -22,6 +22,8 @@ jobs:
         run: python scripts/replay_published_astra.py
       - name: Replay the post-hoc pool diagnosis and its offline explorer
         run: python scripts/replay_published_astra_pool.py
+      - name: Replay the complete matched-prefix revision bank and offline explorer
+        run: python scripts/replay_published_astra_revision.py
   training-math:
     runs-on: ubuntu-latest
     env:

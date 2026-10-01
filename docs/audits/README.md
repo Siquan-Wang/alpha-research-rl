@@ -84,3 +84,8 @@ confirmatory study.
 - [Independent reconstruction of all 200 historical choices and 80 transport records](astra-revision-collection-review-v1.md).
 - [Offline explorer and exact public HTML replay review](astra-revision-explorer-review-v1.md), with synthetic validation separated from actual integration.
 - [Ancillary public-rationale audit plan](astra-revision-grounding-plan-v1.md) and [complete coding report](astra-revision-grounding-results-v1.md), frozen before current future assessment; internal AI-assisted text review, not predictive evidence.
+
+- [Completed revision arithmetic review](astra-revision-results-review-v1.md): independent reconstruction of all 200 branches, 13 gate checks and assessment provenance.
+- [Completed revision narrative review](astra-revision-narrative-review-v1.md): manipulated-condition framing and historical zero-signal failures clarified.
+- [Grounding interpretation](astra-revision-grounding-interpretation-v1.md): source-indexed textual mechanisms and their limits.
+- [Revision CI integration](astra-revision-ci-integration-v1.md): unconditional complete-report and HTML replay on Python 3.11/3.12.

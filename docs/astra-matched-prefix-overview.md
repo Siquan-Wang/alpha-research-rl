@@ -1,11 +1,13 @@
 # Matched starts: does candidate feedback improve a new proposal?
 
-**Status: all 80 hosted calls completed and all 200 slots frozen; future
-assessment pending.** The preparation passed public-byte verification before
-collection. The complete submissions must pass their own publication gate
-before any outcome join or new assessment. This page contains no new financial
-result. The [full protocol](astra-matched-prefix-plan-v1.md) defines the exact
-prompts, generators, eligibility, accounting and stopping rules.
+**Status: complete; the prespecified allocation gate failed and this version
+is stopped.** All 80 hosted calls and 200 slots were frozen and publicly
+verified before future outcome joins. Truthful minus masked proposal Q was
+−.0067496; truthful selector gain G was −.0010982, below the unchanged prefix
+baseline. Read the [complete results](astra-matched-prefix-results-v1.md) or
+[inspect all 200 branches](astra-revision-explorer.html). The unchanged
+[full protocol](astra-matched-prefix-plan-v1.md) defines the exact prompts,
+generators, eligibility, accounting and stopping rules.
 
 The first Astra study had a real six-step research loop but different sampled
 trajectories across feedback conditions. Its [completed pool diagnosis](astra-pool-diagnosis-results-v1.md)
@@ -104,7 +106,7 @@ and retained failures make the result inspectable regardless of its sign.
 
 For execution details, see the [reproduction guide](reproduce-astra-revision-study.md).
 The [independent review](audits/astra-matched-prefix-review-v1.md) distinguishes
-verified design and implementation properties from experiments not yet run.
+pre-execution design and implementation review from the now-completed results.
 
 Collection completed on 2026-10-01 at 12:13:30 UTC, without retries or
 replacement proposals. All 80 hosted proposals were historically usable; two

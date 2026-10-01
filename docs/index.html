@@ -27,7 +27,7 @@
   <h1>Can language models improve factor research?</h1>
   <p class="intro">An actual Astra agentic research experiment and separate Qwen3-0.6B post-training studies.
   Inspect generated formulas, the evidence each actor saw, and the controls that limit our conclusions.</p>
-  <div class="facts"><span>180 actual Astra decisions</span><span>3 feedback conditions</span><span>5 local trained checkpoints</span><span>Negative findings preserved</span></div>
+  <div class="facts"><span>180 sequential + 80 matched-start Astra calls</span><span>120 cheap-reference slots</span><span>5 local trained checkpoints</span><span>Negative findings preserved</span></div>
   <nav aria-label="Project resources">
     <a href="https://github.com/Siquan-Wang/alpha-research-rl">Source repository</a>
     <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/research-positioning.md">Research positioning</a>
@@ -35,6 +35,15 @@
     <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/published-adapters.md">Download trained adapters</a>
   </nav>
   <div class="cards">
+    <article class="wide">
+      <div class="number">Latest · Matched starts and cheap references</div>
+      <h2>Does candidate feedback improve a fresh proposal?</h2>
+      <p>Inspect 80 additional Astra calls and 120 cheap-reference slots from identical two-proposal starts.
+      Displayed feedback's mean proposal quality was 0.006750 lower than masked feedback.
+      Its selector gain was negative, and the predeclared allocation gate failed.</p>
+      <a class="button" href="astra-revision-explorer.html">Inspect all 200 matched-start branches</a>
+      <p class="muted">All candidates and historical choices were publicly frozen before outcome joins. Text grounding and predictive usefulness are evaluated separately. This version stopped.</p>
+    </article>
     <article class="wide">
       <div class="number">01 · Actual Astra research loop</div>
       <h2>Does quantitative feedback improve factor search?</h2>
@@ -82,6 +91,7 @@
   <section class="findings" aria-labelledby="findings">
     <h2 id="findings">What the completed experiments show</h2>
     <ul>
+      <li>With matched starting states, truthful feedback did not improve mean candidate Q over masking. Its relative selector gain was positive, but its gain over keeping the prefix winner was negative. All thirteen gate checks are retained.</li>
       <li>Astra generated six proposals per episode under three feedback conditions. Full feedback's mean future IC was −0.033823, with no observed benefit over the validity-only condition; all 30 assessments were valid.</li>
       <li>The separate pool diagnosis found missed hindsight opportunity, while the first-proposal and minimum-AST rules still had negative mean IC. A positive oracle ceiling is not a usable strategy.</li>
       <li>Both original RL runs improved the declared reward over SFT. Most of that gain came from fewer invalid proposals; neither sampled policy exceeded the uniform formula-grid reference.</li>
@@ -89,13 +99,14 @@
       <li>The sequential evidence-acquisition gate failed. Candidate-bank generation and sequential-controller training for that branch stopped.</li>
     </ul>
     <p><a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/astra-agent-results-v1.md">Astra results</a>
+    · <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/astra-matched-prefix-results-v1.md">Matched-prefix results</a>
     · <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/astra-pool-diagnosis-results-v1.md">Post-hoc pool diagnosis</a>
     · <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/financial-proposal-results-v1.md">Original local-model results</a>
     · <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/reward-linkage-results-v1.md">Reward-linkage results</a>
     · <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/sequential-gate-results-v1.md">Failed sequential gate</a></p>
   </section>
   <p class="scope">These are saved development experiments on revised French49 industry-portfolio histories.
-  The local financial policy makes one proposal per episode; the Astra actor makes six.
+  The local financial policy and matched-prefix follow-up make one proposal per episode; the original Astra actor makes six.
   This record does not establish profitable alpha,
   a useful learned multistep researcher, or a clean pretraining holdout. Generated draws are not independent markets.
   The explorers require no model, account or live data connection.</p>

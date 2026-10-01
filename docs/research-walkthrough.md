@@ -6,10 +6,11 @@ This repository separates working orchestration, actual parameter learning and
 predictive usefulness. The first two have execution evidence; useful financial
 improvement remains unproven.
 
-Completed-evidence baseline: public `main` at `5640368`. The matched-prefix
-follow-up below has completed its 80 hosted calls and frozen all 200 slots;
-the second publication gate and financial assessment remain pending. It has
-no predictive-quality result yet.
+The matched-prefix follow-up is now complete: 80 additional hosted calls and
+120 cheap-reference slots were frozen before future evaluation. Truthful minus
+masked proposal Q was −.006750, and the allocation gate failed. All prior
+results remain unchanged; the new [result report](astra-matched-prefix-results-v1.md)
+and [200-branch explorer](astra-revision-explorer.html) preserve the full record.
 
 ## Read these in order
 
@@ -38,7 +39,7 @@ no predictive-quality result yet.
 | Multistep agency | Astra makes six successive proposals using its permitted history, under three feedback conditions. | The common deterministic final selector is not an extra model decision; useful adaptation is an empirical question. |
 | Actual weight RL | Local Qwen3-0.6B LoRA receives SFT and REINFORCE updates with a leave-one-out baseline. | The financial episode is one proposal—a contextual bandit. Hosted Astra inference does not update Astra weights. |
 | Numerical forecasting | A separate [walk-forward ridge baseline](results-v1.md#historical-industry-return-baseline) maps numerical features to future returns. | Formula generation is not a financial foundation model or a new numerical forecasting architecture. |
-| Controlled revision | Identical two-proposal starts, displayed versus masked candidate metrics, and cheap references; all 200 slots are frozen. | Financial assessment is pending; no follow-up result is reported here. |
+| Controlled revision | Identical two-proposal starts, displayed versus masked candidate metrics, and cheap references; all 200 slots assessed after public freezing. | Truthful − masked Q −.006750; truthful G −.001098. The failed gate stops this version. |
 
 ## Six questions worth pressing on
 
@@ -82,7 +83,7 @@ training data, never held-out evidence.
 
 A useful generated proposal must justify more than syntactic variation or
 accurate citations of old scores. The uniform-grid comparison already challenges
-the trained policies. In the pending revision study, copying the prefix winner,
+the trained policies. In the completed revision study, copying the prefix winner,
 making one scheduled window edit and taking one seeded grammar draw provide
 cheap alternatives at the same attempted-proposal budget. Copies retain their
 future quality Q, while their incremental selected gain G is zero. Post-hoc
@@ -99,20 +100,24 @@ conditional generation variation; interpreting its Monte Carlo SE requires an
 unverified independent-draw assumption. No significance, general feedback-harm,
 profitability or external peer-review claim follows from these records.
 
-**6. What is the next falsifiable decision?**
+**6. What did the narrower follow-up decide?**
 
 The [matched-prefix protocol](astra-matched-prefix-plan-v1.md) asks whether
 displayed candidate metrics improve a fresh formula from the same starting
 state. Its budget is **80 hosted calls plus 120 cheap slots**, with no repair or
 resampling. Primary Q is historically oriented future IC, or −1 for failure;
 secondary G is the gain after the common historical selector relative to the
-prefix winner. All 200 slots and choices must freeze and pass public-byte
-verification before cached future outcomes are joined or new ones evaluated.
+prefix winner. All 200 slots and choices froze and passed public-byte verification before
+cached future outcomes were joined or new ones evaluated. Exactly 99 new
+evaluations and 34 reused keys completed the bank.
 
 The allocation rule requires truthful feedback to beat masking and every cheap
 reference on Q, predictive contribution and G, with mean G above the abstract
-incremental cost .01. Failure stops this version; success does not automatically
-authorize another study. Infrastructure failure or the user quota reserve leaves
-partial evidence without a complete-study headline. Neither outcome changes the completed
-negative result, establishes long-horizon research skill, or supplies a fresh
-market holdout.
+incremental cost .01. The gate failed, so this version stopped. Truthful Q lost to masking and
+window edits; its advantage over penalized grammar Q contained +.05 from
+validity and −.011449 from predictive contribution. Its G was −.001098 against
+copying. A separately frozen text audit found mostly evidence-consistent factual
+statements, which did not imply predictive benefit. Neither result establishes
+long-horizon skill or supplies a fresh market holdout. A different follow-up
+requires a separately justified question and finite protocol, not extra draws
+or tuned prompts for this failed version.

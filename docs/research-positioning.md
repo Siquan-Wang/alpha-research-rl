@@ -1,6 +1,6 @@
 # Research positioning and contribution boundaries
 
-Updated after the completed Astra study on 2026-10-01 UTC. AlphaResearch-RL
+Updated after the completed matched-prefix study on 2026-10-01 UTC. AlphaResearch-RL
 studies language-model generation, feedback use and post-training for factor
 research. The actual Astra research loop and the separate local Qwen training
 experiments have both run. Its strongest contribution is an inspectable
@@ -79,14 +79,16 @@ unchanged.
 
 The original result lacks repeated hosted generations within each condition
 and period. The separate [matched-prefix study](astra-matched-prefix-overview.md)
-now has a reviewed protocol and completed collection. It compares four
-fresh one-proposal calls per condition and state against copying, scheduled
-window edits and seeded grammar draws, at a finite budget of 80 hosted calls
-and 120 cheap slots. Preparation was publicly verified before collection;
-all 200 slots are now frozen, with their second publication gate and assessment
-pending. No predictive-quality result is reported yet. This estimates conditional generation variation,
-not independent market histories or long-horizon adaptation. Different strings
-and accurate citations of old scores remain insufficient evidence.
+completed four fresh one-proposal calls per condition and state against
+copying, scheduled window edits and seeded grammar draws: 80 hosted calls and
+120 cheap slots, with both publication gates satisfied before outcome joins.
+Truthful minus masked Q was −.006750. Truthful G was −.001098, below copying
+and window edits, so the registered allocation gate failed and this version
+stopped. The [result report](astra-matched-prefix-results-v1.md) preserves all
+comparisons. Four continuations quantify limited conditional generation
+variation, not independent market histories or long-horizon adaptation.
+The separate rationale audit recorded mostly supported public factual claims;
+accurate citations of old scores did not establish predictive benefit.
 
 The [sequential acquisition branch](sequential-gate-results-v1.md) remains
 **stopped**: the privileged selector harmed one chronological fold and failed

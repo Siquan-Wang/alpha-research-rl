@@ -51,7 +51,7 @@ def plot_analysis(analysis, output_stem, *, evidence_label):
         axis.scatter(values, range(5), c=COLORS, s=55, zorder=3)
         for i, (name, value) in enumerate(zip(GENERATORS, values, strict=True)):
             invalid = analysis["generators"][name]["candidate"]["invalid_count"]
-            label = f"{value:+.4f}" + (f"  ({invalid}/40 penalized)" if field == "Q" else "")
+            label = f"{value:+.6f}" + (f"  ({invalid}/40 penalized)" if field == "Q" else "")
             axis.annotate(label, (value, i), xytext=(7, 0), textcoords="offset points",
                           va="center", fontsize=9, color=COLORS[i])
         axis.set_yticks(range(5), NAMES)

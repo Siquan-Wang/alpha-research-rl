@@ -103,10 +103,13 @@ propagation, active process guards and HTML tampering. One integration case uses
 a complete artificial 200-slot bank, the real frozen saved driver and the normal
 snapshot renderer in a fresh guarded child. It exercises disposable snapshots
 without an actual model, market archive or financial scorer. Root ran the final
-wrapper/explorer/reviewer set: 121 tests passed in 67.89 seconds. This does not
-claim that real financial outcomes have been assessed or successfully replayed.
-Root integrates the command into public CI after actual complete evidence and
-its HTML exist.
+wrapper/explorer/reviewer set: 121 tests passed in 67.89 seconds. Root subsequently ran the normal guarded command on the actual complete
+study and its HTML: all 200 slots, 133 unique keys, 685 execution files and
+exact report/prompt/presentation agreement passed. The original execution made
+99 new financial calls and reused 34 keys; this replay made zero model calls
+or financial rescoring and read no raw market data. The command is now included
+as an unconditional step in both CPU CI versions; remote CI status is checked
+separately after publication.
 
 ```powershell
 python -m pytest -q tests/test_public_astra_revision_replay_script.py -p no:cacheprovider --basetemp .local/revision-replay-tests

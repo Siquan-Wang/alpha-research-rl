@@ -458,3 +458,43 @@ and full HTML, with all actor prompts and renderer identity checked. The frozen
 replay creates disposable public-evidence snapshots; it does not promise zero
 temporary writes. Actual financial assessment and actual report/page replay
 remain pending at this publication point.
+
+### Complete assessment, failed allocation gate and result inspection
+
+The rationale audit was published at `39a3522` and anonymously byte-verified at
+12:33:10 UTC while the assessment request was absent. The preserved
+[receipt](../artifacts/astra-revision-grounding-v1/publication-receipt.json)
+records that additional chronology check. The existing Gate 2 receipt remains
+12:21:45 UTC at `184f422`.
+
+One assessment command began at 12:33:46 and completed its last new evaluation
+at 12:34:35 UTC: **99 new future calls, 34 exact prior-cache keys and all 200
+retained slots**, with zero retries. All 133 future keys were usable; the two
+historical constant-zero grammar proposals remained Q = −1, without a future
+call. The [complete report](astra-matched-prefix-results-v1.md) retains every
+comparison. Truthful minus masked Q was **−.0067496**; the G contrast was
+**+.0014969**, but truthful G itself was **−.0010982**. The grammar Q advantage
+contains +.05 validity and −.0114486 predictive contribution. Only **5/13**
+allocation conditions pass; the overall gate fails and this version stops.
+
+Independent Decimal reconstruction checked 4,570 float comparisons with
+maximum deviation 5.55e−17, all 786 saved Gate 2 identities and 99 job chains.
+Narrative review corrected treatment framing in the title and explicitly
+identified historical zero-signal failures. No market scores were recomputed.
+The earlier text audit remains frozen; its mostly supported factual statements
+are not evidence of better prediction or of a hidden generation mechanism.
+
+The [new explorer](astra-revision-explorer.html) renders the exact complete
+report, all twenty prompts, all 200 rows, 50 state/generator cells, 25 year rows
+and 13 gate checks. Root's browser checks matched every row and all fifty
+selector combinations, including both failed grammar slots. The actual guarded
+public replay passed, capturing 685 execution files and exact HTML/report/prompt
+agreement with zero model calls, financial rescoring or raw-data reads. Static
+figure labels now retain six decimal places, so the small positive window-edit
+G is not visually rounded to zero. Both result figure and page layout were
+visually inspected. CI now requires this replay on both Python versions.
+
+No new draws or prompt tuning follow this failed gate. The next design review
+asks whether a separately named, constructed evidence-acquisition task can
+isolate a response-dependent query decision; it has not started a new model
+experiment and does not revive the stopped financial or local-training branches.
