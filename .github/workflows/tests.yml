@@ -45,3 +45,4 @@ jobs:
           python -m pytest -q -p no:cacheprovider
           tests/test_training.py tests/test_generation_config.py
           tests/test_financial_training.py tests/test_curriculum.py
+          tests/test_linkage_training.py
