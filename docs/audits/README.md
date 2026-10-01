@@ -93,3 +93,7 @@ confirmatory study.
 ## Actor-visible presentation integrity
 
 - [Exact prompt/token collision checker review](presentation-integrity-review-v1.md): independent partitions, byte preservation, namespace limits and digest-collision counterexamples; synthetic regression only.
+
+## Standalone sealed confirmation
+
+- [Core lifecycle, exact arithmetic and synthetic runner review](sealed-confirmation-review-v1.md): frozen prediction copies, permanent failure after malformed confirmation access, explicit invalid diagnostics and pre-outcome calibration thresholds. The record distinguishes completed source checks from canonical execution.

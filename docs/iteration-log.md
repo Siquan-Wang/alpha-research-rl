@@ -540,3 +540,40 @@ A possible separate statistical calibration fixture remains design advice only.
 The prior completed financial publication `7e0f7b3` passed both Python CPU jobs
 and the training-math job in run `36863716268`; Pages run `36863714569` succeeded.
 Root verified the live 200-slot explorer and its exact report identity.
+
+Publication of iteration 12 at `ff19162` passed both Python versions and the
+training-math job in CPU run `36866623391`; Pages run `36866623124` succeeded.
+
+## Iteration 13 — seal predictions before confirmation
+
+**Problem:** input disjointness alone cannot prevent a researcher from using
+confirmation labels to select or orient its prediction. A numerically correct
+single-candidate p-value can become invalid after that reuse. The existing
+financial IC evaluator does not have an exact Bernoulli inference contract;
+this iteration must not claim to calibrate those financial results.
+
+**Change in development:** a new standalone staged interface freezes all
+prediction vectors before a one-shot reveal. A [finite synthetic plan](sealed-confirmation-plan-v1.md)
+uses independent fair-sign null labels and a known planted oracle, with explicit
+confirmation-selection and fitted-sign faults. The [guide](sealed-confirmation.md)
+explains why faulty arithmetic is retained as an invalid diagnostic.
+
+**Pre-outcome evidence:** root and a separate reviewer independently computed
+the exact thresholds without generating any canonical panels: 142 matches
+out of 256, null upper count 37/512 for each correct search, and planted-oracle
+lower count 128/128. A fixed direction selected after viewing confirmation
+labels doubles the theoretical single-panel rejection probability from about
+.045656 to .091312. Those known probabilities are mathematical controls,
+not observed experimental findings.
+
+**Pre-run implementation validation:** root's final combined suite passed
+111 tests in 3.34 seconds; one symbolic-link fixture was skipped because this
+Windows host could not create it. Ruff passed. Review found and repaired
+malformed-access recovery, ignored preparation-failure markers, source-root
+versus loaded-module mismatches, double-read receipt ambiguity, loose STARTED
+types and evidence-leaf path checks. The [audit](audits/sealed-confirmation-review-v1.md)
+records the checks and their limits. Metadata-only preparation completed with
+zero panel generations and fixed thresholds. The protocol and exact source
+identities must be publicly verified before the one canonical run. No outcomes,
+hosted calls, local training, financial scores or new market periods have been
+generated in this iteration.

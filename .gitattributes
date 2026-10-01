@@ -11,3 +11,4 @@ docs/astra-matched-prefix-plan-v1.md -text
 docs/reproduce-astra-revision-study.md -text
 artifacts/astra-matched-prefix-v1/**/*.txt -text
 docs/audits/astra-revision-grounding-plan-v1.md -text
+docs/sealed-confirmation-plan-v1.md -text
