@@ -26,6 +26,10 @@ alpha or a learned full research agent.
 Start with the [financial results](docs/financial-proposal-results-v1.md),
 [reproduction commands](docs/reproduce-financial-study.md), and
 [independent training audit](docs/audits/2026-10-01-financial-training-evidence.md).
+Open the [offline evidence explorer](docs/evidence-explorer.html) locally to
+inspect all 540 recorded draws, actual observed probes and evaluator outputs.
+The [viewing and rebuild guide](docs/evidence-explorer-guide.md) covers local
+opening and serving; GitHub's file view displays HTML source.
 The [original results](docs/results-v1.md) and
 [failed curriculum gate](docs/curriculum-results-v2.md) remain available.
 The financial proposal experiment is a one-action contextual bandit, separate
