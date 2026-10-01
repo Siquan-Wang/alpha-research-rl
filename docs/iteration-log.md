@@ -764,3 +764,39 @@ No hosted response or confirmation target was generated. The
 as incomplete measurement readiness, with no predictive score or model-failure
 claim. The fixed version is stopped; this result does not authorize an easier
 replacement task or a repaired domain under the original protocol.
+
+## Iteration 18 — distinguish syntax variety from historical signal behavior
+
+**Paused before calculation, 1 October 2026, at the project owner's request.**
+The plan is published; implementation and its independent review remain local
+work in progress. No historical diagnostic output or figure exists. See the
+[pause checkpoint](project-checkpoint-2026-10-01.md) for the exact continuation
+boundary.
+
+**Question:** the original Astra bank has 95 canonical ASTs, but syntax variety
+does not establish different executed signals. A bounded, explicitly post-hoc
+[diagnostic plan](astra-feedback-diversity-plan-v1.md) retains all 180 original
+slots, compares each with twelve fixed reference formulas, and retains all 15
+unordered pairs within each of 30 episodes. The references are not known Astra
+training teachers. This adds no proposals, training, future labels or predictive
+assessment, and does not reopen the earlier stopped studies.
+
+**Scope fixed before calculation:** 2,160 reference and 450 within-episode
+comparison slots, the inherited support thresholds and rank tolerance, all ten
+historical periods, signed and absolute mean daily rank correlations, and
+unsupported observations retained explicitly. Pair caches share numerical work
+without discarding repeated attempts or overwriting their original expressions.
+Pairwise similarity does not define transitive semantic classes or economic
+novelty. This entry initially records the plan; results follow only after the
+reviewed implementation is published and the single calculation completes.
+
+**Other resolved work:** the [stopped-study checker](replay-scientific-decoder-stop.md)
+checks the fixed decoder snapshot, saved provenance and complete point accounting
+without executing its benchmark. Seventeen focused author tests passed, and the
+coordinator verified the public saved evidence with the CLI. CI now runs that
+checker. The [contribution assessment](research-contribution-status.md) separates
+the empirical findings from three method ideas whose present formulations did
+not survive prior-art and mathematical review. A separate internal review
+narrowed its wording to preserve the observed reward gains without claiming
+improved evidence-dependent discovery. None of these checks adds model evidence
+or establishes top-conference readiness.

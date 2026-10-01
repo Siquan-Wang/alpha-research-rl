@@ -9,10 +9,16 @@ that leakage, invalid actions, reward design, and actual parameter updates can b
 tested independently.
 
 **Status: measured research prototype, with mixed and negative results.**
+Research is [paused as of 1 October 2026](docs/project-checkpoint-2026-10-01.md);
+completed evidence and unfinished work are recorded separately.
 Start with the [seven-page research note](output/pdf/alpha-research-note-v1.pdf)
 ([text version](docs/research-note-v1.md)) for the question, counterfactuals,
 negative results and limits across the hosted-agent and weight-training studies.
 The [build guide](docs/research-note-build.md) explains its saved-data figures and review scope.
+The [contribution assessment](docs/research-contribution-status.md) separates the
+supported empirical findings from methodological claims that remain unestablished.
+The [next-study brief](docs/research-next-study-brief.md) states the unresolved
+research question and required controls; it is a proposal, not an executed study.
 
 A separate [scientific-decoder development gate](docs/scientific-decoder-dev-results-v1.md)
 stopped during target collection: 134 finite responses and one failed point,
@@ -20,6 +26,8 @@ with 121 planned points left unattempted. Its protocol and source snapshots were
 public before measurement. No hosted call or predictive assessment ran, so this
 is a failed measurement-readiness check, not evidence about model quality or
 adaptive acquisition.
+The [offline checker](docs/replay-scientific-decoder-stop.md) verifies its saved
+source identities and complete point accounting without executing the benchmark.
 
 The original study used **Astra as the actual research actor**:
 180 decisions, three feedback conditions, six proposals per episode, and

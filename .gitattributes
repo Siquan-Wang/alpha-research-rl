@@ -22,3 +22,5 @@ artifacts/scientific-decoder-dev-v1/snapshot/newtonbench-source-912a4ba/** -whit
 docs/scientific-decoder-dev-plan-v1.md -text
 docs/scientific-decoder-dev-results-v1.md -text
 docs/audits/scientific-decoder-dev-stop-review-v1.md -text
+docs/astra-feedback-diversity-plan-v1.md -text
+docs/replay-astra-feedback-diversity-v1.md -text
