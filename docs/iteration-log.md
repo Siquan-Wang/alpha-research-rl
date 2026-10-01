@@ -401,3 +401,36 @@ collection remain the next steps; test success is not a research result.
 masked information, four provider draws need not be independent, and Astra's
 weights are not trained. The next decision follows the fixed allocation rule,
 not a favorable subset of periods or post-hoc prompt changes.
+
+### Complete collection, before future joins — 2026-10-01 12:13 UTC
+
+Preparation was published at `a33070e81651635edbd38bbf8425de4f5d790501`.
+All 302 required paths matched anonymous public downloads at 11:29:57 UTC,
+before the first dispatch. Public CI passed Python 3.11, Python 3.12 and
+training-math; Pages also deployed successfully.
+
+Exactly 80 Astra/ultra/default-tier calls completed, with 120 predetermined cheap
+slots and no replacement or retry. All 200 slots were frozen after the final
+batch completed at 12:13:30.476560 UTC. Submission SHA-256 is
+`672d93cd8faababc71a7b3b5ff3823da840061479798f0ec1f2b6eef1cc9577d`.
+Collection used 98 new historical-feedback calls, 40 task constructions and 80
+initial-probe checks, with zero future joins or assessments.
+
+All 80 hosted proposals were historically usable. The grammar control retained
+two zero-signal failures. Historical selection admitted 18/40 truthful, 6/40
+masked, 0/40 copy, 10/40 window-edit and 6/40 grammar proposals. These counts
+describe historical admission, not future quality. Public provider records
+report 1,290,644 input tokens, 693,376 cached input tokens, 54,599 output tokens
+and 43,175 reasoning-output tokens; these fields are not added as independent
+token totals. Equal literal prompts sometimes have different reported input
+counts, and neither hidden context nor independent draws are attested.
+
+A separate all-80 public-rationale audit was planned after collection began.
+It uses only exact supplied prompts and final public packets, with coding frozen
+before current future outcomes are exposed. It is descriptive internal
+AI-assisted review, not a registered primary endpoint or peer review. Its
+[plan](audits/astra-revision-grounding-plan-v1.md) changes no experiment rule.
+The offline explorer passed 11 author and two independent synthetic tests;
+the auxiliary citation-record validator passed 22 synthetic tests after a
+JSON-pointer escape fix. Actual result rendering remains pending. Next are
+complete-bank publication verification, blinded coding and bounded assessment.

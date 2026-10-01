@@ -7,8 +7,9 @@ predictive usefulness. The first two have execution evidence; useful financial
 improvement remains unproven.
 
 Completed-evidence baseline: public `main` at `5640368`. The matched-prefix
-follow-up below has a reviewed protocol and a prepared execution contract;
-public-byte verification must still precede collection. It has no result yet.
+follow-up below has completed its 80 hosted calls and frozen all 200 slots;
+the second publication gate and financial assessment remain pending. It has
+no predictive-quality result yet.
 
 ## Read these in order
 
@@ -37,7 +38,7 @@ public-byte verification must still precede collection. It has no result yet.
 | Multistep agency | Astra makes six successive proposals using its permitted history, under three feedback conditions. | The common deterministic final selector is not an extra model decision; useful adaptation is an empirical question. |
 | Actual weight RL | Local Qwen3-0.6B LoRA receives SFT and REINFORCE updates with a leave-one-out baseline. | The financial episode is one proposal—a contextual bandit. Hosted Astra inference does not update Astra weights. |
 | Numerical forecasting | A separate [walk-forward ridge baseline](results-v1.md#historical-industry-return-baseline) maps numerical features to future returns. | Formula generation is not a financial foundation model or a new numerical forecasting architecture. |
-| Next controlled revision | Identical two-proposal starts, displayed versus masked candidate metrics, and cheap references. | Protocol review is complete; no follow-up result is reported here. |
+| Controlled revision | Identical two-proposal starts, displayed versus masked candidate metrics, and cheap references; all 200 slots are frozen. | Financial assessment is pending; no follow-up result is reported here. |
 
 ## Six questions worth pressing on
 

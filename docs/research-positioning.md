@@ -79,11 +79,12 @@ unchanged.
 
 The original result lacks repeated hosted generations within each condition
 and period. The separate [matched-prefix study](astra-matched-prefix-overview.md)
-now has a reviewed protocol and prepared execution contract. It compares four
+now has a reviewed protocol and completed collection. It compares four
 fresh one-proposal calls per condition and state against copying, scheduled
 window edits and seeded grammar draws, at a finite budget of 80 hosted calls
-and 120 cheap slots. Public-byte verification must precede collection, and
-no result is reported yet. This estimates conditional generation variation,
+and 120 cheap slots. Preparation was publicly verified before collection;
+all 200 slots are now frozen, with their second publication gate and assessment
+pending. No predictive-quality result is reported yet. This estimates conditional generation variation,
 not independent market histories or long-horizon adaptation. Different strings
 and accurate citations of old scores remain insufficient evidence.
 

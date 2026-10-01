@@ -1,8 +1,9 @@
 # Matched starts: does candidate feedback improve a new proposal?
 
-**Status: prepared and source-reviewed, before actual collection.** The execution
-contract and exact inputs are frozen; public-byte verification must still precede
-the first hosted call. This page explains the experiment; it contains no new financial
+**Status: all 80 hosted calls completed and all 200 slots frozen; future
+assessment pending.** The preparation passed public-byte verification before
+collection. The complete submissions must pass their own publication gate
+before any outcome join or new assessment. This page contains no new financial
 result. The [full protocol](astra-matched-prefix-plan-v1.md) defines the exact
 prompts, generators, eligibility, accounting and stopping rules.
 
@@ -104,3 +105,11 @@ and retained failures make the result inspectable regardless of its sign.
 For execution details, see the [reproduction guide](reproduce-astra-revision-study.md).
 The [independent review](audits/astra-matched-prefix-review-v1.md) distinguishes
 verified design and implementation properties from experiments not yet run.
+
+Collection completed on 2026-10-01 at 12:13:30 UTC, without retries or
+replacement proposals. All 80 hosted proposals were historically usable; two
+grammar draws produced zero signals and remain charged, unusable slots.
+There were 98 new historical-feedback calls, 40 task constructions and 80
+initial-probe checks. No future outcome was joined or newly evaluated during
+collection. The [frozen bank](../results/astra_matched_prefix_v1_submissions.json)
+retains every response, direction and historical choice.

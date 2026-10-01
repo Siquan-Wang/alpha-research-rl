@@ -41,7 +41,8 @@ The [next study](docs/astra-matched-prefix-overview.md) fixes identical two-prop
 starting states, compares displayed versus masked candidate feedback, and adds
 copy, one-edit and one-draw references. Its fixed budget is 80 hosted calls and
 120 cheap slots. Proposal quality and gains after historical selection are
-separate endpoints; no follow-up result is reported yet.
+separate endpoints. All 200 slots are now frozen; financial assessment is pending,
+so no follow-up predictive result is reported yet.
 
 For a short technical review, start with the
 [five-minute walkthrough](docs/research-walkthrough.md), including the negative
