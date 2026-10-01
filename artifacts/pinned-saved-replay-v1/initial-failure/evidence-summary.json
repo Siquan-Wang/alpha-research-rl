@@ -1,0 +1,12 @@
+{
+  "cause": "WinError 206 in the historical verifier temporary public-evidence snapshot; original capsule nesting exceeded this Windows path limit.",
+  "failed_record_sha256": "4fd52250b55bf5edc9fdfa3cc0dc6db5bf3ccaa77adbf83f407fa46ab0ef8e5e",
+  "historical_replay_completed": false,
+  "launcher_sha256": "77eaa93fefa7e6c0b4350e2a23ccbc26de49e6e3a3a594c0f0e91ddd1697accb",
+  "new_experiment_requested": false,
+  "publication_scope": "Exact failure record and initial launcher source are public. Raw stderr remains local because it contains host paths.",
+  "recipe": "matched-prefix-v1",
+  "retained_private_stderr_sha256": "204ca05c13e8c729e35af2d99ae36cf9f8ed93db8d000302ee772301c1c7a687",
+  "schema": "pinned-replay-initial-failure-v1",
+  "stdout_bytes": 0
+}

@@ -245,6 +245,23 @@ The [saved-only guide](docs/reproduce-sealed-confirmation.md) also gives
 standard-library-only commands without package installation. Replay recomputes
 saved arrays and traces; it does not generate another panel bank or call models.
 
+## Replay a fixed historical version
+
+The [historical replay launcher](docs/reproduce-pinned-studies.md) keeps the
+current checkout in place while loading a study's original committed source
+and evidence in a fresh interpreter. It supports exactly two saved studies,
+requires their local Git objects and existing dependencies, and preserves
+completion records or failure logs in a new directory.
+
+```bash
+python scripts/replay_pinned_study.py --recipe matched-prefix-v1 --output .local/pinned-replay-runs/revision-check-001
+python scripts/replay_pinned_study.py --recipe sealed-confirmation-v1 --output .local/pinned-replay-runs/sealed-check-001
+```
+
+The launcher does not fetch, install, regenerate proposals or reassess markets.
+This checks historical agreement under the recorded current runtime; it does
+not recreate the original model calls or native-library environment.
+
 ## Train the local language-model actor
 
 Install a CUDA-compatible PyTorch build for your machine, then the optional

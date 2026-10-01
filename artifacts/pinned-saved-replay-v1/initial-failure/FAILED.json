@@ -1,0 +1,1 @@
+{"child_exit_code":1,"commit":"7e0f7b35618ace986de6ce0cfa1a6231e7716080","ended_utc":"2026-10-01T14:20:58.276863+00:00","error":"historical child failed; inspect retained stderr","error_type":"ReplayError","recipe":"matched-prefix-v1","retry_permitted":false,"schema":"pinned-replay-failure-v1","stage":"child","started_utc":"2026-10-01T14:20:49.809626+00:00"}

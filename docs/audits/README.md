@@ -99,3 +99,9 @@ confirmatory study.
 - [Core lifecycle, exact arithmetic and synthetic runner review](sealed-confirmation-review-v1.md): frozen prediction copies, permanent failure after malformed confirmation access, explicit invalid diagnostics and pre-outcome calibration thresholds. The record distinguishes completed source checks from canonical execution.
 - [Complete actual-result reconstruction](sealed-confirmation-results-review-v1.md): independent saved-array arithmetic, all 640 panels and three predeclared checks.
 - [Outer-runner and guarded saved replay](sealed-confirmation-replay-review-v1.md): one actual 640-panel replay with zero prohibited-operation attempts; core authorship and instrumentation limits disclosed.
+
+## Historical source isolation
+
+- [Fixed recipe and import contract review](pinned-replay-contract-review-v1.md): exact summaries, missing-module failures and fresh-process import contamination fixtures.
+- [Extraction and failure-handling review](pinned-replay-security-review-v1.md): Git blob/path checks, resource limits and retained failures; ordinary execution checks, not a security sandbox.
+- [Actual two-recipe integration](pinned-replay-integration-v1.md): the retained Windows failure, reviewed correction, two successful saved replays and independent full-tree inspection.

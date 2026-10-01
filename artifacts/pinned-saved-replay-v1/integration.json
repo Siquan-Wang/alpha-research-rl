@@ -1,0 +1,43 @@
+{
+  "actual_attempts": 3,
+  "independent_inspections": [
+    {
+      "bytes": 56802037,
+      "commit": "7e0f7b35618ace986de6ce0cfa1a6231e7716080",
+      "complete_sha256": "b38c5852b20f2135dd87099d9add6772f0fd129963b916e1b0a7be6aaff93340",
+      "files": 1251,
+      "manifest_sha256": "b7e75527290f5f8ca3ff343b6c185fa6c210834581c0afa21e53ee7419f4fa7b",
+      "method": "Separate stdlib inspection against local Git tree/blob identities and every extracted file, module-origin hash, bootstrap, scratch owner and retained proof. Did not import the launcher or execute another replay.",
+      "project_imports": 12,
+      "recipe": "matched-prefix-v1",
+      "report_sha256": "89162112ddad384ed8917a8b1198ce94044abc90ff15e1680bfe88b66eb43c37",
+      "scratch_owner_verified": true,
+      "status": "ALL_COMMITTED_BYTES_AND_ORIGINS_MATCH"
+    },
+    {
+      "bytes": 99747310,
+      "commit": "58dc66ed2a4af7add8ee79f54337e278d9bd7d13",
+      "complete_sha256": "7910c5dabd24e9ffe954511a979f5977741d4a3c5d3959a84fde3e5f1b227b7d",
+      "files": 2560,
+      "manifest_sha256": "fc3699e5ab7847e71314943ee657dd4bf2458bb7f1b060a0aad747be5b83193d",
+      "method": "Separate stdlib inspection against local Git tree/blob identities and every extracted file, module-origin hash, bootstrap, scratch owner and retained proof. Did not import the launcher or execute another replay.",
+      "project_imports": 3,
+      "recipe": "sealed-confirmation-v1",
+      "report_sha256": "ec6d9076d70f50d436c3d69a9ec126d23489f2ce4f98bbf4e25064e6d9c7306d",
+      "scratch_owner_verified": true,
+      "status": "ALL_COMMITTED_BYTES_AND_ORIGINS_MATCH"
+    }
+  ],
+  "initial_failed_attempts": 1,
+  "initial_failure": "initial-failure/FAILED.json",
+  "launcher_sha256": "dce34a515e51e3544a6a6aac23d769ebb76eedec4c12b2dd2898835ec6ec4ed0",
+  "limits": [
+    "Current recorded Windows/Python runtime only for actual recipes.",
+    "Existing numerical library versions/origins recorded; original binaries not recreated.",
+    "Python guards are not an adversarial sandbox.",
+    "No new model calls, financial scores or synthetic panels were requested."
+  ],
+  "schema": "pinned-saved-replay-integration-v1",
+  "scope": "Engineering verification of two existing studies; not a new scientific experiment.",
+  "verified_saved_replays": 2
+}

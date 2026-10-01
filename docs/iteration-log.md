@@ -552,7 +552,7 @@ single-candidate p-value can become invalid after that reuse. The existing
 financial IC evaluator does not have an exact Bernoulli inference contract;
 this iteration must not claim to calibrate those financial results.
 
-**Change in development:** a new standalone staged interface freezes all
+**Change:** a new standalone staged interface freezes all
 prediction vectors before a one-shot reveal. A [finite synthetic plan](sealed-confirmation-plan-v1.md)
 uses independent fair-sign null labels and a known planted oracle, with explicit
 confirmation-selection and fitted-sign faults. The [guide](sealed-confirmation.md)
@@ -604,3 +604,51 @@ the historical source bytes, so old results need an exact original source tree
 when the main implementation eventually changes. A separate bounded design will
 consider commit-pinned saved replay; it does not authorize rewriting old
 contracts, outcomes or stopped-study source.
+
+Publication of the complete 640-panel evidence at `58dc66e` passed both Python
+versions and the training-math job in CPU run `36871820628`; Pages run
+`36871818701` succeeded.
+
+## Iteration 14 — replay the actual historical code
+
+**Problem:** the existing saved verifiers bind loaded modules to their original
+source bytes. Copying old evidence while importing today's editable package
+does not satisfy that contract. A future source change can therefore prevent
+historical replay even when the saved results themselves are intact.
+
+**Change:** a small launcher has exactly two
+fixed recipes: the complete matched-prefix evidence at `7e0f7b3` and complete
+sealed-confirmation evidence at `58dc66e`. It materializes exact regular-file
+Git blobs from local objects, runs one isolated child over that source tree and
+verifies the expected report and required HTML identities. It does not fetch
+objects, install dependencies or rerun the original experiment. Existing frozen
+files and current CI routing remain unchanged.
+
+**Evidence before implementation:** root read the three registered report/HTML
+blobs directly from the two local commits; every SHA-256 matched its published
+identity. Their full tracked trees contain 1,251 files / 56,802,037 bytes and
+2,560 files / 99,747,310 bytes respectively. Two design reviews found the narrow
+source-isolation benefit justified implementation. Those metadata checks were
+kept separate from subsequent actual historical replay.
+
+**Observed validation and correction:** review caught loose summary identities,
+missing nested proof validation and a log-flush failure that could otherwise be
+reported as success. Initial artificial checks passed, but the first actual
+matched-prefix invocation failed on a deep Windows temporary path. Its exact
+failure and source remain published. A short, exclusively owned scratch path
+and UTF-16 preflight corrected that compatibility issue. The combined revised
+suite passed 109 tests with two Windows permission skips; a later test-only
+change removed dependence on pytest's path length and its targeted check passed.
+Ruff passed. No historical verifier or outcome was changed to make replay pass.
+
+Both real recipes succeeded on the fixed launcher: 200 matched-prefix slots
+and exact HTML in 13.047 seconds; 640 sealed panels in 30.938 seconds. Root's
+separate inspection matched every committed byte and all 12 / 3 loaded project
+module origins. The [actual integration audit](audits/pinned-replay-integration-v1.md)
+links the complete records, runtime, preserved failure and validation chronology.
+The [guide](reproduce-pinned-studies.md) provides the two commands and prerequisites.
+
+**Limits:** this is reproducibility tooling. It adds no model call, financial
+score, synthetic panel or evidence of research-policy improvement. Installed
+binary dependencies are recorded rather than reconstructed; process checks
+are not an adversarial security sandbox.
