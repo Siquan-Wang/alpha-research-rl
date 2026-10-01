@@ -203,6 +203,22 @@ python -m alpha_research_rl.financial_analysis \
 
 Analysis reads saved reports only. It requires the same freeze, evaluation
 contract, matched tasks and sampling seeds; it does not generate more proposals.
+For an additional feedback-only alias diagnostic, compare each checkpoint's
+valid saved proposals with the 12 teacher formulas:
+
+```bash
+for label in sft rl23 rl29; do
+  python -m alpha_research_rl.factor_diagnostics \
+    --inputreport "artifacts/development/financial-${label}-transfer.json" \
+    --output "artifacts/development/financial-${label}-factor-diagnostics.json"
+done
+```
+
+This diagnostic reconstructs only each task's historical prefix and constructs
+no forward-return labels. It reports signed daily rank similarity, its absolute
+mean, finite-pair coverage and nonconstant-date support. Near-unit similarity
+on the eligible pairs is an alias diagnostic, not independent alpha evidence.
+
 Preserve the ten task-level and five year-level paired differences, both RL
 seeds, validity, expression frequencies, true/exchanged effects, and greedy
 diagnostics. Five temporally dependent years and two training seeds support a

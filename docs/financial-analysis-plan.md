@@ -23,6 +23,13 @@ same three-checkpoint suite. Compare relevant execution-contract fingerprints;
 the whole-repository source digest may differ because unrelated analysis code
 was added, so that digest alone is not the prompt/scorer contract.
 
+Check shared task manifests semantically as well as for equality: preceding
+feedback half-year, named assessment half-year, adjacent row boundaries,
+five-session purges, ordered signal/label-support dates, and the 2024 hard cap.
+Reported signal counts must equal the corresponding purged interval length.
+These are structural provenance checks on saved reports, not an independent
+reconstruction or authentication of the market calendar from raw data.
+
 Recompute statistics from retained individual outcomes instead of trusting
 existing rounded summaries. Verify both parsers' outcome shapes, constant cost,
 success/failure reward rule, and available predictive metrics. Preserve failures
