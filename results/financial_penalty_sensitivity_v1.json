@@ -1,0 +1,158 @@
+{
+  "study": "financial-proposal-post-hoc-penalty-sensitivity-v1",
+  "status": "exploratory analysis designed after inspecting transfer results",
+  "registered_primary_penalty": 1.0,
+  "cost": 0.01,
+  "formula": "mean_reward(lambda)=valid_IC_sum/N - .01 - lambda*(1-valid_fraction)",
+  "scope": "strict JSON, stochastic policy, true evidence; fixed saved proposals",
+  "penalties": [
+    0.0,
+    0.01,
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "policy_lines": {
+    "financial-sft-v1": {
+      "intercept": -0.014085614615958534,
+      "slope": -0.03749999999999998,
+      "valid_fraction": 0.9625,
+      "n_samples": 80,
+      "valid_samples": 77,
+      "mean_reward_by_penalty": {
+        "0.0": -0.014085614615958534,
+        "0.01": -0.014460614615958534,
+        "0.05": -0.015960614615958532,
+        "0.1": -0.017835614615958534,
+        "0.25": -0.02346061461595853,
+        "0.5": -0.03283561461595852,
+        "1.0": -0.05158561461595851
+      }
+    },
+    "financial-rloo23-v1": {
+      "intercept": -0.0076280113409015644,
+      "slope": -0.012499999999999956,
+      "valid_fraction": 0.9875,
+      "n_samples": 80,
+      "valid_samples": 79,
+      "mean_reward_by_penalty": {
+        "0.0": -0.0076280113409015644,
+        "0.01": -0.007753011340901564,
+        "0.05": -0.008253011340901562,
+        "0.1": -0.00887801134090156,
+        "0.25": -0.010753011340901553,
+        "0.5": -0.013878011340901542,
+        "1.0": -0.02012801134090152
+      }
+    },
+    "financial-rloo29-v1": {
+      "intercept": -0.01290559186993072,
+      "slope": -0.012499999999999956,
+      "valid_fraction": 0.9875,
+      "n_samples": 80,
+      "valid_samples": 79,
+      "mean_reward_by_penalty": {
+        "0.0": -0.01290559186993072,
+        "0.01": -0.01303059186993072,
+        "0.05": -0.013530591869930718,
+        "0.1": -0.014155591869930716,
+        "0.25": -0.016030591869930708,
+        "0.5": -0.019155591869930697,
+        "1.0": -0.025405591869930674
+      }
+    },
+    "uniform_grid": {
+      "intercept": -0.015410820748547625,
+      "slope": -0.0,
+      "valid_fraction": 1.0,
+      "n_samples": 160,
+      "valid_samples": 160,
+      "mean_reward_by_penalty": {
+        "0.0": -0.015410820748547625,
+        "0.01": -0.015410820748547625,
+        "0.05": -0.015410820748547625,
+        "0.1": -0.015410820748547625,
+        "0.25": -0.015410820748547625,
+        "0.5": -0.015410820748547625,
+        "1.0": -0.015410820748547625
+      }
+    },
+    "feedback_greedy_grid": {
+      "intercept": -0.015812982332572143,
+      "slope": -0.0,
+      "valid_fraction": 1.0,
+      "n_samples": 10,
+      "valid_samples": 10,
+      "mean_reward_by_penalty": {
+        "0.0": -0.015812982332572143,
+        "0.01": -0.015812982332572143,
+        "0.05": -0.015812982332572143,
+        "0.1": -0.015812982332572143,
+        "0.25": -0.015812982332572143,
+        "0.5": -0.015812982332572143,
+        "1.0": -0.015812982332572143
+      }
+    },
+    "training_best_fixed": {
+      "intercept": -0.020188992685050686,
+      "slope": -0.0,
+      "valid_fraction": 1.0,
+      "n_samples": 10,
+      "valid_samples": 10,
+      "mean_reward_by_penalty": {
+        "0.0": -0.020188992685050686,
+        "0.01": -0.020188992685050686,
+        "0.05": -0.020188992685050686,
+        "0.1": -0.020188992685050686,
+        "0.25": -0.020188992685050686,
+        "0.5": -0.020188992685050686,
+        "1.0": -0.020188992685050686
+      }
+    }
+  },
+  "rl_vs_sft": {
+    "financial-rloo23-v1": {
+      "rl_minus_sft_by_penalty": {
+        "0.0": 0.0064576032750569695,
+        "0.01": 0.00670760327505697,
+        "0.05": 0.007707603275056971,
+        "0.1": 0.008957603275056972,
+        "0.25": 0.012707603275056975,
+        "0.5": 0.01895760327505698,
+        "1.0": 0.03145760327505699
+      },
+      "registered_penalty_one_gain": 0.03145760327505699,
+      "zero_penalty_gain": 0.0064576032750569695,
+      "validity_component_at_registered_penalty": 0.025000000000000022,
+      "uniform_grid_crossing_penalty": 0.622624752611687
+    },
+    "financial-rloo29-v1": {
+      "rl_minus_sft_by_penalty": {
+        "0.0": 0.0011800227460278135,
+        "0.01": 0.0014300227460278137,
+        "0.05": 0.0024300227460278146,
+        "0.1": 0.0036800227460278157,
+        "0.25": 0.007430022746027819,
+        "0.5": 0.013680022746027825,
+        "1.0": 0.026180022746027834
+      },
+      "registered_penalty_one_gain": 0.026180022746027834,
+      "zero_penalty_gain": 0.0011800227460278135,
+      "validity_component_at_registered_penalty": 0.025000000000000022,
+      "uniform_grid_crossing_penalty": 0.2004183102893531
+    }
+  },
+  "limitations": [
+    "No penalty selection or replacement of the registered primary result",
+    "Failed proposals have no measured IC; zero contribution is a surrogate",
+    "Changing a penalty changes the objective, not the model or its actions",
+    "All-proposal IC contribution can change with the successful subset",
+    "No new samples, market periods, uncertainty or significance claims"
+  ],
+  "source_analysis": {
+    "file": "financial_proposal_paired_v1.json",
+    "sha256": "b16ce069aaab127f3cb11dc7b71d627f35b8a7f4d10303cd7cd8a51959fccc44"
+  }
+}

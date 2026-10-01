@@ -8,13 +8,28 @@ The project separates the research process from the financial prediction task so
 that leakage, invalid actions, reward design, and actual parameter updates can be
 tested independently.
 
-**Status: early research prototype.** The causal environment and numerical tests
-are implemented. Local Qwen3-0.6B LoRA SFT and on-policy leave-one-out updates
-completed; saved parameters and action likelihood survived reload exactly.
-**The first six-task comparison showed no additional RL benefit over SFT.**
-The historical ridge baseline's IC interval crosses zero. Read the
-[results and limitations](docs/results-v1.md). No profitable strategy, superior
-financial alpha, or novel algorithm is claimed.
+**Status: measured research prototype, with mixed and negative results.**
+Local Qwen3-0.6B LoRA training, saved-model checks, and chronological financial
+comparisons have run. In the financial proposal study, two RL runs improved the
+declared reward over SFT, but most of the gain came from fewer invalid formulas;
+neither sampled policy beat the uniform formula-grid reference. Correct-feedback effects were
+inconsistent across seeds. These results do not establish a useful financial
+alpha or a learned full research agent.
+
+| Completed study | Evidence | Main result |
+| --- | --- | --- |
+| Sequential synthetic pilot | SFT and trajectory RLOO, six development tasks | Identical SFT/RL greedy actions and rewards; no incremental RL benefit |
+| Constructed feedback curriculum | 384 updates, 24 held-out paired interventions | 8/24 pairs correct; the predeclared 80% gate failed |
+| Financial formula proposal | 96 SFT and 31 RL updates; two RL seeds, ten 2020–2024 half-years | Reward gains +.03146 / +.02618 over SFT; +.025 in each comes from reduced failure penalties |
+| Numerical financial baseline | Fixed walk-forward ridge on French49 | IC .01759; descriptive block interval includes zero |
+
+Start with the [financial results](docs/financial-proposal-results-v1.md),
+[reproduction commands](docs/reproduce-financial-study.md), and
+[independent training audit](docs/audits/2026-10-01-financial-training-evidence.md).
+The [original results](docs/results-v1.md) and
+[failed curriculum gate](docs/curriculum-results-v2.md) remain available.
+The financial proposal experiment is a one-action contextual bandit, separate
+from the sequential environment illustrated below.
 
 ```mermaid
 flowchart LR
@@ -32,9 +47,11 @@ flowchart LR
 
 ## What is agentic and generative here?
 
-- **Agentic:** later actions depend on acquired evidence, remaining budget and
-  previous failures. Propose, mutate, screen, stability, select and stop have
-  explicit costs; invalid and duplicate attempts still consume budget.
+- **Agentic environment:** each decision receives acquired evidence, remaining
+  budget and previous failures. Propose, mutate, screen, stability, select and
+  stop have explicit costs; invalid and duplicate attempts still consume budget.
+  Whether a trained policy uses that evidence successfully is an experimental
+  question, not a property established by connecting the tools.
 - **Generative:** a local causal language model emits action JSON and new factor
   expressions token by token. Expressions run through a restricted AST interpreter.
 - **Learning:** SFT teaches the action interface. REINFORCE with a leave-one-out
@@ -48,6 +65,15 @@ flowchart LR
 The initial fixed-pool heuristics are controls. They alone do not demonstrate
 generative discovery or LLM post-training. SFT's teacher uses a small scripted
 proposal library; imitation success would not establish novel factor discovery.
+
+The [registered sequential experiment](docs/next-sequential-study.md) first tested
+the value of additional evidence with a CPU fixed-grid feasibility gate. The
+[gate failed](docs/sequential-gate-results-v1.md): its two chronological folds
+disagreed, and it did not exceed the fixed-formula reference. Proposal-bank
+generation and sequential-controller training were therefore stopped. A separate
+[reward-linkage placebo plan](docs/reward-linkage-control-plan.md) tests the
+original one-shot RL mechanism. Existing work already includes LLM research loops,
+learned schedulers and agentic alpha RL; see [related work](docs/related-work.md).
 
 ## Run the CPU environment
 
@@ -87,6 +113,15 @@ python -m alpha_research_rl.llm_evaluation --label rloo --adapter models/runs/rl
 Model downloads and adapters stay under ignored `models/`. Training uses only
 local files after model download. Read the [predeclared development study](docs/llm-development-plan.md)
 for task seeds, decoding, optimizer and evidence requirements.
+
+For the completed **real-data proposal study**, use the separately pinned
+[financial reproduction guide](docs/reproduce-financial-study.md). It records
+the FP32 execution contract, both training seeds, pre-evaluation checkpoint
+freeze, matched true/exchanged-evidence generations, and saved-report analysis.
+The [paired JSON results](results/financial_proposal_paired_v1.json) retain every
+signed half-year/year comparison; generated draws are not independent markets.
+
+![Yearly RL effects, including negative years and both seeds](results/financial_proposal_yearly_v1.png)
 
 ## Data and scientific boundaries
 

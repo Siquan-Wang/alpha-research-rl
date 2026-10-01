@@ -1,0 +1,3837 @@
+{
+  "study": "sequential-financial-opportunity-gate-v1",
+  "gate_passed": false,
+  "conditions": {
+    "pooled_late_minus_cheap_gt_002": true,
+    "late_minus_cheap_positive_both_folds": false,
+    "pooled_late_minus_fixed_lag1_positive": false
+  },
+  "config": {
+    "alpha": 10.0,
+    "row_weight": 0.0625,
+    "unpenalized_intercept": true,
+    "standardization": "training-only weighted population mean/std; zero std -> 1",
+    "missing": "impute scalar zero with separate flag before standardization",
+    "cheap_features": [
+      "cheap_abs_ic",
+      "cheap_orientation",
+      "cheap_ic_std",
+      "cheap_coverage",
+      "cheap_valid_fraction",
+      "cheap_usable",
+      "cheap_abs_ic_missing",
+      "cheap_orientation_missing",
+      "cheap_ic_std_missing",
+      "cheap_coverage_missing",
+      "cheap_valid_fraction_missing",
+      "cheap_usable_missing",
+      "candidate_0",
+      "candidate_1",
+      "candidate_2",
+      "candidate_3",
+      "candidate_4",
+      "candidate_5",
+      "candidate_6",
+      "candidate_7",
+      "candidate_8",
+      "candidate_9",
+      "candidate_10",
+      "candidate_11",
+      "candidate_12",
+      "candidate_13",
+      "candidate_14",
+      "candidate_15"
+    ],
+    "full_features": [
+      "cheap_abs_ic",
+      "cheap_orientation",
+      "cheap_ic_std",
+      "cheap_coverage",
+      "cheap_valid_fraction",
+      "cheap_usable",
+      "cheap_abs_ic_missing",
+      "cheap_orientation_missing",
+      "cheap_ic_std_missing",
+      "cheap_coverage_missing",
+      "cheap_valid_fraction_missing",
+      "cheap_usable_missing",
+      "candidate_0",
+      "candidate_1",
+      "candidate_2",
+      "candidate_3",
+      "candidate_4",
+      "candidate_5",
+      "candidate_6",
+      "candidate_7",
+      "candidate_8",
+      "candidate_9",
+      "candidate_10",
+      "candidate_11",
+      "candidate_12",
+      "candidate_13",
+      "candidate_14",
+      "candidate_15",
+      "oriented_late_ic",
+      "late_ic_std",
+      "late_coverage",
+      "late_valid_fraction",
+      "late_usable",
+      "oriented_late_ic_missing",
+      "late_ic_std_missing",
+      "late_coverage_missing",
+      "late_valid_fraction_missing",
+      "late_usable_missing"
+    ],
+    "candidate_grid": [
+      "returns",
+      "delay(returns,1)",
+      "delay(returns,5)",
+      "ts_mean(returns,3)",
+      "ts_mean(returns,5)",
+      "ts_mean(returns,10)",
+      "ts_mean(returns,20)",
+      "ts_mean(returns,40)",
+      "ts_mean(returns,60)",
+      "ts_std(returns,5)",
+      "ts_std(returns,20)",
+      "sub(ts_mean(returns,5),ts_mean(returns,20))",
+      "sub(ts_mean(returns,10),ts_mean(returns,40))",
+      "div(ts_mean(returns,5),ts_std(returns,20))",
+      "div(ts_mean(returns,20),ts_std(returns,20))",
+      "mul(returns,ts_mean(returns,5))"
+    ],
+    "task_weighting": "equal half-years; retain failures",
+    "target": "cheap-oriented assessment IC-.01 if cheap and assessment usable; else -1.01"
+  },
+  "folds": [
+    {
+      "fold": 1,
+      "training_years": [
+        2002,
+        2009
+      ],
+      "evaluation_years": [
+        2010,
+        2013
+      ],
+      "models": {
+        "cheap_ridge": {
+          "mean": [
+            0.03736544560569709,
+            0.0703125,
+            0.24987139642433778,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625
+          ],
+          "scale": [
+            0.0301200455268771,
+            0.9975250133925214,
+            0.04880533778685315,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356
+          ],
+          "coefficients": [
+            -0.0030056074526043286,
+            -0.00116958751954562,
+            0.00027814284999753074,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -0.000947902852034534,
+            0.0012899711005724234,
+            -0.0002593007515872544,
+            0.0007008144240162511,
+            -0.0002253751620139075,
+            0.00020563888200461725,
+            0.0017434647736511183,
+            0.0020927521754578503,
+            0.000636851095708387,
+            -0.00020640476961436997,
+            -0.0010543606405763707,
+            0.00014602953470215733,
+            -0.0019084988586034837,
+            -0.0017162003677429166,
+            0.0011140859297589048,
+            -0.001611564513698874
+          ],
+          "intercept": -0.00637644328759778,
+          "n_training_rows": 256
+        },
+        "all_late_ridge": {
+          "mean": [
+            0.03736544560569709,
+            0.0703125,
+            0.24987139642433778,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            -0.0026521051874522105,
+            0.24834020458305173,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            0.0301200455268771,
+            0.9975250133925214,
+            0.04880533778685315,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.06491073707057815,
+            0.06407979732708932,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "coefficients": [
+            -0.002883543676392125,
+            -0.0009168117970259741,
+            0.0008585664186232782,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -0.0009190434572371788,
+            0.0011813009810333385,
+            -0.0002553857633456522,
+            0.0006650862708969967,
+            -0.0002047089553970106,
+            0.00022359528333310846,
+            0.0019329727692255002,
+            0.0020484553674891288,
+            0.0005435289037058447,
+            -0.00024927969558812875,
+            -0.0008838528740650238,
+            0.00012169502203556502,
+            -0.0020609438701097702,
+            -0.0016881551809240683,
+            0.0013231744419059533,
+            -0.001778439242958606,
+            0.0038916273390100617,
+            -0.000979165392087542,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "intercept": -0.00637644328759778,
+          "n_training_rows": 256
+        }
+      },
+      "tasks": [
+        {
+          "task_id": "2010-H1",
+          "year": 2010,
+          "half": 1,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": -0.026857410518906284,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.016857410518906282
+            },
+            "all_late_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": -0.026857410518906284,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.016857410518906282
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 10,
+              "expression": "ts_std(returns,20)",
+              "reward": -0.06786657520150918,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.05786657520150918
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": -0.023861097144237016,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.013861097144237016
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": -0.012476870069150854,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.0024768700691508534
+            },
+            "future_oracle": {
+              "candidate_id": 4,
+              "expression": "ts_mean(returns,5)",
+              "reward": 0.029700463176652134,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.039700463176652136
+            }
+          },
+          "all_late_minus_cheap": 0.0,
+          "all_late_minus_fixed_lag1": -0.0029963133746692683
+        },
+        {
+          "task_id": "2010-H2",
+          "year": 2010,
+          "half": 2,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 6,
+              "expression": "ts_mean(returns,20)",
+              "reward": -0.021763207028927405,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.011763207028927405
+            },
+            "all_late_ridge": {
+              "candidate_id": 6,
+              "expression": "ts_mean(returns,20)",
+              "reward": -0.021763207028927405,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.011763207028927405
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 13,
+              "expression": "div(ts_mean(returns,5),ts_std(returns,20))",
+              "reward": 0.016368840219014434,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.026368840219014436
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": -0.013328117880356111,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.003328117880356111
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": 0.02032617622848922,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.03032617622848922
+            },
+            "future_oracle": {
+              "candidate_id": 10,
+              "expression": "ts_std(returns,20)",
+              "reward": 0.13532935125269618,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.1453293512526962
+            }
+          },
+          "all_late_minus_cheap": 0.0,
+          "all_late_minus_fixed_lag1": -0.008435089148571294
+        },
+        {
+          "task_id": "2011-H1",
+          "year": 2011,
+          "half": 1,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": -0.007197464433168535,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.0028025355668314655
+            },
+            "all_late_ridge": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": 0.023009360932133453,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.033009360932133455
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 10,
+              "expression": "ts_std(returns,20)",
+              "reward": -0.0570280612244898,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.0470280612244898
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": 0.023009360932133453,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.033009360932133455
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": -0.034546859253606045,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.02454685925360605
+            },
+            "future_oracle": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": 0.023009360932133453,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.033009360932133455
+            }
+          },
+          "all_late_minus_cheap": 0.03020682536530199,
+          "all_late_minus_fixed_lag1": 0.0
+        },
+        {
+          "task_id": "2011-H2",
+          "year": 2011,
+          "half": 2,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": -0.028408473229560492,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.01840847322956049
+            },
+            "all_late_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": -0.028408473229560492,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.01840847322956049
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 4,
+              "expression": "ts_mean(returns,5)",
+              "reward": 0.05488389223171302,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.06488389223171302
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": 0.009991866206208152,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.019991866206208152
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": 0.0010191201702863207,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.011019120170286318
+            },
+            "future_oracle": {
+              "candidate_id": 4,
+              "expression": "ts_mean(returns,5)",
+              "reward": 0.05488389223171302,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.06488389223171302
+            }
+          },
+          "all_late_minus_cheap": 0.0,
+          "all_late_minus_fixed_lag1": -0.03840033943576864
+        },
+        {
+          "task_id": "2012-H1",
+          "year": 2012,
+          "half": 1,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": -0.012921215808168792,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.002921215808168792
+            },
+            "all_late_ridge": {
+              "candidate_id": 9,
+              "expression": "ts_std(returns,5)",
+              "reward": 0.04114285714285714,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.05114285714285714
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": 0.05218060507204782,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.06218060507204782
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": -0.012921215808168792,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.002921215808168792
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": 0.027756995693154183,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.03775699569315418
+            },
+            "future_oracle": {
+              "candidate_id": 14,
+              "expression": "div(ts_mean(returns,20),ts_std(returns,20))",
+              "reward": 0.07947789115646259,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.08947789115646258
+            }
+          },
+          "all_late_minus_cheap": 0.05406407295102593,
+          "all_late_minus_fixed_lag1": 0.05406407295102593
+        },
+        {
+          "task_id": "2012-H2",
+          "year": 2012,
+          "half": 2,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": 0.039694344729932496,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.0496943447299325
+            },
+            "all_late_ridge": {
+              "candidate_id": 6,
+              "expression": "ts_mean(returns,20)",
+              "reward": -0.05845839862980668,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.04845839862980668
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 5,
+              "expression": "ts_mean(returns,10)",
+              "reward": -0.027499580142590324,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.017499580142590322
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": -0.031560436685893895,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.021560436685893893
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": -0.020659342670390518,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.01065934267039052
+            },
+            "future_oracle": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": 0.039694344729932496,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.0496943447299325
+            }
+          },
+          "all_late_minus_cheap": -0.09815274335973917,
+          "all_late_minus_fixed_lag1": -0.026897961943912786
+        },
+        {
+          "task_id": "2013-H1",
+          "year": 2013,
+          "half": 1,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": 0.012888175249090436,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.022888175249090436
+            },
+            "all_late_ridge": {
+              "candidate_id": 14,
+              "expression": "div(ts_mean(returns,20),ts_std(returns,20))",
+              "reward": -0.0635902932601612,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.0535902932601612
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": -0.034764280730286624,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.024764280730286622
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": 0.012888175249090436,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.022888175249090436
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": -0.02806886458745379,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.018068864587453787
+            },
+            "future_oracle": {
+              "candidate_id": 3,
+              "expression": "ts_mean(returns,3)",
+              "reward": 0.02552827571380565,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.03552827571380565
+            }
+          },
+          "all_late_minus_cheap": -0.07647846850925163,
+          "all_late_minus_fixed_lag1": -0.07647846850925163
+        },
+        {
+          "task_id": "2013-H2",
+          "year": 2013,
+          "half": 2,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": 0.022849767212945737,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.03284976721294574
+            },
+            "all_late_ridge": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": 0.022849767212945737,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.03284976721294574
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 10,
+              "expression": "ts_std(returns,20)",
+              "reward": -0.06338310934129748,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.05338310934129748
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": 0.022849767212945737,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.03284976721294574
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": 0.0041513617310550855,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.014151361731055086
+            },
+            "future_oracle": {
+              "candidate_id": 3,
+              "expression": "ts_mean(returns,3)",
+              "reward": 0.04728950227966339,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.05728950227966339
+            }
+          },
+          "all_late_minus_cheap": 0.0,
+          "all_late_minus_fixed_lag1": 0.0
+        }
+      ],
+      "n_tasks": 8,
+      "mean_reward": {
+        "cheap_ridge": -0.002714435478345354,
+        "all_late_ridge": -0.014009474672428216,
+        "fixed_lag1": -0.0016164622397847554,
+        "cheap_abs_ic": -0.015888533639674768,
+        "uniform_grid": -0.00531228534470205,
+        "future_oracle": 0.05436413518413237
+      },
+      "failure_counts": {
+        "cheap_ridge": 0.0,
+        "all_late_ridge": 0.0,
+        "fixed_lag1": 0.0,
+        "cheap_abs_ic": 0.0,
+        "uniform_grid": 0.0,
+        "future_oracle": 0.0
+      },
+      "failure_counts_definition": "failed tasks; uniform-grid value is expected failed tasks",
+      "valid_fraction": {
+        "cheap_ridge": 1.0,
+        "all_late_ridge": 1.0,
+        "fixed_lag1": 1.0,
+        "cheap_abs_ic": 1.0,
+        "uniform_grid": 1.0,
+        "future_oracle": 1.0
+      },
+      "valid_ic_contribution": {
+        "cheap_ridge": 0.007285564521654645,
+        "all_late_ridge": -0.004009474672428215,
+        "fixed_lag1": 0.008383537760215245,
+        "cheap_abs_ic": -0.005888533639674767,
+        "uniform_grid": 0.0046877146552979495,
+        "future_oracle": 0.06436413518413237
+      },
+      "all_late_minus_cheap": -0.011295039194082862,
+      "all_late_minus_fixed_lag1": -0.012393012432643461
+    },
+    {
+      "fold": 2,
+      "training_years": [
+        2002,
+        2013
+      ],
+      "evaluation_years": [
+        2014,
+        2017
+      ],
+      "models": {
+        "cheap_ridge": {
+          "mean": [
+            0.03705068758035985,
+            0.046875,
+            0.25614019157925677,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625
+          ],
+          "scale": [
+            0.02914650487545411,
+            0.9989007630265381,
+            0.05644638825265344,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356
+          ],
+          "coefficients": [
+            -0.002807701380435473,
+            -0.002087791512333118,
+            0.002806911486019716,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -0.0006118644798539763,
+            0.001089796976617654,
+            -0.0002801446371642878,
+            0.0010755712610416137,
+            0.00038653208934835145,
+            0.000556167100956844,
+            0.0010532393682903174,
+            0.0020260631014265324,
+            0.0008629105736723256,
+            -0.000733604748259687,
+            -0.0025077513084413704,
+            4.088963712600397e-05,
+            -0.001123348073185321,
+            -0.0012151300696096987,
+            0.0002509782897555251,
+            -0.0008703050817208313
+          ],
+          "intercept": -0.006021723973299204,
+          "n_training_rows": 384
+        },
+        "all_late_ridge": {
+          "mean": [
+            0.03705068758035985,
+            0.046875,
+            0.25614019157925677,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            0.0625,
+            -0.00152872635331849,
+            0.2535826081289087,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            0.02914650487545411,
+            0.9989007630265381,
+            0.05644638825265344,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.24206145913796356,
+            0.0692643507058063,
+            0.06858339812908519,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "coefficients": [
+            -0.0028629335585488276,
+            -0.0021347325158389396,
+            0.0020195675685742483,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -0.0006141032375674846,
+            0.0011339607620324983,
+            -0.0002811284125455983,
+            0.0010919584514115866,
+            0.0003421035932767796,
+            0.0006182651701817875,
+            0.0010049342499872467,
+            0.0019525040169637332,
+            0.0009245224278773725,
+            -0.0008753013165783706,
+            -0.0028462944034280888,
+            2.0545129084597558e-05,
+            -0.001097072503027213,
+            -0.0010694905902074565,
+            0.00041131524085150285,
+            -0.0007167185783129004,
+            -0.0008762383930030111,
+            0.002571841645967239,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "intercept": -0.006021723973299204,
+          "n_training_rows": 384
+        }
+      },
+      "tasks": [
+        {
+          "task_id": "2014-H1",
+          "year": 2014,
+          "half": 1,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": -0.07168632676776429,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.06168632676776429
+            },
+            "all_late_ridge": {
+              "candidate_id": 6,
+              "expression": "ts_mean(returns,20)",
+              "reward": 0.051603601788025186,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.06160360178802519
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 10,
+              "expression": "ts_std(returns,20)",
+              "reward": -0.013065511919053334,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.0030655119190533334
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": 0.03136395539721092,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.041363955397210925
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": 0.0031821603190939373,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.013182160319093939
+            },
+            "future_oracle": {
+              "candidate_id": 6,
+              "expression": "ts_mean(returns,20)",
+              "reward": 0.051603601788025186,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.06160360178802519
+            }
+          },
+          "all_late_minus_cheap": 0.12328992855578948,
+          "all_late_minus_fixed_lag1": 0.020239646390814263
+        },
+        {
+          "task_id": "2014-H2",
+          "year": 2014,
+          "half": 2,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": -0.09268748993874705,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.08268748993874706
+            },
+            "all_late_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": -0.09268748993874705,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.08268748993874706
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 8,
+              "expression": "ts_mean(returns,60)",
+              "reward": -0.08074127054934943,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.07074127054934944
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": -0.02885019256835481,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.01885019256835481
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": -0.03285250183263683,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.022852501832636832
+            },
+            "future_oracle": {
+              "candidate_id": 10,
+              "expression": "ts_std(returns,20)",
+              "reward": 0.06931806869089101,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.079318068690891
+            }
+          },
+          "all_late_minus_cheap": 0.0,
+          "all_late_minus_fixed_lag1": -0.06383729737039223
+        },
+        {
+          "task_id": "2015-H1",
+          "year": 2015,
+          "half": 1,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 2,
+              "expression": "delay(returns,5)",
+              "reward": -0.028529639088515905,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.018529639088515903
+            },
+            "all_late_ridge": {
+              "candidate_id": 5,
+              "expression": "ts_mean(returns,10)",
+              "reward": 0.012295401470933944,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.022295401470933944
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": -0.07004899243667884,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.060048992436678834
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": -0.004640175109629127,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.005359824890370873
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": -0.005690177252875307,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.004309822747124695
+            },
+            "future_oracle": {
+              "candidate_id": 10,
+              "expression": "ts_std(returns,20)",
+              "reward": 0.03316326530612245,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.04316326530612245
+            }
+          },
+          "all_late_minus_cheap": 0.04082504055944985,
+          "all_late_minus_fixed_lag1": 0.01693557658056307
+        },
+        {
+          "task_id": "2015-H2",
+          "year": 2015,
+          "half": 2,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": -0.06636476021853513,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.05636476021853513
+            },
+            "all_late_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": -0.06636476021853513,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.05636476021853513
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 11,
+              "expression": "sub(ts_mean(returns,5),ts_mean(returns,20))",
+              "reward": -0.0549158634914733,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.0449158634914733
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": -0.0019315645371793966,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.008068435462820604
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": -0.02789225565175024,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.017892255651750236
+            },
+            "future_oracle": {
+              "candidate_id": 9,
+              "expression": "ts_std(returns,5)",
+              "reward": 0.09347270615563298,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.10347270615563298
+            }
+          },
+          "all_late_minus_cheap": 0.0,
+          "all_late_minus_fixed_lag1": -0.06443319568135573
+        },
+        {
+          "task_id": "2016-H1",
+          "year": 2016,
+          "half": 1,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 5,
+              "expression": "ts_mean(returns,10)",
+              "reward": -0.03292330260485849,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.02292330260485849
+            },
+            "all_late_ridge": {
+              "candidate_id": 5,
+              "expression": "ts_mean(returns,10)",
+              "reward": -0.03292330260485849,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.02292330260485849
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 9,
+              "expression": "ts_std(returns,5)",
+              "reward": -0.0659829931972789,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.0559829931972789
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": 0.00535602446606414,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.01535602446606414
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": -0.0237224760226043,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.013722476022604298
+            },
+            "future_oracle": {
+              "candidate_id": 12,
+              "expression": "sub(ts_mean(returns,10),ts_mean(returns,40))",
+              "reward": 0.022423860857467212,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.032423860857467214
+            }
+          },
+          "all_late_minus_cheap": 0.0,
+          "all_late_minus_fixed_lag1": -0.03827932707092263
+        },
+        {
+          "task_id": "2016-H2",
+          "year": 2016,
+          "half": 2,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 8,
+              "expression": "ts_mean(returns,60)",
+              "reward": 0.019706907184705864,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.029706907184705866
+            },
+            "all_late_ridge": {
+              "candidate_id": 8,
+              "expression": "ts_mean(returns,60)",
+              "reward": 0.019706907184705864,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.029706907184705866
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 9,
+              "expression": "ts_std(returns,5)",
+              "reward": 0.04544663767146202,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.055446637671462025
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": -0.0101856554209957,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.00018565542099569995
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": -0.0009678362049432383,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.009032163795056763
+            },
+            "future_oracle": {
+              "candidate_id": 9,
+              "expression": "ts_std(returns,5)",
+              "reward": 0.04544663767146202,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.055446637671462025
+            }
+          },
+          "all_late_minus_cheap": 0.0,
+          "all_late_minus_fixed_lag1": 0.029892562605701563
+        },
+        {
+          "task_id": "2017-H1",
+          "year": 2017,
+          "half": 1,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": -0.0030072699000005167,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.0069927300999994835
+            },
+            "all_late_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": -0.0030072699000005167,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.0069927300999994835
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 14,
+              "expression": "div(ts_mean(returns,20),ts_std(returns,20))",
+              "reward": 0.006737244897959181,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.01673724489795918
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": -0.01930467400783168,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.00930467400783168
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": -0.01622789856773467,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.006227898567734667
+            },
+            "future_oracle": {
+              "candidate_id": 6,
+              "expression": "ts_mean(returns,20)",
+              "reward": 0.03385383401801352,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.04385383401801352
+            }
+          },
+          "all_late_minus_cheap": 0.0,
+          "all_late_minus_fixed_lag1": 0.016297404107831162
+        },
+        {
+          "task_id": "2017-H2",
+          "year": 2017,
+          "half": 2,
+          "choices": {
+            "cheap_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": 0.01829723707140745,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.028297237071407452
+            },
+            "all_late_ridge": {
+              "candidate_id": 7,
+              "expression": "ts_mean(returns,40)",
+              "reward": 0.01829723707140745,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.028297237071407452
+            },
+            "cheap_abs_ic": {
+              "candidate_id": 10,
+              "expression": "ts_std(returns,20)",
+              "reward": -0.08532973519986506,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.07532973519986506
+            },
+            "fixed_lag1": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": 0.028795406983872486,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.03879540698387249
+            },
+            "uniform_grid": {
+              "candidate_id": null,
+              "expression": null,
+              "reward": -0.040295286256908175,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": -0.030295286256908173
+            },
+            "future_oracle": {
+              "candidate_id": 1,
+              "expression": "delay(returns,1)",
+              "reward": 0.028795406983872486,
+              "failure": false,
+              "failure_fraction": 0.0,
+              "valid_ic_contribution": 0.03879540698387249
+            }
+          },
+          "all_late_minus_cheap": 0.0,
+          "all_late_minus_fixed_lag1": -0.010498169912465036
+        }
+      ],
+      "n_tasks": 8,
+      "mean_reward": {
+        "cheap_ridge": -0.03214933053278851,
+        "all_late_ridge": -0.011634959393383593,
+        "fixed_lag1": 7.539065039460411e-05,
+        "cheap_abs_ic": -0.039737560528034704,
+        "uniform_grid": -0.018058283933794852,
+        "future_oracle": 0.047259672683935855
+      },
+      "failure_counts": {
+        "cheap_ridge": 0.0,
+        "all_late_ridge": 0.0,
+        "fixed_lag1": 0.0,
+        "cheap_abs_ic": 0.0,
+        "uniform_grid": 0.0,
+        "future_oracle": 0.0
+      },
+      "failure_counts_definition": "failed tasks; uniform-grid value is expected failed tasks",
+      "valid_fraction": {
+        "cheap_ridge": 1.0,
+        "all_late_ridge": 1.0,
+        "fixed_lag1": 1.0,
+        "cheap_abs_ic": 1.0,
+        "uniform_grid": 1.0,
+        "future_oracle": 1.0
+      },
+      "valid_ic_contribution": {
+        "cheap_ridge": -0.022149330532788506,
+        "all_late_ridge": -0.0016349593933835923,
+        "fixed_lag1": 0.010075390650394605,
+        "cheap_abs_ic": -0.02973756052803471,
+        "uniform_grid": -0.008058283933794852,
+        "future_oracle": 0.05725967268393586
+      },
+      "all_late_minus_cheap": 0.020514371139404918,
+      "all_late_minus_fixed_lag1": -0.011710350043778198
+    }
+  ],
+  "pooled": {
+    "n_tasks": 16,
+    "mean_reward": {
+      "cheap_ridge": -0.01743188300556693,
+      "all_late_ridge": -0.012822217032905906,
+      "fixed_lag1": -0.0007705357946950751,
+      "cheap_abs_ic": -0.02781304708385474,
+      "uniform_grid": -0.011685284639248453,
+      "future_oracle": 0.050811903934034106
+    },
+    "failure_counts": {
+      "cheap_ridge": 0.0,
+      "all_late_ridge": 0.0,
+      "fixed_lag1": 0.0,
+      "cheap_abs_ic": 0.0,
+      "uniform_grid": 0.0,
+      "future_oracle": 0.0
+    },
+    "failure_counts_definition": "failed tasks; uniform-grid value is expected failed tasks",
+    "valid_fraction": {
+      "cheap_ridge": 1.0,
+      "all_late_ridge": 1.0,
+      "fixed_lag1": 1.0,
+      "cheap_abs_ic": 1.0,
+      "uniform_grid": 1.0,
+      "future_oracle": 1.0
+    },
+    "valid_ic_contribution": {
+      "cheap_ridge": -0.007431883005566929,
+      "all_late_ridge": -0.002822217032905903,
+      "fixed_lag1": 0.009229464205304926,
+      "cheap_abs_ic": -0.017813047083854734,
+      "uniform_grid": -0.0016852846392484513,
+      "future_oracle": 0.060811903934034114
+    },
+    "all_late_minus_cheap": 0.004609665972661025,
+    "all_late_minus_fixed_lag1": -0.012051681238210831
+  },
+  "yearly": [
+    {
+      "year": 2010,
+      "n_tasks": 2,
+      "mean_reward": {
+        "cheap_ridge": -0.024310308773916843,
+        "all_late_ridge": -0.024310308773916843,
+        "fixed_lag1": -0.018594607512296565,
+        "cheap_abs_ic": -0.025748867491247374,
+        "uniform_grid": 0.003924653079669182,
+        "future_oracle": 0.08251490721467417
+      },
+      "failure_counts": {
+        "cheap_ridge": 0.0,
+        "all_late_ridge": 0.0,
+        "fixed_lag1": 0.0,
+        "cheap_abs_ic": 0.0,
+        "uniform_grid": 0.0,
+        "future_oracle": 0.0
+      },
+      "failure_counts_definition": "failed tasks; uniform-grid value is expected failed tasks",
+      "valid_fraction": {
+        "cheap_ridge": 1.0,
+        "all_late_ridge": 1.0,
+        "fixed_lag1": 1.0,
+        "cheap_abs_ic": 1.0,
+        "uniform_grid": 1.0,
+        "future_oracle": 1.0
+      },
+      "valid_ic_contribution": {
+        "cheap_ridge": -0.014310308773916845,
+        "all_late_ridge": -0.014310308773916845,
+        "fixed_lag1": -0.008594607512296563,
+        "cheap_abs_ic": -0.015748867491247372,
+        "uniform_grid": 0.013924653079669183,
+        "future_oracle": 0.09251490721467416
+      },
+      "all_late_minus_cheap": 0.0,
+      "all_late_minus_fixed_lag1": -0.005715701261620278
+    },
+    {
+      "year": 2011,
+      "n_tasks": 2,
+      "mean_reward": {
+        "cheap_ridge": -0.017802968831364514,
+        "all_late_ridge": -0.0026995561487135195,
+        "fixed_lag1": 0.0165006135691708,
+        "cheap_abs_ic": -0.0010720844963883897,
+        "uniform_grid": -0.016763869541659863,
+        "future_oracle": 0.03894662658192324
+      },
+      "failure_counts": {
+        "cheap_ridge": 0.0,
+        "all_late_ridge": 0.0,
+        "fixed_lag1": 0.0,
+        "cheap_abs_ic": 0.0,
+        "uniform_grid": 0.0,
+        "future_oracle": 0.0
+      },
+      "failure_counts_definition": "failed tasks; uniform-grid value is expected failed tasks",
+      "valid_fraction": {
+        "cheap_ridge": 1.0,
+        "all_late_ridge": 1.0,
+        "fixed_lag1": 1.0,
+        "cheap_abs_ic": 1.0,
+        "uniform_grid": 1.0,
+        "future_oracle": 1.0
+      },
+      "valid_ic_contribution": {
+        "cheap_ridge": -0.007802968831364512,
+        "all_late_ridge": 0.0073004438512864825,
+        "fixed_lag1": 0.026500613569170803,
+        "cheap_abs_ic": 0.008927915503611612,
+        "uniform_grid": -0.006763869541659866,
+        "future_oracle": 0.04894662658192324
+      },
+      "all_late_minus_cheap": 0.015103412682650995,
+      "all_late_minus_fixed_lag1": -0.01920016971788432
+    },
+    {
+      "year": 2012,
+      "n_tasks": 2,
+      "mean_reward": {
+        "cheap_ridge": 0.013386564460881852,
+        "all_late_ridge": -0.00865777074347477,
+        "fixed_lag1": -0.022240826247031345,
+        "cheap_abs_ic": 0.012340512464728746,
+        "uniform_grid": 0.0035488265113818324,
+        "future_oracle": 0.05958611794319754
+      },
+      "failure_counts": {
+        "cheap_ridge": 0.0,
+        "all_late_ridge": 0.0,
+        "fixed_lag1": 0.0,
+        "cheap_abs_ic": 0.0,
+        "uniform_grid": 0.0,
+        "future_oracle": 0.0
+      },
+      "failure_counts_definition": "failed tasks; uniform-grid value is expected failed tasks",
+      "valid_fraction": {
+        "cheap_ridge": 1.0,
+        "all_late_ridge": 1.0,
+        "fixed_lag1": 1.0,
+        "cheap_abs_ic": 1.0,
+        "uniform_grid": 1.0,
+        "future_oracle": 1.0
+      },
+      "valid_ic_contribution": {
+        "cheap_ridge": 0.023386564460881852,
+        "all_late_ridge": 0.001342229256525232,
+        "fixed_lag1": -0.012240826247031343,
+        "cheap_abs_ic": 0.02234051246472875,
+        "uniform_grid": 0.013548826511381831,
+        "future_oracle": 0.06958611794319754
+      },
+      "all_late_minus_cheap": -0.02204433520435662,
+      "all_late_minus_fixed_lag1": 0.013583055503556575
+    },
+    {
+      "year": 2013,
+      "n_tasks": 2,
+      "mean_reward": {
+        "cheap_ridge": 0.017868971231018087,
+        "all_late_ridge": -0.020370263023607733,
+        "fixed_lag1": 0.017868971231018087,
+        "cheap_abs_ic": -0.04907369503579205,
+        "uniform_grid": -0.011958751428199351,
+        "future_oracle": 0.036408888996734515
+      },
+      "failure_counts": {
+        "cheap_ridge": 0.0,
+        "all_late_ridge": 0.0,
+        "fixed_lag1": 0.0,
+        "cheap_abs_ic": 0.0,
+        "uniform_grid": 0.0,
+        "future_oracle": 0.0
+      },
+      "failure_counts_definition": "failed tasks; uniform-grid value is expected failed tasks",
+      "valid_fraction": {
+        "cheap_ridge": 1.0,
+        "all_late_ridge": 1.0,
+        "fixed_lag1": 1.0,
+        "cheap_abs_ic": 1.0,
+        "uniform_grid": 1.0,
+        "future_oracle": 1.0
+      },
+      "valid_ic_contribution": {
+        "cheap_ridge": 0.027868971231018086,
+        "all_late_ridge": -0.010370263023607731,
+        "fixed_lag1": 0.027868971231018086,
+        "cheap_abs_ic": -0.039073695035792055,
+        "uniform_grid": -0.001958751428199351,
+        "future_oracle": 0.046408888996734524
+      },
+      "all_late_minus_cheap": -0.03823923425462582,
+      "all_late_minus_fixed_lag1": -0.03823923425462582
+    },
+    {
+      "year": 2014,
+      "n_tasks": 2,
+      "mean_reward": {
+        "cheap_ridge": -0.08218690835325568,
+        "all_late_ridge": -0.020541944075360932,
+        "fixed_lag1": 0.0012568814144280557,
+        "cheap_abs_ic": -0.04690339123420138,
+        "uniform_grid": -0.014835170756771444,
+        "future_oracle": 0.0604608352394581
+      },
+      "failure_counts": {
+        "cheap_ridge": 0.0,
+        "all_late_ridge": 0.0,
+        "fixed_lag1": 0.0,
+        "cheap_abs_ic": 0.0,
+        "uniform_grid": 0.0,
+        "future_oracle": 0.0
+      },
+      "failure_counts_definition": "failed tasks; uniform-grid value is expected failed tasks",
+      "valid_fraction": {
+        "cheap_ridge": 1.0,
+        "all_late_ridge": 1.0,
+        "fixed_lag1": 1.0,
+        "cheap_abs_ic": 1.0,
+        "uniform_grid": 1.0,
+        "future_oracle": 1.0
+      },
+      "valid_ic_contribution": {
+        "cheap_ridge": -0.07218690835325567,
+        "all_late_ridge": -0.010541944075360934,
+        "fixed_lag1": 0.011256881414428058,
+        "cheap_abs_ic": -0.03690339123420139,
+        "uniform_grid": -0.0048351707567714465,
+        "future_oracle": 0.07046083523945809
+      },
+      "all_late_minus_cheap": 0.061644964277894745,
+      "all_late_minus_fixed_lag1": -0.021798825489788988
+    },
+    {
+      "year": 2015,
+      "n_tasks": 2,
+      "mean_reward": {
+        "cheap_ridge": -0.04744719965352552,
+        "all_late_ridge": -0.027034679373800594,
+        "fixed_lag1": -0.0032858698234042617,
+        "cheap_abs_ic": -0.06248242796407607,
+        "uniform_grid": -0.016791216452312772,
+        "future_oracle": 0.06331798573087771
+      },
+      "failure_counts": {
+        "cheap_ridge": 0.0,
+        "all_late_ridge": 0.0,
+        "fixed_lag1": 0.0,
+        "cheap_abs_ic": 0.0,
+        "uniform_grid": 0.0,
+        "future_oracle": 0.0
+      },
+      "failure_counts_definition": "failed tasks; uniform-grid value is expected failed tasks",
+      "valid_fraction": {
+        "cheap_ridge": 1.0,
+        "all_late_ridge": 1.0,
+        "fixed_lag1": 1.0,
+        "cheap_abs_ic": 1.0,
+        "uniform_grid": 1.0,
+        "future_oracle": 1.0
+      },
+      "valid_ic_contribution": {
+        "cheap_ridge": -0.03744719965352551,
+        "all_late_ridge": -0.01703467937380059,
+        "fixed_lag1": 0.0067141301765957385,
+        "cheap_abs_ic": -0.05248242796407607,
+        "uniform_grid": -0.006791216452312771,
+        "future_oracle": 0.07331798573087772
+      },
+      "all_late_minus_cheap": 0.020412520279724927,
+      "all_late_minus_fixed_lag1": -0.023748809550396332
+    },
+    {
+      "year": 2016,
+      "n_tasks": 2,
+      "mean_reward": {
+        "cheap_ridge": -0.006608197710076313,
+        "all_late_ridge": -0.006608197710076313,
+        "fixed_lag1": -0.0024148154774657803,
+        "cheap_abs_ic": -0.010268177762908441,
+        "uniform_grid": -0.01234515611377377,
+        "future_oracle": 0.03393524926446462
+      },
+      "failure_counts": {
+        "cheap_ridge": 0.0,
+        "all_late_ridge": 0.0,
+        "fixed_lag1": 0.0,
+        "cheap_abs_ic": 0.0,
+        "uniform_grid": 0.0,
+        "future_oracle": 0.0
+      },
+      "failure_counts_definition": "failed tasks; uniform-grid value is expected failed tasks",
+      "valid_fraction": {
+        "cheap_ridge": 1.0,
+        "all_late_ridge": 1.0,
+        "fixed_lag1": 1.0,
+        "cheap_abs_ic": 1.0,
+        "uniform_grid": 1.0,
+        "future_oracle": 1.0
+      },
+      "valid_ic_contribution": {
+        "cheap_ridge": 0.0033918022899236885,
+        "all_late_ridge": 0.0033918022899236885,
+        "fixed_lag1": 0.00758518452253422,
+        "cheap_abs_ic": -0.0002681777629084392,
+        "uniform_grid": -0.0023451561137737675,
+        "future_oracle": 0.04393524926446462
+      },
+      "all_late_minus_cheap": 0.0,
+      "all_late_minus_fixed_lag1": -0.004193382232610533
+    },
+    {
+      "year": 2017,
+      "n_tasks": 2,
+      "mean_reward": {
+        "cheap_ridge": 0.007644983585703467,
+        "all_late_ridge": 0.007644983585703467,
+        "fixed_lag1": 0.004745366488020403,
+        "cheap_abs_ic": -0.03929624515095294,
+        "uniform_grid": -0.028261592412321422,
+        "future_oracle": 0.03132462050094301
+      },
+      "failure_counts": {
+        "cheap_ridge": 0.0,
+        "all_late_ridge": 0.0,
+        "fixed_lag1": 0.0,
+        "cheap_abs_ic": 0.0,
+        "uniform_grid": 0.0,
+        "future_oracle": 0.0
+      },
+      "failure_counts_definition": "failed tasks; uniform-grid value is expected failed tasks",
+      "valid_fraction": {
+        "cheap_ridge": 1.0,
+        "all_late_ridge": 1.0,
+        "fixed_lag1": 1.0,
+        "cheap_abs_ic": 1.0,
+        "uniform_grid": 1.0,
+        "future_oracle": 1.0
+      },
+      "valid_ic_contribution": {
+        "cheap_ridge": 0.017644983585703468,
+        "all_late_ridge": 0.017644983585703468,
+        "fixed_lag1": 0.014745366488020405,
+        "cheap_abs_ic": -0.029296245150952943,
+        "uniform_grid": -0.01826159241232142,
+        "future_oracle": 0.041324620500943
+      },
+      "all_late_minus_cheap": 0.0,
+      "all_late_minus_fixed_lag1": 0.002899617097683064
+    }
+  ],
+  "limitations": [
+    "training-period opportunity gate, not chronological transfer evidence",
+    "all-late ridge has privileged free access to every candidate's late evidence",
+    "future oracle is diagnostic only and never enters the gate",
+    "late failure does not change a selected candidate's target reward",
+    "no significance, agent adaptation, profitability or novel-factor claim"
+  ],
+  "snapshot_sha256": "8f394fe34bea54d41b9aafed410425ee8f8e252ede3c71a7c1cd20bab83040de",
+  "manifest": {
+    "created_utc": "2026-10-01T04:36:07.968066+00:00",
+    "python": "3.12.14",
+    "platform": "Windows",
+    "packages": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "torch": "2.8.0+cu128",
+      "transformers": "4.57.6",
+      "peft": "0.18.1"
+    },
+    "git_revision": "680d2d5b05d37e7583c9cefdebe1b6533514ccf2",
+    "source_sha256": "99bf580f666f8691b5ce8d0eb900db96ae26717547de2a4e44d53a173efbe757",
+    "config": {
+      "study": "sequential-financial-opportunity-gate-v1",
+      "cpu_only": true,
+      "snapshot_sha256": "8f394fe34bea54d41b9aafed410425ee8f8e252ede3c71a7c1cd20bab83040de",
+      "raw_file": "49_Industry_Portfolios_daily_CSV.zip",
+      "alpha": 10.0,
+      "row_weight": 0.0625,
+      "unpenalized_intercept": true,
+      "folds": [
+        [
+          2002,
+          2009,
+          2010,
+          2013
+        ],
+        [
+          2002,
+          2013,
+          2014,
+          2017
+        ]
+      ],
+      "candidate_grid": [
+        "returns",
+        "delay(returns,1)",
+        "delay(returns,5)",
+        "ts_mean(returns,3)",
+        "ts_mean(returns,5)",
+        "ts_mean(returns,10)",
+        "ts_mean(returns,20)",
+        "ts_mean(returns,40)",
+        "ts_mean(returns,60)",
+        "ts_std(returns,5)",
+        "ts_std(returns,20)",
+        "sub(ts_mean(returns,5),ts_mean(returns,20))",
+        "sub(ts_mean(returns,10),ts_mean(returns,40))",
+        "div(ts_mean(returns,5),ts_std(returns,20))",
+        "div(ts_mean(returns,20),ts_std(returns,20))",
+        "mul(returns,ts_mean(returns,5))"
+      ],
+      "cheap_features": [
+        "cheap_abs_ic",
+        "cheap_orientation",
+        "cheap_ic_std",
+        "cheap_coverage",
+        "cheap_valid_fraction",
+        "cheap_usable",
+        "cheap_abs_ic_missing",
+        "cheap_orientation_missing",
+        "cheap_ic_std_missing",
+        "cheap_coverage_missing",
+        "cheap_valid_fraction_missing",
+        "cheap_usable_missing",
+        "candidate_0",
+        "candidate_1",
+        "candidate_2",
+        "candidate_3",
+        "candidate_4",
+        "candidate_5",
+        "candidate_6",
+        "candidate_7",
+        "candidate_8",
+        "candidate_9",
+        "candidate_10",
+        "candidate_11",
+        "candidate_12",
+        "candidate_13",
+        "candidate_14",
+        "candidate_15"
+      ],
+      "full_features": [
+        "cheap_abs_ic",
+        "cheap_orientation",
+        "cheap_ic_std",
+        "cheap_coverage",
+        "cheap_valid_fraction",
+        "cheap_usable",
+        "cheap_abs_ic_missing",
+        "cheap_orientation_missing",
+        "cheap_ic_std_missing",
+        "cheap_coverage_missing",
+        "cheap_valid_fraction_missing",
+        "cheap_usable_missing",
+        "candidate_0",
+        "candidate_1",
+        "candidate_2",
+        "candidate_3",
+        "candidate_4",
+        "candidate_5",
+        "candidate_6",
+        "candidate_7",
+        "candidate_8",
+        "candidate_9",
+        "candidate_10",
+        "candidate_11",
+        "candidate_12",
+        "candidate_13",
+        "candidate_14",
+        "candidate_15",
+        "oriented_late_ic",
+        "late_ic_std",
+        "late_coverage",
+        "late_valid_fraction",
+        "late_usable",
+        "oriented_late_ic_missing",
+        "late_ic_std_missing",
+        "late_coverage_missing",
+        "late_valid_fraction_missing",
+        "late_usable_missing"
+      ],
+      "minimum_pooled_late_minus_cheap_exclusive": 0.002,
+      "require_positive_each_fold": true,
+      "require_positive_pooled_vs_fixed_lag1": true,
+      "source_files_sha256": {
+        "sequential_gate.py": "b949fd6140ee922e1de3d52398338a0501e97dc6a01556663a2a0602e72b5329",
+        "sequential_financial.py": "eebe4bae9d357664f0c551a66375bd1a351a9e7cac41aea38a9dbb807d505497",
+        "financial_tasks.py": "3ffd294c0b0e71b3d77e29d529554bb7bf9218a9b6becc0ae8fc6a22cea0ad6f",
+        "financial_policy.py": "7a2326fb46271a803fa464dbc46e1c4a9029bf2d0256da8575e0d1026b4a8bd6",
+        "data.py": "21be3b5df887acdfc97d3ebfe2b191c91db2f647f44516d9f5c987e33f39b48c",
+        "dsl.py": "47c311c0d2b4074653789bf1275081a58517822d0f1fc0a6fb811fd796e8ba97",
+        "evaluation.py": "19262b9412b2f6cfe275650d2f6b27096b0140ccc85e3f73d69005c3bdd872c7",
+        "french.py": "e8842a70297834f9bb8d9f080ce9379c087728baf84669db85e29b0d60ae5e05",
+        "real_baselines.py": "5ea0b872ef720d3ecbce94c1172945591f1be564c9f770ecdbfbd4d734f51bc8"
+      },
+      "manifest_capture": "entry before panel loading, task construction or scoring",
+      "task_manifests": [
+        {
+          "task_id": "2002-H1",
+          "year": 2002,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            377,
+            454
+          ],
+          "cheap_label_boundary": 459,
+          "cheap_signal_dates": [
+            "2001-07-02",
+            "2001-10-24"
+          ],
+          "cheap_label_support_dates": [
+            "2001-07-10",
+            "2001-10-31"
+          ],
+          "late_bounds_half_open": [
+            459,
+            495
+          ],
+          "late_label_boundary": 500,
+          "late_signal_dates": [
+            "2001-11-01",
+            "2001-12-21"
+          ],
+          "late_label_support_dates": [
+            "2001-11-08",
+            "2001-12-31"
+          ],
+          "assessment_bounds_half_open": [
+            500,
+            619
+          ],
+          "assessment_label_boundary": 624,
+          "assessment_signal_dates": [
+            "2002-01-02",
+            "2002-06-21"
+          ],
+          "assessment_label_support_dates": [
+            "2002-01-09",
+            "2002-06-28"
+          ],
+          "raw_feedback_bounds_half_open": [
+            377,
+            500
+          ],
+          "raw_assessment_bounds_half_open": [
+            500,
+            624
+          ]
+        },
+        {
+          "task_id": "2002-H2",
+          "year": 2002,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            500,
+            577
+          ],
+          "cheap_label_boundary": 582,
+          "cheap_signal_dates": [
+            "2002-01-02",
+            "2002-04-23"
+          ],
+          "cheap_label_support_dates": [
+            "2002-01-09",
+            "2002-04-30"
+          ],
+          "late_bounds_half_open": [
+            582,
+            619
+          ],
+          "late_label_boundary": 624,
+          "late_signal_dates": [
+            "2002-05-01",
+            "2002-06-21"
+          ],
+          "late_label_support_dates": [
+            "2002-05-08",
+            "2002-06-28"
+          ],
+          "assessment_bounds_half_open": [
+            624,
+            747
+          ],
+          "assessment_label_boundary": 752,
+          "assessment_signal_dates": [
+            "2002-07-01",
+            "2002-12-23"
+          ],
+          "assessment_label_support_dates": [
+            "2002-07-09",
+            "2002-12-31"
+          ],
+          "raw_feedback_bounds_half_open": [
+            500,
+            624
+          ],
+          "raw_assessment_bounds_half_open": [
+            624,
+            752
+          ]
+        },
+        {
+          "task_id": "2003-H1",
+          "year": 2003,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            624,
+            704
+          ],
+          "cheap_label_boundary": 709,
+          "cheap_signal_dates": [
+            "2002-07-01",
+            "2002-10-22"
+          ],
+          "cheap_label_support_dates": [
+            "2002-07-09",
+            "2002-10-29"
+          ],
+          "late_bounds_half_open": [
+            709,
+            747
+          ],
+          "late_label_boundary": 752,
+          "late_signal_dates": [
+            "2002-10-30",
+            "2002-12-23"
+          ],
+          "late_label_support_dates": [
+            "2002-11-06",
+            "2002-12-31"
+          ],
+          "assessment_bounds_half_open": [
+            752,
+            871
+          ],
+          "assessment_label_boundary": 876,
+          "assessment_signal_dates": [
+            "2003-01-02",
+            "2003-06-23"
+          ],
+          "assessment_label_support_dates": [
+            "2003-01-09",
+            "2003-06-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            624,
+            752
+          ],
+          "raw_assessment_bounds_half_open": [
+            752,
+            876
+          ]
+        },
+        {
+          "task_id": "2003-H2",
+          "year": 2003,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            752,
+            829
+          ],
+          "cheap_label_boundary": 834,
+          "cheap_signal_dates": [
+            "2003-01-02",
+            "2003-04-23"
+          ],
+          "cheap_label_support_dates": [
+            "2003-01-09",
+            "2003-04-30"
+          ],
+          "late_bounds_half_open": [
+            834,
+            871
+          ],
+          "late_label_boundary": 876,
+          "late_signal_dates": [
+            "2003-05-01",
+            "2003-06-23"
+          ],
+          "late_label_support_dates": [
+            "2003-05-08",
+            "2003-06-30"
+          ],
+          "assessment_bounds_half_open": [
+            876,
+            999
+          ],
+          "assessment_label_boundary": 1004,
+          "assessment_signal_dates": [
+            "2003-07-01",
+            "2003-12-23"
+          ],
+          "assessment_label_support_dates": [
+            "2003-07-09",
+            "2003-12-31"
+          ],
+          "raw_feedback_bounds_half_open": [
+            752,
+            876
+          ],
+          "raw_assessment_bounds_half_open": [
+            876,
+            1004
+          ]
+        },
+        {
+          "task_id": "2004-H1",
+          "year": 2004,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            876,
+            956
+          ],
+          "cheap_label_boundary": 961,
+          "cheap_signal_dates": [
+            "2003-07-01",
+            "2003-10-22"
+          ],
+          "cheap_label_support_dates": [
+            "2003-07-09",
+            "2003-10-29"
+          ],
+          "late_bounds_half_open": [
+            961,
+            999
+          ],
+          "late_label_boundary": 1004,
+          "late_signal_dates": [
+            "2003-10-30",
+            "2003-12-23"
+          ],
+          "late_label_support_dates": [
+            "2003-11-06",
+            "2003-12-31"
+          ],
+          "assessment_bounds_half_open": [
+            1004,
+            1123
+          ],
+          "assessment_label_boundary": 1128,
+          "assessment_signal_dates": [
+            "2004-01-02",
+            "2004-06-23"
+          ],
+          "assessment_label_support_dates": [
+            "2004-01-09",
+            "2004-06-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            876,
+            1004
+          ],
+          "raw_assessment_bounds_half_open": [
+            1004,
+            1128
+          ]
+        },
+        {
+          "task_id": "2004-H2",
+          "year": 2004,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            1004,
+            1081
+          ],
+          "cheap_label_boundary": 1086,
+          "cheap_signal_dates": [
+            "2004-01-02",
+            "2004-04-22"
+          ],
+          "cheap_label_support_dates": [
+            "2004-01-09",
+            "2004-04-29"
+          ],
+          "late_bounds_half_open": [
+            1086,
+            1123
+          ],
+          "late_label_boundary": 1128,
+          "late_signal_dates": [
+            "2004-04-30",
+            "2004-06-23"
+          ],
+          "late_label_support_dates": [
+            "2004-05-07",
+            "2004-06-30"
+          ],
+          "assessment_bounds_half_open": [
+            1128,
+            1251
+          ],
+          "assessment_label_boundary": 1256,
+          "assessment_signal_dates": [
+            "2004-07-01",
+            "2004-12-23"
+          ],
+          "assessment_label_support_dates": [
+            "2004-07-09",
+            "2004-12-31"
+          ],
+          "raw_feedback_bounds_half_open": [
+            1004,
+            1128
+          ],
+          "raw_assessment_bounds_half_open": [
+            1128,
+            1256
+          ]
+        },
+        {
+          "task_id": "2005-H1",
+          "year": 2005,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            1128,
+            1208
+          ],
+          "cheap_label_boundary": 1213,
+          "cheap_signal_dates": [
+            "2004-07-01",
+            "2004-10-22"
+          ],
+          "cheap_label_support_dates": [
+            "2004-07-09",
+            "2004-10-29"
+          ],
+          "late_bounds_half_open": [
+            1213,
+            1251
+          ],
+          "late_label_boundary": 1256,
+          "late_signal_dates": [
+            "2004-11-01",
+            "2004-12-23"
+          ],
+          "late_label_support_dates": [
+            "2004-11-08",
+            "2004-12-31"
+          ],
+          "assessment_bounds_half_open": [
+            1256,
+            1376
+          ],
+          "assessment_label_boundary": 1381,
+          "assessment_signal_dates": [
+            "2005-01-03",
+            "2005-06-23"
+          ],
+          "assessment_label_support_dates": [
+            "2005-01-10",
+            "2005-06-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            1128,
+            1256
+          ],
+          "raw_assessment_bounds_half_open": [
+            1256,
+            1381
+          ]
+        },
+        {
+          "task_id": "2005-H2",
+          "year": 2005,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            1256,
+            1334
+          ],
+          "cheap_label_boundary": 1339,
+          "cheap_signal_dates": [
+            "2005-01-03",
+            "2005-04-25"
+          ],
+          "cheap_label_support_dates": [
+            "2005-01-10",
+            "2005-05-02"
+          ],
+          "late_bounds_half_open": [
+            1339,
+            1376
+          ],
+          "late_label_boundary": 1381,
+          "late_signal_dates": [
+            "2005-05-03",
+            "2005-06-23"
+          ],
+          "late_label_support_dates": [
+            "2005-05-10",
+            "2005-06-30"
+          ],
+          "assessment_bounds_half_open": [
+            1381,
+            1503
+          ],
+          "assessment_label_boundary": 1508,
+          "assessment_signal_dates": [
+            "2005-07-01",
+            "2005-12-22"
+          ],
+          "assessment_label_support_dates": [
+            "2005-07-11",
+            "2005-12-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            1256,
+            1381
+          ],
+          "raw_assessment_bounds_half_open": [
+            1381,
+            1508
+          ]
+        },
+        {
+          "task_id": "2006-H1",
+          "year": 2006,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            1381,
+            1460
+          ],
+          "cheap_label_boundary": 1465,
+          "cheap_signal_dates": [
+            "2005-07-01",
+            "2005-10-21"
+          ],
+          "cheap_label_support_dates": [
+            "2005-07-11",
+            "2005-10-28"
+          ],
+          "late_bounds_half_open": [
+            1465,
+            1503
+          ],
+          "late_label_boundary": 1508,
+          "late_signal_dates": [
+            "2005-10-31",
+            "2005-12-22"
+          ],
+          "late_label_support_dates": [
+            "2005-11-07",
+            "2005-12-30"
+          ],
+          "assessment_bounds_half_open": [
+            1508,
+            1628
+          ],
+          "assessment_label_boundary": 1633,
+          "assessment_signal_dates": [
+            "2006-01-03",
+            "2006-06-23"
+          ],
+          "assessment_label_support_dates": [
+            "2006-01-10",
+            "2006-06-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            1381,
+            1508
+          ],
+          "raw_assessment_bounds_half_open": [
+            1508,
+            1633
+          ]
+        },
+        {
+          "task_id": "2006-H2",
+          "year": 2006,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            1508,
+            1586
+          ],
+          "cheap_label_boundary": 1591,
+          "cheap_signal_dates": [
+            "2006-01-03",
+            "2006-04-25"
+          ],
+          "cheap_label_support_dates": [
+            "2006-01-10",
+            "2006-05-02"
+          ],
+          "late_bounds_half_open": [
+            1591,
+            1628
+          ],
+          "late_label_boundary": 1633,
+          "late_signal_dates": [
+            "2006-05-03",
+            "2006-06-23"
+          ],
+          "late_label_support_dates": [
+            "2006-05-10",
+            "2006-06-30"
+          ],
+          "assessment_bounds_half_open": [
+            1633,
+            1754
+          ],
+          "assessment_label_boundary": 1759,
+          "assessment_signal_dates": [
+            "2006-07-03",
+            "2006-12-21"
+          ],
+          "assessment_label_support_dates": [
+            "2006-07-11",
+            "2006-12-29"
+          ],
+          "raw_feedback_bounds_half_open": [
+            1508,
+            1633
+          ],
+          "raw_assessment_bounds_half_open": [
+            1633,
+            1759
+          ]
+        },
+        {
+          "task_id": "2007-H1",
+          "year": 2007,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            1633,
+            1712
+          ],
+          "cheap_label_boundary": 1717,
+          "cheap_signal_dates": [
+            "2006-07-03",
+            "2006-10-23"
+          ],
+          "cheap_label_support_dates": [
+            "2006-07-11",
+            "2006-10-30"
+          ],
+          "late_bounds_half_open": [
+            1717,
+            1754
+          ],
+          "late_label_boundary": 1759,
+          "late_signal_dates": [
+            "2006-10-31",
+            "2006-12-21"
+          ],
+          "late_label_support_dates": [
+            "2006-11-07",
+            "2006-12-29"
+          ],
+          "assessment_bounds_half_open": [
+            1759,
+            1878
+          ],
+          "assessment_label_boundary": 1883,
+          "assessment_signal_dates": [
+            "2007-01-03",
+            "2007-06-22"
+          ],
+          "assessment_label_support_dates": [
+            "2007-01-10",
+            "2007-06-29"
+          ],
+          "raw_feedback_bounds_half_open": [
+            1633,
+            1759
+          ],
+          "raw_assessment_bounds_half_open": [
+            1759,
+            1883
+          ]
+        },
+        {
+          "task_id": "2007-H2",
+          "year": 2007,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            1759,
+            1836
+          ],
+          "cheap_label_boundary": 1841,
+          "cheap_signal_dates": [
+            "2007-01-03",
+            "2007-04-24"
+          ],
+          "cheap_label_support_dates": [
+            "2007-01-10",
+            "2007-05-01"
+          ],
+          "late_bounds_half_open": [
+            1841,
+            1878
+          ],
+          "late_label_boundary": 1883,
+          "late_signal_dates": [
+            "2007-05-02",
+            "2007-06-22"
+          ],
+          "late_label_support_dates": [
+            "2007-05-09",
+            "2007-06-29"
+          ],
+          "assessment_bounds_half_open": [
+            1883,
+            2005
+          ],
+          "assessment_label_boundary": 2010,
+          "assessment_signal_dates": [
+            "2007-07-02",
+            "2007-12-21"
+          ],
+          "assessment_label_support_dates": [
+            "2007-07-10",
+            "2007-12-31"
+          ],
+          "raw_feedback_bounds_half_open": [
+            1759,
+            1883
+          ],
+          "raw_assessment_bounds_half_open": [
+            1883,
+            2010
+          ]
+        },
+        {
+          "task_id": "2008-H1",
+          "year": 2008,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            1883,
+            1962
+          ],
+          "cheap_label_boundary": 1967,
+          "cheap_signal_dates": [
+            "2007-07-02",
+            "2007-10-22"
+          ],
+          "cheap_label_support_dates": [
+            "2007-07-10",
+            "2007-10-29"
+          ],
+          "late_bounds_half_open": [
+            1967,
+            2005
+          ],
+          "late_label_boundary": 2010,
+          "late_signal_dates": [
+            "2007-10-30",
+            "2007-12-21"
+          ],
+          "late_label_support_dates": [
+            "2007-11-06",
+            "2007-12-31"
+          ],
+          "assessment_bounds_half_open": [
+            2010,
+            2130
+          ],
+          "assessment_label_boundary": 2135,
+          "assessment_signal_dates": [
+            "2008-01-02",
+            "2008-06-23"
+          ],
+          "assessment_label_support_dates": [
+            "2008-01-09",
+            "2008-06-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            1883,
+            2010
+          ],
+          "raw_assessment_bounds_half_open": [
+            2010,
+            2135
+          ]
+        },
+        {
+          "task_id": "2008-H2",
+          "year": 2008,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            2010,
+            2088
+          ],
+          "cheap_label_boundary": 2093,
+          "cheap_signal_dates": [
+            "2008-01-02",
+            "2008-04-23"
+          ],
+          "cheap_label_support_dates": [
+            "2008-01-09",
+            "2008-04-30"
+          ],
+          "late_bounds_half_open": [
+            2093,
+            2130
+          ],
+          "late_label_boundary": 2135,
+          "late_signal_dates": [
+            "2008-05-01",
+            "2008-06-23"
+          ],
+          "late_label_support_dates": [
+            "2008-05-08",
+            "2008-06-30"
+          ],
+          "assessment_bounds_half_open": [
+            2135,
+            2258
+          ],
+          "assessment_label_boundary": 2263,
+          "assessment_signal_dates": [
+            "2008-07-01",
+            "2008-12-23"
+          ],
+          "assessment_label_support_dates": [
+            "2008-07-09",
+            "2008-12-31"
+          ],
+          "raw_feedback_bounds_half_open": [
+            2010,
+            2135
+          ],
+          "raw_assessment_bounds_half_open": [
+            2135,
+            2263
+          ]
+        },
+        {
+          "task_id": "2009-H1",
+          "year": 2009,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            2135,
+            2215
+          ],
+          "cheap_label_boundary": 2220,
+          "cheap_signal_dates": [
+            "2008-07-01",
+            "2008-10-22"
+          ],
+          "cheap_label_support_dates": [
+            "2008-07-09",
+            "2008-10-29"
+          ],
+          "late_bounds_half_open": [
+            2220,
+            2258
+          ],
+          "late_label_boundary": 2263,
+          "late_signal_dates": [
+            "2008-10-30",
+            "2008-12-23"
+          ],
+          "late_label_support_dates": [
+            "2008-11-06",
+            "2008-12-31"
+          ],
+          "assessment_bounds_half_open": [
+            2263,
+            2382
+          ],
+          "assessment_label_boundary": 2387,
+          "assessment_signal_dates": [
+            "2009-01-02",
+            "2009-06-23"
+          ],
+          "assessment_label_support_dates": [
+            "2009-01-09",
+            "2009-06-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            2135,
+            2263
+          ],
+          "raw_assessment_bounds_half_open": [
+            2263,
+            2387
+          ]
+        },
+        {
+          "task_id": "2009-H2",
+          "year": 2009,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            2263,
+            2340
+          ],
+          "cheap_label_boundary": 2345,
+          "cheap_signal_dates": [
+            "2009-01-02",
+            "2009-04-23"
+          ],
+          "cheap_label_support_dates": [
+            "2009-01-09",
+            "2009-04-30"
+          ],
+          "late_bounds_half_open": [
+            2345,
+            2382
+          ],
+          "late_label_boundary": 2387,
+          "late_signal_dates": [
+            "2009-05-01",
+            "2009-06-23"
+          ],
+          "late_label_support_dates": [
+            "2009-05-08",
+            "2009-06-30"
+          ],
+          "assessment_bounds_half_open": [
+            2387,
+            2510
+          ],
+          "assessment_label_boundary": 2515,
+          "assessment_signal_dates": [
+            "2009-07-01",
+            "2009-12-23"
+          ],
+          "assessment_label_support_dates": [
+            "2009-07-09",
+            "2009-12-31"
+          ],
+          "raw_feedback_bounds_half_open": [
+            2263,
+            2387
+          ],
+          "raw_assessment_bounds_half_open": [
+            2387,
+            2515
+          ]
+        },
+        {
+          "task_id": "2010-H1",
+          "year": 2010,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            2387,
+            2467
+          ],
+          "cheap_label_boundary": 2472,
+          "cheap_signal_dates": [
+            "2009-07-01",
+            "2009-10-22"
+          ],
+          "cheap_label_support_dates": [
+            "2009-07-09",
+            "2009-10-29"
+          ],
+          "late_bounds_half_open": [
+            2472,
+            2510
+          ],
+          "late_label_boundary": 2515,
+          "late_signal_dates": [
+            "2009-10-30",
+            "2009-12-23"
+          ],
+          "late_label_support_dates": [
+            "2009-11-06",
+            "2009-12-31"
+          ],
+          "assessment_bounds_half_open": [
+            2515,
+            2634
+          ],
+          "assessment_label_boundary": 2639,
+          "assessment_signal_dates": [
+            "2010-01-04",
+            "2010-06-23"
+          ],
+          "assessment_label_support_dates": [
+            "2010-01-11",
+            "2010-06-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            2387,
+            2515
+          ],
+          "raw_assessment_bounds_half_open": [
+            2515,
+            2639
+          ]
+        },
+        {
+          "task_id": "2010-H2",
+          "year": 2010,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            2515,
+            2592
+          ],
+          "cheap_label_boundary": 2597,
+          "cheap_signal_dates": [
+            "2010-01-04",
+            "2010-04-23"
+          ],
+          "cheap_label_support_dates": [
+            "2010-01-11",
+            "2010-04-30"
+          ],
+          "late_bounds_half_open": [
+            2597,
+            2634
+          ],
+          "late_label_boundary": 2639,
+          "late_signal_dates": [
+            "2010-05-03",
+            "2010-06-23"
+          ],
+          "late_label_support_dates": [
+            "2010-05-10",
+            "2010-06-30"
+          ],
+          "assessment_bounds_half_open": [
+            2639,
+            2762
+          ],
+          "assessment_label_boundary": 2767,
+          "assessment_signal_dates": [
+            "2010-07-01",
+            "2010-12-23"
+          ],
+          "assessment_label_support_dates": [
+            "2010-07-09",
+            "2010-12-31"
+          ],
+          "raw_feedback_bounds_half_open": [
+            2515,
+            2639
+          ],
+          "raw_assessment_bounds_half_open": [
+            2639,
+            2767
+          ]
+        },
+        {
+          "task_id": "2011-H1",
+          "year": 2011,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            2639,
+            2719
+          ],
+          "cheap_label_boundary": 2724,
+          "cheap_signal_dates": [
+            "2010-07-01",
+            "2010-10-22"
+          ],
+          "cheap_label_support_dates": [
+            "2010-07-09",
+            "2010-10-29"
+          ],
+          "late_bounds_half_open": [
+            2724,
+            2762
+          ],
+          "late_label_boundary": 2767,
+          "late_signal_dates": [
+            "2010-11-01",
+            "2010-12-23"
+          ],
+          "late_label_support_dates": [
+            "2010-11-08",
+            "2010-12-31"
+          ],
+          "assessment_bounds_half_open": [
+            2767,
+            2887
+          ],
+          "assessment_label_boundary": 2892,
+          "assessment_signal_dates": [
+            "2011-01-03",
+            "2011-06-23"
+          ],
+          "assessment_label_support_dates": [
+            "2011-01-10",
+            "2011-06-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            2639,
+            2767
+          ],
+          "raw_assessment_bounds_half_open": [
+            2767,
+            2892
+          ]
+        },
+        {
+          "task_id": "2011-H2",
+          "year": 2011,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            2767,
+            2845
+          ],
+          "cheap_label_boundary": 2850,
+          "cheap_signal_dates": [
+            "2011-01-03",
+            "2011-04-25"
+          ],
+          "cheap_label_support_dates": [
+            "2011-01-10",
+            "2011-05-02"
+          ],
+          "late_bounds_half_open": [
+            2850,
+            2887
+          ],
+          "late_label_boundary": 2892,
+          "late_signal_dates": [
+            "2011-05-03",
+            "2011-06-23"
+          ],
+          "late_label_support_dates": [
+            "2011-05-10",
+            "2011-06-30"
+          ],
+          "assessment_bounds_half_open": [
+            2892,
+            3014
+          ],
+          "assessment_label_boundary": 3019,
+          "assessment_signal_dates": [
+            "2011-07-01",
+            "2011-12-22"
+          ],
+          "assessment_label_support_dates": [
+            "2011-07-11",
+            "2011-12-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            2767,
+            2892
+          ],
+          "raw_assessment_bounds_half_open": [
+            2892,
+            3019
+          ]
+        },
+        {
+          "task_id": "2012-H1",
+          "year": 2012,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            2892,
+            2971
+          ],
+          "cheap_label_boundary": 2976,
+          "cheap_signal_dates": [
+            "2011-07-01",
+            "2011-10-21"
+          ],
+          "cheap_label_support_dates": [
+            "2011-07-11",
+            "2011-10-28"
+          ],
+          "late_bounds_half_open": [
+            2976,
+            3014
+          ],
+          "late_label_boundary": 3019,
+          "late_signal_dates": [
+            "2011-10-31",
+            "2011-12-22"
+          ],
+          "late_label_support_dates": [
+            "2011-11-07",
+            "2011-12-30"
+          ],
+          "assessment_bounds_half_open": [
+            3019,
+            3139
+          ],
+          "assessment_label_boundary": 3144,
+          "assessment_signal_dates": [
+            "2012-01-03",
+            "2012-06-22"
+          ],
+          "assessment_label_support_dates": [
+            "2012-01-10",
+            "2012-06-29"
+          ],
+          "raw_feedback_bounds_half_open": [
+            2892,
+            3019
+          ],
+          "raw_assessment_bounds_half_open": [
+            3019,
+            3144
+          ]
+        },
+        {
+          "task_id": "2012-H2",
+          "year": 2012,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            3019,
+            3097
+          ],
+          "cheap_label_boundary": 3102,
+          "cheap_signal_dates": [
+            "2012-01-03",
+            "2012-04-24"
+          ],
+          "cheap_label_support_dates": [
+            "2012-01-10",
+            "2012-05-01"
+          ],
+          "late_bounds_half_open": [
+            3102,
+            3139
+          ],
+          "late_label_boundary": 3144,
+          "late_signal_dates": [
+            "2012-05-02",
+            "2012-06-22"
+          ],
+          "late_label_support_dates": [
+            "2012-05-09",
+            "2012-06-29"
+          ],
+          "assessment_bounds_half_open": [
+            3144,
+            3264
+          ],
+          "assessment_label_boundary": 3269,
+          "assessment_signal_dates": [
+            "2012-07-02",
+            "2012-12-21"
+          ],
+          "assessment_label_support_dates": [
+            "2012-07-10",
+            "2012-12-31"
+          ],
+          "raw_feedback_bounds_half_open": [
+            3019,
+            3144
+          ],
+          "raw_assessment_bounds_half_open": [
+            3144,
+            3269
+          ]
+        },
+        {
+          "task_id": "2013-H1",
+          "year": 2013,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            3144,
+            3222
+          ],
+          "cheap_label_boundary": 3227,
+          "cheap_signal_dates": [
+            "2012-07-02",
+            "2012-10-19"
+          ],
+          "cheap_label_support_dates": [
+            "2012-07-10",
+            "2012-10-26"
+          ],
+          "late_bounds_half_open": [
+            3227,
+            3264
+          ],
+          "late_label_boundary": 3269,
+          "late_signal_dates": [
+            "2012-10-31",
+            "2012-12-21"
+          ],
+          "late_label_support_dates": [
+            "2012-11-07",
+            "2012-12-31"
+          ],
+          "assessment_bounds_half_open": [
+            3269,
+            3388
+          ],
+          "assessment_label_boundary": 3393,
+          "assessment_signal_dates": [
+            "2013-01-02",
+            "2013-06-21"
+          ],
+          "assessment_label_support_dates": [
+            "2013-01-09",
+            "2013-06-28"
+          ],
+          "raw_feedback_bounds_half_open": [
+            3144,
+            3269
+          ],
+          "raw_assessment_bounds_half_open": [
+            3269,
+            3393
+          ]
+        },
+        {
+          "task_id": "2013-H2",
+          "year": 2013,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            3269,
+            3346
+          ],
+          "cheap_label_boundary": 3351,
+          "cheap_signal_dates": [
+            "2013-01-02",
+            "2013-04-23"
+          ],
+          "cheap_label_support_dates": [
+            "2013-01-09",
+            "2013-04-30"
+          ],
+          "late_bounds_half_open": [
+            3351,
+            3388
+          ],
+          "late_label_boundary": 3393,
+          "late_signal_dates": [
+            "2013-05-01",
+            "2013-06-21"
+          ],
+          "late_label_support_dates": [
+            "2013-05-08",
+            "2013-06-28"
+          ],
+          "assessment_bounds_half_open": [
+            3393,
+            3516
+          ],
+          "assessment_label_boundary": 3521,
+          "assessment_signal_dates": [
+            "2013-07-01",
+            "2013-12-23"
+          ],
+          "assessment_label_support_dates": [
+            "2013-07-09",
+            "2013-12-31"
+          ],
+          "raw_feedback_bounds_half_open": [
+            3269,
+            3393
+          ],
+          "raw_assessment_bounds_half_open": [
+            3393,
+            3521
+          ]
+        },
+        {
+          "task_id": "2014-H1",
+          "year": 2014,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            3393,
+            3473
+          ],
+          "cheap_label_boundary": 3478,
+          "cheap_signal_dates": [
+            "2013-07-01",
+            "2013-10-22"
+          ],
+          "cheap_label_support_dates": [
+            "2013-07-09",
+            "2013-10-29"
+          ],
+          "late_bounds_half_open": [
+            3478,
+            3516
+          ],
+          "late_label_boundary": 3521,
+          "late_signal_dates": [
+            "2013-10-30",
+            "2013-12-23"
+          ],
+          "late_label_support_dates": [
+            "2013-11-06",
+            "2013-12-31"
+          ],
+          "assessment_bounds_half_open": [
+            3521,
+            3640
+          ],
+          "assessment_label_boundary": 3645,
+          "assessment_signal_dates": [
+            "2014-01-02",
+            "2014-06-23"
+          ],
+          "assessment_label_support_dates": [
+            "2014-01-09",
+            "2014-06-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            3393,
+            3521
+          ],
+          "raw_assessment_bounds_half_open": [
+            3521,
+            3645
+          ]
+        },
+        {
+          "task_id": "2014-H2",
+          "year": 2014,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            3521,
+            3598
+          ],
+          "cheap_label_boundary": 3603,
+          "cheap_signal_dates": [
+            "2014-01-02",
+            "2014-04-23"
+          ],
+          "cheap_label_support_dates": [
+            "2014-01-09",
+            "2014-04-30"
+          ],
+          "late_bounds_half_open": [
+            3603,
+            3640
+          ],
+          "late_label_boundary": 3645,
+          "late_signal_dates": [
+            "2014-05-01",
+            "2014-06-23"
+          ],
+          "late_label_support_dates": [
+            "2014-05-08",
+            "2014-06-30"
+          ],
+          "assessment_bounds_half_open": [
+            3645,
+            3768
+          ],
+          "assessment_label_boundary": 3773,
+          "assessment_signal_dates": [
+            "2014-07-01",
+            "2014-12-23"
+          ],
+          "assessment_label_support_dates": [
+            "2014-07-09",
+            "2014-12-31"
+          ],
+          "raw_feedback_bounds_half_open": [
+            3521,
+            3645
+          ],
+          "raw_assessment_bounds_half_open": [
+            3645,
+            3773
+          ]
+        },
+        {
+          "task_id": "2015-H1",
+          "year": 2015,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            3645,
+            3725
+          ],
+          "cheap_label_boundary": 3730,
+          "cheap_signal_dates": [
+            "2014-07-01",
+            "2014-10-22"
+          ],
+          "cheap_label_support_dates": [
+            "2014-07-09",
+            "2014-10-29"
+          ],
+          "late_bounds_half_open": [
+            3730,
+            3768
+          ],
+          "late_label_boundary": 3773,
+          "late_signal_dates": [
+            "2014-10-30",
+            "2014-12-23"
+          ],
+          "late_label_support_dates": [
+            "2014-11-06",
+            "2014-12-31"
+          ],
+          "assessment_bounds_half_open": [
+            3773,
+            3892
+          ],
+          "assessment_label_boundary": 3897,
+          "assessment_signal_dates": [
+            "2015-01-02",
+            "2015-06-23"
+          ],
+          "assessment_label_support_dates": [
+            "2015-01-09",
+            "2015-06-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            3645,
+            3773
+          ],
+          "raw_assessment_bounds_half_open": [
+            3773,
+            3897
+          ]
+        },
+        {
+          "task_id": "2015-H2",
+          "year": 2015,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            3773,
+            3850
+          ],
+          "cheap_label_boundary": 3855,
+          "cheap_signal_dates": [
+            "2015-01-02",
+            "2015-04-23"
+          ],
+          "cheap_label_support_dates": [
+            "2015-01-09",
+            "2015-04-30"
+          ],
+          "late_bounds_half_open": [
+            3855,
+            3892
+          ],
+          "late_label_boundary": 3897,
+          "late_signal_dates": [
+            "2015-05-01",
+            "2015-06-23"
+          ],
+          "late_label_support_dates": [
+            "2015-05-08",
+            "2015-06-30"
+          ],
+          "assessment_bounds_half_open": [
+            3897,
+            4020
+          ],
+          "assessment_label_boundary": 4025,
+          "assessment_signal_dates": [
+            "2015-07-01",
+            "2015-12-23"
+          ],
+          "assessment_label_support_dates": [
+            "2015-07-09",
+            "2015-12-31"
+          ],
+          "raw_feedback_bounds_half_open": [
+            3773,
+            3897
+          ],
+          "raw_assessment_bounds_half_open": [
+            3897,
+            4025
+          ]
+        },
+        {
+          "task_id": "2016-H1",
+          "year": 2016,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            3897,
+            3977
+          ],
+          "cheap_label_boundary": 3982,
+          "cheap_signal_dates": [
+            "2015-07-01",
+            "2015-10-22"
+          ],
+          "cheap_label_support_dates": [
+            "2015-07-09",
+            "2015-10-29"
+          ],
+          "late_bounds_half_open": [
+            3982,
+            4020
+          ],
+          "late_label_boundary": 4025,
+          "late_signal_dates": [
+            "2015-10-30",
+            "2015-12-23"
+          ],
+          "late_label_support_dates": [
+            "2015-11-06",
+            "2015-12-31"
+          ],
+          "assessment_bounds_half_open": [
+            4025,
+            4145
+          ],
+          "assessment_label_boundary": 4150,
+          "assessment_signal_dates": [
+            "2016-01-04",
+            "2016-06-23"
+          ],
+          "assessment_label_support_dates": [
+            "2016-01-11",
+            "2016-06-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            3897,
+            4025
+          ],
+          "raw_assessment_bounds_half_open": [
+            4025,
+            4150
+          ]
+        },
+        {
+          "task_id": "2016-H2",
+          "year": 2016,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            4025,
+            4103
+          ],
+          "cheap_label_boundary": 4108,
+          "cheap_signal_dates": [
+            "2016-01-04",
+            "2016-04-25"
+          ],
+          "cheap_label_support_dates": [
+            "2016-01-11",
+            "2016-05-02"
+          ],
+          "late_bounds_half_open": [
+            4108,
+            4145
+          ],
+          "late_label_boundary": 4150,
+          "late_signal_dates": [
+            "2016-05-03",
+            "2016-06-23"
+          ],
+          "late_label_support_dates": [
+            "2016-05-10",
+            "2016-06-30"
+          ],
+          "assessment_bounds_half_open": [
+            4150,
+            4272
+          ],
+          "assessment_label_boundary": 4277,
+          "assessment_signal_dates": [
+            "2016-07-01",
+            "2016-12-22"
+          ],
+          "assessment_label_support_dates": [
+            "2016-07-11",
+            "2016-12-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            4025,
+            4150
+          ],
+          "raw_assessment_bounds_half_open": [
+            4150,
+            4277
+          ]
+        },
+        {
+          "task_id": "2017-H1",
+          "year": 2017,
+          "half": 1,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            4150,
+            4229
+          ],
+          "cheap_label_boundary": 4234,
+          "cheap_signal_dates": [
+            "2016-07-01",
+            "2016-10-21"
+          ],
+          "cheap_label_support_dates": [
+            "2016-07-11",
+            "2016-10-28"
+          ],
+          "late_bounds_half_open": [
+            4234,
+            4272
+          ],
+          "late_label_boundary": 4277,
+          "late_signal_dates": [
+            "2016-10-31",
+            "2016-12-22"
+          ],
+          "late_label_support_dates": [
+            "2016-11-07",
+            "2016-12-30"
+          ],
+          "assessment_bounds_half_open": [
+            4277,
+            4397
+          ],
+          "assessment_label_boundary": 4402,
+          "assessment_signal_dates": [
+            "2017-01-03",
+            "2017-06-23"
+          ],
+          "assessment_label_support_dates": [
+            "2017-01-10",
+            "2017-06-30"
+          ],
+          "raw_feedback_bounds_half_open": [
+            4150,
+            4277
+          ],
+          "raw_assessment_bounds_half_open": [
+            4277,
+            4402
+          ]
+        },
+        {
+          "task_id": "2017-H2",
+          "year": 2017,
+          "half": 2,
+          "horizon_sessions": 5,
+          "candidate_slots": 16,
+          "fixed_cost": 0.01,
+          "common_cheap_screens": 16,
+          "cheap_bounds_half_open": [
+            4277,
+            4355
+          ],
+          "cheap_label_boundary": 4360,
+          "cheap_signal_dates": [
+            "2017-01-03",
+            "2017-04-25"
+          ],
+          "cheap_label_support_dates": [
+            "2017-01-10",
+            "2017-05-02"
+          ],
+          "late_bounds_half_open": [
+            4360,
+            4397
+          ],
+          "late_label_boundary": 4402,
+          "late_signal_dates": [
+            "2017-05-03",
+            "2017-06-23"
+          ],
+          "late_label_support_dates": [
+            "2017-05-10",
+            "2017-06-30"
+          ],
+          "assessment_bounds_half_open": [
+            4402,
+            4523
+          ],
+          "assessment_label_boundary": 4528,
+          "assessment_signal_dates": [
+            "2017-07-03",
+            "2017-12-21"
+          ],
+          "assessment_label_support_dates": [
+            "2017-07-11",
+            "2017-12-29"
+          ],
+          "raw_feedback_bounds_half_open": [
+            4277,
+            4402
+          ],
+          "raw_assessment_bounds_half_open": [
+            4402,
+            4528
+          ]
+        }
+      ]
+    }
+  }
+}

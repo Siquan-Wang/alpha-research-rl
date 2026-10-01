@@ -225,3 +225,41 @@ diagnostics. Five temporally dependent years and two training seeds support a
 small descriptive comparison, not a profitability or significance claim.
 Review provenance and remove machine-local paths before exporting public
 aggregate results; retain original local run reports for audit.
+
+## Exploratory penalty sensitivity
+
+This optional **post-hoc** diagnostic reuses the validated paired analysis.
+It varies the invalid-penalty accounting coefficient lambda over fixed saved
+proposals. The registered primary lambda remains 1; do not choose a penalty,
+checkpoint or new training configuration from this plot. Failed proposals have
+no measured IC, so assigning them zero predictive contribution is a surrogate
+convention, not a measured zero return correlation.
+
+```bash
+python -m alpha_research_rl.penalty_sensitivity \
+  --analysis artifacts/development/financial-paired-analysis.json \
+  --output artifacts/development/financial-penalty-sensitivity.json \
+  --plot artifacts/development/financial-penalty-sensitivity.png
+```
+
+The command runs no generation, training or market scoring. The published
+artifact is [`financial_penalty_sensitivity_v1.json`](../results/financial_penalty_sensitivity_v1.json);
+it remains separate from the registered comparison.
+
+## Separate sequential opportunity gate
+
+After publishing [the sequential study plan](next-sequential-study.md), run its
+training-only CPU opportunity gate:
+
+```bash
+python -m alpha_research_rl.sequential_gate \
+  --input data/raw/french49-v1/49_Industry_Portfolios_daily_CSV.zip \
+  --output artifacts/development/sequential-grid-gate-v1.json
+```
+
+This uses the fixed 16-formula grid and the two registered forward folds within
+2002–2017. It compares a cheap-only ridge selector with a privileged selector
+that observes every late check. Its entry manifest and all task boundary
+manifests are saved before candidate scoring. Retain every comparator and failed
+gate; a pass allocates further work and does not establish a learned sequential
+agent, GenAI improvement or transfer performance.
