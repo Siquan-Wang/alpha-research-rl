@@ -76,16 +76,19 @@ class ActionSample:
 
 
 class LocalActor:
-    def __init__(self, model_path: str, adapter_path: str | None = None, trainable: bool = False):
+    def __init__(self, model_path: str, adapter_path: str | None = None, trainable: bool = False,
+                 precision: str = "bfloat16"):
         import torch
         from peft import LoraConfig, PeftModel, get_peft_model
         from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig
 
         if not torch.cuda.is_available():
             raise RuntimeError("Local training requires a CUDA GPU; CPU baseline commands remain available")
+        if precision not in ("bfloat16", "float32"):
+            raise ValueError("precision must be bfloat16 or float32")
         self.tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
         self.model = AutoModelForCausalLM.from_pretrained(
-            model_path, local_files_only=True, torch_dtype=torch.bfloat16,
+            model_path, local_files_only=True, torch_dtype=getattr(torch, precision),
             attn_implementation="sdpa", device_map={"": "cuda"},
         )
         if adapter_path:
@@ -111,6 +114,7 @@ class LocalActor:
         self.provenance = {"base_model": source, "sampling_distribution": "untruncated autoregressive softmax",
                            "generation_config": self.sampling_config.to_dict(),
                            "use_model_defaults": False,
+                           "precision": precision,
                            "max_prompt_tokens": 4096, "lora_trainable": trainable,
                            "starting_adapter_name": Path(adapter_path).parent.name if adapter_path else None}
 

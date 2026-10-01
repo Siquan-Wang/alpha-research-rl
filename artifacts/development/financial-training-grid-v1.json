@@ -1,0 +1,602 @@
+{
+  "study": "financial-one-shot-return-formula-training-preflight-v1",
+  "status": "training-only future-oracle feasibility; not achievable policy performance",
+  "data_synthetic": false,
+  "provenance": {
+    "raw_file": "49_Industry_Portfolios_daily_CSV.zip",
+    "raw_sha256": "8f394fe34bea54d41b9aafed410425ee8f8e252ede3c71a7c1cd20bab83040de",
+    "source_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/49_Industry_Portfolios_daily_CSV.zip",
+    "details_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_49_ind_port.html",
+    "parser_version": "french49-daily-v1",
+    "selected_table": "Average Value Weighted Returns -- Daily",
+    "retained_date_range": [
+      "2000-01-03",
+      "2024-12-31"
+    ],
+    "attribution": "Kenneth R. French Data Library; copyright Eugene F. Fama and Kenneth R. French"
+  },
+  "horizon_sessions": 5,
+  "proposal_cost": 0.01,
+  "invalid_reward": -1.01,
+  "formula_grid": [
+    "returns",
+    "delay(returns,1)",
+    "delay(returns,5)",
+    "ts_mean(returns,3)",
+    "ts_mean(returns,5)",
+    "ts_mean(returns,10)",
+    "ts_mean(returns,20)",
+    "ts_mean(returns,40)",
+    "ts_mean(returns,60)",
+    "ts_std(returns,5)",
+    "ts_std(returns,20)",
+    "sub(ts_mean(returns,5),ts_mean(returns,20))",
+    "sub(ts_mean(returns,10),ts_mean(returns,40))",
+    "div(ts_mean(returns,5),ts_std(returns,20))",
+    "div(ts_mean(returns,20),ts_std(returns,20))",
+    "mul(returns,ts_mean(returns,5))"
+  ],
+  "teacher_grid": [
+    "returns",
+    "delay(returns,1)",
+    "delay(returns,5)",
+    "ts_mean(returns,3)",
+    "ts_mean(returns,5)",
+    "ts_mean(returns,10)",
+    "ts_mean(returns,20)",
+    "ts_mean(returns,40)",
+    "ts_mean(returns,60)",
+    "ts_std(returns,5)",
+    "ts_std(returns,20)",
+    "sub(ts_mean(returns,5),ts_mean(returns,20))"
+  ],
+  "teacher_label_counts": {
+    "ts_mean(returns,60)": 6,
+    "ts_std(returns,20)": 15,
+    "ts_mean(returns,10)": 1,
+    "sub(ts_mean(returns,5),ts_mean(returns,20))": 3,
+    "ts_mean(returns,5)": 1,
+    "ts_mean(returns,40)": 3,
+    "ts_mean(returns,3)": 1,
+    "ts_mean(returns,20)": 1,
+    "ts_std(returns,5)": 1
+  },
+  "teacher_usable_tasks": 32,
+  "probe_absolute_feedback_winner_counts": {
+    "ts_mean(returns,20)": 20,
+    "ts_mean(returns,5)": 12
+  },
+  "probe_window_winner_disagreement_tasks": 25,
+  "formula_aggregates": {
+    "returns": {
+      "mean_reward": -0.008899223206941061,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": 0.0011007767930589392,
+      "mean_raw_future_ic_valid_tasks": -0.0026946680319603765
+    },
+    "delay(returns,1)": {
+      "mean_reward": -0.0002012135335766051,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": 0.009798786466423393,
+      "mean_raw_future_ic_valid_tasks": -0.011073088933113205
+    },
+    "delay(returns,5)": {
+      "mean_reward": -0.00682721935369998,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": 0.0031727806463000205,
+      "mean_raw_future_ic_valid_tasks": -0.00020480876096401262
+    },
+    "ts_mean(returns,3)": {
+      "mean_reward": -0.005797254183329127,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": 0.004202745816670873,
+      "mean_raw_future_ic_valid_tasks": -0.010301863488658556
+    },
+    "ts_mean(returns,5)": {
+      "mean_reward": -0.009550008030908323,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": 0.000449991969091677,
+      "mean_raw_future_ic_valid_tasks": -0.014200518824247126
+    },
+    "ts_mean(returns,10)": {
+      "mean_reward": -0.01535098669985349,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": -0.0053509866998534905,
+      "mean_raw_future_ic_valid_tasks": -0.006890304165029679
+    },
+    "ts_mean(returns,20)": {
+      "mean_reward": -0.012950535558860197,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": -0.0029505355588601958,
+      "mean_raw_future_ic_valid_tasks": -0.0012012325748363482
+    },
+    "ts_mean(returns,40)": {
+      "mean_reward": -0.012343615643815366,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": -0.002343615643815368,
+      "mean_raw_future_ic_valid_tasks": 0.007259835479777197
+    },
+    "ts_mean(returns,60)": {
+      "mean_reward": -0.01453399786054018,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": -0.004533997860540176,
+      "mean_raw_future_ic_valid_tasks": 0.009889528239800108
+    },
+    "ts_std(returns,5)": {
+      "mean_reward": -0.006926188907756342,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": 0.003073811092243659,
+      "mean_raw_future_ic_valid_tasks": 0.004827065330785294
+    },
+    "ts_std(returns,20)": {
+      "mean_reward": -0.009518189034887815,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": 0.0004818109651121864,
+      "mean_raw_future_ic_valid_tasks": -1.918724103188406e-05
+    },
+    "sub(ts_mean(returns,5),ts_mean(returns,20))": {
+      "mean_reward": -0.009294949924368422,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": 0.0007050500756315787,
+      "mean_raw_future_ic_valid_tasks": -0.012393105254433125
+    },
+    "sub(ts_mean(returns,10),ts_mean(returns,40))": {
+      "mean_reward": -0.019643839190972352,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": -0.009643839190972356,
+      "mean_raw_future_ic_valid_tasks": -0.013168946203713464
+    },
+    "div(ts_mean(returns,5),ts_std(returns,20))": {
+      "mean_reward": -0.009756748544325504,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": 0.00024325145567449585,
+      "mean_raw_future_ic_valid_tasks": -0.0041632228651913485
+    },
+    "div(ts_mean(returns,20),ts_std(returns,20))": {
+      "mean_reward": -0.018251842155393626,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": -0.008251842155393624,
+      "mean_raw_future_ic_valid_tasks": 0.0036972266605925686
+    },
+    "mul(returns,ts_mean(returns,5))": {
+      "mean_reward": -0.007385500614679583,
+      "n_tasks": 32,
+      "valid_tasks": 32,
+      "invalid_or_unscorable_tasks": 0,
+      "mean_oriented_future_ic_valid_tasks": 0.0026144993853204164,
+      "mean_raw_future_ic_valid_tasks": 0.000573529451793275
+    }
+  },
+  "paired_task_aggregates": [
+    {
+      "year": 2002,
+      "half": 1,
+      "feedback_greedy_expression": "ts_mean(returns,60)",
+      "feedback_greedy_reward": -0.07673981254208856,
+      "future_oracle_expression": "ts_std(returns,20)",
+      "future_oracle_reward": 0.07015606242497001,
+      "oracle_minus_greedy_reward": 0.14689587496705858,
+      "feedback_greedy_oriented_ic": -0.06673981254208856,
+      "future_oracle_oriented_ic": 0.08015606242497,
+      "teacher_expression": "ts_mean(returns,60)"
+    },
+    {
+      "year": 2002,
+      "half": 2,
+      "feedback_greedy_expression": "ts_std(returns,20)",
+      "feedback_greedy_reward": -0.0329409324705492,
+      "future_oracle_expression": "returns",
+      "future_oracle_reward": 0.03075517848435861,
+      "oracle_minus_greedy_reward": 0.06369611095490782,
+      "feedback_greedy_oriented_ic": -0.0229409324705492,
+      "future_oracle_oriented_ic": 0.04075517848435861,
+      "teacher_expression": "ts_std(returns,20)"
+    },
+    {
+      "year": 2003,
+      "half": 1,
+      "feedback_greedy_expression": "ts_mean(returns,60)",
+      "feedback_greedy_reward": 0.02249185500006018,
+      "future_oracle_expression": "ts_mean(returns,10)",
+      "future_oracle_reward": 0.06367505315068063,
+      "oracle_minus_greedy_reward": 0.04118319815062045,
+      "feedback_greedy_oriented_ic": 0.03249185500006018,
+      "future_oracle_oriented_ic": 0.07367505315068062,
+      "teacher_expression": "ts_mean(returns,60)"
+    },
+    {
+      "year": 2003,
+      "half": 2,
+      "feedback_greedy_expression": "ts_mean(returns,10)",
+      "feedback_greedy_reward": 0.012298784174780768,
+      "future_oracle_expression": "ts_std(returns,20)",
+      "future_oracle_reward": 0.07449726231956198,
+      "oracle_minus_greedy_reward": 0.062198478144781216,
+      "feedback_greedy_oriented_ic": 0.02229878417478077,
+      "future_oracle_oriented_ic": 0.08449726231956198,
+      "teacher_expression": "ts_mean(returns,10)"
+    },
+    {
+      "year": 2004,
+      "half": 1,
+      "feedback_greedy_expression": "ts_std(returns,20)",
+      "feedback_greedy_reward": -0.03150917509861088,
+      "future_oracle_expression": "div(ts_mean(returns,5),ts_std(returns,20))",
+      "future_oracle_reward": 0.05064997427542447,
+      "oracle_minus_greedy_reward": 0.08215914937403535,
+      "feedback_greedy_oriented_ic": -0.021509175098610875,
+      "future_oracle_oriented_ic": 0.06064997427542447,
+      "teacher_expression": "ts_std(returns,20)"
+    },
+    {
+      "year": 2004,
+      "half": 2,
+      "feedback_greedy_expression": "sub(ts_mean(returns,10),ts_mean(returns,40))",
+      "feedback_greedy_reward": -0.08161401580963863,
+      "future_oracle_expression": "ts_mean(returns,20)",
+      "future_oracle_reward": -0.009846047852459882,
+      "oracle_minus_greedy_reward": 0.07176796795717875,
+      "feedback_greedy_oriented_ic": -0.07161401580963864,
+      "future_oracle_oriented_ic": 0.00015395214754011866,
+      "teacher_expression": "ts_mean(returns,60)"
+    },
+    {
+      "year": 2005,
+      "half": 1,
+      "feedback_greedy_expression": "sub(ts_mean(returns,10),ts_mean(returns,40))",
+      "feedback_greedy_reward": -0.08263268727137014,
+      "future_oracle_expression": "sub(ts_mean(returns,5),ts_mean(returns,20))",
+      "future_oracle_reward": 0.08876623243210319,
+      "oracle_minus_greedy_reward": 0.17139891970347332,
+      "feedback_greedy_oriented_ic": -0.07263268727137015,
+      "future_oracle_oriented_ic": 0.09876623243210318,
+      "teacher_expression": "sub(ts_mean(returns,5),ts_mean(returns,20))"
+    },
+    {
+      "year": 2005,
+      "half": 2,
+      "feedback_greedy_expression": "sub(ts_mean(returns,5),ts_mean(returns,20))",
+      "feedback_greedy_reward": 0.0029190364670458307,
+      "future_oracle_expression": "ts_std(returns,20)",
+      "future_oracle_reward": 0.039538307126129144,
+      "oracle_minus_greedy_reward": 0.03661927065908331,
+      "feedback_greedy_oriented_ic": 0.012919036467045831,
+      "future_oracle_oriented_ic": 0.049538307126129145,
+      "teacher_expression": "sub(ts_mean(returns,5),ts_mean(returns,20))"
+    },
+    {
+      "year": 2006,
+      "half": 1,
+      "feedback_greedy_expression": "ts_std(returns,20)",
+      "feedback_greedy_reward": 0.02755697278911564,
+      "future_oracle_expression": "sub(ts_mean(returns,5),ts_mean(returns,20))",
+      "future_oracle_reward": 0.03751142541311841,
+      "oracle_minus_greedy_reward": 0.009954452624002769,
+      "feedback_greedy_oriented_ic": 0.03755697278911564,
+      "future_oracle_oriented_ic": 0.04751142541311841,
+      "teacher_expression": "ts_std(returns,20)"
+    },
+    {
+      "year": 2006,
+      "half": 2,
+      "feedback_greedy_expression": "sub(ts_mean(returns,5),ts_mean(returns,20))",
+      "feedback_greedy_reward": 0.0024409680905154527,
+      "future_oracle_expression": "ts_mean(returns,40)",
+      "future_oracle_reward": 0.024841055671012635,
+      "oracle_minus_greedy_reward": 0.022400087580497184,
+      "feedback_greedy_oriented_ic": 0.012440968090515453,
+      "future_oracle_oriented_ic": 0.03484105567101264,
+      "teacher_expression": "sub(ts_mean(returns,5),ts_mean(returns,20))"
+    },
+    {
+      "year": 2007,
+      "half": 1,
+      "feedback_greedy_expression": "ts_std(returns,20)",
+      "feedback_greedy_reward": -0.0875544503515692,
+      "future_oracle_expression": "ts_mean(returns,20)",
+      "future_oracle_reward": 0.0328977523175636,
+      "oracle_minus_greedy_reward": 0.1204522026691328,
+      "feedback_greedy_oriented_ic": -0.0775544503515692,
+      "future_oracle_oriented_ic": 0.042897752317563605,
+      "teacher_expression": "ts_std(returns,20)"
+    },
+    {
+      "year": 2007,
+      "half": 2,
+      "feedback_greedy_expression": "ts_std(returns,20)",
+      "feedback_greedy_reward": -0.0032251589160254253,
+      "future_oracle_expression": "ts_mean(returns,60)",
+      "future_oracle_reward": 0.11347691535630645,
+      "oracle_minus_greedy_reward": 0.11670207427233188,
+      "feedback_greedy_oriented_ic": 0.006774841083974575,
+      "future_oracle_oriented_ic": 0.12347691535630645,
+      "teacher_expression": "ts_std(returns,20)"
+    },
+    {
+      "year": 2008,
+      "half": 1,
+      "feedback_greedy_expression": "ts_mean(returns,60)",
+      "feedback_greedy_reward": 0.048728256290653554,
+      "future_oracle_expression": "ts_std(returns,20)",
+      "future_oracle_reward": 0.054325680272108844,
+      "oracle_minus_greedy_reward": 0.005597423981455289,
+      "feedback_greedy_oriented_ic": 0.058728256290653556,
+      "future_oracle_oriented_ic": 0.06432568027210885,
+      "teacher_expression": "ts_mean(returns,60)"
+    },
+    {
+      "year": 2008,
+      "half": 2,
+      "feedback_greedy_expression": "ts_std(returns,20)",
+      "feedback_greedy_reward": -0.08412809026049443,
+      "future_oracle_expression": "sub(ts_mean(returns,10),ts_mean(returns,40))",
+      "future_oracle_reward": 0.083320060387296,
+      "oracle_minus_greedy_reward": 0.16744815064779045,
+      "feedback_greedy_oriented_ic": -0.07412809026049444,
+      "future_oracle_oriented_ic": 0.093320060387296,
+      "teacher_expression": "ts_std(returns,20)"
+    },
+    {
+      "year": 2009,
+      "half": 1,
+      "feedback_greedy_expression": "sub(ts_mean(returns,10),ts_mean(returns,40))",
+      "feedback_greedy_reward": -0.02160692848567999,
+      "future_oracle_expression": "mul(returns,ts_mean(returns,5))",
+      "future_oracle_reward": 0.02189638245076065,
+      "oracle_minus_greedy_reward": 0.04350331093644064,
+      "feedback_greedy_oriented_ic": -0.01160692848567999,
+      "future_oracle_oriented_ic": 0.03189638245076065,
+      "teacher_expression": "ts_std(returns,20)"
+    },
+    {
+      "year": 2009,
+      "half": 2,
+      "feedback_greedy_expression": "ts_mean(returns,60)",
+      "feedback_greedy_reward": 0.0555010016757315,
+      "future_oracle_expression": "ts_std(returns,20)",
+      "future_oracle_reward": 0.06101708976273434,
+      "oracle_minus_greedy_reward": 0.005516088087002838,
+      "feedback_greedy_oriented_ic": 0.0655010016757315,
+      "future_oracle_oriented_ic": 0.07101708976273434,
+      "teacher_expression": "ts_mean(returns,60)"
+    },
+    {
+      "year": 2010,
+      "half": 1,
+      "feedback_greedy_expression": "ts_std(returns,20)",
+      "feedback_greedy_reward": -0.06786657520150918,
+      "future_oracle_expression": "sub(ts_mean(returns,10),ts_mean(returns,40))",
+      "future_oracle_reward": 0.013624625288680003,
+      "oracle_minus_greedy_reward": 0.08149120049018918,
+      "feedback_greedy_oriented_ic": -0.05786657520150918,
+      "future_oracle_oriented_ic": 0.023624625288680003,
+      "teacher_expression": "ts_std(returns,20)"
+    },
+    {
+      "year": 2010,
+      "half": 2,
+      "feedback_greedy_expression": "ts_std(returns,20)",
+      "feedback_greedy_reward": -0.1553293512526962,
+      "future_oracle_expression": "ts_mean(returns,40)",
+      "future_oracle_reward": 0.023599636838380504,
+      "oracle_minus_greedy_reward": 0.1789289880910767,
+      "feedback_greedy_oriented_ic": -0.1453293512526962,
+      "future_oracle_oriented_ic": 0.033599636838380506,
+      "teacher_expression": "ts_std(returns,20)"
+    },
+    {
+      "year": 2011,
+      "half": 1,
+      "feedback_greedy_expression": "ts_std(returns,20)",
+      "feedback_greedy_reward": -0.0570280612244898,
+      "future_oracle_expression": "delay(returns,5)",
+      "future_oracle_reward": 0.024064187826628107,
+      "oracle_minus_greedy_reward": 0.0810922490511179,
+      "feedback_greedy_oriented_ic": -0.0470280612244898,
+      "future_oracle_oriented_ic": 0.03406418782662811,
+      "teacher_expression": "ts_std(returns,20)"
+    },
+    {
+      "year": 2011,
+      "half": 2,
+      "feedback_greedy_expression": "sub(ts_mean(returns,10),ts_mean(returns,40))",
+      "feedback_greedy_reward": 0.013384911341585802,
+      "future_oracle_expression": "ts_std(returns,20)",
+      "future_oracle_reward": 0.0676814988290398,
+      "oracle_minus_greedy_reward": 0.054296587487454,
+      "feedback_greedy_oriented_ic": 0.023384911341585803,
+      "future_oracle_oriented_ic": 0.0776814988290398,
+      "teacher_expression": "ts_mean(returns,5)"
+    },
+    {
+      "year": 2012,
+      "half": 1,
+      "feedback_greedy_expression": "ts_std(returns,20)",
+      "feedback_greedy_reward": 0.07798809523809525,
+      "future_oracle_expression": "ts_std(returns,20)",
+      "future_oracle_reward": 0.07798809523809525,
+      "oracle_minus_greedy_reward": 0.0,
+      "feedback_greedy_oriented_ic": 0.08798809523809524,
+      "future_oracle_oriented_ic": 0.08798809523809524,
+      "teacher_expression": "ts_std(returns,20)"
+    },
+    {
+      "year": 2012,
+      "half": 2,
+      "feedback_greedy_expression": "div(ts_mean(returns,20),ts_std(returns,20))",
+      "feedback_greedy_reward": -0.062359693877551026,
+      "future_oracle_expression": "mul(returns,ts_mean(returns,5))",
+      "future_oracle_reward": 0.007138167852762998,
+      "oracle_minus_greedy_reward": 0.06949786173031403,
+      "feedback_greedy_oriented_ic": -0.052359693877551024,
+      "future_oracle_oriented_ic": 0.017138167852763,
+      "teacher_expression": "ts_std(returns,20)"
+    },
+    {
+      "year": 2013,
+      "half": 1,
+      "feedback_greedy_expression": "div(ts_mean(returns,20),ts_std(returns,20))",
+      "feedback_greedy_reward": -0.0635902932601612,
+      "future_oracle_expression": "ts_mean(returns,3)",
+      "future_oracle_reward": 0.02552827571380565,
+      "oracle_minus_greedy_reward": 0.08911856897396686,
+      "feedback_greedy_oriented_ic": -0.0535902932601612,
+      "future_oracle_oriented_ic": 0.03552827571380565,
+      "teacher_expression": "ts_mean(returns,40)"
+    },
+    {
+      "year": 2013,
+      "half": 2,
+      "feedback_greedy_expression": "ts_std(returns,20)",
+      "feedback_greedy_reward": -0.06338310934129748,
+      "future_oracle_expression": "ts_mean(returns,3)",
+      "future_oracle_reward": 0.04728950227966339,
+      "oracle_minus_greedy_reward": 0.11067261162096087,
+      "feedback_greedy_oriented_ic": -0.05338310934129749,
+      "future_oracle_oriented_ic": 0.05728950227966339,
+      "teacher_expression": "ts_std(returns,20)"
+    },
+    {
+      "year": 2014,
+      "half": 1,
+      "feedback_greedy_expression": "ts_mean(returns,3)",
+      "feedback_greedy_reward": 0.04734386302408965,
+      "future_oracle_expression": "ts_mean(returns,20)",
+      "future_oracle_reward": 0.051603601788025186,
+      "oracle_minus_greedy_reward": 0.004259738763935539,
+      "feedback_greedy_oriented_ic": 0.05734386302408965,
+      "future_oracle_oriented_ic": 0.06160360178802519,
+      "teacher_expression": "ts_mean(returns,3)"
+    },
+    {
+      "year": 2014,
+      "half": 2,
+      "feedback_greedy_expression": "ts_mean(returns,60)",
+      "feedback_greedy_reward": -0.08074127054934943,
+      "future_oracle_expression": "ts_std(returns,5)",
+      "future_oracle_reward": 0.06987970798075327,
+      "oracle_minus_greedy_reward": 0.1506209785301027,
+      "feedback_greedy_oriented_ic": -0.07074127054934944,
+      "future_oracle_oriented_ic": 0.07987970798075326,
+      "teacher_expression": "ts_mean(returns,60)"
+    },
+    {
+      "year": 2015,
+      "half": 1,
+      "feedback_greedy_expression": "ts_mean(returns,40)",
+      "feedback_greedy_reward": -0.07004899243667884,
+      "future_oracle_expression": "ts_std(returns,20)",
+      "future_oracle_reward": 0.03316326530612245,
+      "oracle_minus_greedy_reward": 0.1032122577428013,
+      "feedback_greedy_oriented_ic": -0.060048992436678834,
+      "future_oracle_oriented_ic": 0.04316326530612245,
+      "teacher_expression": "ts_mean(returns,40)"
+    },
+    {
+      "year": 2015,
+      "half": 2,
+      "feedback_greedy_expression": "ts_mean(returns,40)",
+      "feedback_greedy_reward": -0.06636476021853513,
+      "future_oracle_expression": "ts_std(returns,20)",
+      "future_oracle_reward": 0.10246723079475693,
+      "oracle_minus_greedy_reward": 0.16883199101329205,
+      "feedback_greedy_oriented_ic": -0.05636476021853513,
+      "future_oracle_oriented_ic": 0.11246723079475693,
+      "teacher_expression": "ts_mean(returns,40)"
+    },
+    {
+      "year": 2016,
+      "half": 1,
+      "feedback_greedy_expression": "ts_std(returns,20)",
+      "feedback_greedy_reward": -0.04024659863945579,
+      "future_oracle_expression": "sub(ts_mean(returns,10),ts_mean(returns,40))",
+      "future_oracle_reward": 0.022423860857467212,
+      "oracle_minus_greedy_reward": 0.062670459496923,
+      "feedback_greedy_oriented_ic": -0.030246598639455786,
+      "future_oracle_oriented_ic": 0.032423860857467214,
+      "teacher_expression": "ts_std(returns,20)"
+    },
+    {
+      "year": 2016,
+      "half": 2,
+      "feedback_greedy_expression": "div(ts_mean(returns,20),ts_std(returns,20))",
+      "feedback_greedy_reward": 0.0331758113081298,
+      "future_oracle_expression": "ts_std(returns,5)",
+      "future_oracle_reward": 0.04544663767146202,
+      "oracle_minus_greedy_reward": 0.012270826363332224,
+      "feedback_greedy_oriented_ic": 0.0431758113081298,
+      "future_oracle_oriented_ic": 0.055446637671462025,
+      "teacher_expression": "ts_mean(returns,20)"
+    },
+    {
+      "year": 2017,
+      "half": 1,
+      "feedback_greedy_expression": "ts_std(returns,5)",
+      "feedback_greedy_reward": -0.04702976190476191,
+      "future_oracle_expression": "ts_mean(returns,5)",
+      "future_oracle_reward": 0.045385331254731855,
+      "oracle_minus_greedy_reward": 0.09241509315949376,
+      "feedback_greedy_oriented_ic": -0.037029761904761906,
+      "future_oracle_oriented_ic": 0.05538533125473186,
+      "teacher_expression": "ts_std(returns,5)"
+    },
+    {
+      "year": 2017,
+      "half": 2,
+      "feedback_greedy_expression": "ts_std(returns,20)",
+      "feedback_greedy_reward": -0.08532973519986506,
+      "future_oracle_expression": "ts_mean(returns,40)",
+      "future_oracle_reward": 0.01829723707140745,
+      "oracle_minus_greedy_reward": 0.10362697227127252,
+      "feedback_greedy_oriented_ic": -0.07532973519986506,
+      "future_oracle_oriented_ic": 0.028297237071407452,
+      "teacher_expression": "ts_std(returns,20)"
+    }
+  ],
+  "summary": {
+    "n_tasks": 32,
+    "feedback_greedy_mean_reward": -0.03179499684101794,
+    "future_oracle_mean_reward": 0.047283101455732855,
+    "uniform_grid_expected_reward": -0.01045195702774425,
+    "training_best_fixed_expression": "delay(returns,1)",
+    "training_best_fixed_mean_reward": -0.0002012135335766051,
+    "oracle_minus_greedy_mean_reward": 0.0790780982967508
+  },
+  "limitations": [
+    "future oracle uses training future labels; unattainable upper-bound diagnostic",
+    "half-year task metrics are dependent; no significance claim",
+    "one-shot contextual-bandit proposal, not sequential agent research",
+    "no feasibility/transfer future metrics or post-2024 labels computed",
+    "no raw data redistribution or profitability claim"
+  ]
+}
