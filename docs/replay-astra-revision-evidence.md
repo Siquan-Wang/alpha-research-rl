@@ -32,6 +32,7 @@ The fixed inputs are:
   slots and their historical choices;
 - `results/astra_matched_prefix_v1.json`, containing the complete saved outcomes,
   all 200 resolved rows, and the analysis;
+- `docs/astra-revision-explorer.html` and its matching renderer source;
 - the original v1 and pool evidence referenced by the bound revision contract.
 
 The public submissions and result must exactly match the internal execution
@@ -58,6 +59,14 @@ scores, zero raw-market-data reads, and no revalidation of the originally
 installed scoring runtime. The returned contract, submissions, and report hashes
 must equal the actual public file bytes, which are checked again after replay.
 
+The command also reconstructs the explorer in memory from the verified report
+and contract. It requires the exact embedded report, all twenty prompt contexts,
+renderer identity, metadata and complete deterministic HTML. Missing HTML is an
+error, not an optional skipped check. Only presentation line endings outside
+escaped evidence may normalize between LF and CRLF. The report-only Python
+interface remains available as `verify_published_revision`; the command-line
+entrypoint requires `verify_published_revision_explorer`.
+
 ## Process checks and limits
 
 The entrypoint rejects financial scorer/loader and training-library imports,
@@ -67,6 +76,11 @@ network events, subprocess launches, and opens under the repository's `models`,
 detection runs first because Windows may use a subprocess to identify its
 platform; this does not launch a model or read market data. Synthetic tests check
 the subsequent guard behavior in fresh child interpreters.
+
+The frozen saved driver makes disposable temporary copies of public evidence
+while checking its bound inputs and old cache. Thus replay is not a promise of
+zero filesystem writes. It reads and rechecks the published evidence; the
+in-memory presentation reconstruction adds no temporary snapshot or output file.
 
 These are checks on this trusted Python replay process, not an adversarial
 operating-system sandbox. They do not attest the hosted model's actual identity,
@@ -85,11 +99,14 @@ failure penalties, and the conditional-generation variability under the separate
 
 The entrypoint tests use artificial file trees and injected saved-replay callbacks
 to check routing, missing evidence, exact accounting and byte boundaries, failure
-propagation, and active process guards. They import the real driver only to check
-that importing it does not load a financial scorer or training dependency. This
-does not claim that a complete real revision study has been collected, scored,
-or successfully replayed. Root integrates the command into public CI after the
-actual complete evidence exists.
+propagation, active process guards and HTML tampering. One integration case uses
+a complete artificial 200-slot bank, the real frozen saved driver and the normal
+snapshot renderer in a fresh guarded child. It exercises disposable snapshots
+without an actual model, market archive or financial scorer. Root ran the final
+wrapper/explorer/reviewer set: 121 tests passed in 67.89 seconds. This does not
+claim that real financial outcomes have been assessed or successfully replayed.
+Root integrates the command into public CI after actual complete evidence and
+its HTML exist.
 
 ```powershell
 python -m pytest -q tests/test_public_astra_revision_replay_script.py -p no:cacheprovider --basetemp .local/revision-replay-tests

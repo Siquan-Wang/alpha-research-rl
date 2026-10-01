@@ -79,3 +79,8 @@ confirmatory study.
 
 - [Design critique and tokenizer-only interface check](next-mechanism-design-review.md)
 - [Exact solver and observation-boundary review](mechanism-gate-review.md)
+## Matched-prefix evidence follow-ups
+
+- [Independent reconstruction of all 200 historical choices and 80 transport records](astra-revision-collection-review-v1.md).
+- [Offline explorer and exact public HTML replay review](astra-revision-explorer-review-v1.md), with synthetic validation separated from actual integration.
+- [Ancillary public-rationale audit plan](astra-revision-grounding-plan-v1.md) and [complete coding report](astra-revision-grounding-results-v1.md), frozen before current future assessment; internal AI-assisted text review, not predictive evidence.

@@ -434,3 +434,27 @@ The offline explorer passed 11 author and two independent synthetic tests;
 the auxiliary citation-record validator passed 22 synthetic tests after a
 JSON-pointer escape fix. Actual result rendering remains pending. Next are
 complete-bank publication verification, blinded coding and bounded assessment.
+
+The frozen bank was published at `184f4227f830f7df4feedb709d310f37a4ff1e2e`.
+All 786 Gate 2 paths matched anonymous downloads at **12:21:45.963655 UTC**.
+Independent reconstruction verified all 200 historical choices, 120 cheap
+expressions, 482 collection-file identities and 80 dispatch chains.
+
+The ancillary [public-rationale coding](audits/astra-revision-grounding-results-v1.md)
+froze at **12:22:03.025077 UTC**, with 80/80 assessable packets and 329 coded
+factual units: 159 displayed-supported, 165 derived-supported and five ambiguous.
+The reviewer coded no numerical contradiction or unsupported reported measurement.
+This is one internal reviewer's coding, not established semantic truth or a
+predictive finding. The exact coding SHA-256 is
+`1fd4c13ab8530f0d71ee3d562aa8e1dd099a2fa8d88a028308316b30c395efce`.
+Root independently ran the integrity validator and verified that no assessment
+request existed at that check. This coding is published before financial
+assessment and will not be rewritten to match those outcomes.
+
+Root's final wrapper/explorer/reviewer checks passed **121 tests in 67.89 seconds**,
+including the real frozen replay over a completely artificial bank inside a
+guarded child process. The public entrypoint now requires the exact saved report
+and full HTML, with all actor prompts and renderer identity checked. The frozen
+replay creates disposable public-evidence snapshots; it does not promise zero
+temporary writes. Actual financial assessment and actual report/page replay
+remain pending at this publication point.

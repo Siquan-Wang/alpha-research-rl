@@ -1,7 +1,9 @@
-"""Verify complete published matched-prefix evidence without models or market data.
+"""Verify complete published matched-prefix evidence and its deterministic HTML.
 
 Run in a matching checkout with the ordinary package installed. The process
 guards check this replay; they are not an adversarial security sandbox.
+Published evidence is read and rechecked. Frozen saved replay creates disposable
+temporary snapshots of public evidence; presentation reconstruction is in memory.
 """
 
 from __future__ import annotations
@@ -11,6 +13,7 @@ import json
 import math
 import os
 import platform
+import re
 import sys
 from pathlib import Path
 
@@ -22,6 +25,8 @@ CONTRACT_PATH = PUBLIC_DIRECTORY + "/contract.json"
 EXECUTION_DIRECTORY = PUBLIC_DIRECTORY + "/execution"
 SUBMISSIONS_PATH = "results/astra_matched_prefix_v1_submissions.json"
 REPORT_PATH = "results/astra_matched_prefix_v1.json"
+EXPLORER_PATH = "docs/astra-revision-explorer.html"
+RENDERER_PATH = "src/alpha_research_rl/astra_revision_explorer.py"
 SCORING_MODULES = {
     "alpha_research_rl.financial_tasks", "alpha_research_rl.financial_policy",
     "alpha_research_rl.evaluation", "alpha_research_rl.french", "alpha_research_rl.astra_study",
@@ -126,7 +131,7 @@ def _bounded_count(value, key, maximum=None):
     return count
 
 
-def verify_published_revision(root, *, replay=None):
+def _verify_published_revision(root, *, replay=None):
     """An injected replay supports artificial tests; the CLI always uses the saved replay."""
     root = Path(root).resolve()
     paths = {name: _public_file(root, relative) for name, relative in (
@@ -194,7 +199,7 @@ def verify_published_revision(root, *, replay=None):
     for name, path in mirrors.items():
         if path.read_bytes() != raw[name]:
             raise AssertionError("Completed " + name + " bytes changed during replay")
-    return {
+    summary = {
         "status": "matches_published_astra_revision_evidence", "states": 10, "slots": 200,
         "repetitions": 4, "historical_hosted_calls": 80, "historical_cheap_slots": 120,
         "historical_new_feedback_calls": feedback, "historical_new_future_calls": future,
@@ -203,12 +208,72 @@ def verify_published_revision(root, *, replay=None):
         "installed_scoring_runtime_revalidated": False,
         **{name + "_sha256": verified[name + "_sha256"] for name in paths},
     }
+    return summary, verified, raw
+
+
+def verify_published_revision(root, *, replay=None):
+    """Report-only interface retained for saved-evidence callers and artificial tests."""
+    return _verify_published_revision(root, replay=replay)[0]
+
+
+def verify_published_revision_explorer(root, *, replay=None):
+    """Verify saved evidence once, then rebuild the exact page in memory.
+
+    The driver verifies the contract and report whose exact captured bytes are
+    returned above. Their presentation does not require another path-based
+    verifier or any new temporary snapshot. No HTML existence check is optional.
+    """
+    from alpha_research_rl import astra_revision_explorer as explorer
+
+    root = Path(root).resolve()
+    html_path, renderer_path = (_public_file(root, name) for name in (EXPLORER_PATH, RENDERER_PATH))
+    html_raw, renderer_raw = html_path.read_bytes(), renderer_path.read_bytes()
+    if Path(explorer.__file__).read_bytes() != renderer_raw:
+        raise AssertionError("Loaded renderer differs from the inspected public source")
+    summary, verified, raw = _verify_published_revision(root, replay=replay)
+    contract, report = _json(raw["contract"], "contract"), _json(raw["report"], "report")
+    counts = report["call_accounting"]
+    setups = _bounded_count(counts, "collection_task_constructions")
+    if setups < 40:
+        raise AssertionError("Complete collection requires at least forty recorded setups")
+    # The frozen replay checks every directory's exact file membership: seven
+    # top-level files, ten per complete paired batch, two per setup and two per
+    # completed future job. A completed WAIT setup still contributes two files.
+    execution_file_count = 7 + 40 * 10 + 2 * setups + 2 * verified["completed_new_future_calls"]
+    payload = explorer.payload_from_verified_records(
+        contract, raw["report"], verified, execution_file_count=execution_file_count,
+        renderer_sha256=hashlib.sha256(renderer_raw).hexdigest(),
+    )
+    html = html_raw.decode("utf-8")
+    matches = re.findall(r'<script id="revision-data" type="application/json">(.*?)</script>', html, re.DOTALL)
+    if len(matches) != 1:
+        raise AssertionError("Revision explorer must contain exactly one evidence payload")
+    embedded = _json(matches[0], "explorer payload")
+    canonical = lambda value: json.dumps(value, sort_keys=True, ensure_ascii=True, allow_nan=False, separators=(",", ":"))
+    if canonical(embedded) != canonical(payload):
+        raise AssertionError("Revision explorer embedded report, prompts or metadata differ")
+    # Escaped report/prompt newlines inside the envelope remain exact. Only real
+    # checkout line endings around the presentation may normalize to LF.
+    if html.replace("\r\n", "\n") != explorer.render(payload).replace("\r\n", "\n"):
+        raise AssertionError("Revision explorer full HTML differs from the published renderer")
+    for name, relative in (("contract", CONTRACT_PATH), ("submissions", SUBMISSIONS_PATH), ("report", REPORT_PATH)):
+        if _public_file(root, relative).read_bytes() != raw[name]:
+            raise AssertionError("Verified evidence changed during HTML validation")
+    if html_path.read_bytes() != html_raw or renderer_path.read_bytes() != renderer_raw:
+        raise AssertionError("Explorer or renderer bytes changed during validation")
+    summary.update(explorer_payload_and_template_match=True, explorer_report_and_prompt_bytes_exact=True,
+                   explorer_html_sha256=hashlib.sha256(html_raw).hexdigest(),
+                   renderer_sha256=payload["renderer_sha256"],
+                   captured_execution_file_count=execution_file_count,
+                   disposable_public_evidence_snapshots_used_by_saved_replay=True,
+                   presentation_rebuild_performs_no_writes=True)
+    return summary
 
 
 def main():
     root = Path(__file__).resolve().parents[1]
     install_guards(root)
-    summary = verify_published_revision(root)
+    summary = verify_published_revision_explorer(root)
     summary.update(training_and_financial_imports_private_data_subprocesses_and_network_disallowed=True,
                    stdlib_platform_detection_precedes_execution_guards=True,
                    guards_are_not_an_adversarial_sandbox=True)

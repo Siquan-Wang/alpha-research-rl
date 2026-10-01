@@ -4,6 +4,7 @@ import copy
 import hashlib
 import json
 import os
+import re
 import runpy
 import subprocess
 import sys
@@ -329,3 +330,163 @@ def test_real_driver_module_import_does_not_load_scorers_or_training_dependencie
     )
     assert result.returncode == 0, result.stderr
     assert result.stdout.strip() == "import only; no replay, provider, or scoring"
+
+
+@pytest.fixture
+def saved_explorer(saved):
+    from test_astra_revision_core import state
+
+    from alpha_research_rl import astra_pool_diagnosis as pool
+    from alpha_research_rl import astra_revision_explorer as explorer
+
+    saved.bodies["contract"]["states"] = {task: state(task) for task in explorer.core.TASK_IDS}
+    saved.bodies["report"]["call_accounting"]["collection_task_constructions"] = 41
+    saved.bodies["report"] = pool._sealed(saved.bodies["report"])
+    saved.sync()
+    renderer_path = saved.root / saved.api["RENDERER_PATH"]
+    renderer_path.parent.mkdir(parents=True)
+    renderer_path.write_bytes(Path(explorer.__file__).read_bytes())
+    count = 7 + 400 + 2 * 41 + 2 * saved.verified["completed_new_future_calls"]
+    saved.payload = explorer.payload_from_verified_records(
+        saved.bodies["contract"], saved.paths["report"].read_bytes(), saved.verified,
+        execution_file_count=count, renderer_sha256=hashlib.sha256(renderer_path.read_bytes()).hexdigest(),
+    )
+    saved.html_path = saved.root / saved.api["EXPLORER_PATH"]
+    saved.html_path.parent.mkdir()
+    saved.html_path.write_text(explorer.render(saved.payload), encoding="utf-8", newline="\n")
+    return saved
+
+
+def test_explorer_requires_exact_report_prompts_source_and_template_without_snapshot_rebuild(saved_explorer, monkeypatch):
+    from alpha_research_rl import astra_revision_explorer as explorer
+
+    saved = saved_explorer
+    monkeypatch.setattr(explorer, "build_payload", lambda **_: pytest.fail("presentation verification must be in memory"))
+    result = saved.api["verify_published_revision_explorer"](saved.root, replay=lambda **_: saved.verified)
+    assert result["explorer_payload_and_template_match"] is True
+    assert result["explorer_report_and_prompt_bytes_exact"] is True
+    assert result["captured_execution_file_count"] == 7 + 400 + 82 + 226  # Includes one completed WAIT setup.
+    assert result["presentation_rebuild_performs_no_writes"] is True
+    assert result["disposable_public_evidence_snapshots_used_by_saved_replay"] is True
+    # CRLF in outer presentation text is acceptable. Escaped JSON text is exact.
+    saved.html_path.write_bytes(saved.html_path.read_bytes().replace(b"\n", b"\r\n"))
+    assert saved.api["verify_published_revision_explorer"](saved.root, replay=lambda **_: saved.verified)["explorer_payload_and_template_match"]
+
+
+def test_missing_html_is_never_silently_skipped(saved):
+    with pytest.raises(FileNotFoundError, match="astra-revision-explorer.html"):
+        saved.api["verify_published_revision_explorer"](saved.root, replay=lambda **_: pytest.fail("missing HTML invoked replay"))
+
+
+@pytest.mark.parametrize("mutation", ["report", "prompt", "source", "metadata-type", "template", "duplicate-envelope", "missing-envelope"])
+def test_tampered_html_envelope_or_template_is_rejected(saved_explorer, mutation):
+    saved = saved_explorer
+    html = saved.html_path.read_text(encoding="utf-8")
+    marker = r'(<script id="revision-data" type="application/json">)(.*?)(</script>)'
+    match = re.search(marker, html, re.DOTALL)
+    payload = json.loads(match[2])
+    if mutation == "report":
+        payload["report_json"] += "\n"
+    elif mutation == "prompt":
+        prompt = payload["contexts"]["2020-H1"]["prompts"]["truthful"]
+        prompt["text"] += "altered prompt"
+        prompt["sha256"] = hashlib.sha256(prompt["text"].encode()).hexdigest()
+    elif mutation == "source":
+        payload["renderer_sha256"] = "0" * 64
+    elif mutation == "metadata-type":
+        payload["verification"]["new_model_calls"] = False
+    elif mutation == "template":
+        html = html.replace("Does numerical feedback improve the next proposal?", "Unsupported positive conclusion")
+    elif mutation == "duplicate-envelope":
+        html += match[0]
+    else:
+        html = html.replace(match[0], "")
+    if mutation in {"report", "prompt", "source", "metadata-type"}:
+        html = html[:match.start(2)] + json.dumps(payload, ensure_ascii=True) + html[match.end(2):]
+    saved.html_path.write_text(html, encoding="utf-8", newline="\n")
+    with pytest.raises(AssertionError, match="explorer"):
+        saved.api["verify_published_revision_explorer"](saved.root, replay=lambda **_: saved.verified)
+
+
+def test_renderer_source_mismatch_rejected_before_replay(saved_explorer):
+    saved = saved_explorer
+    (saved.root / saved.api["RENDERER_PATH"]).write_bytes(b"SYNTHETIC altered source")
+    with pytest.raises(AssertionError, match="Loaded renderer"):
+        saved.api["verify_published_revision_explorer"](saved.root, replay=lambda **_: pytest.fail("mismatched renderer invoked replay"))
+
+
+@pytest.mark.parametrize("target", ["html", "renderer"])
+def test_page_or_renderer_changed_during_replay_cannot_pass(saved_explorer, target):
+    saved = saved_explorer
+    path = saved.html_path if target == "html" else saved.root / saved.api["RENDERER_PATH"]
+
+    def replay(**kwargs):
+        path.write_bytes(path.read_bytes() + b"\n")
+        return saved.verified
+
+    with pytest.raises(AssertionError, match="bytes changed"):
+        saved.api["verify_published_revision_explorer"](saved.root, replay=replay)
+
+
+def test_explorer_verification_runs_under_existing_real_guards_without_builder(saved_explorer):
+    saved = saved_explorer
+    result = child(
+        f"verified = {saved.verified!r}\n"
+        "api['install_guards'](root)\n"
+        "from alpha_research_rl import astra_revision_explorer as explorer\n"
+        "def no_builder(**kwargs): raise AssertionError('new snapshot builder called')\n"
+        "explorer.build_payload = no_builder\n"
+        "result = api['verify_published_revision_explorer'](root, replay=lambda **kw: verified)\n"
+        "assert result['explorer_report_and_prompt_bytes_exact']\n"
+        "print('saved evidence and exact HTML verified under guards')\n", saved.root,
+    )
+    assert result.returncode == 0, result.stderr
+    assert result.stdout.strip() == "saved evidence and exact HTML verified under guards"
+
+
+def test_main_requires_integrated_html_verification(api, monkeypatch, capsys):
+    namespace = api["main"].__globals__
+    calls = []
+    monkeypatch.setitem(namespace, "install_guards", lambda root: calls.append("guard"))
+    monkeypatch.setitem(namespace, "verify_published_revision", lambda root: pytest.fail("main must not use report-only path"))
+    monkeypatch.setitem(namespace, "verify_published_revision_explorer", lambda root: calls.append("report+html") or {"status": "SYNTHETIC"})
+    api["main"]()
+    assert calls == ["guard", "report+html"]
+    assert json.loads(capsys.readouterr().out)["status"] == "SYNTHETIC"
+
+
+def test_real_saved_driver_and_builder_agree_under_guards_on_completed_synthetic_bank(tmp_path, monkeypatch, api):
+    from test_astra_revision_study import RevisionHarness
+
+    from alpha_research_rl import astra_pool_diagnosis as pool
+    from alpha_research_rl import astra_revision_explorer as explorer
+    from alpha_research_rl import astra_revision_study as study
+
+    harness = RevisionHarness(tmp_path, monkeypatch)
+    harness.complete_collection()
+    harness.receipt("submissions")
+    harness.assess()  # Only the existing synthetic harness's fake evaluator.
+    renderer_path = harness.root / api["RENDERER_PATH"]
+    renderer_path.write_bytes(Path(explorer.__file__).read_bytes())
+    built = explorer.build_payload(source_root=harness.root)
+    html_path = harness.root / api["EXPLORER_PATH"]
+    html_path.write_text(explorer.render(built), encoding="utf-8", newline="\n")
+    harness.data.unlink()  # Saved replay must not need even the artificial archive.
+    result = child(
+        "api['install_guards'](root)\n"
+        "from alpha_research_rl import astra_pool_diagnosis as pool, astra_revision_study as study\n"
+        f"study.INPUT_PATHS = {study.INPUT_PATHS!r}\n"
+        f"study.INPUT_HASHES = {study.INPUT_HASHES!r}\n"
+        f"study.RUNTIME = {study.RUNTIME!r}\n"
+        f"pool.INPUT_HASHES = {pool.INPUT_HASHES!r}\n"
+        f"pool.RUNTIME = {pool.RUNTIME!r}\n"
+        "def forbidden(*args, **kwargs): raise AssertionError('saved replay touched raw data/runtime')\n"
+        "pool._data_bytes = forbidden\n"
+        "pool._versions = forbidden\n"
+        "result = api['verify_published_revision_explorer'](root)\n"
+        "assert result['explorer_report_and_prompt_bytes_exact']\n"
+        "assert result['replay_model_calls'] == result['replay_financial_scores'] == 0\n"
+        "print('real frozen saved replay and exact page agree; synthetic evidence only')\n", harness.root,
+    )
+    assert result.returncode == 0, result.stderr
+    assert result.stdout.strip() == "real frozen saved replay and exact page agree; synthetic evidence only"
