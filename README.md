@@ -20,9 +20,12 @@ The next mainline study uses **Astra as the actual factor-research actor** throu
 the existing Codex CLI. Its [prospective protocol](docs/astra-agent-research-plan-v1.md)
 compares six-step generation with full quantitative feedback, validity-only
 feedback and withheld feedback, under the same final selector. A real structured
-transport check has passed; financial collection has not started. This is a study
+transport check has passed; registered financial collection is in progress. This is a study
 of inference-time adaptation, separate from the completed Qwen weight-training
 experiments. Existing 2020–2024 periods remain development data.
+The [public-evidence replay tool](docs/replay-astra-evidence.md) checks complete
+saved traces without a model login or market-data access; an incomplete bank
+cannot be presented as a completed comparison.
 
 The [iteration log](docs/iteration-log.md) records what each research round
 changed, what its evidence supports, and which directions stopped.

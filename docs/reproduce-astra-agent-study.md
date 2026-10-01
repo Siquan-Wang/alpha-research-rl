@@ -17,6 +17,9 @@ python -m pytest -q -p no:cacheprovider tests/test_agentic_research.py tests/tes
 
 These tests verify the interface, information masks, budget, durable failure
 records and assessment gate. They do not reproduce a hosted model's decisions.
+After completed evidence is published, the separate
+[structural replay command](replay-astra-evidence.md) checks every saved decision
+and recomputes the recorded result arithmetic without inference or market data.
 
 ## Recorded execution workflow
 

@@ -156,7 +156,7 @@ ceiling. The [design advice](research-next-steps.md) and its
 [critique](audits/next-mechanism-design-review.md) distinguish this narrow task
 from general research and formula discovery. No new GPU experiment has run.
 
-## 8. Actual Astra research agent — implementation verified, collection pending
+## 8. Actual Astra research agent — implementation verified, collection in progress
 
 **Problem:** developer-side LLM assistance does not show that a strong model can
 conduct the factor search. The completed financial study tested a small local
@@ -190,10 +190,24 @@ feedback masks and real nonfinancial transport evidence. Actual cached-data
 initial observations validated for all ten periods with zero assessment calls.
 The [prepared contract](../artifacts/astra-agent-v1/contract.json) binds the
 reviewed source, plan, executable, data and task identities; all fourteen
-contract-bound staged files match their exact local bytes.
+contract-bound staged files match their exact local bytes. The protocol,
+implementation and contract were published at `63394d7`; root independently
+downloaded all fourteen files at that public commit and verified exact bytes
+before collection. Public [CI](https://github.com/Siquan-Wang/alpha-research-rl/actions/runs/36832512626)
+passed Python 3.11, Python 3.12 and training-math; root read the completed states
+at 07:55 UTC on 2026-10-01.
 
-**Limits and next:** no Astra financial candidate has been collected or scored.
-Publish and verify the implementation/data contract before collection. The
+The separate [public replay module](replay-astra-evidence.md) passed 41 additional
+synthetic tests, independently rerun by root. It checks all 180 broker decisions,
+prompt/response identities, masks, costs and common selection, and optionally
+reconstructs the saved 30-outcome arithmetic. It does not recompute financial
+scores or establish hidden provider context. Usage fields remain separate,
+with missing observations explicit. These 41 tests are additional to the
+613-test integration run, not a claim that one 654-test run was executed.
+
+**Limits and next:** registered financial candidate collection has started;
+future assessment remains sealed until all thirty pools are completed, frozen
+and published. There is no completed financial comparison yet. The
 [execution guide](reproduce-astra-agent-study.md) explains the separate
 collection, freeze, publication and assessment stages. Astra inference-time
 adaptation is not Astra reinforcement-learning weight updates. The same
