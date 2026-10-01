@@ -61,10 +61,10 @@ the complete historical information boundary.
 
 ## Packaged replay safeguards
 
-Reviewed `trajectory_replay.py` SHA256
+Initially reviewed `trajectory_replay.py` SHA256
 `efa6aecde5109ff361b5098109a758684bdaba4ef7f39f3e0d4a49a3e89371fc`.
 It pins the three original report byte hashes and canonical parsed bodies,
-requires exact task/configuration and numerical-library identities, verifies
+requires exact task/configuration identities, verifies
 historical dependency/AST pins, and fails on changed outcomes, missing or
 trailing actions, source drift or nonfinite data. Historical Git recovery is
 explicitly a one-time author assessment, not a runtime operation.
@@ -73,10 +73,47 @@ Review identified that a successful CLI invocation could overwrite an original
 report if given that same output path. The author added resolved-path collision
 rejection for all three inputs and regression tests. Report identity pins also
 reject self-consistent altered text or summary content borrowing old metadata.
-The final 26 tests passed independently, including a fresh process that forbids
-Torch/Transformers imports and still replays all 144 actions. Ruff passed.
-No blocking discrepancy remains for presenting the labeled reconstruction;
-viewer rendering and new model inference are outside this source review.
+The initial 26 tests passed independently on Windows/Python 3.12, including a
+fresh process that forbids Torch/Transformers imports and still replays all
+144 actions. Ruff passed. Subsequent public CI exposed a portability issue,
+documented below. New model inference is outside this source review.
+
+## Public CI portability failure and correction
+
+The public Linux/Python 3.11.16 run failed: **5 failed, 374 passed, 5 skipped,
+7 errors**. Its saved log identifies the training-factory AST fingerprint,
+before any replay outcome comparison. Python 3.12 adds an empty `type_params`
+field to function definitions. This reviewer independently removed only that
+empty field from the local factory AST: the old hash `ecd882...b12b` became
+`aae903...3b4d`, exactly the hash reported by the failing Python 3.11 job.
+The initial local tests therefore did not establish cross-version portability.
+
+Reviewed corrected source SHA256
+`5329993cfcadccd9564668daf808a633c8c5cd59601d2d95b61c0a196b7c07f6`.
+The new fingerprint serializes AST node types, ordered fields and typed literal
+representations. It normalizes only an absent versus exactly empty
+`type_params` list on function, async-function and class definitions. Nonempty
+type parameters, other empty fields, decorators, annotations, defaults and
+function bodies remain significant. The author recomputed all five definition
+pins from the original commit blobs; raw source-file and original report
+identities were not relaxed.
+
+The Linux environment also installed NumPy 2.4.6 / SciPy 1.17.1, whereas the
+original run used 2.5.3 / 1.18.1. The revised contract records original/current
+versions and aggregate/per-package match flags. Version differences are allowed
+only if **every retained outcome still matches exactly**; no rounding or
+numerical tolerance was introduced. The output explicitly states that equal
+retained outcomes cannot authenticate unlogged historical feedback values
+across numeric libraries. This is reconstruction portability, not a claim that
+model generation or every intermediate historical value is reproducible.
+
+Independent local validation on Windows/Python 3.12 passed **31 replay tests
+plus 9 explorer tests**, and Ruff passed. Tests simulate missing/empty Python
+3.11/3.12 AST fields, reject nonempty parameters and ordinary code edits,
+disclose artificial dependency-version drift, and reject a `1e-12` perturbation
+to an actual replay calculation. The updated workflow includes Linux Python
+3.11 and 3.12 jobs. At this review update, those new remote CI results are
+**pending**; local simulation is not reported as a completed Linux rerun.
 
 ## Behavioral claim supported by the traces
 

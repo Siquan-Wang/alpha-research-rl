@@ -121,7 +121,9 @@ reported value with a `1e-12` numerical tolerance.
 
 The benchmark compares stop, fixed screening, randomized screening and stability
 heuristics on explicitly synthetic signal, null and decaying-signal tasks. It
-writes configurations, source hashes, evidence/action traces and summaries under
+writes configurations, source hashes, evidence/action traces and summaries to
+`.local/synthetic-benchmark.json` by default. Choose a fresh `--output` for another
+run; existing files are refused. Published experiments remain under
 `artifacts/development/`. Assessment scores in this command are development
 scores, not sealed final tests.
 

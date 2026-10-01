@@ -1,5 +1,6 @@
 """Replay only previously saved public synthetic trajectories; no actor calls."""
 
+import ast
 import copy
 import hashlib
 import json
@@ -139,6 +140,103 @@ def test_runtime_source_or_factory_drift_fails_before_reconstruction(monkeypatch
     monkeypatch.setattr(Path, "read_bytes", altered)
     with pytest.raises(ReplayMismatch, match="source.*mismatch"):
         verify_replay_sources()
+
+
+def test_canonical_ast_normalizes_only_missing_versus_empty_type_parameters():
+    from alpha_research_rl.trajectory_replay import _canonical_ast
+
+    tree = ast.parse("@decorate\nclass C:\n @decorate\n def f(self, x: int = 2) -> int:\n  async def nested(y=3):\n   return y + x\n  return x\n")
+    missing, empty = copy.deepcopy(tree), copy.deepcopy(tree)
+    for node in ast.walk(missing):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            node._fields = tuple(name for name in node._fields if name != "type_params")
+            if hasattr(node, "type_params"):
+                del node.type_params
+    for node in ast.walk(empty):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            if "type_params" not in node._fields:
+                node._fields = (*node._fields, "type_params")
+            node.type_params = []
+    assert _canonical_ast(missing) == _canonical_ast(empty)
+    changed = copy.deepcopy(empty)
+    changed.body[0].type_params = [ast.Name(id="T", ctx=ast.Load())]
+    assert _canonical_ast(changed) != _canonical_ast(empty)
+    # Other empty fields are significant, as are decorators/annotations/defaults.
+    changed = copy.deepcopy(empty)
+    del changed.body[0].decorator_list
+    assert _canonical_ast(changed) != _canonical_ast(empty)
+    for edit in ("x: float", "x: int = 4", "@different", "return x + 1"):
+        raw = ast.unparse(tree)
+        old = "x: int" if edit == "x: float" else "x: int=2" if edit == "x: int = 4" else "@decorate" if edit == "@different" else "return x"
+        assert _canonical_ast(ast.parse(raw.replace(old, edit))) != _canonical_ast(tree)
+
+
+@pytest.mark.parametrize("change", ["nonempty_type_params", "body"])
+def test_semantic_ast_change_is_rejected_by_pinned_fingerprint(monkeypatch, change):
+    original_parse = ast.parse
+
+    def altered(*args, **kwargs):
+        tree = original_parse(*args, **kwargs)
+        for node in tree.body:
+            if isinstance(node, ast.FunctionDef) and node.name == "make_training_env":
+                if change == "body":
+                    node.body.append(ast.Pass())
+                else:
+                    if "type_params" not in node._fields:
+                        node._fields = (*node._fields, "type_params")
+                    node.type_params = [ast.Name(id="T", ctx=ast.Load())]
+        return tree
+
+    monkeypatch.setattr(ast, "parse", altered)
+    with pytest.raises(ReplayMismatch, match="source AST mismatch training.py/make_training_env"):
+        verify_replay_sources()
+
+
+def test_pinned_ast_hashes_match_with_python311_definition_fields(monkeypatch):
+    original_parse = ast.parse
+
+    def without_empty_type_params(*args, **kwargs):
+        tree = original_parse(*args, **kwargs)
+        for node in ast.walk(tree):
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+                assert not getattr(node, "type_params", [])
+                node._fields = tuple(name for name in node._fields if name != "type_params")
+                if hasattr(node, "type_params"):
+                    del node.type_params
+        return tree
+
+    monkeypatch.setattr(ast, "parse", without_empty_type_params)
+    assert verify_replay_sources()["matching_config_parser_serializer_ast_sha256"]
+
+
+def test_numeric_package_drift_is_disclosed_without_relaxing_outcome_checks(original_inputs, monkeypatch):
+    import alpha_research_rl.trajectory_replay as module
+
+    original_version = module.importlib.metadata.version
+    monkeypatch.setattr(module.importlib.metadata, "version", lambda name: "artificial-version" if name in ("numpy", "scipy") else original_version(name))
+    result = replay_reports(*original_inputs)
+    proof = result["provenance"]
+    assert proof["numeric_packages_match_original"] is False
+    assert proof["numeric_package_matches_original"] == {"numpy": False, "scipy": False}
+    assert proof["numeric_packages_current"] == {"numpy": "artificial-version", "scipy": "artificial-version"}
+    assert proof["numeric_packages_original"]["base"] == {
+        name: original_inputs[0]["base"]["manifest"]["packages"][name] for name in ("numpy", "scipy")}
+    assert any("versions differ" in limit for limit in proof["limits"])
+    assert result["summary"]["all_recorded_outcome_checks_exact"] is True
+    reports, sources = copy.deepcopy(original_inputs)
+    reports["sft"]["episodes"][0]["reward"] += 1e-12
+    with pytest.raises(ReplayMismatch, match="terminal reward"):
+        replay_reports(reports, sources)
+    original_step = module.ResearchEnvironment.step
+
+    def numerical_perturbation(self, action):
+        observation, reward, done, info = original_step(self, action)
+        return observation, reward + 1e-12 if done else reward, done, info
+
+    monkeypatch.setattr(module.ResearchEnvironment, "step", numerical_perturbation)
+    # Original reports are unchanged; a real calculation difference must fail.
+    with pytest.raises(ReplayMismatch, match="terminal reward"):
+        replay_reports(*original_inputs)
 
 
 def test_cli_preserves_inputs_and_existing_output_on_mismatch(original_inputs, tmp_path, monkeypatch):

@@ -56,6 +56,19 @@ original evaluator. The original relative
 base path in each adapter configuration is preserved; `ProposalActor` receives
 the actual local base-model path explicitly. It loads only cached model files.
 
+To check actual loading of all five adapters against the original trained tensor
+digests, using that same cached base and CUDA environment:
+
+```bash
+python scripts/verify_published_adapter_loads.py
+```
+
+This writes a fresh local verification report. It checks the complete checkpoint
+file manifests before loading, then compares named LoRA tensor digests and
+parameter counts. It performs no generation, market scoring, backward pass or
+optimizer update. This check does not establish identical sampled behavior on
+another machine.
+
 To rerun an evaluation after independently obtaining the exact market snapshot,
 use a fresh result path, the original label and published freeze:
 

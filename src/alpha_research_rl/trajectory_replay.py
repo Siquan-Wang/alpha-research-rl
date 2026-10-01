@@ -49,11 +49,11 @@ SOURCE_PINS = {
     "llm_evaluation.py": "bd733c21eadaba783434fdb93530f5e285744fe0f39a1b12192054dbfe8b9e7e",
 }
 AST_PINS = {
-    "training.py": {"INITIAL_FACTORS": "399e9ee2689edb81c5706f600949d21283b2b2f4a0d4b900eb0ef90085f55e1b",
-                    "make_training_env": "ecd882372d02350b38e811c7129a46447236ed5f4c4cbfa81bf5c7dea827b12b"},
-    "llm.py": {"parse_action": "44e80bb35e19fa21a145087fac3e94b1faa6ab7ab713c943ffc6c837c49161c4",
-               "compact_observation": "d1493c36bc070ccaed65b3f22afe231316f68b6908d327f6de4f910d39aaaa5d",
-               "SYSTEM": "1e58e08c7df621e9ab24cf8a3d641218ed133f5a8f8af0be6589df9a891f6939"},
+    "training.py": {"INITIAL_FACTORS": "35c935809bcbf9ea980378e9c497867c48a893bee9730b529c066c80c5ff8323",
+                    "make_training_env": "0f426d80c4dc0a4bf1585f3800fbe70f1298d79dcf1b5264ca21bee6ab1b0d3e"},
+    "llm.py": {"parse_action": "f1bcd3397f683ac80955196273d6ec8b506dafdab918660dfae7bbfdcdf61af0",
+               "compact_observation": "668ef4fe6d40f658adf2ad6b67edc90830e646a6bd97ae4b2a5941ef66407df9",
+               "SYSTEM": "57ccd26a39b2740e659079f5c77c8bc7ffde8ee43e335e41303df8bada3572a2"},
 }
 HISTORICAL_MODULE_HASHES = {
     "training.py": "8ce2fa8abc6d5db625a3290494236428f78960ef3c8b27526796ebdd3a6abcff",
@@ -74,12 +74,35 @@ def _hash(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
+def _canonical_ast(value):
+    """Serialize semantic fields; normalize only empty PEP 695 parameters.
+
+    Python 3.12 added type_params to these definitions. An absent field and
+    exactly an empty list both mean no type parameters. Nonempty parameters
+    and every other AST field remain part of the fingerprint.
+    """
+    if isinstance(value, ast.AST):
+        fields = []
+        for name, child in ast.iter_fields(value):
+            if (name == "type_params" and isinstance(value, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef))
+                    and isinstance(child, list) and not child):
+                continue
+            fields.append([name, _canonical_ast(child)])
+        return {"node": type(value).__name__, "fields": fields}
+    if isinstance(value, list):
+        return [_canonical_ast(child) for child in value]
+    _require(value is None or value is Ellipsis or isinstance(value, (str, bytes, bool, int, float, complex)),
+             "AST scalar", "supported literal", type(value).__name__)
+    return {"literal_type": type(value).__name__, "literal_repr": repr(value)}
+
+
 def _ast_hash(raw, name):
     nodes = [node for node in ast.parse(raw).body if getattr(node, "name", None) == name
              or isinstance(node, ast.Assign) and any(isinstance(target, ast.Name) and target.id == name
                                                      for target in node.targets)]
     _require(len(nodes) == 1, "AST provenance " + name, "one named definition", len(nodes))
-    return _hash(ast.dump(nodes[0], include_attributes=False).encode())
+    canonical = json.dumps(_canonical_ast(nodes[0]), sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+    return _hash(canonical.encode())
 
 
 def verify_replay_sources() -> dict:
@@ -109,6 +132,7 @@ def verify_replay_sources() -> dict:
             "whole_package_matches_original": current == HISTORICAL_PACKAGE_SHA256,
             "current_source_files_sha256": source_hashes, "historical_replay_file_pins": dict(SOURCE_PINS),
             "matching_config_parser_serializer_ast_sha256": ast_hashes,
+            "ast_fingerprint_method": "Canonical AST fields/literal types; only absent versus empty definition type_params normalized",
             "historical_other_module_sha256": dict(HISTORICAL_MODULE_HASHES),
             "other_module_whole_file_drift": {name: source_hashes[name] != expected
                                              for name, expected in HISTORICAL_MODULE_HASHES.items()},
@@ -158,6 +182,7 @@ def replay_reports(reports: dict[str, dict], source_reports: dict[str, dict]) ->
     _require(set(reports) == set(LABELS) == set(source_reports), "report roles", LABELS, tuple(reports))
     proof = verify_replay_sources()
     packages = {name: importlib.metadata.version(name) for name in ("numpy", "scipy")}
+    original_packages = {}
     episodes = []
     for label in LABELS:
         source = source_reports[label]
@@ -177,9 +202,7 @@ def replay_reports(reports: dict[str, dict], source_reports: dict[str, dict]) ->
                             "decoding": "greedy", "data": "synthetic development only", "max_action_tokens": 64,
                             "budget": 10, "not_final_holdout": True}, label + " evaluation configuration",
                  "exact original six-task greedy configuration", config)
-        for name, actual in packages.items():
-            _require(manifest["packages"].get(name) == actual, label + " numeric dependency " + name,
-                     manifest["packages"].get(name), actual)
+        original_packages[label] = {name: manifest["packages"][name] for name in packages}
         _require(len(report["episodes"]) == len(TASKS), label + " episode count", 6, len(report["episodes"]))
         for saved, (seed, regime) in zip(report["episodes"], TASKS, strict=True):
             context = f"{label}/{seed}/{regime}"
@@ -229,6 +252,10 @@ def replay_reports(reports: dict[str, dict], source_reports: dict[str, dict]) ->
                  REPORT_PINS[label]["canonical_sha256"], actual)
     result = {"study": "synthetic-sequential-trajectory-reconstruction-v1", "verified": True,
               "provenance": {**proof, "source_reports": copy.deepcopy(source_reports), "numeric_packages": packages,
+                  "numeric_packages_current": dict(packages), "numeric_packages_original": original_packages,
+                  "numeric_packages_match_original": all(p == packages for p in original_packages.values()),
+                  "numeric_package_matches_original": {name: all(p[name] == version for p in original_packages.values())
+                                                        for name, version in packages.items()},
                   "original_report_identity_pins": copy.deepcopy(REPORT_PINS),
                   "original_report_byte_and_canonical_identities_verified": True,
                   "reconstruction": True, "original_actor_prompt_authenticated": False,
@@ -243,6 +270,11 @@ def replay_reports(reports: dict[str, dict], source_reports: dict[str, dict]) ->
               "episodes": episodes,
               "summary": {"n_episodes": len(episodes), "n_steps": sum(len(e["steps"]) for e in episodes),
                           "maximum_terminal_reward_difference": 0.0, "all_recorded_outcome_checks_exact": True}}
+    if not result["provenance"]["numeric_packages_match_original"]:
+        result["provenance"]["limits"].append(
+            "Numeric package versions differ from originals; saved outcomes still match exactly, while observations remain reconstructions")
+        result["provenance"]["limits"].append(
+            "Exact retained outcomes do not authenticate unlogged historical feedback values across numeric libraries")
     _require(_finite_json(result), "replay output", "finite JSON", "nonfinite or unsupported value")
     return result
 
