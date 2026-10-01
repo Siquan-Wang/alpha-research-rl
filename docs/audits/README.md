@@ -26,6 +26,15 @@ The completed comparison shows no full-feedback advantage on its registered
 development bank. Accurate transport, valid formulas and correct arithmetic do
 not establish predictive improvement or hidden model-context equality.
 
+## Separate post-hoc Astra pool diagnosis
+
+- [Implementation, fixed population and pre-score preparation](astra-pool-diagnosis-review-v1.md)
+- [All saved jobs, selectors, decompositions and result narrative](astra-pool-results-review-v1.md)
+- [Offline pool explorer and captured-evidence integrity](astra-pool-explorer-review-v1.md)
+
+The additional 108 evaluations preserve the original study. Hindsight ceilings
+describe fixed candidate pools; they are not attainable selection policies.
+
 ## Financial proposal study
 
 - [Training execution evidence](2026-10-01-financial-training-evidence.md)

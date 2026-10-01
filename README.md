@@ -30,11 +30,12 @@ periods remain development data; there is one trajectory per condition and perio
 The [figure rebuild command](docs/astra-explorer-guide.md#static-result-figure)
 uses only replay-verified saved results; no new market evaluation is performed.
 
-A separate [post-hoc pool diagnosis](docs/astra-pool-diagnosis-plan-v1.md) is
-prepared to distinguish poor candidate pools from missed selection opportunity.
-Its fixed contract permits at most 108 additional CPU evaluations and zero
-new model calls. At this publication checkpoint, those new evaluations have
-not run; the original Astra results remain unchanged.
+A separate [post-hoc pool diagnosis](docs/astra-pool-diagnosis-results-v1.md)
+completed 108 additional CPU evaluations with zero new model calls. Better
+candidates existed in hindsight, but the three tested feasible selectors all
+have negative mean IC; the full-feedback pool ceiling also trails both controls.
+The [pool explorer](https://siquan-wang.github.io/alpha-research-rl/astra-pool-explorer.html)
+shows every candidate and selector. The original Astra result remains unchanged.
 
 In a separate learning path,
 local Qwen3-0.6B LoRA training, saved-model checks, and chronological financial

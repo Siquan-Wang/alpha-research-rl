@@ -327,3 +327,43 @@ examined development periods. A positive oracle ceiling would establish only
 hindsight opportunity, not a predictable selector or authorization for another
 model study. The [reproduction guide](reproduce-astra-pool-diagnosis.md) separates
 preparation, public verification, execution and saved replay.
+
+### Completed bounded diagnosis — 2026-10-01 10:12 UTC
+
+All 32 bound files at `8afcf868` were downloaded anonymously and matched at
+10:11:42 UTC. Exactly 108 new evaluator calls then completed between 10:12:12
+and 10:12:45 UTC, with no retries, new formulas or model calls. All 180 slots
+have usable future assessment support. The original 24 cache keys were reused
+with exact provenance; all original study artifacts remain unchanged.
+
+**Observed result:** full feedback's hindsight mean IC is +0.015711, versus
+−0.033823 for its original selector, −0.016355 for the literal first proposal,
+and −0.026670 for minimum AST. Its hindsight utility is still −0.044289 at the
+fixed abstract cost .06. Every arm's three tested feasible selectors have
+negative mean IC. Full feedback has a lower pool ceiling than either control,
+but a slightly smaller selection gap; the original deficit is not explained
+simply by uniquely worse selection. The
+[complete result report](astra-pool-diagnosis-results-v1.md) retains every
+period, all comparisons and the post-hoc interpretation limits.
+
+**Validation:** independent saved-record reconstruction made 4,227 arithmetic
+checks, with maximum discrepancy 6.25e-17, and exact retained evidence checks.
+Root's guarded replay reproduces the report and offline page with no new market
+score, model, network or raw-data access. The new explorer's twelve synthetic
+tests passed independently and on root (36.66 seconds on root). Actual browser
+checks matched all 180 formulas, displayed future ICs and utilities across all
+thirty period/arm controls; twelve summary rows, thirty period rows and fifteen
+year/arm rows render with no console errors. An independent explorer review
+also covers expression-alias provenance. A final prose-only change clarifies
+that the oracle gap is guaranteed nonnegative, rather than strictly positive.
+
+The pre-score publication's
+[public CI](https://github.com/Siquan-Wang/alpha-research-rl/actions/runs/36847550656)
+passed both Python versions and training-math. Results, final explorer and the
+expanded CI replay are a subsequent publication batch.
+
+**Next decision:** a separately reviewed matched-prefix proposal-quality study
+is being designed. The reason is the remaining conditional generation question
+under identical starting states, not merely the presence of positive hindsight
+headroom. It will not restart local-model or stopped financial branches. No
+new hosted calls have been made for that proposed follow-up.

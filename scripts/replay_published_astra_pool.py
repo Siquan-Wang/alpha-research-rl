@@ -1,4 +1,4 @@
-"""Verify the published frozen-pool diagnosis using saved JSON and arithmetic only.
+"""Verify the published frozen-pool diagnosis and offline HTML using saved evidence only.
 
 Run after ``python -m pip install -e .``. These Python execution guards are
 checks of this replay process, not an adversarial security sandbox.
@@ -10,6 +10,7 @@ import hashlib
 import json
 import os
 import platform
+import re
 import sys
 from pathlib import Path, PurePosixPath
 
@@ -17,6 +18,7 @@ from replay_published_results import NoTrainingImports
 
 CONTRACT_PATH = "artifacts/astra-pool-diagnosis-v1/contract.json"
 REPORT_PATH = "results/astra_pool_diagnosis_v1.json"
+EXPLORER_PATH = "docs/astra-pool-explorer.html"
 STUDY = "astra-frozen-pool-diagnosis-v1"
 SCORING_MODULES = {
     "alpha_research_rl.financial_tasks", "alpha_research_rl.financial_policy",
@@ -117,13 +119,48 @@ def verify_published_pool(root, *, replay=None):
             "reused_keys": 24, "keys": 132, "slots": 180, "episodes": 30, "model_calls": 0,
             "market_scores_recomputed": False, "raw_market_data_read": False,
             "arithmetic_absolute_tolerance": 1e-12, "arithmetic_relative_tolerance": 1e-12,
-            "retained_evidence_types_and_hashes_exact": True}
+            "retained_evidence_types_and_hashes_exact": True,
+            "contract_sha256": verified["contract_sha256"], "report_sha256": verified["report_sha256"]}
+
+
+def verify_published_pool_explorer(root, *, build=None, renderer=None):
+    """Rebuild saved-only evidence and require the exact published payload and template."""
+    from alpha_research_rl.astra_pool_diagnosis import _exact
+    from alpha_research_rl.astra_pool_explorer import build_payload, render
+
+    root = Path(root).resolve()
+    contract_path, report_path, html_path = root / CONTRACT_PATH, root / REPORT_PATH, root / EXPLORER_PATH
+    _require_files((contract_path, report_path, html_path), root)
+    # Capture once: the compared page cannot change between extracting its evidence
+    # envelope and verifying its full template. The builder snapshots all report inputs.
+    html_raw = html_path.read_bytes()
+    html = html_raw.decode("utf-8")
+    matches = re.findall(r'<script id="pool-data" type="application/json">(.*?)</script>', html, re.DOTALL)
+    if len(matches) != 1:
+        raise AssertionError("Pool explorer must contain exactly one evidence payload")
+    embedded = json.loads(matches[0])
+    rebuilt = (build or build_payload)(contract_path, contract_path.parent / "execution", report_path,
+                                      source_root=root)
+    _exact(embedded, rebuilt, "pool explorer embedded report and metadata")
+    # JSON report newlines are escaped inside the envelope. This normalization
+    # permits checkout line endings only in the surrounding presentation text.
+    expected_html = (renderer or render)(rebuilt)
+    if html.replace("\r\n", "\n") != expected_html.replace("\r\n", "\n"):
+        raise AssertionError("Pool explorer full HTML differs from the published renderer")
+    return {"explorer_payload_and_template_match": True, "explorer_report_bytes_exact": True,
+            "explorer_html_sha256": hashlib.sha256(html_raw).hexdigest(),
+            "contract_sha256": rebuilt["verification"]["contract_sha256"],
+            "report_sha256": rebuilt["report_sha256"]}
 
 
 def main():
     root = Path(__file__).resolve().parents[1]
     install_guards(root)
     summary = verify_published_pool(root)
+    explorer = verify_published_pool_explorer(root)
+    if any(summary[name] != explorer[name] for name in ("contract_sha256", "report_sha256")):
+        raise AssertionError("Pool report and explorer were verified against different evidence")
+    summary.update(explorer)
     summary.update(training_and_financial_imports_private_data_subprocesses_and_network_disallowed=True,
                    stdlib_platform_detection_precedes_execution_guards=True,
                    guards_are_not_an_adversarial_sandbox=True)

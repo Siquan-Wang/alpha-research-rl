@@ -44,8 +44,17 @@
       <a class="button" href="astra-explorer.html">Inspect the Astra experiment</a>
       <p class="muted">Ten development periods, one trajectory per condition. Inference-time adaptation; no Astra weight training or profitability claim.</p>
     </article>
+    <article class="wide">
+      <div class="number">02 · Post-hoc candidate-pool diagnosis</div>
+      <h2>Did the recorded pools contain better candidates?</h2>
+      <p>Inspect all 180 slots after 108 additional CPU evaluations and exact reuse of the existing outcomes.
+      Full feedback's hindsight mean IC is +0.015711, but all three tested feasible selectors remain negative.
+      Its realized pool ceiling also trails both controls.</p>
+      <a class="button" href="astra-pool-explorer.html">Compare all candidates and selectors</a>
+      <p class="muted">Hindsight opportunity does not establish an attainable selection rule. No new model calls or formulas.</p>
+    </article>
     <article>
-      <div class="number">02 · Original local-model proposal study</div>
+      <div class="number">03 · Original local-model proposal study</div>
       <h2>Did RL improve on supervised training?</h2>
       <p>Compare SFT with two correctly linked RL runs. Inspect all 540 saved draws,
       matched true/exchanged evidence, and the validity–IC decomposition.</p>
@@ -53,7 +62,7 @@
       <p class="muted">Three checkpoints frozen before transfer evaluation.</p>
     </article>
     <article>
-      <div class="number">03 · Exploratory reward follow-up</div>
+      <div class="number">04 · Exploratory reward follow-up</div>
       <h2>Did the reward–action link matter?</h2>
       <p>Compare each RL run with a matched on-policy reward-permutation control.
       Inspect all five policies: the original 540 draws plus 360 new control draws.</p>
@@ -61,7 +70,7 @@
       <p class="muted">Declared after the original results; both controls frozen before their evaluation.</p>
     </article>
     <article class="wide">
-      <div class="number">04 · Earlier synthetic sequential pilot</div>
+      <div class="number">05 · Earlier synthetic sequential pilot</div>
       <h2>What did the agent actually do, step by step?</h2>
       <p>Follow proposal, screening, selection and stopping across 18 saved episodes.
       See verbatim generated actions, charged budgets and explicitly reconstructed evidence states.
@@ -74,11 +83,13 @@
     <h2 id="findings">What the completed experiments show</h2>
     <ul>
       <li>Astra generated six proposals per episode under three feedback conditions. Full feedback's mean future IC was −0.033823, with no observed benefit over the validity-only condition; all 30 assessments were valid.</li>
+      <li>The separate pool diagnosis found missed hindsight opportunity, while the first-proposal and minimum-AST rules still had negative mean IC. A positive oracle ceiling is not a usable strategy.</li>
       <li>Both original RL runs improved the declared reward over SFT. Most of that gain came from fewer invalid proposals; neither sampled policy exceeded the uniform formula-grid reference.</li>
       <li>Correctly linked RL also exceeded its matched reward-permutation control in both seeds. The predictive-IC contribution changed in opposite directions across seeds, and greedy behavior was unchanged.</li>
       <li>The sequential evidence-acquisition gate failed. Candidate-bank generation and sequential-controller training for that branch stopped.</li>
     </ul>
     <p><a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/astra-agent-results-v1.md">Astra results</a>
+    · <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/astra-pool-diagnosis-results-v1.md">Post-hoc pool diagnosis</a>
     · <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/financial-proposal-results-v1.md">Original local-model results</a>
     · <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/reward-linkage-results-v1.md">Reward-linkage results</a>
     · <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/sequential-gate-results-v1.md">Failed sequential gate</a></p>

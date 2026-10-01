@@ -68,13 +68,14 @@ inspect; those properties alone are not evidence of methodological novelty.
 
 ## Missing evidence and falsifiable next questions
 
-The [Astra experiment](astra-agent-results-v1.md) leaves a concrete distinction
-unresolved: did its six-formula pools contain better future signals that the
-historical selector missed, or was even their hindsight ceiling weak? A separate
-post-hoc pool diagnosis is being prepared. Its controls and complete finite
-evaluation population must be published before any previously unassessed
-candidate is scored. A future-informed maximum would be an unattainable ceiling,
-not a newly discovered deployable strategy or a replacement v1 result.
+The [separate pool diagnosis](astra-pool-diagnosis-results-v1.md) has now scored
+the remaining frozen candidates after publishing its finite population and
+rules. Full feedback's hindsight mean IC is +0.015711, but the original,
+first-proposal and minimum-AST selectors all remain negative. Its realized
+pool ceiling trails both controls, while its selection gap is slightly smaller.
+This narrows the explanation of the original deficit, without identifying a
+causal generation effect or a deployable selector. The original v1 result is
+unchanged.
 
 The current result also lacks repeated hosted generations within each condition
 and period. Repeating fixed trajectories could quantify conditional generation
