@@ -1,0 +1,540 @@
+{
+  "manifest": {
+    "created_utc": "2026-10-01T03:29:25.134196+00:00",
+    "python": "3.12.14",
+    "platform": "Windows",
+    "packages": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "torch": "2.8.0+cu128",
+      "transformers": "4.57.6",
+      "peft": "0.18.1"
+    },
+    "git_revision": null,
+    "source_sha256": "701992ddc61c59d691f93a746f47c6b779b55aab893b243c16a24fd55bc8f736",
+    "config": {
+      "label": "sft",
+      "tasks": [
+        {
+          "seed": 11000,
+          "regime": "signal"
+        },
+        {
+          "seed": 11001,
+          "regime": "null"
+        },
+        {
+          "seed": 11002,
+          "regime": "decay"
+        },
+        {
+          "seed": 11003,
+          "regime": "signal"
+        },
+        {
+          "seed": 11004,
+          "regime": "null"
+        },
+        {
+          "seed": 11005,
+          "regime": "decay"
+        }
+      ],
+      "decoding": "greedy",
+      "data": "synthetic development only",
+      "max_action_tokens": 64,
+      "budget": 10,
+      "not_final_holdout": true
+    }
+  },
+  "summary": {
+    "mean_reward": 0.032832756632064586,
+    "n_episodes": 6,
+    "invalid_actions": 0,
+    "duplicate_actions": 0,
+    "accepted_proposals": 6
+  },
+  "episodes": [
+    {
+      "seed": 11000,
+      "regime": "signal",
+      "reward": 0.14071626297577855,
+      "spent_budget": 7,
+      "selected": [
+        0
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":3}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":0}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":1}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":2}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"select\",\"candidate\":0}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11001,
+      "regime": "null",
+      "reward": -0.015096885813148782,
+      "spent_budget": 7,
+      "selected": [
+        0
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":3}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":0}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":1}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":2}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"select\",\"candidate\":0}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11002,
+      "regime": "decay",
+      "reward": -0.029802768166089972,
+      "spent_budget": 7,
+      "selected": [
+        0
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":3}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":0}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":1}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":2}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"select\",\"candidate\":0}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11003,
+      "regime": "signal",
+      "reward": 0.1129653979238754,
+      "spent_budget": 7,
+      "selected": [
+        0
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":3}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":0}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":1}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":2}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"select\",\"candidate\":0}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11004,
+      "regime": "null",
+      "reward": 0.029089965397923877,
+      "spent_budget": 7,
+      "selected": [
+        0
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":3}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":0}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":1}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":2}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"select\",\"candidate\":0}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "seed": 11005,
+      "regime": "decay",
+      "reward": -0.04087543252595156,
+      "spent_budget": 7,
+      "selected": [
+        0
+      ],
+      "actions": [
+        {
+          "action": {
+            "action": "propose",
+            "expression": "delta(log(volume),1)"
+          },
+          "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":3}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":0}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":1}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "screen",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"screen\",\"candidate\":2}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "select",
+            "candidate": 0
+          },
+          "text": "{\"action\":\"select\",\"candidate\":0}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        },
+        {
+          "action": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "status": "ok",
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

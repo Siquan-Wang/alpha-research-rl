@@ -1,0 +1,1849 @@
+{
+  "study": "local-llm-development-v1",
+  "status": "machinery pilot, no RL improvement or financial alpha demonstrated",
+  "model": {
+    "model_id": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "model_card_license": "apache-2.0",
+    "source": "https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca",
+    "weights_published_in_repository": false
+  },
+  "sft": {
+    "manifest": {
+      "created_utc": "2026-10-01T03:24:28.990758+00:00",
+      "python": "3.12.14",
+      "platform": "Windows",
+      "packages": {
+        "numpy": "2.5.3",
+        "pandas": "3.0.6",
+        "scipy": "1.18.1",
+        "torch": "2.8.0+cu128",
+        "transformers": "4.57.6",
+        "peft": "0.18.1"
+      },
+      "git_revision": null,
+      "source_sha256": "4bbd6680c1471001be7e3eab9c665cf29076d1625dce9893bd96f14cf4c491a0",
+      "config": {
+        "algorithm": "supervised behavior cloning",
+        "seed": 17,
+        "episodes": 12,
+        "epochs": 1,
+        "train_seeds_start": 1000,
+        "teacher": "scripted proposal and feedback only",
+        "data": "synthetic only",
+        "learning_rate": 0.0002,
+        "lora_rank": 8
+      }
+    },
+    "n_examples": 84,
+    "adapter_before": "b0858d8c5f1e8f8a9709684298fe41e849be5c64c6094768beede2d90173673b",
+    "adapter_after": "46e89788c8bc2a8cef11ba401f8729ea94df2c103598319772b2919bf2047148",
+    "updates": [
+      {
+        "epoch": 0,
+        "step": 0,
+        "loss_per_completion_token": 2.882362127304077,
+        "preclip_grad_norm": 18.509082794189453
+      },
+      {
+        "epoch": 0,
+        "step": 1,
+        "loss_per_completion_token": 0.35010239481925964,
+        "preclip_grad_norm": 14.280726432800293
+      },
+      {
+        "epoch": 0,
+        "step": 2,
+        "loss_per_completion_token": 0.7037741541862488,
+        "preclip_grad_norm": 10.446290016174316
+      },
+      {
+        "epoch": 0,
+        "step": 3,
+        "loss_per_completion_token": 0.04984397813677788,
+        "preclip_grad_norm": 3.6704282760620117
+      },
+      {
+        "epoch": 0,
+        "step": 4,
+        "loss_per_completion_token": 0.6635570526123047,
+        "preclip_grad_norm": 7.476924896240234
+      },
+      {
+        "epoch": 0,
+        "step": 5,
+        "loss_per_completion_token": 0.9517412185668945,
+        "preclip_grad_norm": 8.125725746154785
+      },
+      {
+        "epoch": 0,
+        "step": 6,
+        "loss_per_completion_token": 0.8515511751174927,
+        "preclip_grad_norm": 8.836129188537598
+      },
+      {
+        "epoch": 0,
+        "step": 7,
+        "loss_per_completion_token": 0.3356282114982605,
+        "preclip_grad_norm": 3.1897506713867188
+      },
+      {
+        "epoch": 0,
+        "step": 8,
+        "loss_per_completion_token": 0.2007119208574295,
+        "preclip_grad_norm": 2.3960721492767334
+      },
+      {
+        "epoch": 0,
+        "step": 9,
+        "loss_per_completion_token": 0.2493976652622223,
+        "preclip_grad_norm": 3.993256092071533
+      },
+      {
+        "epoch": 0,
+        "step": 10,
+        "loss_per_completion_token": 0.21297863125801086,
+        "preclip_grad_norm": 3.69317626953125
+      },
+      {
+        "epoch": 0,
+        "step": 11,
+        "loss_per_completion_token": 0.14286717772483826,
+        "preclip_grad_norm": 1.7857484817504883
+      },
+      {
+        "epoch": 0,
+        "step": 12,
+        "loss_per_completion_token": 1.524064302444458,
+        "preclip_grad_norm": 17.66200828552246
+      },
+      {
+        "epoch": 0,
+        "step": 13,
+        "loss_per_completion_token": 0.18320685625076294,
+        "preclip_grad_norm": 2.212531805038452
+      },
+      {
+        "epoch": 0,
+        "step": 14,
+        "loss_per_completion_token": 0.9044893383979797,
+        "preclip_grad_norm": 8.225497245788574
+      },
+      {
+        "epoch": 0,
+        "step": 15,
+        "loss_per_completion_token": 0.053616203367710114,
+        "preclip_grad_norm": 0.7981638312339783
+      },
+      {
+        "epoch": 0,
+        "step": 16,
+        "loss_per_completion_token": 0.10463356971740723,
+        "preclip_grad_norm": 1.2442498207092285
+      },
+      {
+        "epoch": 0,
+        "step": 17,
+        "loss_per_completion_token": 0.9353266954421997,
+        "preclip_grad_norm": 6.657077789306641
+      },
+      {
+        "epoch": 0,
+        "step": 18,
+        "loss_per_completion_token": 0.7863125205039978,
+        "preclip_grad_norm": 12.044373512268066
+      },
+      {
+        "epoch": 0,
+        "step": 19,
+        "loss_per_completion_token": 0.06253203749656677,
+        "preclip_grad_norm": 1.4716732501983643
+      },
+      {
+        "epoch": 0,
+        "step": 20,
+        "loss_per_completion_token": 0.12082292139530182,
+        "preclip_grad_norm": 1.8669220209121704
+      },
+      {
+        "epoch": 0,
+        "step": 21,
+        "loss_per_completion_token": 0.295447438955307,
+        "preclip_grad_norm": 6.018941402435303
+      },
+      {
+        "epoch": 0,
+        "step": 22,
+        "loss_per_completion_token": 0.11685024946928024,
+        "preclip_grad_norm": 1.8463809490203857
+      },
+      {
+        "epoch": 0,
+        "step": 23,
+        "loss_per_completion_token": 0.0696423128247261,
+        "preclip_grad_norm": 1.1033827066421509
+      },
+      {
+        "epoch": 0,
+        "step": 24,
+        "loss_per_completion_token": 0.06197647005319595,
+        "preclip_grad_norm": 1.2498581409454346
+      },
+      {
+        "epoch": 0,
+        "step": 25,
+        "loss_per_completion_token": 0.04711815342307091,
+        "preclip_grad_norm": 1.0196884870529175
+      },
+      {
+        "epoch": 0,
+        "step": 26,
+        "loss_per_completion_token": 0.44271427392959595,
+        "preclip_grad_norm": 7.683520317077637
+      },
+      {
+        "epoch": 0,
+        "step": 27,
+        "loss_per_completion_token": 0.20917227864265442,
+        "preclip_grad_norm": 7.876839637756348
+      },
+      {
+        "epoch": 0,
+        "step": 28,
+        "loss_per_completion_token": 0.044185884296894073,
+        "preclip_grad_norm": 2.841933488845825
+      },
+      {
+        "epoch": 0,
+        "step": 29,
+        "loss_per_completion_token": 0.01775559037923813,
+        "preclip_grad_norm": 1.0467801094055176
+      },
+      {
+        "epoch": 0,
+        "step": 30,
+        "loss_per_completion_token": 0.01192482840269804,
+        "preclip_grad_norm": 0.4938703775405884
+      },
+      {
+        "epoch": 0,
+        "step": 31,
+        "loss_per_completion_token": 0.26996028423309326,
+        "preclip_grad_norm": 9.920208930969238
+      },
+      {
+        "epoch": 0,
+        "step": 32,
+        "loss_per_completion_token": 0.7688029408454895,
+        "preclip_grad_norm": 6.459659576416016
+      },
+      {
+        "epoch": 0,
+        "step": 33,
+        "loss_per_completion_token": 0.6973575353622437,
+        "preclip_grad_norm": 6.1498847007751465
+      },
+      {
+        "epoch": 0,
+        "step": 34,
+        "loss_per_completion_token": 0.025522489100694656,
+        "preclip_grad_norm": 2.2101356983184814
+      },
+      {
+        "epoch": 0,
+        "step": 35,
+        "loss_per_completion_token": 0.4511963427066803,
+        "preclip_grad_norm": 3.9040839672088623
+      },
+      {
+        "epoch": 0,
+        "step": 36,
+        "loss_per_completion_token": 0.30896538496017456,
+        "preclip_grad_norm": 3.73488450050354
+      },
+      {
+        "epoch": 0,
+        "step": 37,
+        "loss_per_completion_token": 0.00269482028670609,
+        "preclip_grad_norm": 0.0941675677895546
+      },
+      {
+        "epoch": 0,
+        "step": 38,
+        "loss_per_completion_token": 0.0051500326953828335,
+        "preclip_grad_norm": 0.1785231977701187
+      },
+      {
+        "epoch": 0,
+        "step": 39,
+        "loss_per_completion_token": 0.8617101907730103,
+        "preclip_grad_norm": 7.816431999206543
+      },
+      {
+        "epoch": 0,
+        "step": 40,
+        "loss_per_completion_token": 0.016096919775009155,
+        "preclip_grad_norm": 0.6121576428413391
+      },
+      {
+        "epoch": 0,
+        "step": 41,
+        "loss_per_completion_token": 0.5945904850959778,
+        "preclip_grad_norm": 9.852574348449707
+      },
+      {
+        "epoch": 0,
+        "step": 42,
+        "loss_per_completion_token": 0.02391178160905838,
+        "preclip_grad_norm": 1.3789833784103394
+      },
+      {
+        "epoch": 0,
+        "step": 43,
+        "loss_per_completion_token": 0.01234169490635395,
+        "preclip_grad_norm": 0.6750385761260986
+      },
+      {
+        "epoch": 0,
+        "step": 44,
+        "loss_per_completion_token": 0.5643418431282043,
+        "preclip_grad_norm": 14.837772369384766
+      },
+      {
+        "epoch": 0,
+        "step": 45,
+        "loss_per_completion_token": 0.032053351402282715,
+        "preclip_grad_norm": 0.6995273232460022
+      },
+      {
+        "epoch": 0,
+        "step": 46,
+        "loss_per_completion_token": 0.0026403360534459352,
+        "preclip_grad_norm": 0.09652470797300339
+      },
+      {
+        "epoch": 0,
+        "step": 47,
+        "loss_per_completion_token": 0.2596650719642639,
+        "preclip_grad_norm": 6.822659492492676
+      },
+      {
+        "epoch": 0,
+        "step": 48,
+        "loss_per_completion_token": 0.011569390073418617,
+        "preclip_grad_norm": 0.70135098695755
+      },
+      {
+        "epoch": 0,
+        "step": 49,
+        "loss_per_completion_token": 0.012221715413033962,
+        "preclip_grad_norm": 0.29927438497543335
+      },
+      {
+        "epoch": 0,
+        "step": 50,
+        "loss_per_completion_token": 0.0022017918527126312,
+        "preclip_grad_norm": 0.09523741900920868
+      },
+      {
+        "epoch": 0,
+        "step": 51,
+        "loss_per_completion_token": 0.0008471430628560483,
+        "preclip_grad_norm": 0.03307276964187622
+      },
+      {
+        "epoch": 0,
+        "step": 52,
+        "loss_per_completion_token": 0.0017575903329998255,
+        "preclip_grad_norm": 0.23099248111248016
+      },
+      {
+        "epoch": 0,
+        "step": 53,
+        "loss_per_completion_token": 0.4453178942203522,
+        "preclip_grad_norm": 10.728683471679688
+      },
+      {
+        "epoch": 0,
+        "step": 54,
+        "loss_per_completion_token": 0.6098887920379639,
+        "preclip_grad_norm": 12.042179107666016
+      },
+      {
+        "epoch": 0,
+        "step": 55,
+        "loss_per_completion_token": 0.0015302215470001101,
+        "preclip_grad_norm": 0.0682196319103241
+      },
+      {
+        "epoch": 0,
+        "step": 56,
+        "loss_per_completion_token": 0.0009529725066386163,
+        "preclip_grad_norm": 0.03708367422223091
+      },
+      {
+        "epoch": 0,
+        "step": 57,
+        "loss_per_completion_token": 0.003007174702361226,
+        "preclip_grad_norm": 0.09592992067337036
+      },
+      {
+        "epoch": 0,
+        "step": 58,
+        "loss_per_completion_token": 0.0005786598776467144,
+        "preclip_grad_norm": 0.030392443761229515
+      },
+      {
+        "epoch": 0,
+        "step": 59,
+        "loss_per_completion_token": 0.002330441027879715,
+        "preclip_grad_norm": 0.08146511018276215
+      },
+      {
+        "epoch": 0,
+        "step": 60,
+        "loss_per_completion_token": 0.15668615698814392,
+        "preclip_grad_norm": 9.252094268798828
+      },
+      {
+        "epoch": 0,
+        "step": 61,
+        "loss_per_completion_token": 0.0023907071445137262,
+        "preclip_grad_norm": 0.11727815866470337
+      },
+      {
+        "epoch": 0,
+        "step": 62,
+        "loss_per_completion_token": 0.0015932348323985934,
+        "preclip_grad_norm": 0.05755564942955971
+      },
+      {
+        "epoch": 0,
+        "step": 63,
+        "loss_per_completion_token": 0.00028179207583889365,
+        "preclip_grad_norm": 0.013553974218666553
+      },
+      {
+        "epoch": 0,
+        "step": 64,
+        "loss_per_completion_token": 0.0002641685423441231,
+        "preclip_grad_norm": 0.01558258943259716
+      },
+      {
+        "epoch": 0,
+        "step": 65,
+        "loss_per_completion_token": 0.00024082165327854455,
+        "preclip_grad_norm": 0.014186668209731579
+      },
+      {
+        "epoch": 0,
+        "step": 66,
+        "loss_per_completion_token": 0.0005247634835541248,
+        "preclip_grad_norm": 0.02588082291185856
+      },
+      {
+        "epoch": 0,
+        "step": 67,
+        "loss_per_completion_token": 0.09306680411100388,
+        "preclip_grad_norm": 4.817000389099121
+      },
+      {
+        "epoch": 0,
+        "step": 68,
+        "loss_per_completion_token": 0.41690394282341003,
+        "preclip_grad_norm": 4.622086048126221
+      },
+      {
+        "epoch": 0,
+        "step": 69,
+        "loss_per_completion_token": 0.00028102664509788156,
+        "preclip_grad_norm": 0.016042178496718407
+      },
+      {
+        "epoch": 0,
+        "step": 70,
+        "loss_per_completion_token": 0.000930209003854543,
+        "preclip_grad_norm": 0.05554226413369179
+      },
+      {
+        "epoch": 0,
+        "step": 71,
+        "loss_per_completion_token": 0.007226143032312393,
+        "preclip_grad_norm": 0.4881211519241333
+      },
+      {
+        "epoch": 0,
+        "step": 72,
+        "loss_per_completion_token": 0.0005021130200475454,
+        "preclip_grad_norm": 0.014821918681263924
+      },
+      {
+        "epoch": 0,
+        "step": 73,
+        "loss_per_completion_token": 0.00270413001999259,
+        "preclip_grad_norm": 0.1708158403635025
+      },
+      {
+        "epoch": 0,
+        "step": 74,
+        "loss_per_completion_token": 0.0005888135056011379,
+        "preclip_grad_norm": 0.05295121297240257
+      },
+      {
+        "epoch": 0,
+        "step": 75,
+        "loss_per_completion_token": 0.1363784372806549,
+        "preclip_grad_norm": 7.408275604248047
+      },
+      {
+        "epoch": 0,
+        "step": 76,
+        "loss_per_completion_token": 0.00047365104546770453,
+        "preclip_grad_norm": 0.01851486787199974
+      },
+      {
+        "epoch": 0,
+        "step": 77,
+        "loss_per_completion_token": 0.0005357038462534547,
+        "preclip_grad_norm": 0.03451381251215935
+      },
+      {
+        "epoch": 0,
+        "step": 78,
+        "loss_per_completion_token": 0.00046495688729919493,
+        "preclip_grad_norm": 0.0289065670222044
+      },
+      {
+        "epoch": 0,
+        "step": 79,
+        "loss_per_completion_token": 0.08854683488607407,
+        "preclip_grad_norm": 2.447977304458618
+      },
+      {
+        "epoch": 0,
+        "step": 80,
+        "loss_per_completion_token": 0.0004709612112492323,
+        "preclip_grad_norm": 0.019032072275877
+      },
+      {
+        "epoch": 0,
+        "step": 81,
+        "loss_per_completion_token": 0.001219277735799551,
+        "preclip_grad_norm": 0.05824428051710129
+      },
+      {
+        "epoch": 0,
+        "step": 82,
+        "loss_per_completion_token": 0.2849805951118469,
+        "preclip_grad_norm": 5.209453582763672
+      },
+      {
+        "epoch": 0,
+        "step": 83,
+        "loss_per_completion_token": 0.32109230756759644,
+        "preclip_grad_norm": 3.6532223224639893
+      }
+    ],
+    "trainable_parameters": 2293760
+  },
+  "rloo": {
+    "manifest": {
+      "created_utc": "2026-10-01T03:27:08.772280+00:00",
+      "python": "3.12.14",
+      "platform": "Windows",
+      "packages": {
+        "numpy": "2.5.3",
+        "pandas": "3.0.6",
+        "scipy": "1.18.1",
+        "torch": "2.8.0+cu128",
+        "transformers": "4.57.6",
+        "peft": "0.18.1"
+      },
+      "git_revision": null,
+      "source_sha256": "4dc477adedeb8a3cf2056890cfb205c7cc905def9642d06c38882b22fa09a8e9",
+      "config": {
+        "algorithm": "on-policy REINFORCE with leave-one-out baseline",
+        "seed": 23,
+        "groups": 4,
+        "group_size": 4,
+        "data": "synthetic only",
+        "one_update_per_fresh_group": true,
+        "kl_penalty": 0.0,
+        "learning_rate": 1e-05,
+        "sampling_temperature": 1.0,
+        "top_p": 1.0,
+        "top_k": 0,
+        "max_action_tokens": 64,
+        "claim": "training-path development; not evidence of improved market alpha"
+      }
+    },
+    "adapter_before": "46e89788c8bc2a8cef11ba401f8729ea94df2c103598319772b2919bf2047148",
+    "adapter_after": "1433212171684a7cd581dbf80f3e89685b36ac175e16c87d4e3c8576fdb13bc9",
+    "groups": [
+      {
+        "group": 0,
+        "task_seed": 2000,
+        "regime": "signal",
+        "rewards": [
+          0.0964948096885813,
+          0.0964948096885813,
+          0.0964948096885813,
+          0.0964948096885813
+        ],
+        "advantages": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "loss": 0.0,
+        "preclip_grad_norm": 0.0,
+        "optimizer_step": false,
+        "trajectories": [
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "e17fd7154c33292cbda3925aae68f1e85b9c9e1b4ce125958d9a9e6e0a0c9274"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "450a5ad13c0eec48efbb40aeba57b4e94cb2ad5e8d923f449d91f2a4ec49fd8d"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "15ae951e32b73b137afb02f0b607f64d370b5de377a44aef170257e441f1e385"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":0}",
+              "action": {
+                "action": "select",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "512d40100b9ea4c5b23111bed66bdef1ec366d3a3eb68a9a2889ed16686f2a53"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "b85863eccb9457e2b873a6ec9ee6af39270406f3dc11a753a4e2a630d2aaaee5"
+            }
+          ],
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "e17fd7154c33292cbda3925aae68f1e85b9c9e1b4ce125958d9a9e6e0a0c9274"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "450a5ad13c0eec48efbb40aeba57b4e94cb2ad5e8d923f449d91f2a4ec49fd8d"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "15ae951e32b73b137afb02f0b607f64d370b5de377a44aef170257e441f1e385"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":0}",
+              "action": {
+                "action": "select",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "512d40100b9ea4c5b23111bed66bdef1ec366d3a3eb68a9a2889ed16686f2a53"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "b85863eccb9457e2b873a6ec9ee6af39270406f3dc11a753a4e2a630d2aaaee5"
+            }
+          ],
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "e17fd7154c33292cbda3925aae68f1e85b9c9e1b4ce125958d9a9e6e0a0c9274"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "450a5ad13c0eec48efbb40aeba57b4e94cb2ad5e8d923f449d91f2a4ec49fd8d"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "15ae951e32b73b137afb02f0b607f64d370b5de377a44aef170257e441f1e385"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":0}",
+              "action": {
+                "action": "select",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "512d40100b9ea4c5b23111bed66bdef1ec366d3a3eb68a9a2889ed16686f2a53"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "b85863eccb9457e2b873a6ec9ee6af39270406f3dc11a753a4e2a630d2aaaee5"
+            }
+          ],
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "e17fd7154c33292cbda3925aae68f1e85b9c9e1b4ce125958d9a9e6e0a0c9274"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "450a5ad13c0eec48efbb40aeba57b4e94cb2ad5e8d923f449d91f2a4ec49fd8d"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "15ae951e32b73b137afb02f0b607f64d370b5de377a44aef170257e441f1e385"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":0}",
+              "action": {
+                "action": "select",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "512d40100b9ea4c5b23111bed66bdef1ec366d3a3eb68a9a2889ed16686f2a53"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "b85863eccb9457e2b873a6ec9ee6af39270406f3dc11a753a4e2a630d2aaaee5"
+            }
+          ]
+        ]
+      },
+      {
+        "group": 1,
+        "task_seed": 2001,
+        "regime": "null",
+        "rewards": [
+          -0.015581314878892739,
+          -0.015581314878892739,
+          -0.015581314878892739,
+          -0.016169550173010378
+        ],
+        "advantages": [
+          0.00019607843137254763,
+          0.00019607843137254763,
+          0.00019607843137254763,
+          -0.0005882352941176377
+        ],
+        "loss": -0.0002382213099210162,
+        "preclip_grad_norm": 0.0054892743937671185,
+        "optimizer_step": true,
+        "trajectories": [
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c0ab59753005d2a8ff41f9f80698e0f19803ef8558d628bcceb01fa32adfd781"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "e93f8f2786275b0386c8fdf77c744fd7724a9e2809f6a7a6381ce8981ae6b825"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "1545c6673fab0e6b16fb3b8184b6df683dc277f2e66855856614b2ea4fc6e374"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":0}",
+              "action": {
+                "action": "select",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "df6cf01a0e66d86d366a5247052945f561ffd1fdcf8d643728d372907ab77e37"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "a46d9fc4b12debc88dcdce51ba655df1204722501644f0135c932af016837248"
+            }
+          ],
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c0ab59753005d2a8ff41f9f80698e0f19803ef8558d628bcceb01fa32adfd781"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "e93f8f2786275b0386c8fdf77c744fd7724a9e2809f6a7a6381ce8981ae6b825"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "1545c6673fab0e6b16fb3b8184b6df683dc277f2e66855856614b2ea4fc6e374"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":0}",
+              "action": {
+                "action": "select",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "df6cf01a0e66d86d366a5247052945f561ffd1fdcf8d643728d372907ab77e37"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "a46d9fc4b12debc88dcdce51ba655df1204722501644f0135c932af016837248"
+            }
+          ],
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c0ab59753005d2a8ff41f9f80698e0f19803ef8558d628bcceb01fa32adfd781"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "e93f8f2786275b0386c8fdf77c744fd7724a9e2809f6a7a6381ce8981ae6b825"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "1545c6673fab0e6b16fb3b8184b6df683dc277f2e66855856614b2ea4fc6e374"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":0}",
+              "action": {
+                "action": "select",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "df6cf01a0e66d86d366a5247052945f561ffd1fdcf8d643728d372907ab77e37"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "a46d9fc4b12debc88dcdce51ba655df1204722501644f0135c932af016837248"
+            }
+          ],
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c0ab59753005d2a8ff41f9f80698e0f19803ef8558d628bcceb01fa32adfd781"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "e93f8f2786275b0386c8fdf77c744fd7724a9e2809f6a7a6381ce8981ae6b825"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "1545c6673fab0e6b16fb3b8184b6df683dc277f2e66855856614b2ea4fc6e374"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":2}",
+              "action": {
+                "action": "select",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "df6cf01a0e66d86d366a5247052945f561ffd1fdcf8d643728d372907ab77e37"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "753eedb94f3ac1bce4763fe8019176f845d8902d54dadf9ba34d8902469a3f1f"
+            }
+          ]
+        ]
+      },
+      {
+        "group": 2,
+        "task_seed": 2002,
+        "regime": "decay",
+        "rewards": [
+          0.07445328719723183,
+          0.07445328719723183,
+          0.07445328719723183,
+          0.07445328719723183
+        ],
+        "advantages": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "loss": 0.0,
+        "preclip_grad_norm": 0.0,
+        "optimizer_step": false,
+        "trajectories": [
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "27201d0edfd0697174f16949d7cd4e1e5c586953b8ef9cb8c50f8b2b2293b60b"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "57bfa659fa5c9e3ddcc01282c112ef685e232cac5b93d09302fbe9bbecabd5a0"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "8f5745e85b1f63ba2f7a1748daa3e732f0e9360c519b55af005b8c389075571b"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":0}",
+              "action": {
+                "action": "select",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "5fa93c927079bc07c648512e2b4499fc4d6b0d61d161fc6a41fe0046a573623d"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "5b3ddcd2ded2ae439263afda7fb3a16de9ba50722ee1ca9f02aeb2067d6c6960"
+            }
+          ],
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "27201d0edfd0697174f16949d7cd4e1e5c586953b8ef9cb8c50f8b2b2293b60b"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "57bfa659fa5c9e3ddcc01282c112ef685e232cac5b93d09302fbe9bbecabd5a0"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "8f5745e85b1f63ba2f7a1748daa3e732f0e9360c519b55af005b8c389075571b"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":0}",
+              "action": {
+                "action": "select",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "5fa93c927079bc07c648512e2b4499fc4d6b0d61d161fc6a41fe0046a573623d"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "5b3ddcd2ded2ae439263afda7fb3a16de9ba50722ee1ca9f02aeb2067d6c6960"
+            }
+          ],
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "27201d0edfd0697174f16949d7cd4e1e5c586953b8ef9cb8c50f8b2b2293b60b"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "57bfa659fa5c9e3ddcc01282c112ef685e232cac5b93d09302fbe9bbecabd5a0"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "8f5745e85b1f63ba2f7a1748daa3e732f0e9360c519b55af005b8c389075571b"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":0}",
+              "action": {
+                "action": "select",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "5fa93c927079bc07c648512e2b4499fc4d6b0d61d161fc6a41fe0046a573623d"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "5b3ddcd2ded2ae439263afda7fb3a16de9ba50722ee1ca9f02aeb2067d6c6960"
+            }
+          ],
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "27201d0edfd0697174f16949d7cd4e1e5c586953b8ef9cb8c50f8b2b2293b60b"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "57bfa659fa5c9e3ddcc01282c112ef685e232cac5b93d09302fbe9bbecabd5a0"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "8f5745e85b1f63ba2f7a1748daa3e732f0e9360c519b55af005b8c389075571b"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":0}",
+              "action": {
+                "action": "select",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "5fa93c927079bc07c648512e2b4499fc4d6b0d61d161fc6a41fe0046a573623d"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "5b3ddcd2ded2ae439263afda7fb3a16de9ba50722ee1ca9f02aeb2067d6c6960"
+            }
+          ]
+        ]
+      },
+      {
+        "group": 3,
+        "task_seed": 2003,
+        "regime": "signal",
+        "rewards": [
+          0.06680622837370244,
+          0.06680622837370244,
+          0.06680622837370244,
+          0.018121107266435992
+        ],
+        "advantages": [
+          0.016228373702422152,
+          0.016228373702422152,
+          0.016228373702422152,
+          -0.048685121107266444
+        ],
+        "loss": -0.019714280880180013,
+        "preclip_grad_norm": 0.48108071088790894,
+        "optimizer_step": true,
+        "trajectories": [
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "4445371680128e0e2e11e7c889852a01828df1a48bdd7fed2a9a5beb8de4d66a"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "03d92ba1ee0e4114045f88aad224fabadaf69204c49af4530f2f8562c84b4c71"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "ef00b187cea2cab23795903087dc96ce1e005f381a07f242d311b91fbd0c8912"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":0}",
+              "action": {
+                "action": "select",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "5d89e29b5dd63cc41a207dff9a1e099833f3e882bea3307b09e5b9799d48939c"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "aaf6ddd115036c48247f1bfdc0bdd8e1c22f57b64fcf5ee55e275ba17be5f8da"
+            }
+          ],
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "4445371680128e0e2e11e7c889852a01828df1a48bdd7fed2a9a5beb8de4d66a"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "03d92ba1ee0e4114045f88aad224fabadaf69204c49af4530f2f8562c84b4c71"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "ef00b187cea2cab23795903087dc96ce1e005f381a07f242d311b91fbd0c8912"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":0}",
+              "action": {
+                "action": "select",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "5d89e29b5dd63cc41a207dff9a1e099833f3e882bea3307b09e5b9799d48939c"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "aaf6ddd115036c48247f1bfdc0bdd8e1c22f57b64fcf5ee55e275ba17be5f8da"
+            }
+          ],
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "4445371680128e0e2e11e7c889852a01828df1a48bdd7fed2a9a5beb8de4d66a"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "03d92ba1ee0e4114045f88aad224fabadaf69204c49af4530f2f8562c84b4c71"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "ef00b187cea2cab23795903087dc96ce1e005f381a07f242d311b91fbd0c8912"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":0}",
+              "action": {
+                "action": "select",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "5d89e29b5dd63cc41a207dff9a1e099833f3e882bea3307b09e5b9799d48939c"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "aaf6ddd115036c48247f1bfdc0bdd8e1c22f57b64fcf5ee55e275ba17be5f8da"
+            }
+          ],
+          [
+            {
+              "text": "{\"action\":\"propose\",\"expression\":\"delta(log(volume),1)\"}",
+              "action": {
+                "action": "propose",
+                "expression": "delta(log(volume),1)"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c4052fcb6b8b6289041ace2e22840f425c8078570e34ad032c7a26b6c14687c3"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":3}",
+              "action": {
+                "action": "screen",
+                "candidate": 3
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "6dae7b2c5d329ede86a80f8a1f3cbe08aa49f8cc416e83621a82edbf8ba3d849"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":0}",
+              "action": {
+                "action": "screen",
+                "candidate": 0
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "4445371680128e0e2e11e7c889852a01828df1a48bdd7fed2a9a5beb8de4d66a"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":1}",
+              "action": {
+                "action": "screen",
+                "candidate": 1
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "03d92ba1ee0e4114045f88aad224fabadaf69204c49af4530f2f8562c84b4c71"
+            },
+            {
+              "text": "{\"action\":\"screen\",\"candidate\":2}",
+              "action": {
+                "action": "screen",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "ef00b187cea2cab23795903087dc96ce1e005f381a07f242d311b91fbd0c8912"
+            },
+            {
+              "text": "{\"action\":\"select\",\"candidate\":2}",
+              "action": {
+                "action": "select",
+                "candidate": 2
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "5d89e29b5dd63cc41a207dff9a1e099833f3e882bea3307b09e5b9799d48939c"
+            },
+            {
+              "text": "{\"action\":\"stop\"}",
+              "action": {
+                "action": "stop"
+              },
+              "terminated": true,
+              "status": "ok",
+              "prompt_sha256": "c736b983e26ca714567c8221e1f3a38aa8b98e604f6a068412b41cd3399890da"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "save_reload": {
+    "adapter_digest_before": "1433212171684a7cd581dbf80f3e89685b36ac175e16c87d4e3c8576fdb13bc9",
+    "adapter_digest_after": "1433212171684a7cd581dbf80f3e89685b36ac175e16c87d4e3c8576fdb13bc9",
+    "completion_logp_before": -17.62581443786621,
+    "completion_logp_after": -17.62581443786621,
+    "absolute_logp_difference": 0.0
+  },
+  "evaluation": {
+    "base": {
+      "mean_reward": -0.01,
+      "n_episodes": 6,
+      "invalid_actions": 60,
+      "duplicate_actions": 0,
+      "accepted_proposals": 0
+    },
+    "sft": {
+      "mean_reward": 0.032832756632064586,
+      "n_episodes": 6,
+      "invalid_actions": 0,
+      "duplicate_actions": 0,
+      "accepted_proposals": 6
+    },
+    "rloo": {
+      "mean_reward": 0.032832756632064586,
+      "n_episodes": 6,
+      "invalid_actions": 0,
+      "duplicate_actions": 0,
+      "accepted_proposals": 6
+    }
+  },
+  "limitations": [
+    "Original training manifests were emitted at run end, before the first Git commit.",
+    "SFT used a scripted teacher and 84 examples from 12 synthetic tasks.",
+    "RLOO had four groups of four trajectories, only two groups with nonzero reward variation.",
+    "Original RLOO token traces retain decoded text; later code additionally logs raw completion IDs.",
+    "Constant-reward numerical centering was hardened after v1. Its actual two constant groups had exact-zero advantages.",
+    "Base failed strict JSON because it emitted fenced JSON; apply the same format-robust parser to all actors in the next comparison.",
+    "SFT and RLOO greedy actions and rewards are identical on the six development tasks.",
+    "Weights were updated and save/reload matched exactly; this does not establish improved research or generalization."
+  ]
+}

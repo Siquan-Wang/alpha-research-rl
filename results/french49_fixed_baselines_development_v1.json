@@ -1,0 +1,375 @@
+{
+  "study": "french49-fixed-baselines-development-v1",
+  "status": "development only",
+  "provenance": {
+    "source": "Kenneth R. French Data Library",
+    "source_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/49_Industry_Portfolios_daily_CSV.zip",
+    "details_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_49_ind_port.html",
+    "raw_file": "49_Industry_Portfolios_daily_CSV.zip",
+    "raw_sha256": "8f394fe34bea54d41b9aafed410425ee8f8e252ede3c71a7c1cd20bab83040de",
+    "raw_bytes": 4173817,
+    "archive_member": "49_Industry_Portfolios_Daily.csv",
+    "parser_version": "french49-daily-v1",
+    "selected_table": "Average Value Weighted Returns -- Daily",
+    "retained_date_range": [
+      "2000-01-03",
+      "2024-12-31"
+    ],
+    "price_semantics": "cumulative_wealth_index",
+    "supported_features": [
+      "close",
+      "returns"
+    ],
+    "source_missing_cells": 67250,
+    "retained_missing_cells": 0,
+    "wealth_base_date": "2000-01-03",
+    "wealth_base_value": 100.0,
+    "first_retained_return": "unavailable in recomputed returns; source first-day return discarded",
+    "vintage": "revised upstream historical snapshot; not historical point-in-time data",
+    "attribution": "Kenneth R. French Data Library; copyright Eugene F. Fama and Kenneth R. French"
+  },
+  "synthetic": false,
+  "assets": [
+    "Agric",
+    "Food",
+    "Soda",
+    "Beer",
+    "Smoke",
+    "Toys",
+    "Fun",
+    "Books",
+    "Hshld",
+    "Clths",
+    "Hlth",
+    "MedEq",
+    "Drugs",
+    "Chems",
+    "Rubbr",
+    "Txtls",
+    "BldMt",
+    "Cnstr",
+    "Steel",
+    "FabPr",
+    "Mach",
+    "ElcEq",
+    "Autos",
+    "Aero",
+    "Ships",
+    "Guns",
+    "Gold",
+    "Mines",
+    "Coal",
+    "Oil",
+    "Util",
+    "Telcm",
+    "PerSv",
+    "BusSv",
+    "Hardw",
+    "Softw",
+    "Chips",
+    "LabEq",
+    "Paper",
+    "Boxes",
+    "Trans",
+    "Whlsl",
+    "Rtail",
+    "Meals",
+    "Banks",
+    "Insur",
+    "RlEst",
+    "Fin",
+    "Other"
+  ],
+  "horizon_sessions": 5,
+  "ridge_alpha": 1.0,
+  "feature_expressions": [
+    "returns",
+    "delay(returns,1)",
+    "delay(returns,2)",
+    "delay(returns,5)",
+    "ts_mean(returns,5)",
+    "ts_std(returns,5)",
+    "ts_mean(returns,20)",
+    "ts_std(returns,20)",
+    "ts_mean(returns,60)",
+    "ts_std(returns,60)"
+  ],
+  "fixed_comparators": {
+    "momentum20": "ts_mean(returns,20)",
+    "reversal20": "neg(ts_mean(returns,20))"
+  },
+  "training_protocol": "pooled industry samples; prior five calendar years; train-only scaling; purged labels; fixed alpha; no adaptive feedback",
+  "yearly": [
+    {
+      "year": 2020,
+      "fit_signal_dates": [
+        "2015-01-02",
+        "2019-12-23"
+      ],
+      "assessment_signal_dates": [
+        "2020-01-02",
+        "2020-12-23"
+      ],
+      "fit_indices_half_open": [
+        3773,
+        5026
+      ],
+      "assessment_indices_half_open": [
+        5031,
+        5279
+      ],
+      "training_samples": 61397,
+      "scores": {
+        "ridge": {
+          "mean_ic": 0.04497531270572745,
+          "n_dates": 248,
+          "coverage": 1.0,
+          "ic_std": 0.2855413228284838,
+          "n_signal_dates": 248
+        },
+        "momentum20": {
+          "mean_ic": 0.05113205942506566,
+          "n_dates": 248,
+          "coverage": 1.0,
+          "ic_std": 0.3062772909543633,
+          "n_signal_dates": 248
+        },
+        "reversal20": {
+          "mean_ic": -0.05113205942506566,
+          "n_dates": 248,
+          "coverage": 1.0,
+          "ic_std": 0.3062772909543633,
+          "n_signal_dates": 248
+        }
+      }
+    },
+    {
+      "year": 2021,
+      "fit_signal_dates": [
+        "2016-01-04",
+        "2020-12-23"
+      ],
+      "assessment_signal_dates": [
+        "2021-01-04",
+        "2021-12-23"
+      ],
+      "fit_indices_half_open": [
+        4025,
+        5279
+      ],
+      "assessment_indices_half_open": [
+        5284,
+        5531
+      ],
+      "training_samples": 61446,
+      "scores": {
+        "ridge": {
+          "mean_ic": -0.008795339998347512,
+          "n_dates": 247,
+          "coverage": 1.0,
+          "ic_std": 0.29657325270077967,
+          "n_signal_dates": 247
+        },
+        "momentum20": {
+          "mean_ic": 0.023860972391959962,
+          "n_dates": 247,
+          "coverage": 1.0,
+          "ic_std": 0.24571444822200117,
+          "n_signal_dates": 247
+        },
+        "reversal20": {
+          "mean_ic": -0.023860972391959962,
+          "n_dates": 247,
+          "coverage": 1.0,
+          "ic_std": 0.24571444822200117,
+          "n_signal_dates": 247
+        }
+      }
+    },
+    {
+      "year": 2022,
+      "fit_signal_dates": [
+        "2017-01-03",
+        "2021-12-23"
+      ],
+      "assessment_signal_dates": [
+        "2022-01-03",
+        "2022-12-22"
+      ],
+      "fit_indices_half_open": [
+        4277,
+        5531
+      ],
+      "assessment_indices_half_open": [
+        5536,
+        5782
+      ],
+      "training_samples": 61446,
+      "scores": {
+        "ridge": {
+          "mean_ic": -0.028844367015098724,
+          "n_dates": 246,
+          "coverage": 1.0,
+          "ic_std": 0.3024162892962454,
+          "n_signal_dates": 246
+        },
+        "momentum20": {
+          "mean_ic": 0.009753653596652824,
+          "n_dates": 246,
+          "coverage": 1.0,
+          "ic_std": 0.29576784978572856,
+          "n_signal_dates": 246
+        },
+        "reversal20": {
+          "mean_ic": -0.009753653596652824,
+          "n_dates": 246,
+          "coverage": 1.0,
+          "ic_std": 0.29576784978572856,
+          "n_signal_dates": 246
+        }
+      }
+    },
+    {
+      "year": 2023,
+      "fit_signal_dates": [
+        "2018-01-02",
+        "2022-12-22"
+      ],
+      "assessment_signal_dates": [
+        "2023-01-03",
+        "2023-12-21"
+      ],
+      "fit_indices_half_open": [
+        4528,
+        5782
+      ],
+      "assessment_indices_half_open": [
+        5787,
+        6032
+      ],
+      "training_samples": 61446,
+      "scores": {
+        "ridge": {
+          "mean_ic": 0.0552069970845481,
+          "n_dates": 245,
+          "coverage": 1.0,
+          "ic_std": 0.30392578560101535,
+          "n_signal_dates": 245
+        },
+        "momentum20": {
+          "mean_ic": 0.003395318417913484,
+          "n_dates": 245,
+          "coverage": 1.0,
+          "ic_std": 0.2643028380081324,
+          "n_signal_dates": 245
+        },
+        "reversal20": {
+          "mean_ic": -0.003395318417913484,
+          "n_dates": 245,
+          "coverage": 1.0,
+          "ic_std": 0.2643028380081324,
+          "n_signal_dates": 245
+        }
+      }
+    },
+    {
+      "year": 2024,
+      "fit_signal_dates": [
+        "2019-01-02",
+        "2023-12-21"
+      ],
+      "assessment_signal_dates": [
+        "2024-01-02",
+        "2024-12-23"
+      ],
+      "fit_indices_half_open": [
+        4779,
+        6032
+      ],
+      "assessment_indices_half_open": [
+        6037,
+        6284
+      ],
+      "training_samples": 61397,
+      "scores": {
+        "ridge": {
+          "mean_ic": 0.025434189870280094,
+          "n_dates": 247,
+          "coverage": 1.0,
+          "ic_std": 0.26373443978881006,
+          "n_signal_dates": 247
+        },
+        "momentum20": {
+          "mean_ic": -0.027644216168431518,
+          "n_dates": 247,
+          "coverage": 1.0,
+          "ic_std": 0.21385638987179628,
+          "n_signal_dates": 247
+        },
+        "reversal20": {
+          "mean_ic": 0.027644216168431518,
+          "n_dates": 247,
+          "coverage": 1.0,
+          "ic_std": 0.21385638987179628,
+          "n_signal_dates": 247
+        }
+      }
+    }
+  ],
+  "pooled": {
+    "ridge": {
+      "mean_ic": 0.017594220169819753,
+      "ic_std": 0.2920511655917522,
+      "n_dates": 1233,
+      "coverage": 1.0,
+      "mean_ic_block_bootstrap_ci": {
+        "method": "circular moving blocks separately within calendar-year assessment blocks",
+        "block_length": 20,
+        "replicates": 2000,
+        "seed": 1729,
+        "confidence_level": 0.95,
+        "lower": -0.011342403628117913,
+        "upper": 0.04917471903603289,
+        "n_dates": 1233
+      }
+    },
+    "momentum20": {
+      "mean_ic": 0.0121472354596863,
+      "ic_std": 0.26812891532115884,
+      "n_dates": 1233,
+      "coverage": 1.0,
+      "mean_ic_block_bootstrap_ci": {
+        "method": "circular moving blocks separately within calendar-year assessment blocks",
+        "block_length": 20,
+        "replicates": 2000,
+        "seed": 1729,
+        "confidence_level": 0.95,
+        "lower": -0.012557862414444346,
+        "upper": 0.03892992965835811,
+        "n_dates": 1233
+      }
+    },
+    "reversal20": {
+      "mean_ic": -0.0121472354596863,
+      "ic_std": 0.26812891532115884,
+      "n_dates": 1233,
+      "coverage": 1.0,
+      "mean_ic_block_bootstrap_ci": {
+        "method": "circular moving blocks separately within calendar-year assessment blocks",
+        "block_length": 20,
+        "replicates": 2000,
+        "seed": 1729,
+        "confidence_level": 0.95,
+        "lower": -0.03892992965835812,
+        "upper": 0.012557862414444338,
+        "n_dates": 1233
+      }
+    }
+  },
+  "limitations": [
+    "descriptive industry-portfolio forecasting; no stock-level alpha claim",
+    "no transaction costs, execution, portfolio returns, Sharpe or PnL",
+    "bootstrap describes short-range dependence; no guaranteed error control",
+    "development inspection; not final holdout or evidence of LLM post-training"
+  ]
+}
