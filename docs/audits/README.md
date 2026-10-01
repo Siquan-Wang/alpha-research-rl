@@ -97,3 +97,5 @@ confirmatory study.
 ## Standalone sealed confirmation
 
 - [Core lifecycle, exact arithmetic and synthetic runner review](sealed-confirmation-review-v1.md): frozen prediction copies, permanent failure after malformed confirmation access, explicit invalid diagnostics and pre-outcome calibration thresholds. The record distinguishes completed source checks from canonical execution.
+- [Complete actual-result reconstruction](sealed-confirmation-results-review-v1.md): independent saved-array arithmetic, all 640 panels and three predeclared checks.
+- [Outer-runner and guarded saved replay](sealed-confirmation-replay-review-v1.md): one actual 640-panel replay with zero prohibited-operation attempts; core authorship and instrumentation limits disclosed.

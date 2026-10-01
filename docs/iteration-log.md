@@ -574,6 +574,33 @@ versus loaded-module mismatches, double-read receipt ambiguity, loose STARTED
 types and evidence-leaf path checks. The [audit](audits/sealed-confirmation-review-v1.md)
 records the checks and their limits. Metadata-only preparation completed with
 zero panel generations and fixed thresholds. The protocol and exact source
-identities must be publicly verified before the one canonical run. No outcomes,
+identities must be publicly verified before the one canonical run. At that pre-run checkpoint, no outcomes,
 hosted calls, local training, financial scores or new market periods have been
 generated in this iteration.
+
+**Completed result:** all seven frozen public files from `00c17f4` were
+anonymously verified at 13:40:23 UTC, before the one canonical execution began
+at 13:40:37. All 640 panels completed with zero retries. Correct fixed and adaptive
+null counts were 23/512 and 21/512 against upper 37; the known planted oracle
+was 128/128 against lower 128. All three checks passed. The three leaking controls
+remain structurally invalid; their 39/480/294 naive null rejections are
+descriptive, not extra pass conditions. Correct adaptive search rejected on 72
+planted panels versus fixed 128, while selecting the planted mask on 69; those
+are different endpoints. The [complete report](sealed-confirmation-results-v1.md)
+retains all six arms and 82,560 charged requests.
+
+**Actual evidence checks:** an independent implementation reviewer reconstructed
+all 640 panels, 8,960 events and 3,840 arm outcomes without importing the driver/core
+or regenerating panels. A separate guarded replay passed all 640 panels with
+zero prohibited-operation attempts and all 1,291 permitted files unchanged.
+Its reviewer authored the core; that participation is disclosed. Root rendered
+and inspected the actual-result chart, preserving the report hash. CPU CI now
+includes unconditional saved-panel replay on both supported Python versions.
+
+**Limit and next:** these are known synthetic laws and interface regression
+evidence. Existing financial results and stopped branches remain unchanged.
+A useful maintenance gap remains: current replay checks imported code against
+the historical source bytes, so old results need an exact original source tree
+when the main implementation eventually changes. A separate bounded design will
+consider commit-pinned saved replay; it does not authorize rewriting old
+contracts, outcomes or stopped-study source.

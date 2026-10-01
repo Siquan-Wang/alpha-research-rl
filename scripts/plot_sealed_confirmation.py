@@ -61,7 +61,8 @@ def plot(report, proof, prefix):
     axes[0].text(.02, .94, f"Correct-arm upper check: {upper}/512", transform=axes[0].transAxes,
                  color=ink, fontsize=9, va="top")
     for bar, value in zip(bars, values, strict=True):
-        axes[0].text(bar.get_x() + bar.get_width()/2, value + 9, str(value), ha="center", color=ink, fontsize=11)
+        axes[0].text(bar.get_x() + bar.get_width()/2, max(value + 9, upper + 12), str(value),
+                     ha="center", color=ink, fontsize=11)
     pnames = ["fixed_correct", "adaptive_correct", "oracle"]
     pvalues = [planted[arm]["rejections"] for arm in pnames]
     pbars = axes[1].bar(range(3), pvalues, color=[teal, teal, ink], width=.6)

@@ -226,6 +226,25 @@ This is validation tooling, not a trained-policy or financial-performance result
 python -m alpha_research_rl.presentation_integrity --input presentations.json --output NEW_REPORT.json
 ```
 
+## Freeze predictions before confirmation
+
+The [sealed-confirmation interface](docs/sealed-confirmation.md) freezes every
+prediction before a one-shot reveal and marks recorded early-label access as
+invalid. Its [complete synthetic regression](docs/sealed-confirmation-results-v1.md)
+retains 640 panels: correct null counts 23/512 and 21/512 met the fixed upper
+check 37, and the known planted oracle reached 128/128. Faults that fit direction
+or select candidates on confirmation remain explicitly invalid diagnostics.
+This is an engineering check of a new independent-label interface; it does not
+supply significance claims for the financial studies.
+
+```bash
+python scripts/check_sealed_confirmation.py replay
+```
+
+The [saved-only guide](docs/reproduce-sealed-confirmation.md) also gives
+standard-library-only commands without package installation. Replay recomputes
+saved arrays and traces; it does not generate another panel bank or call models.
+
 ## Train the local language-model actor
 
 Install a CUDA-compatible PyTorch build for your machine, then the optional

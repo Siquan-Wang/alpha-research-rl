@@ -1,11 +1,13 @@
 # Freeze the prediction before opening confirmation labels
 
-**Implementation reviewed and prepared; no canonical regression outcomes yet.** This
+**Complete: the fixed synthetic regression met all three calibration checks.** This
 standalone interface tests one information boundary: choosing a prediction
 before its confirmation labels become available. It is separate from the
 completed financial studies and does not supply p-values for their IC results.
 The [versioned plan](sealed-confirmation-plan-v1.md) defines the exact finite
-synthetic regression and its publication gate.
+synthetic regression and its publication gate. The [results](sealed-confirmation-results-v1.md)
+retain all 640 panels and intentionally invalid controls; [saved-evidence replay](reproduce-sealed-confirmation.md)
+requires no new samples or model calls.
 
 An adaptive search can propose candidates, inspect search feedback, fit their
 direction and select a winner. The confirmation step then answers a different
@@ -49,9 +51,11 @@ assert (statistic["p_numerator"], statistic["p_denominator"]) == (1, 32)
 ```
 
 The batch cannot accept another candidate after sealing or another reveal after
-an attempt. A malformed reveal or declared confirmation-access record enters
+an attempt. A malformed reveal or malformed declared confirmation-access record enters
 permanent `FAILED` state. That prevents a caught input error from quietly
-restoring a supposedly clean one-shot evaluation. It cannot prevent a caller
+restoring a supposedly clean one-shot evaluation. A well-formed early-access
+record instead irreversibly marks the batch as protocol-invalid; its later
+statistics remain explicitly naive diagnostics. The interface cannot prevent a caller
 from making an entirely new object or using labels outside the interface;
 the runner's durable one-run record supplies its separate execution boundary.
 
@@ -94,16 +98,16 @@ this synthetic label contract simply because predictions were frozen.
 
 | Evidence | What it checks | What it does not establish |
 | --- | --- | --- |
-| Lifecycle and access tests | The implemented interface rejects late additions, repeated reveal and declared pre-freeze confirmation feedback | Isolation from undisclosed external label access |
+| Lifecycle and access tests | The interface rejects late additions and repeated reveal, and marks confirmation invalid after declared pre-freeze feedback | Isolation from undisclosed external label access |
 | Exhaustive small cases | Binomial arithmetic, boundary inclusion, abstention and the sign-selection counterexample | Real-data assumptions |
 | Frozen finite synthetic bank | The specified implementation's observed null behavior and known-signal power under its declared generator | A new statistical theorem, market significance or general agent competence |
 | Known planted oracle | An evaluator that always returns no discovery fails the power check | That the search procedure learned the oracle |
 
-## Reading the planned regression
+## Reading the completed regression
 
 The finite library contains 64 parity functions of six binary features. The
 fixed and adaptive procedures each spend 32 search requests, including
-duplicates. Both complete before confirmation labels are generated. The planned
+duplicates. Both complete before confirmation labels are generated. The fixed
 bank contains 512 null panels and 128 planted panels, each with 256 confirmation
 observations. Shared panels are matched comparisons, not additional independent
 replications.
@@ -135,4 +139,8 @@ The final combined core, driver and independent suite passed **111 tests in
 because this Windows host does not permit creating that test link. The
 [audit record](audits/sealed-confirmation-review-v1.md) preserves findings and
 review scope. Metadata-only preparation completed with **zero panel generations**;
-the public-byte gate and canonical execution remain pending.
+all seven required public files were then verified before the one canonical run.
+The two correct-null counts were **23/512 and 21/512**, and the planted oracle
+was **128/128**. All three fault configurations were structurally invalid,
+regardless of their observed rejection counts. This is the declared synthetic
+regression's result, not general error-control evidence for other tasks.

@@ -24,6 +24,8 @@ jobs:
         run: python scripts/replay_published_astra_pool.py
       - name: Replay the complete matched-prefix revision bank and offline explorer
         run: python scripts/replay_published_astra_revision.py
+      - name: Replay all saved sealed-confirmation panels without generating samples
+        run: python scripts/check_sealed_confirmation.py replay
   training-math:
     runs-on: ubuntu-latest
     env:
