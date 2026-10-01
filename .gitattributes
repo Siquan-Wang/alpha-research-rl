@@ -20,3 +20,5 @@ artifacts/scientific-decoder-dev-v1/** -text
 # Preserve upstream MIT source byte-for-byte, including historical whitespace.
 artifacts/scientific-decoder-dev-v1/snapshot/newtonbench-source-912a4ba/** -whitespace
 docs/scientific-decoder-dev-plan-v1.md -text
+docs/scientific-decoder-dev-results-v1.md -text
+docs/audits/scientific-decoder-dev-stop-review-v1.md -text

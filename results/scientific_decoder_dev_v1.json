@@ -1,0 +1,133 @@
+{
+  "allocation_inequalities": "NOT_EVALUATED",
+  "attempted_training_targets": 135,
+  "chronology_basis": "Coordinator tool sequence: anonymous public verification returned before the sole training-stage invocation; worker records do not contain independent per-call timestamps.",
+  "confirmation_target_evaluations": 0,
+  "disposition": "Stop this version; preserve original source, ranges, coordinates and all completed/failed/unattempted slots; no model calls, target replacement, redraw, scoring, or main-study allocation.",
+  "execution_files": {
+    "publication-preflight.json": {
+      "bytes": 6637,
+      "sha256": "87bdf5e73a0aa4563b8743c02a915f325d83153126c335331420cde49f1ed80b"
+    },
+    "t0-train-output.json": {
+      "bytes": 10370,
+      "sha256": "d78605a2dbf12b20eaf0bafb7649be8aca4164bcf98d891cd9e9aebe8d2ae850"
+    },
+    "t0-train-request.json": {
+      "bytes": 5912,
+      "sha256": "cb51c08cbab488cca7208d2acaeaf56009720bd7097cd47e0a0af7902960dfc5"
+    },
+    "t0-train-stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "t0-train-stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "t1-train-output.json": {
+      "bytes": 10392,
+      "sha256": "7ea7f0df5213e3833629ab3fb929199924f9779650e099f82b554803a99946d1"
+    },
+    "t1-train-request.json": {
+      "bytes": 5910,
+      "sha256": "ae8ad74334a4e1af0f7c48db637c5a9e861d7fb5d1577c6639d791901816e9cc"
+    },
+    "t1-train-stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "t1-train-stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "t2-train-output.json": {
+      "bytes": 10121,
+      "sha256": "bb33fc7985295b9153b19399f15c542e37cde40cc8026c89a75b6b0d0df28306"
+    },
+    "t2-train-request.json": {
+      "bytes": 4130,
+      "sha256": "20a3db7d167d65ceda530b37e685a07f560137b5fe79891bd4b316a0bf4b67b1"
+    },
+    "t2-train-stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "t2-train-stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "failed_training_targets": 1,
+  "failure_detail_limit": "The retained code nonfinite_or_nonscalar_output does not distinguish NaN, infinity, Boolean, or non-real/nonscalar output. No rerun was used to recover a more specific diagnosis.",
+  "finite_training_targets": 134,
+  "hosted_calls": 0,
+  "interpretation": "The adapted fixed target domain did not qualify for this protocol. No model competence, predictive comparison, adaptive acquisition, or financial outcome was measured.",
+  "model_prediction_evaluations": 0,
+  "not_attempted_training_targets": 121,
+  "planned_training_targets": 256,
+  "predictive_scores": null,
+  "private_binding_sha256": "a8d37a03164d7492eda85abc2f68a8b2aee0ce705fc41401abe1ba36b6699c72",
+  "public_bytes_verified_at_utc": "2026-10-01T17:01:31.675904+00:00",
+  "publication_commit": "3d818347f286e15ce673f5814411f7d27261a026",
+  "publication_receipt_sha256": "87bdf5e73a0aa4563b8743c02a915f325d83153126c335331420cde49f1ed80b",
+  "recorded_at_utc": "2026-10-01T17:04:18.437991+00:00",
+  "reference_prediction_evaluations": 0,
+  "requested_training_targets": 192,
+  "schema": "scientific-decoder-dev-stop-v1",
+  "status": "INCOMPLETE_ORACLE_TARGETS",
+  "tasks": [
+    {
+      "attempted": 64,
+      "canonical_law_id": "m8_sound_speed:medium:v0",
+      "failed": 0,
+      "first_failure": null,
+      "not_attempted": 0,
+      "planned": 64,
+      "status": "COMPLETE",
+      "successful": 64,
+      "task": 0
+    },
+    {
+      "attempted": 64,
+      "canonical_law_id": "m8_sound_speed:hard:v1",
+      "failed": 0,
+      "first_failure": null,
+      "not_attempted": 0,
+      "planned": 64,
+      "status": "COMPLETE",
+      "successful": 64,
+      "task": 1
+    },
+    {
+      "attempted": 7,
+      "canonical_law_id": "m10_be_distribution:medium:v2",
+      "failed": 1,
+      "first_failure": {
+        "error_code": "nonfinite_or_nonscalar_output",
+        "index": 6,
+        "status": "failed",
+        "value": null
+      },
+      "not_attempted": 57,
+      "planned": 64,
+      "status": "INCOMPLETE",
+      "successful": 6,
+      "task": 2
+    },
+    {
+      "attempted": 0,
+      "canonical_law_id": "m10_be_distribution:hard:v0",
+      "failed": 0,
+      "first_failure": null,
+      "not_attempted": 64,
+      "planned": 64,
+      "status": "NOT_ATTEMPTED",
+      "successful": 0,
+      "task": 3
+    }
+  ],
+  "training_stage_invocations": 1,
+  "version_stopped": true,
+  "worker_invocations": 3
+}

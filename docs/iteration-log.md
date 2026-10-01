@@ -755,3 +755,12 @@ responses. The gate measures the joint model, grammar and dataset configuration;
 failure cannot identify which component limits inference. Even a pass would not
 establish useful adaptive acquisition, exact symbolic recovery, a financial result,
 or conference-level novelty. The earlier failed financial branches remain stopped.
+
+**Actual disposition after preflight publication:** the sole training-target
+collection invocation returned 134 finite values and stopped on one rejected
+output at task 2, point index 6. The other 121 planned points were unattempted.
+No hosted response or confirmation target was generated. The
+[complete stop report](scientific-decoder-dev-results-v1.md) preserves this outcome
+as incomplete measurement readiness, with no predictive score or model-failure
+claim. The fixed version is stopped; this result does not authorize an easier
+replacement task or a repaired domain under the original protocol.

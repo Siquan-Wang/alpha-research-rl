@@ -14,12 +14,12 @@ Start with the [seven-page research note](output/pdf/alpha-research-note-v1.pdf)
 negative results and limits across the hosted-agent and weight-training studies.
 The [build guide](docs/research-note-build.md) explains its saved-data figures and review scope.
 
-A separate [prospective scientific-decoder gate](docs/scientific-decoder-dev-plan-v1.md)
-tests whether a fixed Astra inference procedure can use 64 observations beyond
-its public-domain prior on four adapted NewtonBench laws. The protocol and exact
-source snapshots precede target generation. This is joint decoder/representation
-feasibility, with at most 16 calls; it does not yet test adaptive acquisition,
-financial alpha, or a new learning algorithm.
+A separate [scientific-decoder development gate](docs/scientific-decoder-dev-results-v1.md)
+stopped during target collection: 134 finite responses and one failed point,
+with 121 planned points left unattempted. Its protocol and source snapshots were
+public before measurement. No hosted call or predictive assessment ran, so this
+is a failed measurement-readiness check, not evidence about model quality or
+adaptive acquisition.
 
 The original study used **Astra as the actual research actor**:
 180 decisions, three feedback conditions, six proposals per episode, and

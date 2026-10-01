@@ -1,0 +1,445 @@
+{
+  "attempted_count": 64,
+  "difficulty": "medium",
+  "domain": "m8_sound_speed",
+  "failure_class": null,
+  "law_version": "v0",
+  "library_output_observed": false,
+  "noise": 0.0,
+  "records": [
+    {
+      "error_code": null,
+      "index": 0,
+      "status": "ok",
+      "value": 11073.594984101434
+    },
+    {
+      "error_code": null,
+      "index": 1,
+      "status": "ok",
+      "value": 1071314.7687748075
+    },
+    {
+      "error_code": null,
+      "index": 2,
+      "status": "ok",
+      "value": 32743.645983907776
+    },
+    {
+      "error_code": null,
+      "index": 3,
+      "status": "ok",
+      "value": 140163.98190822118
+    },
+    {
+      "error_code": null,
+      "index": 4,
+      "status": "ok",
+      "value": 49045.82750541766
+    },
+    {
+      "error_code": null,
+      "index": 5,
+      "status": "ok",
+      "value": 214747.7947301958
+    },
+    {
+      "error_code": null,
+      "index": 6,
+      "status": "ok",
+      "value": 75616.98820000779
+    },
+    {
+      "error_code": null,
+      "index": 7,
+      "status": "ok",
+      "value": 71517.3776149742
+    },
+    {
+      "error_code": null,
+      "index": 8,
+      "status": "ok",
+      "value": 13003.00329183095
+    },
+    {
+      "error_code": null,
+      "index": 9,
+      "status": "ok",
+      "value": 204729.8450571404
+    },
+    {
+      "error_code": null,
+      "index": 10,
+      "status": "ok",
+      "value": 831516.0525248613
+    },
+    {
+      "error_code": null,
+      "index": 11,
+      "status": "ok",
+      "value": 19646.193870500218
+    },
+    {
+      "error_code": null,
+      "index": 12,
+      "status": "ok",
+      "value": 15607.794682223512
+    },
+    {
+      "error_code": null,
+      "index": 13,
+      "status": "ok",
+      "value": 354144.6800734662
+    },
+    {
+      "error_code": null,
+      "index": 14,
+      "status": "ok",
+      "value": 12483.354932961676
+    },
+    {
+      "error_code": null,
+      "index": 15,
+      "status": "ok",
+      "value": 2047285.6791468204
+    },
+    {
+      "error_code": null,
+      "index": 16,
+      "status": "ok",
+      "value": 5238.3911069948135
+    },
+    {
+      "error_code": null,
+      "index": 17,
+      "status": "ok",
+      "value": 2208407.5840147226
+    },
+    {
+      "error_code": null,
+      "index": 18,
+      "status": "ok",
+      "value": 30408.130698096986
+    },
+    {
+      "error_code": null,
+      "index": 19,
+      "status": "ok",
+      "value": 193837.30042339163
+    },
+    {
+      "error_code": null,
+      "index": 20,
+      "status": "ok",
+      "value": 46782.84802791253
+    },
+    {
+      "error_code": null,
+      "index": 21,
+      "status": "ok",
+      "value": 287433.39534080337
+    },
+    {
+      "error_code": null,
+      "index": 22,
+      "status": "ok",
+      "value": 34504.38940943453
+    },
+    {
+      "error_code": null,
+      "index": 23,
+      "status": "ok",
+      "value": 150960.47651235745
+    },
+    {
+      "error_code": null,
+      "index": 24,
+      "status": "ok",
+      "value": 90997.67586106711
+    },
+    {
+      "error_code": null,
+      "index": 25,
+      "status": "ok",
+      "value": 66278.61384287188
+    },
+    {
+      "error_code": null,
+      "index": 26,
+      "status": "ok",
+      "value": 91962.05877224241
+    },
+    {
+      "error_code": null,
+      "index": 27,
+      "status": "ok",
+      "value": 304903.1819273831
+    },
+    {
+      "error_code": null,
+      "index": 28,
+      "status": "ok",
+      "value": 946.1459027620832
+    },
+    {
+      "error_code": null,
+      "index": 29,
+      "status": "ok",
+      "value": 3196880.234745875
+    },
+    {
+      "error_code": null,
+      "index": 30,
+      "status": "ok",
+      "value": 50874.67029625063
+    },
+    {
+      "error_code": null,
+      "index": 31,
+      "status": "ok",
+      "value": 363563.49235778215
+    },
+    {
+      "error_code": null,
+      "index": 32,
+      "status": "ok",
+      "value": 53652.34652066632
+    },
+    {
+      "error_code": null,
+      "index": 33,
+      "status": "ok",
+      "value": 133750.68886919686
+    },
+    {
+      "error_code": null,
+      "index": 34,
+      "status": "ok",
+      "value": 283691.8515843722
+    },
+    {
+      "error_code": null,
+      "index": 35,
+      "status": "ok",
+      "value": 48869.72212535705
+    },
+    {
+      "error_code": null,
+      "index": 36,
+      "status": "ok",
+      "value": 5807.580396151955
+    },
+    {
+      "error_code": null,
+      "index": 37,
+      "status": "ok",
+      "value": 1039211.6561943529
+    },
+    {
+      "error_code": null,
+      "index": 38,
+      "status": "ok",
+      "value": 25625.33561194038
+    },
+    {
+      "error_code": null,
+      "index": 39,
+      "status": "ok",
+      "value": 614909.7773669569
+    },
+    {
+      "error_code": null,
+      "index": 40,
+      "status": "ok",
+      "value": 54764.44496356622
+    },
+    {
+      "error_code": null,
+      "index": 41,
+      "status": "ok",
+      "value": 245155.09729427003
+    },
+    {
+      "error_code": null,
+      "index": 42,
+      "status": "ok",
+      "value": 5242.302705602756
+    },
+    {
+      "error_code": null,
+      "index": 43,
+      "status": "ok",
+      "value": 559635.0414196289
+    },
+    {
+      "error_code": null,
+      "index": 44,
+      "status": "ok",
+      "value": 16470.60145955478
+    },
+    {
+      "error_code": null,
+      "index": 45,
+      "status": "ok",
+      "value": 1662626.2089018663
+    },
+    {
+      "error_code": null,
+      "index": 46,
+      "status": "ok",
+      "value": 305793.1141697904
+    },
+    {
+      "error_code": null,
+      "index": 47,
+      "status": "ok",
+      "value": 14480.32418463238
+    },
+    {
+      "error_code": null,
+      "index": 48,
+      "status": "ok",
+      "value": 43047.67070485734
+    },
+    {
+      "error_code": null,
+      "index": 49,
+      "status": "ok",
+      "value": 128415.24779839382
+    },
+    {
+      "error_code": null,
+      "index": 50,
+      "status": "ok",
+      "value": 143149.32636158197
+    },
+    {
+      "error_code": null,
+      "index": 51,
+      "status": "ok",
+      "value": 100385.58338818367
+    },
+    {
+      "error_code": null,
+      "index": 52,
+      "status": "ok",
+      "value": 3080.460343180046
+    },
+    {
+      "error_code": null,
+      "index": 53,
+      "status": "ok",
+      "value": 2049075.4536761118
+    },
+    {
+      "error_code": null,
+      "index": 54,
+      "status": "ok",
+      "value": 19734.370898062516
+    },
+    {
+      "error_code": null,
+      "index": 55,
+      "status": "ok",
+      "value": 620827.8526906124
+    },
+    {
+      "error_code": null,
+      "index": 56,
+      "status": "ok",
+      "value": 6527.1498150955185
+    },
+    {
+      "error_code": null,
+      "index": 57,
+      "status": "ok",
+      "value": 3830429.1626542313
+    },
+    {
+      "error_code": null,
+      "index": 58,
+      "status": "ok",
+      "value": 31951.23626828046
+    },
+    {
+      "error_code": null,
+      "index": 59,
+      "status": "ok",
+      "value": 126793.7735514163
+    },
+    {
+      "error_code": null,
+      "index": 60,
+      "status": "ok",
+      "value": 53761.10492932042
+    },
+    {
+      "error_code": null,
+      "index": 61,
+      "status": "ok",
+      "value": 220936.05486329246
+    },
+    {
+      "error_code": null,
+      "index": 62,
+      "status": "ok",
+      "value": 21328.28869757571
+    },
+    {
+      "error_code": null,
+      "index": 63,
+      "status": "ok",
+      "value": 120857.20809848249
+    }
+  ],
+  "request_sha256": "cb51c08cbab488cca7208d2acaeaf56009720bd7097cd47e0a0af7902960dfc5",
+  "row_count": 64,
+  "schema": "newton-scalar-output-v1",
+  "source_files": {
+    "LICENSE": "47158d3a1eb6cbebe82fab657c11d4959c453f4d803b103a132b4627b63719f0",
+    "modules/common/physics_base.py": "dc911c47ab4ca454b2e88d29e60d1a0f53bb4df3eb17054a415e9fdaa73c287d",
+    "modules/common/types.py": "f5814e8adfd4266eeb3def1253adfef99f0c4e3da0dc632feadd1bee0c0518b7",
+    "modules/m10_be_distribution/core.py": "b78856b75797f0144d772f4045652e968c23d7a1dc0b07df768b74d9546ab9f6",
+    "modules/m10_be_distribution/laws.py": "c6d065d3bde4aa89cb981a245f45126a9f2dee160d8881f8fca14d209c46c338",
+    "modules/m10_be_distribution/m10_types.py": "06b41b598e4420c7cb5ba061d263a57216c371c90aa86a440bb470119f0ed2ff",
+    "modules/m10_be_distribution/prompts.py": "62b9fca291554e2e10efc9b0631d8b0809265ff7d27a493fe1c2fe4ac73ff436",
+    "modules/m8_sound_speed/core.py": "12b1d812a1a8ac8aaa371b66732b188dd815ce076c0ae70b23ac0d9e18acee4f",
+    "modules/m8_sound_speed/laws.py": "f1644d1e90d922708cdc6d21cc25689334e0d57615a94e4a20a0a26aa5a74b33",
+    "modules/m8_sound_speed/m8_types.py": "fe10c17082fa57859539983be0a5c8811008282821c88b658a871d0f9d321dc2",
+    "modules/m8_sound_speed/physics.py": "913c810b3ead73a38ae0fd79ce97cdc975a9ad95bd1e45d4acc349b27e081395",
+    "modules/m8_sound_speed/prompts.py": "47d02e5e455a5a02eb4523c578e23f5f1250d6385e65215713ceb935451732c2",
+    "utils/noise.py": "f239b80240ea33bd61ab08c5bf64d9d8edf11250708cba023d2d94cc1f0f6c67"
+  },
+  "source_manifest_sha256": "87c7d18f6987461b403c3f87b95873cc4f8fa7b19caf32ca52964ee87d9f9010",
+  "stage": "finished",
+  "status": "COMPLETE",
+  "system": "vanilla_equation",
+  "upstream_commit": "912a4ba5f4356ddd06acc16e44460ca30be4abc2",
+  "vendor_import_origins": {
+    "modules.common.types": {
+      "path": "modules/common/types.py",
+      "sha256": "f5814e8adfd4266eeb3def1253adfef99f0c4e3da0dc632feadd1bee0c0518b7"
+    },
+    "modules.m8_sound_speed.core": {
+      "path": "modules/m8_sound_speed/core.py",
+      "sha256": "12b1d812a1a8ac8aaa371b66732b188dd815ce076c0ae70b23ac0d9e18acee4f"
+    },
+    "modules.m8_sound_speed.laws": {
+      "path": "modules/m8_sound_speed/laws.py",
+      "sha256": "f1644d1e90d922708cdc6d21cc25689334e0d57615a94e4a20a0a26aa5a74b33"
+    },
+    "modules.m8_sound_speed.m8_types": {
+      "path": "modules/m8_sound_speed/m8_types.py",
+      "sha256": "fe10c17082fa57859539983be0a5c8811008282821c88b658a871d0f9d321dc2"
+    },
+    "modules.m8_sound_speed.physics": {
+      "path": "modules/m8_sound_speed/physics.py",
+      "sha256": "913c810b3ead73a38ae0fd79ce97cdc975a9ad95bd1e45d4acc349b27e081395"
+    },
+    "utils.noise": {
+      "path": "utils/noise.py",
+      "sha256": "f239b80240ea33bd61ab08c5bf64d9d8edf11250708cba023d2d94cc1f0f6c67"
+    }
+  },
+  "worker_sha256": "4f9a23e93a11e71a5064ab3902cff926b9417e33de384768854a60a57fee3152"
+}
