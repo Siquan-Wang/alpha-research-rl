@@ -105,8 +105,47 @@ and [checked diversity and the replay verifier](audits/retained-diagnostics-revi
 An [installed-wheel check](audits/installed-package-reproduction-review.md)
 reproduced the 900-draw analysis and 144-action synthetic replay on the original
 host while importing project modules from a fresh installation. This is not a
-fresh-machine training reproduction. Remote CI for the new diagnostics is
-pending publication; the earlier release CI is recorded in round 5.
+fresh-machine training reproduction. Public CI at `3defd2c` passed Python
+3.12 and training-math, but Python 3.11 failed the new reliability wrapper's
+full-object equality check after the existing tolerance-based full replay
+passed. The round remains locally verified while that numerical-portability
+fix and a new remote run are pending; the earlier release CI is in round 5.
+
+The subsequent [portability correction](audits/reliability-portability-review.md)
+keeps metadata, types and input bytes exact while using the existing `1e-12`
+arithmetic tolerance for computed floats. All reliability values are unchanged;
+only the analysis-source identity was updated. The complete local suite now
+passes 503 tests. A new remote run is still required for cross-version claims.
 
 These are post-hoc robustness and reproduction checks. No new model training,
 transfer-period scoring, stopped-branch restart or financial advantage is claimed.
+
+## 7. Constructed adaptive-query opportunity — completed locally
+
+**Problem:** weak financial information and a policy that ignores useful evidence
+can both produce a failed agent. A new mechanism test needs an identifiable
+adaptive opportunity before spending more model-training compute.
+
+**Change:** adopted a separately versioned four-candidate task with exactly two
+queries. Published its kernel, gate and hand-calculated expectations at `3defd2c`
+before producing the result. An exact rational solver enumerates all twelve
+query plans and gives every fixed comparator an optimal final selector using
+both observed responses.
+
+**Evidence:** [exact results](mechanism-gate-results-v1.md) give adaptive value
+81/100, best fixed-query value 63/100 and gap 9/50. The gate passes. These values
+were deliberately engineered and anticipated analytically; they are not a
+held-out discovery, a financial improvement or a learned-model result.
+
+**Validation:** 26 focused tests, a separate solver review and the full 489-test
+local suite passed. Unqueried bits cannot enter policy decisions. The public
+diagnostic verifier reproduces the complete gate report with scalar types,
+source hashes and plan hashes checked. A tokenizer-only check identifies a
+compatible action alphabet and a prefix-boundary pitfall; it does not validate
+a future sampling law or model behavior.
+
+**Next:** freeze a separate parent-policy preflight before any new RL. Check
+the action law and whether the untrained model already reaches the constructed
+ceiling. The [design advice](research-next-steps.md) and its
+[critique](audits/next-mechanism-design-review.md) distinguish this narrow task
+from general research and formula discovery. No new GPU experiment has run.

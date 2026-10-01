@@ -1,4 +1,4 @@
-"""Recompute retained reliability/diversity results from saved public evidence.
+"""Recompute retained diagnostics and the constructed exact opportunity gate.
 
 No new generation or factor scoring; the saved feedback rank diagnostics are
 inputs. Python-level guards are execution checks, not a security sandbox.
@@ -34,7 +34,7 @@ def main():
 
     sys.meta_path.insert(0, NoTrainingImports())
     sys.addaudithook(audit)
-    from alpha_research_rl import proposal_diversity, reliability_analysis
+    from alpha_research_rl import mechanism_gate, proposal_diversity, reliability_analysis
 
     analysis_path = root / "results" / "financial_linkage_paired_v1.json"
     reports, saved, sources, _, analysis_sha = reliability_analysis.load_inputs(analysis_path, reports_dir)
@@ -56,10 +56,18 @@ def main():
     diversity = proposal_diversity.analyze_diversity(reports, sources, diagnostics, diagnostic_sources)
     diversity["analysis_source_sha256"] = sha(Path(proposal_diversity.__file__))
     same(diversity, diversity_published)
+    gate = mechanism_gate.build_report(root / "docs" / "mechanism-gate-plan-v1.md")
+    gate_published = json.loads((root / "results" / "mechanism_gate_v1.json").read_bytes())
+    if json.dumps(gate, sort_keys=True, allow_nan=False) != json.dumps(
+        gate_published, sort_keys=True, allow_nan=False
+    ):
+        raise AssertionError("Exact mechanism gate report or source/plan byte identities differ")
     print(json.dumps({"status": "matches_published_diagnostics",
                       "reliability_contrasts": len(reliability["comparisons"]),
                       "year_omissions": sum(len(row["leave_one_year_out"]) for row in reliability["comparisons"]),
                       "diversity_records": diversity["integrity"]["n_strict_proposals"], "float_tolerance": 1e-12,
+                      "constructed_gate_query_plans": len(gate["calculation"]["plans"]),
+                      "constructed_gate_report_matches_exactly": True,
                       "source_byte_hashes_match": True,
                       "training_imports_raw_data_weights_and_network_disallowed": True}))
 

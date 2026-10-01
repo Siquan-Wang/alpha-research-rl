@@ -50,8 +50,10 @@ finite generation noise.
 ## Validation and limits
 
 The CLI verifies all five report file-byte hashes against the saved analysis,
-reruns the unchanged original/five-report validators, and requires the complete
-regenerated paired analysis to equal its saved version. Paired means and
+reruns the unchanged original/five-report validators, and compares the complete
+regenerated paired analysis with its saved version. Structure, scalar types,
+metadata and identities remain exact; finite arithmetic floats allow only
+absolute/relative `1e-12` roundoff. Paired means and
 components are checked against saved aggregates to floating-point arithmetic
 precision; this does not change any scoring or replay tolerance.
 
@@ -203,7 +205,16 @@ This runs entirely on saved outcomes. It refuses to overwrite an input report
 or the input analysis, and records all five input byte hashes, the saved
 analysis hash and its own source-file hash. Mean/component comparisons use
 absolute and relative arithmetic tolerances of `1e-12`; input byte validation
-and complete saved-analysis equality are exact. The 14 artificial tests cover
+is exact. Complete saved-analysis comparison preserves exact keys, list order,
+scalar types and metadata; finite arithmetic floats alone permit `1e-12`
+roundoff. The 28 artificial tests cover
 common-seed covariance cancellation, one rare paired failure, covariance
 accounting, separation from between-year variation, every contrast and year
 omission, source-byte tampering, seed mismatch and input preservation.
+
+The initial public Linux Python 3.11 run failed the earlier whole-dictionary
+equality check after passing the existing 900-record analysis replay; Python
+3.12 passed. This portability correction replaces that overstrict arithmetic
+comparison without relaxing input byte identities or changing any saved outcome.
+The traceback alone does not identify the exact upstream arithmetic operation
+responsible. New cross-version CI must pass before portability is claimed.

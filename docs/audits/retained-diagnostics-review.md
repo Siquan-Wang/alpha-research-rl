@@ -104,3 +104,44 @@ It does not establish new predictive benefit, causality, significance,
 profitability, model retraining reproducibility or general sequential research
 ability. See [the saved-proposal method and results](../proposal-diversity-v1.md)
 and [the installed-package boundary check](installed-package-reproduction-review.md).
+
+## 2026-10-01 addition: constructed mechanism gate replay
+
+The verifier subsequently added a complete replay of the newly adopted
+[exact query opportunity gate](../mechanism-gate-results-v1.md). This supersedes
+the verifier SHA in the earlier table; that table remains the identity of the
+diversity/reliability review snapshot, not the current verifier.
+
+The added operation computes the gate report from the published plan and
+compares its complete canonical JSON with the retained JSON, including all twelve query
+plans, all response trees, exact numerator/denominator fields and source/plan
+byte hashes. Sorted-key JSON comparison with `allow_nan=False` preserves scalar
+types and all values without a numerical tolerance; object key order is immaterial.
+It derives the displayed plan count from the recalculated object.
+The existing financial diagnostic paths and their tolerance remain unchanged.
+The operation runs inside the same import, raw-data/weights and network guards
+and uses only standard-library finite arithmetic. It does not rescore market
+data, run a model or load an adapter.
+
+The reviewer checked this wrapper addition and the result document's claims,
+then freshly invoked the verifier on the current Windows host: it passed with
+12 reliability contrasts, 60 year omissions, 900 diversity records and 12 exact
+query plans. The report correctly separates the deliberately engineered,
+previously hand-calculated channel from a held-out discovery or learned policy.
+The threshold is a task-quality rule; it does not authorize language-model
+training or reopen the stopped financial/curriculum gates.
+
+This reviewer authored the mechanism solver and its tests, so this addition is
+**not an independent review of that solver**. Its separate source-first review
+is recorded in [mechanism-gate-review.md](mechanism-gate-review.md).
+
+At the final fresh invocation the verifier SHA was
+`98bc1b33095059b9611dde39d986cb2670629f1d5f7e22720eb7b393162d619d`;
+the retained gate JSON SHA was
+`2392835610b41fe5c7da88954faa1996ac8239eaeed3b6a1c4b795f1b08a0cc5`.
+One minor validation refinement was reported and resolved: ordinary Python
+dictionary equality accepts scalar type aliases such as `True == 1` and
+`81 == 81.0`. Root replaced that gate-only comparison with canonical JSON
+comparison. The reviewer read the final operation and freshly reran the
+complete verifier successfully after the correction. No remaining finding
+changes the recorded rational values or the stated information boundary.

@@ -12,6 +12,7 @@ from alpha_research_rl.financial_analysis import TASKS, AnalysisInputError, _sha
 from alpha_research_rl.linkage_analysis import CONTROLS, ORIGINALS, ROLES, analyze_linkage
 from alpha_research_rl.reliability_analysis import (
     COMPARISONS,
+    _compare_complete,
     analyze_reliability,
     combine_tasks,
     leave_one_year_out,
@@ -123,6 +124,36 @@ def test_changed_saved_aggregate_cannot_be_silently_recomputed(inputs):
     saved["overall"]["metrics"]["strict"]["stochastic"]["correct_vs_placebo"]["23"]["true"]["reward_delta"] += .001
     with pytest.raises(AnalysisInputError, match="saved five-report analysis differs"):
         analyze_reliability(reports, saved, sources)
+
+
+def test_tiny_finite_saved_float_arithmetic_drift_is_accepted(inputs):
+    reports, saved, sources = copy.deepcopy(inputs)
+    saved["overall"]["metrics"]["strict"]["stochastic"]["correct_vs_placebo"]["23"]["true"]["reward_delta"] += 1e-14
+    assert analyze_reliability(reports, saved, sources)["integrity"]["complete_saved_analysis_reproduced"]
+
+
+@pytest.mark.parametrize("current,saved", [
+    ({"count": 1}, {"count": True}),
+    ({"count": 1}, {"count": 1.0}),
+    ({"count": 1}, {"count": 2}),
+    ({"sha256": "abc"}, {"sha256": "abd"}),
+    ({"rows": [1, 2]}, {"rows": [2, 1]}),
+    ({"rows": [1, 2]}, {"rows": [1]}),
+    ({"a": 1}, {"a": 1, "b": 2}),
+    ({"a": None}, {"b": None}),
+    ({"value": 0.25}, {"value": 0.25000001}),
+    ({"value": float("nan")}, {"value": float("nan")}),
+    ({"value": float("inf")}, {"value": float("inf")}),
+    ({"integrity": {"constant": .25}}, {"integrity": {"constant": .25 + 1e-14}}),
+])
+def test_complete_comparison_retains_structure_metadata_and_float_boundaries(current, saved):
+    with pytest.raises(AnalysisInputError, match="saved five-report analysis differs"):
+        _compare_complete(current, saved)
+
+
+def test_complete_comparison_accepts_nested_finite_float_roundoff_only():
+    _compare_complete({"values": [0.0, 1.0, 100.0], "flag": True, "count": 3},
+                      {"values": [1e-13, 1.0 + 1e-13, 100.0 + 1e-11], "flag": True, "count": 3})
 
 
 def test_seed_mismatch_is_rejected_before_uncertainty_calculation(inputs):

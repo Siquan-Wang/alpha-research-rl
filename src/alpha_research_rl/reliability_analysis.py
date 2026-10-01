@@ -38,6 +38,30 @@ def _close(left, right, context):
              and math.isclose(left, right, rel_tol=1e-12, abs_tol=1e-12), context)
 
 
+def _compare_complete(current, saved, path="analysis", float_roundoff=True):
+    """Exact structure/scalar types; tolerate finite float arithmetic only."""
+    context = f"saved five-report analysis differs at {path}"
+    _require(type(current) is type(saved), context + ": scalar/container type")
+    if isinstance(current, dict):
+        _require(current.keys() == saved.keys(), context + ": keys")
+        for key in current:
+            arithmetic = float_roundoff and key not in {
+                "study", "status", "roles", "integrity", "source_reports", "limitations"}
+            _compare_complete(current[key], saved[key], f"{path}.{key}", arithmetic)
+    elif isinstance(current, list):
+        _require(len(current) == len(saved), context + ": length")
+        for index, (left, right) in enumerate(zip(current, saved, strict=True)):
+            _compare_complete(left, right, f"{path}[{index}]", float_roundoff)
+    elif isinstance(current, float):
+        if float_roundoff:
+            _close(current, saved, context + ": finite float")
+        else:
+            _require(math.isfinite(current) and math.isfinite(saved) and current == saved,
+                     context + ": exact metadata float")
+    else:
+        _require(current == saved, context + ": value")
+
+
 def _mean(values):
     return math.fsum(values) / len(values)
 
@@ -124,7 +148,7 @@ def analyze_reliability(reports, saved_analysis, sources):
     original_sources = {label: sources[label] for label in ORIGINALS}
     rebuilt = analyze_linkage(reports, original_sources)
     rebuilt["source_reports"] = sources
-    _require(rebuilt == saved_analysis, "saved five-report analysis differs from independently regenerated analysis")
+    _compare_complete(rebuilt, saved_analysis)
     indexed = {label: {(episode["task"]["year"], episode["task"]["half"]): {
         (record["condition"], record["draw"]): record for record in episode["records"]
         if record["decoding"] == "stochastic"} for episode in report["episodes"]}

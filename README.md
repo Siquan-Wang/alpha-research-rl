@@ -32,6 +32,7 @@ new alpha. Both analyses retain all policies and evidence conditions.
 | Exploratory reward-linkage control | Two fresh on-policy permutation controls, 32 updates, 360 new evaluation draws | Correct RL exceeds matched controls by +.02303 / +.01837 reward; IC-contribution differences have opposite signs |
 | Sequential evidence opportunity | Two forward CPU folds with cheap versus privileged late evidence | Fold signs disagree and the fixed-formula gate fails; controller branch stopped |
 | Numerical financial baseline | Fixed walk-forward ridge on French49 | IC .01759; descriptive block interval includes zero |
+| Constructed query opportunity | Exact enumeration of twelve two-query plans | Adaptive ceiling .81 versus strongest fixed-query .63; no LLM policy tested |
 
 Start with the [financial results](docs/financial-proposal-results-v1.md),
 [reproduction commands](docs/reproduce-financial-study.md), and
@@ -52,6 +53,10 @@ The [original results](docs/results-v1.md) and
 [failed curriculum gate](docs/curriculum-results-v2.md) remain available.
 The financial proposal experiment is a one-action contextual bandit, separate
 from the sequential environment illustrated below.
+The [new constructed query gate](docs/mechanism-gate-results-v1.md) isolates an
+adaptive acquisition opportunity mathematically. Its
+[next-study design](docs/research-next-steps.md) has not yet established a
+learned language-model policy on that task.
 
 ```mermaid
 flowchart LR

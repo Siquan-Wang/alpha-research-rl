@@ -1,0 +1,3922 @@
+{
+  "study": "exact-hierarchical-query-mechanism-gate-v1",
+  "scope": "Constructed closed-catalog mathematical opportunity gate; no held-out discovery.",
+  "no_llm_trained": true,
+  "no_market_data": true,
+  "prior_hand_calculation_disclosed": true,
+  "anticipated_values": {
+    "best_adaptive": {
+      "numerator": 81,
+      "denominator": 100,
+      "decimal": 0.81
+    },
+    "best_fixed": {
+      "numerator": 63,
+      "denominator": 100,
+      "decimal": 0.63
+    },
+    "remaining_fixed_pair": {
+      "numerator": 9,
+      "denominator": 20,
+      "decimal": 0.45
+    },
+    "uniform_random_fixed_pair": {
+      "numerator": 57,
+      "denominator": 100,
+      "decimal": 0.57
+    },
+    "no_query": {
+      "numerator": 1,
+      "denominator": 4,
+      "decimal": 0.25
+    },
+    "adaptive_minus_best_fixed": {
+      "numerator": 9,
+      "denominator": 50,
+      "decimal": 0.18
+    }
+  },
+  "provenance": {
+    "source_file": "src/alpha_research_rl/mechanism_gate.py",
+    "source_sha256": "b62e94101168d29ac7d0b9d1ee1af7ea733fa5780a9ce7fb44d86d08ed702803",
+    "plan_file": "mechanism-gate-plan-v1.md",
+    "plan_sha256": "b0a1ec898affb741a015f8c75e778bc30eb84ac287dbd50f070f9063436d0401"
+  },
+  "calculation": {
+    "kernel": {
+      "coarse": [
+        {
+          "numerator": 9,
+          "denominator": 10,
+          "decimal": 0.9
+        },
+        {
+          "numerator": 9,
+          "denominator": 10,
+          "decimal": 0.9
+        },
+        {
+          "numerator": 1,
+          "denominator": 10,
+          "decimal": 0.1
+        },
+        {
+          "numerator": 1,
+          "denominator": 10,
+          "decimal": 0.1
+        }
+      ],
+      "left": [
+        {
+          "numerator": 9,
+          "denominator": 10,
+          "decimal": 0.9
+        },
+        {
+          "numerator": 1,
+          "denominator": 10,
+          "decimal": 0.1
+        },
+        {
+          "numerator": 1,
+          "denominator": 2,
+          "decimal": 0.5
+        },
+        {
+          "numerator": 1,
+          "denominator": 2,
+          "decimal": 0.5
+        }
+      ],
+      "right": [
+        {
+          "numerator": 1,
+          "denominator": 2,
+          "decimal": 0.5
+        },
+        {
+          "numerator": 1,
+          "denominator": 2,
+          "decimal": 0.5
+        },
+        {
+          "numerator": 9,
+          "denominator": 10,
+          "decimal": 0.9
+        },
+        {
+          "numerator": 1,
+          "denominator": 10,
+          "decimal": 0.1
+        }
+      ]
+    },
+    "prior": [
+      {
+        "numerator": 1,
+        "denominator": 4,
+        "decimal": 0.25
+      },
+      {
+        "numerator": 1,
+        "denominator": 4,
+        "decimal": 0.25
+      },
+      {
+        "numerator": 1,
+        "denominator": 4,
+        "decimal": 0.25
+      },
+      {
+        "numerator": 1,
+        "denominator": 4,
+        "decimal": 0.25
+      }
+    ],
+    "budget": {
+      "queries": 2,
+      "distinct": true,
+      "terminal_selections": 1,
+      "common_cost": 0
+    },
+    "plans": [
+      {
+        "plan": [
+          "coarse",
+          "left",
+          "left"
+        ],
+        "value": {
+          "numerator": 63,
+          "denominator": 100,
+          "decimal": 0.63
+        },
+        "response_dependent_second_query": false,
+        "tree": {
+          "first_query": "coarse",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                }
+              ],
+              "second_query": "left",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                }
+              ],
+              "second_query": "left",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "plan": [
+          "coarse",
+          "left",
+          "right"
+        ],
+        "value": {
+          "numerator": 9,
+          "denominator": 20,
+          "decimal": 0.45
+        },
+        "response_dependent_second_query": true,
+        "tree": {
+          "first_query": "coarse",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                }
+              ],
+              "second_query": "left",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                }
+              ],
+              "second_query": "right",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "plan": [
+          "coarse",
+          "right",
+          "left"
+        ],
+        "value": {
+          "numerator": 81,
+          "denominator": 100,
+          "decimal": 0.81
+        },
+        "response_dependent_second_query": true,
+        "tree": {
+          "first_query": "coarse",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                }
+              ],
+              "second_query": "right",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    }
+                  ],
+                  "selected_candidate": 3,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                }
+              ],
+              "second_query": "left",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "plan": [
+          "coarse",
+          "right",
+          "right"
+        ],
+        "value": {
+          "numerator": 63,
+          "denominator": 100,
+          "decimal": 0.63
+        },
+        "response_dependent_second_query": false,
+        "tree": {
+          "first_query": "coarse",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                }
+              ],
+              "second_query": "right",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    }
+                  ],
+                  "selected_candidate": 3,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                }
+              ],
+              "second_query": "right",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "plan": [
+          "left",
+          "coarse",
+          "coarse"
+        ],
+        "value": {
+          "numerator": 63,
+          "denominator": 100,
+          "decimal": 0.63
+        },
+        "response_dependent_second_query": false,
+        "tree": {
+          "first_query": "left",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                }
+              ],
+              "second_query": "coarse",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                }
+              ],
+              "second_query": "coarse",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "plan": [
+          "left",
+          "coarse",
+          "right"
+        ],
+        "value": {
+          "numerator": 27,
+          "denominator": 50,
+          "decimal": 0.54
+        },
+        "response_dependent_second_query": true,
+        "tree": {
+          "first_query": "left",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                }
+              ],
+              "second_query": "coarse",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                }
+              ],
+              "second_query": "right",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "plan": [
+          "left",
+          "right",
+          "coarse"
+        ],
+        "value": {
+          "numerator": 27,
+          "denominator": 50,
+          "decimal": 0.54
+        },
+        "response_dependent_second_query": true,
+        "tree": {
+          "first_query": "left",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                }
+              ],
+              "second_query": "right",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                }
+              ],
+              "second_query": "coarse",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "plan": [
+          "left",
+          "right",
+          "right"
+        ],
+        "value": {
+          "numerator": 9,
+          "denominator": 20,
+          "decimal": 0.45
+        },
+        "response_dependent_second_query": false,
+        "tree": {
+          "first_query": "left",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                }
+              ],
+              "second_query": "right",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                }
+              ],
+              "second_query": "right",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "plan": [
+          "right",
+          "coarse",
+          "coarse"
+        ],
+        "value": {
+          "numerator": 63,
+          "denominator": 100,
+          "decimal": 0.63
+        },
+        "response_dependent_second_query": false,
+        "tree": {
+          "first_query": "right",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                }
+              ],
+              "second_query": "coarse",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    }
+                  ],
+                  "selected_candidate": 3,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                }
+              ],
+              "second_query": "coarse",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "plan": [
+          "right",
+          "coarse",
+          "left"
+        ],
+        "value": {
+          "numerator": 27,
+          "denominator": 50,
+          "decimal": 0.54
+        },
+        "response_dependent_second_query": true,
+        "tree": {
+          "first_query": "right",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                }
+              ],
+              "second_query": "coarse",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    }
+                  ],
+                  "selected_candidate": 3,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                }
+              ],
+              "second_query": "left",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "plan": [
+          "right",
+          "left",
+          "coarse"
+        ],
+        "value": {
+          "numerator": 27,
+          "denominator": 50,
+          "decimal": 0.54
+        },
+        "response_dependent_second_query": true,
+        "tree": {
+          "first_query": "right",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                }
+              ],
+              "second_query": "left",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                }
+              ],
+              "second_query": "coarse",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "plan": [
+          "right",
+          "left",
+          "left"
+        ],
+        "value": {
+          "numerator": 9,
+          "denominator": 20,
+          "decimal": 0.45
+        },
+        "response_dependent_second_query": false,
+        "tree": {
+          "first_query": "right",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                }
+              ],
+              "second_query": "left",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                }
+              ],
+              "second_query": "left",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "fixed_pairs": [
+      {
+        "pair": [
+          "coarse",
+          "left"
+        ],
+        "plan": [
+          "coarse",
+          "left",
+          "left"
+        ],
+        "value": {
+          "numerator": 63,
+          "denominator": 100,
+          "decimal": 0.63
+        },
+        "response_dependent_second_query": false,
+        "tree": {
+          "first_query": "coarse",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                }
+              ],
+              "second_query": "left",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                }
+              ],
+              "second_query": "left",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pair": [
+          "coarse",
+          "right"
+        ],
+        "plan": [
+          "coarse",
+          "right",
+          "right"
+        ],
+        "value": {
+          "numerator": 63,
+          "denominator": 100,
+          "decimal": 0.63
+        },
+        "response_dependent_second_query": false,
+        "tree": {
+          "first_query": "coarse",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                }
+              ],
+              "second_query": "right",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    }
+                  ],
+                  "selected_candidate": 3,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 81,
+                      "denominator": 100,
+                      "decimal": 0.81
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    }
+                  ],
+                  "selected_candidate": 2,
+                  "correct_joint_mass": {
+                    "numerator": 81,
+                    "denominator": 400,
+                    "decimal": 0.2025
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                }
+              ],
+              "second_query": "right",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 100,
+                      "decimal": 0.09
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 100,
+                      "decimal": 0.01
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pair": [
+          "left",
+          "right"
+        ],
+        "plan": [
+          "left",
+          "right",
+          "right"
+        ],
+        "value": {
+          "numerator": 9,
+          "denominator": 20,
+          "decimal": 0.45
+        },
+        "response_dependent_second_query": false,
+        "tree": {
+          "first_query": "left",
+          "branches": [
+            {
+              "response": 0,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                }
+              ],
+              "second_query": "right",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 1,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            },
+            {
+              "response": 1,
+              "probability": {
+                "numerator": 1,
+                "denominator": 2,
+                "decimal": 0.5
+              },
+              "posterior": [
+                {
+                  "numerator": 9,
+                  "denominator": 20,
+                  "decimal": 0.45
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "decimal": 0.25
+                }
+              ],
+              "second_query": "right",
+              "leaves": [
+                {
+                  "response": 0,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                },
+                {
+                  "response": 1,
+                  "path_probability": {
+                    "numerator": 1,
+                    "denominator": 4,
+                    "decimal": 0.25
+                  },
+                  "conditional_response_probability": {
+                    "numerator": 1,
+                    "denominator": 2,
+                    "decimal": 0.5
+                  },
+                  "posterior": [
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    },
+                    {
+                      "numerator": 9,
+                      "denominator": 20,
+                      "decimal": 0.45
+                    },
+                    {
+                      "numerator": 1,
+                      "denominator": 20,
+                      "decimal": 0.05
+                    }
+                  ],
+                  "selected_candidate": 0,
+                  "correct_joint_mass": {
+                    "numerator": 9,
+                    "denominator": 80,
+                    "decimal": 0.1125
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "optimal_plans": [
+      [
+        "coarse",
+        "right",
+        "left"
+      ]
+    ],
+    "best_adaptive": {
+      "numerator": 81,
+      "denominator": 100,
+      "decimal": 0.81
+    },
+    "best_fixed": {
+      "numerator": 63,
+      "denominator": 100,
+      "decimal": 0.63
+    },
+    "uniform_random_fixed_pair": {
+      "numerator": 57,
+      "denominator": 100,
+      "decimal": 0.57
+    },
+    "no_query": {
+      "numerator": 1,
+      "denominator": 4,
+      "decimal": 0.25
+    },
+    "adaptive_minus_best_fixed": {
+      "numerator": 9,
+      "denominator": 50,
+      "decimal": 0.18
+    },
+    "gate": {
+      "threshold": {
+        "numerator": 1,
+        "denominator": 10,
+        "decimal": 0.1
+      },
+      "gap_requirement": true,
+      "optimal_second_query_depends_on_response": true,
+      "passed": true
+    }
+  },
+  "limitation": "A pass establishes constructed adaptive information only; no learned-policy claim or GPU authorization."
+}

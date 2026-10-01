@@ -34,9 +34,15 @@ confirmatory study.
 
 - [Fixed-panel generation error and yearly omissions](reliability-analysis-review.md)
 - [Formula diversity, empirical rank equivalence and saved-diagnostic replay](retained-diagnostics-review.md)
+- [Cross-version arithmetic comparison correction](reliability-portability-review.md)
 
 ## Reproduction and publication
 
 - [Sequential saved-action replay and reconstruction limits](sequential-replay-review.md)
 - [Five-adapter release source, packaging and byte-identity review](adapter-release-review.md)
 - [Installed-wheel replay boundary on the original host](installed-package-reproduction-review.md)
+
+## Constructed information-acquisition task
+
+- [Design critique and tokenizer-only interface check](next-mechanism-design-review.md)
+- [Exact solver and observation-boundary review](mechanism-gate-review.md)
