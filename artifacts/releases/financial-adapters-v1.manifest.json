@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "asset": {
+    "name": "financial-adapters-v1.zip",
+    "url": "https://github.com/Siquan-Wang/alpha-research-rl/releases/download/v0.1.0/financial-adapters-v1.zip",
+    "bytes": 46046805,
+    "sha256": "310326c0df16e50a4d5f709d42ecea9c5d1a74e9c80b06b24c21c866b3b64636"
+  },
+  "base_model": {
+    "id": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca"
+  },
+  "license": "Apache-2.0",
+  "freeze_sha256": "03a43ea898bd09aed3be1cdd80bcafed2c8dcbc82de6500644f9c3958fd92faf",
+  "builder_sha256": "88ec6d65c85d4c4c9995fa7aa69df8232ac26cc8a9c4cb6004ff94216263048c",
+  "members": {
+    "LICENSE": {
+      "bytes": 11343,
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    "MODEL_CARD.md": {
+      "bytes": 5173,
+      "sha256": "0aa07a91f9a0ab61999a8ae2aa0827fb32afca086534c95da723bd0891d098f0"
+    },
+    "NOTICE": {
+      "bytes": 460,
+      "sha256": "008d466d871a18ae2c6564663d229e01d9e9fc7feae8b877aeeb21c1bf71efe7"
+    },
+    "financial-placebo23-v1/adapter/adapter_config.json": {
+      "bytes": 1039,
+      "sha256": "6e94e2ccecdee96fed10b34b15952202291d2572e7464a729bc24750aec3af08"
+    },
+    "financial-placebo23-v1/adapter/adapter_model.safetensors": {
+      "bytes": 9204512,
+      "sha256": "74485b3a9bd1d5e73287ffff4358d05b1cd01cbd0db7f6cb5fa96ad419bf3291"
+    },
+    "financial-placebo29-v1/adapter/adapter_config.json": {
+      "bytes": 1039,
+      "sha256": "6f660d449029b7b85379871565b07fba47b111fc647c09eac7211d4cf4aa8220"
+    },
+    "financial-placebo29-v1/adapter/adapter_model.safetensors": {
+      "bytes": 9204512,
+      "sha256": "28f31ee08723e20e35f9ca220b41ce13cd329b7c26b5d9c6c6a824a8dea5092f"
+    },
+    "financial-rloo23-v1/adapter/adapter_config.json": {
+      "bytes": 1039,
+      "sha256": "f40d007be9ba3ce18bfa06050caf9e9ddf6850e9b538595604aa39ea28a260ab"
+    },
+    "financial-rloo23-v1/adapter/adapter_model.safetensors": {
+      "bytes": 9204512,
+      "sha256": "32e075f906b32374c2c153c01bd83930ff31f89f370aa2b261c84b0ac3e0342d"
+    },
+    "financial-rloo29-v1/adapter/adapter_config.json": {
+      "bytes": 1039,
+      "sha256": "97c936b99ed86575a60885e6dcde9a7fcb66cb6d405fe62a881eb8a53ea7b459"
+    },
+    "financial-rloo29-v1/adapter/adapter_model.safetensors": {
+      "bytes": 9204512,
+      "sha256": "8084784c7bfa8ae41fc52c3b9d45862ed42491cecac348676f8faa8d84fdadf0"
+    },
+    "financial-sft-v1/adapter/adapter_config.json": {
+      "bytes": 1039,
+      "sha256": "1d2ce245257ca545da1369b02b4ce1bde04cc2f75428654e186db38791efacc7"
+    },
+    "financial-sft-v1/adapter/adapter_model.safetensors": {
+      "bytes": 9204512,
+      "sha256": "be860bc2dd4dfc9a1f2e25f1532bfdcbf63ac4cd664a2cff1de8993aacb7db3b"
+    }
+  }
+}

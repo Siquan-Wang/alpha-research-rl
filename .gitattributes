@@ -2,3 +2,4 @@
 # Preserve the recorded mixed historical line endings rather than rewriting them.
 *.py -text
 *.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/financial-adapters-model-card.md -text

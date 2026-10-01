@@ -33,6 +33,11 @@ or the [offline evidence explorer](docs/evidence-explorer.html) locally to
 inspect all 540 original-study recorded draws, actual observed probes and evaluator outputs.
 The separate [reward-control explorer](docs/linkage-explorer.html) adds both
 permutation controls, for 900 total draws across five checkpoints.
+The [verified adapter release](docs/published-adapters.md) provides the exact
+five trained LoRA checkpoints, including the original SFT parent.
+For the earlier multistep synthetic pilot, the
+[trajectory explorer](docs/trajectory-explorer.html) shows all 18 episodes and
+144 saved actions, with replayed states clearly labeled as reconstructions.
 The [viewing and rebuild guide](docs/evidence-explorer-guide.md) covers local
 opening and serving; GitHub's file view displays HTML source.
 The [original results](docs/results-v1.md) and

@@ -29,3 +29,8 @@ manifests, full outcomes and limitations remain the evidence to inspect.
 These controls have their own prospective plan within an exploratory follow-up.
 They do not retroactively turn the original development comparison into a sealed
 confirmatory study.
+
+## Reproduction and publication
+
+- [Sequential saved-action replay and reconstruction limits](sequential-replay-review.md)
+- [Five-adapter release source, packaging and byte-identity review](adapter-release-review.md)

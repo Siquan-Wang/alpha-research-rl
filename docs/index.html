@@ -12,7 +12,7 @@
     h1{font-size:clamp(32px,5vw,58px);max-width:800px;line-height:1.08;letter-spacing:-.04em;margin:16px 0 22px}
     .intro{font-size:19px;line-height:1.65;max-width:770px;color:#546570}a{color:#145a78;text-underline-offset:3px}
     nav{display:flex;gap:20px;flex-wrap:wrap;margin:24px 0 40px;font-weight:600}.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    article,.findings{background:#fff;border:1px solid #dce5e9;border-radius:18px;padding:28px;box-shadow:0 3px 12px #20344204}
+    article,.findings{background:#fff;border:1px solid #dce5e9;border-radius:18px;padding:28px;box-shadow:0 3px 12px #20344204}.wide{grid-column:1/-1}
     .number{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#687983}h2{font-size:24px;line-height:1.25;margin:12px 0}
     p,li{line-height:1.65}.muted{color:#64737d}.button{display:inline-block;margin:12px 0 5px;background:#1e536c;color:white;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:650}
     .button:hover{background:#153f54}a:focus-visible{outline:3px solid #cc7e35;outline-offset:4px}.facts{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
@@ -32,6 +32,7 @@
     <a href="https://github.com/Siquan-Wang/alpha-research-rl">Source repository</a>
     <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/research-positioning.md">Research positioning</a>
     <a href="https://github.com/Siquan-Wang/alpha-research-rl/tree/main/docs/audits">Audit scope and records</a>
+    <a href="https://github.com/Siquan-Wang/alpha-research-rl/blob/main/docs/published-adapters.md">Download trained adapters</a>
   </nav>
   <div class="cards">
     <article>
@@ -49,6 +50,15 @@
       Inspect all five policies: the original 540 draws plus 360 new control draws.</p>
       <a class="button" href="linkage-explorer.html">Explore the reward controls</a>
       <p class="muted">Declared after the original results; both controls frozen before their evaluation.</p>
+    </article>
+    <article class="wide">
+      <div class="number">03 · Earlier synthetic sequential pilot</div>
+      <h2>What did the agent actually do, step by step?</h2>
+      <p>Follow proposal, screening, selection and stopping across 18 saved episodes.
+      See verbatim generated actions, charged budgets and explicitly reconstructed evidence states.
+      SFT and RL followed the same seven-step script; this pilot did not demonstrate adaptive research.</p>
+      <a class="button" href="trajectory-explorer.html">Inspect the sequential trajectories</a>
+      <p class="muted">Synthetic data only. All 144 recorded actions replay consistently; historical prompt tokens were not retained.</p>
     </article>
   </div>
   <section class="findings" aria-labelledby="findings">

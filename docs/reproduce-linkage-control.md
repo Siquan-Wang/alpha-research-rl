@@ -26,7 +26,8 @@ non-numeric values must match exactly. During this process it rejects training
 stack imports, network connections, and access to local weights or raw market
 data. These diagnostic guards do not form a general-purpose security sandbox.
 The same check runs in public CPU CI. It reproduces saved-result arithmetic,
-not the original undistributed model weights or training.
+not model generation or training. The exact five adapters are also available
+separately through the [verified release download](published-adapters.md).
 
 ```bash
 python3.12 -m venv .venv
@@ -56,11 +57,11 @@ Eight draws do not create eight independent market episodes.
 
 ## Training replication requires the original parent
 
-The repository publishes code, manifests and traces, **not trained adapter
-weights**. Public access to the base Qwen model does not recover the original
-SFT adapter. Exact control replication additionally requires lawful access to
-the original SFT, both original RL adapters, original suite freeze and original
-three saved transfer reports.
+The [v0.1.0 adapter release](published-adapters.md) supplies the exact original
+SFT, both correctly linked RL adapters and both permutation controls. Code,
+manifests, the original suite freeze and the three original transfer reports
+remain in Git. Public access to the base Qwen model alone does not recover the
+original SFT adapter; use the verified release for that parent.
 
 `linkage_training.py` deliberately enforces two parent identities:
 
@@ -78,14 +79,14 @@ original experiment.
 
 For the model revision, free local inputs and pinned training environment, use
 [the original reproduction guide](reproduce-financial-study.md). Its original
-training commands describe the procedure; they do not supply the missing
-original adapter. Reuse a lawful cached French49 ZIP with SHA-256
+training commands describe the procedure; exact released checkpoints are an
+alternative to retraining. Reuse a lawful cached French49 ZIP with SHA-256
 `8f394fe34bea54d41b9aafed410425ee8f8e252ede3c71a7c1cd20bab83040de`
 and the pinned local Qwen3-0.6B revision
 `c1899de289a04d12100db370d81485cdf75e47ca`. The official French download is
 revised upstream. If a new download has a different hash, stop exact input
 replication; do not replace the registered snapshot hash. Raw market arrays and
-weights are not redistributed, and no paid resource is needed or provisioned.
+base-model weights are not redistributed, and no paid resource is provisioned.
 
 Publish the control plan and implementation source **before control training**,
 and retain that source through evaluation. Preserve all original run reports,
@@ -99,6 +100,12 @@ On an existing compatible local CUDA host, use the pinned training packages in
 the original guide: PyTorch 2.8.0, Transformers 4.57.6, PEFT 0.18.1 and Accelerate
 1.15.0. Keep the full resolved environment and numerical manifests. Run the two
 seeds sequentially in fresh directories, from the unchanged original SFT parent:
+
+The commands below show the original training-checkout layout. After using the
+release downloader, replace each SFT `--adapter` argument with
+`models/published-financial-v1/financial-sft-v1/adapter`; the bytes and both enforced
+parent identities are identical. New runs are reproductions with new run
+timestamps, not new prospectively registered evidence for the original study.
 
 ```bash
 export PYTHONUTF8=1

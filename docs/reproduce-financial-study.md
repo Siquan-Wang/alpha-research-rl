@@ -9,6 +9,11 @@ attached to the study. Keep that source unchanged from training through transfer
 evaluation. Evaluation verifies the relevant prompt, tokenizer, scorer and source
 hashes, not just a checkpoint label.
 
+For evaluation from the actual trained checkpoints, use the
+[verified five-adapter release](published-adapters.md). Retraining below
+reproduces the method but can produce different weights or draws across runtime
+and hardware. The released adapters preserve the original freeze identities.
+
 ## Fresh environment and pinned inputs
 
 The examples use Bash, Python 3.12 and an existing compatible NVIDIA CUDA host.
@@ -79,7 +84,8 @@ The official URL is a changing upstream snapshot. If it no longer serves this
 hash, exact input replay requires an independently retained lawful copy with
 that hash. Do not change the registered hash to make a new download pass;
 register a new study version instead. Raw ZIPs, converted panels and model
-weights remain local and gitignored. No permission to redistribute French data
+base-model weights remain local and gitignored; trained LoRA adapters are
+distributed separately in the release. No permission to redistribute French data
 is assumed. The loader exposes industry-portfolio returns, with no volume or
 individual-stock universe, and caps this study at 2024-12-31.
 

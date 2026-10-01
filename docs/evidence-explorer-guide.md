@@ -121,3 +121,33 @@ check, run `python scripts/replay_published_results.py`; this does not require
 the tokenizer, model weights or market data. See the
 [control reproduction method](reproduce-linkage-control.md) for training and
 checkpoint limitations.
+
+## Earlier sequential synthetic pilot
+
+[`trajectory-explorer.html`](trajectory-explorer.html) is a third, separate
+exhibit. It presents all 18 base/SFT/RLOO episodes and 144 recorded actions on
+the original six synthetic tasks. It is not additional financial data. SFT and
+RLOO used the same seven-action script on every task and always selected initial
+candidate zero; no incremental RL benefit was observed.
+
+Generated text and effective actions come from the saved reports. Before/after
+states and costs are reconstructed by replay under the pinned environment,
+with recorded status, selection, total spend and terminal reward checked.
+Original prompt tokens and observations were not retained, so reconstructed
+states are not authenticated historical model inputs. The terminal reward is
+shown separately from evidence available before an action.
+
+Run the CPU replay or rebuild the HTML without model weights:
+
+```bash
+python -m alpha_research_rl.trajectory_replay \
+  --output artifacts/development/local-synthetic-replay.json
+python -m alpha_research_rl.trajectory_explorer \
+  --base artifacts/development/base-v1.json \
+  --sft artifacts/development/sft-v1.json \
+  --rloo artifacts/development/rloo-v1.json \
+  --output docs/trajectory-explorer.html
+```
+
+The [source and replay audit](audits/sequential-replay-review.md) explains the
+historical source comparison, verified fields and remaining provenance limits.
