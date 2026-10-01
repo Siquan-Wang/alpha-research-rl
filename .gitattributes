@@ -5,3 +5,5 @@
 docs/financial-adapters-model-card.md -text
 docs/mechanism-gate-plan-v1.md -text
 docs/astra-agent-research-plan-v1.md -text
+docs/astra-pool-diagnosis-plan-v1.md -text
+docs/reproduce-astra-pool-diagnosis.md -text

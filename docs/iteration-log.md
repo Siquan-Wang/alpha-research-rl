@@ -274,7 +274,10 @@ trace bookkeeping and generated page. Its local run passed with raw/private
 data, training imports, network and replay subprocesses prohibited. Windows
 standard-library platform detection precedes those guards; its OS version
 command initially triggered the strict subprocess check and this boundary is
-now explicit. The remote result will be checked after publication.
+now explicit. The completed result, explorer and replay were published at
+`3b0f946`; [public CI](https://github.com/Siquan-Wang/alpha-research-rl/actions/runs/36843534765)
+passed Python 3.11, Python 3.12 and training-math, including the actual-bank
+replay. GitHub Pages deployed successfully and the live Astra page was inspected.
 
 **Limits and next:** all calls requested Astra Ultra through the existing Codex
 CLI; provider-reported usage and accepted event streams do not attest hidden
@@ -284,3 +287,43 @@ explicitly post-hoc frozen-pool diagnosis will distinguish a poor candidate-pool
 ceiling from missed selection opportunities. Its plan and code must be frozen
 before any additional candidate is scored; it cannot change the v1 winner,
 direction, denominator or result.
+
+## 10. Frozen-pool diagnosis: prepared before additional scoring
+
+**Problem:** the negative selected results alone cannot tell whether the six
+proposals contained better future signals that the historical selector missed.
+They also do not establish that a more elaborate selector would help.
+
+**Change:** prepared a separately versioned, explicitly post-hoc
+[protocol](astra-pool-diagnosis-plan-v1.md) and
+[frozen contract](../artifacts/astra-pool-diagnosis-v1/contract.json). All 180
+original slots remain; 132 task/AST/historical-direction keys reduce the maximum
+additional scoring to 108 calls after reusing 24 keys covered by original
+selected assessments. Ten original task files are mirrored exactly. No new
+model calls, formulas, sign choices or market periods are permitted.
+
+Original, first-proposal and minimum-AST selectors are fixed before the new
+scores. An unattainable future-informed maximum will diagnose headroom, with
+the accounting identity `Delta S = Delta O - Delta R`; it cannot replace the
+original result. All choices retain the same six-proposal cost and denominator.
+
+**Validation:** the complete local suite passed **728 tests** in 223.16 seconds;
+the new public saved-replay entrypoint separately passed **41 tests** in 3.05
+seconds. Ruff passed. The [independent review](audits/astra-pool-diagnosis-review-v1.md)
+resolved exact-versus-tolerant comparisons of retained evidence and fixed cost,
+impossible metric support, immutable public report bytes, raw-data-free replay,
+and interruption/retry boundaries. Enforcement covers this frozen contract,
+not an adversarial repository-wide single-study ledger.
+
+**Current status:** preparation completed on 2026-10-01 at approximately 10:08
+UTC, with **zero additional financial evaluations**. The contract file SHA256 is
+`612b426cd843fa44956ccdbb3cc12692c8cada53590f781eef2bf3d00af81979`.
+Public byte verification must precede the bounded execution. Results will be
+reported only after the entire fixed bank and saved-arithmetic audit complete;
+a failed or ambiguous attempt instead preserves an incomplete study.
+
+**Limits and next:** this is diagnosis after seeing v1 outcomes on already
+examined development periods. A positive oracle ceiling would establish only
+hindsight opportunity, not a predictable selector or authorization for another
+model study. The [reproduction guide](reproduce-astra-pool-diagnosis.md) separates
+preparation, public verification, execution and saved replay.

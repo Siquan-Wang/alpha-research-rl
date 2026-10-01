@@ -12,6 +12,20 @@ not certify a GPU run; a saved-trace check does not reproduce training; a passin
 test suite does not establish financial usefulness. The underlying source,
 manifests, full outcomes and limitations remain the evidence to inspect.
 
+## Actual Astra feedback study
+
+- [Prospective design critique](astra-agent-research-design-review-v1.md)
+- [Broker feedback masks and provider boundary](astra-broker-review-v1.md)
+- [Frozen orchestration and interruption handling](astra-study-review-v1.md)
+- [All 180 private-to-public provider traces and saved assessments](astra-evidence-review-v1.md)
+- [Source-first result judgment and complete arithmetic](astra-results-review-v1.md)
+- [Interactive explorer integrity](astra-explorer-review-v1.md)
+- [Critique of proposed follow-up experiments](astra-next-study-critique.md)
+
+The completed comparison shows no full-feedback advantage on its registered
+development bank. Accurate transport, valid formulas and correct arithmetic do
+not establish predictive improvement or hidden model-context equality.
+
 ## Financial proposal study
 
 - [Training execution evidence](2026-10-01-financial-training-evidence.md)

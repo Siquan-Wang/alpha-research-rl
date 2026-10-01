@@ -1,5 +1,17 @@
 # Next research decision: isolate learned evidence acquisition
 
+**Historical design advice; this is not the current execution plan.** Its exact
+CPU opportunity gate was subsequently completed in
+[round 7](iteration-log.md#7-constructed-adaptive-query-opportunity--completed).
+The proposed local-model preflight remains deferred and unrun. The current
+mainline has completed the [actual Astra feedback study](astra-agent-results-v1.md)
+and is preparing a separate post-hoc diagnosis of its frozen candidate pools.
+The proposal below is preserved to show its original rationale; it does not
+authorize restarting the deferred branch.
+Later interface checks found that its 1,152 raw relabelings collapse to 144
+unique actor-visible presentations; they are not 1,152 distinct tasks. The
+[subsequent review](audits/next-mechanism-design-review.md) records that correction.
+
 **Recommendation: do not scale the current financial proposal runs.** The best
 next experiment is a new, small information-acquisition benchmark with a known
 optimal policy, followed by a bounded test of whether LLM policy training learns

@@ -109,3 +109,27 @@ fixtures, without claiming real-data rescoring or browser visual validation.
 | `tests/test_astra_explorer.py` | `9485b00fb4d885b9f7edd5c1a29797b994155f2c415b3308d0f1547ab261d1ef` |
 | `tests/test_astra_explorer_review.py` | `14dbac6ca7b0f7fbe2752bff9f6228e89fb6a9b740ac0ab8b5b21e1206f366b7` |
 | `docs/astra-explorer-guide.md` | `fa42130fec2e71ce2cb35dfb187de7e083d85c43247baa404af3de56bba6f0fa` |
+
+## Root follow-up: public CI must compare retained evidence exactly
+
+This addendum is authored by root, not an additional independent review. The
+review above concerned the renderer and retains its original reviewed hashes.
+The guide subsequently gained a static-figure section; the renderer and its
+eight reviewed tests did not change.
+
+During the separate pool-diagnosis review, a reviewer identified arithmetic
+tolerance being applied too broadly to retained report evidence. Root checked
+the new public Astra CI wrapper and found the same class of issue in its HTML
+payload comparison: a one-ULP edit to a copied metric could fall within the
+numerical tolerance even though the embedded evidence no longer matched its
+input exactly. No such change was present in the published page.
+
+The wrapper now compares the complete embedded submissions, assessment and
+permitted histories exactly. Only newly calculated verification arithmetic
+retains the `1e-12` absolute tolerance. Five focused tests reject one-ULP
+changes in each evidence section, unexpected sections and Boolean/int metadata
+substitution, while allowing a computed elapsed-time rounding difference.
+All five passed in 0.60 seconds. The full actual-bank wrapper also passed,
+including its unchanged template and all 180/30 saved records; Ruff passed.
+This strengthens the checker without altering a model response, market score,
+study conclusion or the published HTML.

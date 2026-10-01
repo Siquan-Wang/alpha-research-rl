@@ -16,6 +16,18 @@ from pathlib import Path
 from replay_published_results import NoTrainingImports
 
 
+def compare_explorer_payload(rebuilt, embedded):
+    """Retained evidence is exact; only computed verification arithmetic has tolerance."""
+    from alpha_research_rl.astra_replay import _computed, _exact
+
+    fields = {"verification", "submissions", "assessment", "permitted_histories"}
+    if type(rebuilt) is not dict or type(embedded) is not dict or set(rebuilt) != fields or set(embedded) != fields:
+        raise AssertionError("Unexpected explorer payload fields")
+    for name in fields - {"verification"}:
+        _exact(rebuilt[name], embedded[name], "explorer retained " + name)
+    _computed(rebuilt["verification"], embedded["verification"], "explorer verification arithmetic")
+
+
 def main():
     root = Path(__file__).resolve().parents[1]
     forbidden = [root / name for name in ("models", "data/raw", "data/cache", ".local")]
@@ -59,7 +71,7 @@ def main():
     if len(matches) != 1:
         raise AssertionError("Explorer must contain exactly one evidence payload")
     embedded = json.loads(matches[0])
-    _computed(build_payload(contract, submissions, assessment, source_root=root), embedded, "explorer payload")
+    compare_explorer_payload(build_payload(contract, submissions, assessment, source_root=root), embedded)
     if render(embedded) != html:
         raise AssertionError("Explorer static page differs from the published renderer")
     print(json.dumps({"status": "matches_published_astra_evidence", "decisions": 180,

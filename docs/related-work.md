@@ -1,5 +1,10 @@
 # Related work and positioning
 
+The [focused design comparison](agentic-research-design-context.md) examines
+feedback identification, generator/selector controls and reproduction limits
+in accessible primary sources. It distinguishes verified methods from an
+OpenReview access limitation and from unadopted experiments in this repository.
+
 These are research references, not claims that this project originated their
 ideas. The implementation here was written for this repository; no unlicensed
 source or proprietary trading data is incorporated.

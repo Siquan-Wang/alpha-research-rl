@@ -53,3 +53,22 @@ development data, with one trajectory per condition and period. Public model
 hypotheses and revision notes are explanations offered by the actor, not causal
 evidence that a feedback mechanism worked. Interpretation must follow the
 [frozen research protocol](astra-agent-research-plan-v1.md).
+
+## Static result figure
+
+The [SVG](figures/astra-feedback-v1.svg) and [PNG](figures/astra-feedback-v1.png)
+show all three mean oriented assessment ICs and the primary contrast in every
+period. They retain the large negative 2024-H1 difference and the 2024-H2 tie.
+These are descriptive values, with one trajectory per arm/period and no
+uncertainty intervals; the common search cost cancels from the differences.
+
+With the optional plotting dependencies installed, generate new files:
+
+```powershell
+python scripts/plot_astra_results.py --output-stem astra-feedback-copy
+```
+
+The script requires the complete public saved-evidence replay before plotting
+and refuses either existing output. It writes SVG and PNG without a model,
+market-data load or financial evaluation. The published PNG was visually
+inspected for readable labels and complete period coverage.

@@ -25,6 +25,17 @@ budget, feedback masks and common selector. The
 arithmetic without a model login or market-data access. Existing 2020–2024
 periods remain development data; there is one trajectory per condition and period.
 
+![Astra study: all three mean future ICs are negative, with full-minus-validity differences shown for all ten periods.](docs/figures/astra-feedback-v1.svg)
+
+The [figure rebuild command](docs/astra-explorer-guide.md#static-result-figure)
+uses only replay-verified saved results; no new market evaluation is performed.
+
+A separate [post-hoc pool diagnosis](docs/astra-pool-diagnosis-plan-v1.md) is
+prepared to distinguish poor candidate pools from missed selection opportunity.
+Its fixed contract permits at most 108 additional CPU evaluations and zero
+new model calls. At this publication checkpoint, those new evaluations have
+not run; the original Astra results remain unchanged.
+
 In a separate learning path,
 local Qwen3-0.6B LoRA training, saved-model checks, and chronological financial
 comparisons have run. In the financial proposal study, two RL runs improved the

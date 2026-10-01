@@ -73,7 +73,9 @@ episodes; their outcomes are not experimental results.
 The repository's CPU CI also runs `python scripts/replay_published_astra.py`
 against the actual published bank. It checks all 180 decisions, the 30 saved
 assessments, complete trace bookkeeping, and the explorer's embedded evidence
-and page template. Recomputed floats use absolute tolerance `1e-12`; scalar
+and page template. The embedded submissions, assessment and permitted histories
+must match the original saved evidence exactly, including every float. Only
+recomputed verification arithmetic uses absolute tolerance `1e-12`; scalar
 types, keys, order and source identities remain exact. Each bookkeeping digest
 is validated before comparing numerical bodies. Process-level guards reject
 training imports, raw/private data access, replay subprocesses and network

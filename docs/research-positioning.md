@@ -1,15 +1,18 @@
 # Research positioning and contribution boundaries
 
-Reviewed 2026-10-01 UTC. AlphaResearch-RL is a small, inspectable study of
-language-model training and evaluation for factor research. Its strongest
-contribution so far is an implemented experimental system and a set of bounded
-empirical findings, including failed gates. It has not established a new learning
-algorithm, profitable alpha, or a useful learned sequential financial researcher.
+Updated after the completed Astra study on 2026-10-01 UTC. AlphaResearch-RL
+studies language-model generation, feedback use and post-training for factor
+research. The actual Astra research loop and the separate local Qwen training
+experiments have both run. Its strongest contribution is an inspectable
+experimental system with bounded empirical findings, including negative results
+and failed gates. It has not established a new learning algorithm, profitable
+alpha, or a useful learned sequential financial researcher.
 
 ## What the evidence supports
 
 | Component | Demonstrated evidence | Claim boundary |
 | --- | --- | --- |
+| Actual agentic research | Astra generated 180 proposals in 30 six-decision episodes; full, validity-only and withheld feedback were compared under a common selector, after every pool was publicly frozen | Full minus validity mean future IC was −0.006364. The loop is real inference-time research, with no observed mean future-IC benefit on this bank; no Astra weight update is claimed. |
 | Research environment | Bounded expressions, explicit action costs, evidence observations, invalid/duplicate handling, and preserved action traces | An environment that permits sequential decisions does not establish a policy that makes useful ones. |
 | Generative model and actual RL | Local Qwen3-0.6B LoRA; the financial study records 96 SFT updates and 31 actual RLOO optimizer steps across two seeds, with digest and saved-reload checks | This is pretrained-LLM post-training. Its financial episode contains one proposal, so it is a contextual bandit, not demonstrated multistep agency. |
 | Financial evaluation | Frozen checkpoints, purged chronology, true/exchanged evidence, fixed/grid references, all-attempt validity accounting, and individual saved outcomes | Ten dependent 2020–2024 half-years are development transfer evidence. They are not an untouched final test or 80 independent market replications. |
@@ -24,6 +27,20 @@ three greedy policies emit the same formula, feedback effects are inconsistent,
 and most usable proposals reproduce teacher formulas or their historical rank
 behavior. The residual IC contribution is outcome accounting, not a causal
 separation of syntax learning and financial learning.
+
+The subsequent [reward-linkage controls](reward-linkage-results-v1.md) preserve
+both original seeds and add two matched on-policy reward-permutation controls.
+Correct linkage exceeds those controls on the penalized reward, but the
+predictive-IC contributions change in opposite directions across seeds. That
+limits the claim to reward sensitivity in this pipeline.
+
+The [Astra result](astra-agent-results-v1.md) removes the small local model as
+the sole research actor. All 180 proposals were valid and all thirty selected
+assessments were usable, yet each condition's mean oriented future IC was
+negative. The full-feedback arm's −0.006364 difference therefore cannot be
+explained by fewer invalid outputs. This separates the question of successful
+tool orchestration from useful predictive research. A single trajectory per
+condition and period cannot establish a general effect of feedback.
 
 These records support discussion of policy-gradient implementation, sampling
 contracts, leakage prevention, diagnostics and negative-result interpretation.
@@ -41,7 +58,7 @@ this project has not reproduced these systems on a common dataset or budget.
 
 | Prior work | Verified methodological overlap | Distinction in this repository |
 | --- | --- | --- |
-| [RD-Agent-Quant paper](https://arxiv.org/abs/2505.15155v2) and [RD-Agent repository](https://github.com/microsoft/RD-Agent) | Research hypotheses, generated implementations, experiment feedback, factor/model co-optimization and a bandit scheduler already form an automated research loop. | The present study asks what a small, locally post-trained actor changes under an explicit scoring contract. It neither originates research loops nor matches RD-Agent's broader capabilities. The current RD-Agent repository also has fine-tuning scenarios; this comparison concerns its quant formulation. |
+| [RD-Agent-Quant paper](https://arxiv.org/abs/2505.15155v2) and [RD-Agent repository](https://github.com/microsoft/RD-Agent) | Research hypotheses, generated implementations, experiment feedback, factor/model co-optimization and a bandit scheduler already form an automated research loop. | The present studies separately test feedback during strong-model proposal generation and small-model post-training under fixed budgets. They neither originate research loops nor match RD-Agent's broader capabilities. The repository also has fine-tuning scenarios; this comparison concerns its quant formulation. |
 | [Alpha-R1 paper](https://arxiv.org/abs/2512.23515v2) and [training documentation](https://github.com/FinStep-AI/Alpha-R1/blob/main/training/README.md) | Qwen3-8B is trained with GRPO to screen candidate factors using semantic profiles and market context, with portfolio-return rewards. The public training reward is described as a simplified reference implementation. | LLM RL for alpha selection is existing work. Here Qwen3-0.6B proposes one bounded expression using numeric probe summaries; RLOO optimizes oriented IC with failure penalties. Different actions, information and rewards prevent direct score comparisons. |
 | [AlphaGen repository](https://github.com/ICT-FinD-Lab/alphagen) | The original KDD 2023 work learns formulaic alpha collections through RL; the repository exposes maskable-PPO/LSTM components and now also contains LLM generation and HARLA extensions. | The current experiment updates a pretrained language-model adapter and evaluates individual proposals, without demonstrating a synergistic factor collection. Neither RL expression search nor adding an LLM constitutes novelty here. |
 
@@ -51,14 +68,21 @@ inspect; those properties alone are not evidence of methodological novelty.
 
 ## Missing evidence and falsifiable next questions
 
-The existing [reward-linkage control plan](reward-linkage-control-plan.md) is a
-separate exploratory follow-up, declared after the original outcomes. It tests
-correct reward assignment against two on-policy reward-permutation controls.
-This positioning review uses no outcome from that follow-up. If correctly linked
-RL does not consistently beat its matched controls, attributing the original
-gains to correct reward linkage remains unsupported. A favorable result would
-establish only sensitivity within this small pipeline, not financial alpha or
-sequential competence.
+The [Astra experiment](astra-agent-results-v1.md) leaves a concrete distinction
+unresolved: did its six-formula pools contain better future signals that the
+historical selector missed, or was even their hindsight ceiling weak? A separate
+post-hoc pool diagnosis is being prepared. Its controls and complete finite
+evaluation population must be published before any previously unassessed
+candidate is scored. A future-informed maximum would be an unattainable ceiling,
+not a newly discovered deployable strategy or a replacement v1 result.
+
+The current result also lacks repeated hosted generations within each condition
+and period. Repeating fixed trajectories could quantify conditional generation
+variation; it would not create independent market histories. A matched-prefix
+revision experiment could test feedback's conditional effect on newly proposed
+formulas, but needs a predictive-quality endpoint and cheap deterministic
+controls. Different strings and accurate citations of old scores are
+insufficient. Neither follow-up model experiment is registered or executed.
 
 The [sequential acquisition branch](sequential-gate-results-v1.md) remains
 **stopped**: the privileged selector harmed one chronological fold and failed
