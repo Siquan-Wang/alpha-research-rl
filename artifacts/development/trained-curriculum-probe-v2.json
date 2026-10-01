@@ -1,0 +1,1198 @@
+{
+  "manifest": {
+    "created_utc": "2026-10-01T03:52:05.759971+00:00",
+    "python": "3.12.14",
+    "platform": "Windows",
+    "packages": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "torch": "2.8.0+cu128",
+      "transformers": "4.57.6",
+      "peft": "0.18.1"
+    },
+    "git_revision": "4b96a878cdd0658136c1d383ee7604eee41378ef",
+    "source_sha256": "76855be96adb70643ed99ce56d3ed625358d973045cf2855efa01768e888c964",
+    "config": {
+      "study": "constructed-feedback-curriculum-v2",
+      "actor": "curriculum-v2",
+      "dataset_sha256": "a1fe071ed154334fbc3040fb036e732a5fb3ff48fb689caf7170531b5a950f40",
+      "dataset_metadata": {
+        "version": "constructed-feedback-v2",
+        "split": "dev",
+        "data_kind": "explicitly_constructed_feedback_curriculum",
+        "no_financial_or_discovery_evidence": true,
+        "teacher_inputs": "public observation only",
+        "seeds": [
+          6000,
+          6001,
+          6002,
+          6003,
+          6004,
+          6005,
+          6006,
+          6007,
+          6008,
+          6009,
+          6010,
+          6011
+        ],
+        "families": [
+          "mixed_composition",
+          "restricted_returns"
+        ],
+        "partition_before_permutation": true,
+        "n_examples": 48,
+        "category_counts": {
+          "selection": 24,
+          "generation": 24
+        },
+        "action_counts": {
+          "select": 18,
+          "propose": 12,
+          "mutate": 12,
+          "stop": 6
+        },
+        "select_threshold": 0.04,
+        "mutate_threshold": 0.14,
+        "diagnostic_std_threshold": 0.15,
+        "declared_feedback_dates": 80,
+        "valid_date_requirement": 64,
+        "propose_lookback": 3,
+        "mutate_lookback": 10,
+        "actor_prompt_fields": [
+          "observation"
+        ],
+        "limitations": [
+          "constructed scores have no associated panel or assessment labels",
+          "teacher is a transparent heuristic, not an optimal research policy",
+          "dev generation family/AST transfer is grammar transfer, not discovery"
+        ]
+      },
+      "greedy": true,
+      "max_action_tokens": 64,
+      "claim": "controlled action conditioning probe, not financial research performance"
+    },
+    "actor_provenance": {
+      "base_model": {
+        "model_id": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "model_card_license": "apache-2.0",
+        "source": "https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca",
+        "weights_published_in_repository": false
+      },
+      "sampling_distribution": "untruncated autoregressive softmax",
+      "generation_config": {
+        "max_length": 20,
+        "max_new_tokens": null,
+        "min_length": 0,
+        "min_new_tokens": null,
+        "early_stopping": false,
+        "max_time": null,
+        "stop_strings": null,
+        "do_sample": true,
+        "num_beams": 1,
+        "use_cache": true,
+        "cache_implementation": null,
+        "cache_config": null,
+        "return_legacy_cache": null,
+        "prefill_chunk_size": null,
+        "temperature": 1.0,
+        "top_k": 0,
+        "top_p": 1.0,
+        "min_p": null,
+        "typical_p": 1.0,
+        "epsilon_cutoff": 0.0,
+        "eta_cutoff": 0.0,
+        "repetition_penalty": 1.0,
+        "encoder_repetition_penalty": 1.0,
+        "length_penalty": 1.0,
+        "no_repeat_ngram_size": 0,
+        "bad_words_ids": null,
+        "renormalize_logits": false,
+        "forced_bos_token_id": null,
+        "forced_eos_token_id": null,
+        "remove_invalid_values": false,
+        "exponential_decay_length_penalty": null,
+        "suppress_tokens": null,
+        "begin_suppress_tokens": null,
+        "sequence_bias": null,
+        "token_healing": false,
+        "guidance_scale": null,
+        "watermarking_config": null,
+        "num_return_sequences": 1,
+        "output_attentions": false,
+        "output_hidden_states": false,
+        "output_scores": false,
+        "output_logits": null,
+        "return_dict_in_generate": false,
+        "pad_token_id": 151645,
+        "bos_token_id": null,
+        "eos_token_id": [
+          151645,
+          151643
+        ],
+        "encoder_no_repeat_ngram_size": 0,
+        "decoder_start_token_id": null,
+        "is_assistant": false,
+        "num_assistant_tokens": 20,
+        "num_assistant_tokens_schedule": "constant",
+        "assistant_confidence_threshold": 0.4,
+        "prompt_lookup_num_tokens": null,
+        "max_matching_ngram_size": null,
+        "assistant_early_exit": null,
+        "assistant_lookbehind": 10,
+        "target_lookbehind": 10,
+        "disable_compile": false,
+        "low_memory": null,
+        "penalty_alpha": null,
+        "dola_layers": null,
+        "diversity_penalty": 0.0,
+        "num_beam_groups": 1,
+        "constraints": null,
+        "force_words_ids": null,
+        "_from_model_config": false,
+        "transformers_version": "4.57.6"
+      },
+      "use_model_defaults": false,
+      "max_prompt_tokens": 4096,
+      "lora_trainable": false,
+      "starting_adapter_name": "curriculum-v2"
+    }
+  },
+  "summary": {
+    "n_pairs": 24,
+    "n_examples": 48,
+    "both_correct_rate": 0.3333333333333333,
+    "action_changed_rate": 0.5,
+    "example_accuracy": 0.625,
+    "terminated_rate": 1.0,
+    "json_object_valid_rate": 1.0,
+    "by_family": {
+      "mixed_composition": {
+        "pairs": 12,
+        "both_correct_rate": 0.25
+      },
+      "restricted_returns": {
+        "pairs": 12,
+        "both_correct_rate": 0.4166666666666667
+      }
+    },
+    "by_category": {
+      "generation": {
+        "examples": 24,
+        "accuracy": 0.4166666666666667
+      },
+      "selection": {
+        "examples": 24,
+        "accuracy": 0.8333333333333334
+      }
+    }
+  },
+  "pairs": [
+    {
+      "pair_id": "dev:0:selection",
+      "task_id": "constructed-feedback-v2:dev:6000",
+      "family": "mixed_composition",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "select",
+            "candidate": 0
+          },
+          "predicted": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "select",
+            "candidate": 1
+          },
+          "predicted": {
+            "action": "select",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"select\",\"candidate\":1}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        }
+      ],
+      "both_correct": false,
+      "action_changed": true
+    },
+    {
+      "pair_id": "dev:0:generation",
+      "task_id": "constructed-feedback-v2:dev:6000",
+      "family": "mixed_composition",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "propose",
+            "expression": "ts_mean(div(ts_mean(returns,5),ts_std(returns,20)),3)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 0,
+            "expression": "ts_mean(div(ts_mean(returns,5),ts_std(returns,20)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":0,\"expression\":\"ts_mean(div(ts_mean(returns,5),ts_std(returns,20)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "mutate",
+            "candidate": 0,
+            "expression": "ts_mean(div(ts_mean(returns,5),ts_std(returns,20)),10)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 0,
+            "expression": "ts_mean(div(ts_mean(returns,5),ts_std(returns,20)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":0,\"expression\":\"ts_mean(div(ts_mean(returns,5),ts_std(returns,20)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": true
+        }
+      ],
+      "both_correct": false,
+      "action_changed": false
+    },
+    {
+      "pair_id": "dev:1:selection",
+      "task_id": "constructed-feedback-v2:dev:6001",
+      "family": "mixed_composition",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "select",
+            "candidate": 1
+          },
+          "predicted": {
+            "action": "select",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"select\",\"candidate\":1}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "select",
+            "candidate": 2
+          },
+          "predicted": {
+            "action": "select",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"select\",\"candidate\":2}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        }
+      ],
+      "both_correct": true,
+      "action_changed": true
+    },
+    {
+      "pair_id": "dev:1:generation",
+      "task_id": "constructed-feedback-v2:dev:6001",
+      "family": "mixed_composition",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "propose",
+            "expression": "ts_mean(sub(ts_mean(returns,3),ts_mean(returns,20)),3)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 1,
+            "expression": "ts_mean(sub(ts_mean(returns,3),ts_mean(returns,20)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":1,\"expression\":\"ts_mean(sub(ts_mean(returns,3),ts_mean(returns,20)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "mutate",
+            "candidate": 1,
+            "expression": "ts_mean(sub(ts_mean(returns,3),ts_mean(returns,20)),10)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 1,
+            "expression": "ts_mean(ts_mean(returns,3),ts_mean(ts_mean(returns,3),10))"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":1,\"expression\":\"ts_mean(ts_mean(returns,3),ts_mean(ts_mean(returns,3),10))\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": false
+        }
+      ],
+      "both_correct": false,
+      "action_changed": true
+    },
+    {
+      "pair_id": "dev:2:selection",
+      "task_id": "constructed-feedback-v2:dev:6002",
+      "family": "mixed_composition",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "select",
+            "candidate": 2
+          },
+          "predicted": {
+            "action": "select",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"select\",\"candidate\":2}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "select",
+            "candidate": 3
+          },
+          "predicted": {
+            "action": "select",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"select\",\"candidate\":3}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        }
+      ],
+      "both_correct": true,
+      "action_changed": true
+    },
+    {
+      "pair_id": "dev:2:generation",
+      "task_id": "constructed-feedback-v2:dev:6002",
+      "family": "mixed_composition",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "propose",
+            "expression": "ts_mean(sub(ts_mean(returns,3),ts_mean(returns,20)),3)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 2,
+            "expression": "ts_mean(sub(ts_mean(returns,3),ts_mean(returns,20)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":2,\"expression\":\"ts_mean(sub(ts_mean(returns,3),ts_mean(returns,20)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "mutate",
+            "candidate": 2,
+            "expression": "ts_mean(sub(ts_mean(returns,3),ts_mean(returns,20)),10)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 2,
+            "expression": "ts_mean(sub(ts_mean(returns,3),ts_mean(returns,20)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":2,\"expression\":\"ts_mean(sub(ts_mean(returns,3),ts_mean(returns,20)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": true
+        }
+      ],
+      "both_correct": false,
+      "action_changed": false
+    },
+    {
+      "pair_id": "dev:3:selection",
+      "task_id": "constructed-feedback-v2:dev:6003",
+      "family": "mixed_composition",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "select",
+            "candidate": 3
+          },
+          "predicted": {
+            "action": "select",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"select\",\"candidate\":3}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "select",
+            "candidate": 0
+          },
+          "predicted": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": false
+        }
+      ],
+      "both_correct": false,
+      "action_changed": true
+    },
+    {
+      "pair_id": "dev:3:generation",
+      "task_id": "constructed-feedback-v2:dev:6003",
+      "family": "mixed_composition",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "propose",
+            "expression": "ts_mean(mul(returns,div(volume,ts_mean(volume,5))),3)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 3,
+            "expression": "ts_mean(ts_mean(returns,3),ts_mean(ts_mean(returns,5),10))"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":3,\"expression\":\"ts_mean(ts_mean(returns,3),ts_mean(ts_mean(returns,5),10))\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "mutate",
+            "candidate": 3,
+            "expression": "ts_mean(mul(returns,div(volume,ts_mean(volume,5))),10)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 3,
+            "expression": "ts_mean(ts_mean(returns,3),ts_mean(ts_mean(returns,5),10))"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":3,\"expression\":\"ts_mean(ts_mean(returns,3),ts_mean(ts_mean(returns,5),10))\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": false
+        }
+      ],
+      "both_correct": false,
+      "action_changed": false
+    },
+    {
+      "pair_id": "dev:4:selection",
+      "task_id": "constructed-feedback-v2:dev:6004",
+      "family": "mixed_composition",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "select",
+            "candidate": 0
+          },
+          "predicted": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "select",
+            "candidate": 1
+          },
+          "predicted": {
+            "action": "select",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"select\",\"candidate\":1}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        }
+      ],
+      "both_correct": false,
+      "action_changed": true
+    },
+    {
+      "pair_id": "dev:4:generation",
+      "task_id": "constructed-feedback-v2:dev:6004",
+      "family": "mixed_composition",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "propose",
+            "expression": "ts_mean(add(returns,delta(log(volume),1)),3)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 0,
+            "expression": "ts_mean(add(returns,delta(log(volume),1)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":0,\"expression\":\"ts_mean(add(returns,delta(log(volume),1)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "mutate",
+            "candidate": 0,
+            "expression": "ts_mean(add(returns,delta(log(volume),1)),10)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 0,
+            "expression": "ts_mean(add(returns,delta(log(volume),1)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":0,\"expression\":\"ts_mean(add(returns,delta(log(volume),1)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": true
+        }
+      ],
+      "both_correct": false,
+      "action_changed": false
+    },
+    {
+      "pair_id": "dev:5:selection",
+      "task_id": "constructed-feedback-v2:dev:6005",
+      "family": "mixed_composition",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "select",
+            "candidate": 1
+          },
+          "predicted": {
+            "action": "select",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"select\",\"candidate\":1}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "select",
+            "candidate": 2
+          },
+          "predicted": {
+            "action": "select",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"select\",\"candidate\":2}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        }
+      ],
+      "both_correct": true,
+      "action_changed": true
+    },
+    {
+      "pair_id": "dev:5:generation",
+      "task_id": "constructed-feedback-v2:dev:6005",
+      "family": "mixed_composition",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "propose",
+            "expression": "ts_mean(div(ts_mean(returns,5),ts_std(returns,20)),3)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 1,
+            "expression": "ts_mean(div(ts_mean(returns,5),ts_std(returns,20)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":1,\"expression\":\"ts_mean(div(ts_mean(returns,5),ts_std(returns,20)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "mutate",
+            "candidate": 1,
+            "expression": "ts_mean(div(ts_mean(returns,5),ts_std(returns,20)),10)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 1,
+            "expression": "ts_mean(div(ts_mean(returns,5),ts_std(returns,20)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":1,\"expression\":\"ts_mean(div(ts_mean(returns,5),ts_std(returns,20)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": true
+        }
+      ],
+      "both_correct": false,
+      "action_changed": false
+    },
+    {
+      "pair_id": "dev:6:selection",
+      "task_id": "constructed-feedback-v2:dev:6006",
+      "family": "restricted_returns",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "select",
+            "candidate": 2
+          },
+          "predicted": {
+            "action": "select",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"select\",\"candidate\":2}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "stop"
+          },
+          "predicted": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        }
+      ],
+      "both_correct": true,
+      "action_changed": true
+    },
+    {
+      "pair_id": "dev:6:generation",
+      "task_id": "constructed-feedback-v2:dev:6006",
+      "family": "restricted_returns",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "propose",
+            "expression": "ts_mean(div(returns,ts_std(returns,10)),3)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 2,
+            "expression": "ts_mean(div(returns,ts_std(returns,10)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":2,\"expression\":\"ts_mean(div(returns,ts_std(returns,10)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "mutate",
+            "candidate": 2,
+            "expression": "ts_mean(div(returns,ts_std(returns,10)),10)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 2,
+            "expression": "ts_mean(div(returns,ts_std(returns,10)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":2,\"expression\":\"ts_mean(div(returns,ts_std(returns,10)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": true
+        }
+      ],
+      "both_correct": false,
+      "action_changed": false
+    },
+    {
+      "pair_id": "dev:7:selection",
+      "task_id": "constructed-feedback-v2:dev:6007",
+      "family": "restricted_returns",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "select",
+            "candidate": 3
+          },
+          "predicted": {
+            "action": "select",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"select\",\"candidate\":3}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "stop"
+          },
+          "predicted": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        }
+      ],
+      "both_correct": true,
+      "action_changed": true
+    },
+    {
+      "pair_id": "dev:7:generation",
+      "task_id": "constructed-feedback-v2:dev:6007",
+      "family": "restricted_returns",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "propose",
+            "expression": "ts_mean(ts_mean(returns,10),3)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 3,
+            "expression": "ts_mean(ts_mean(returns,10),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":3,\"expression\":\"ts_mean(ts_mean(returns,10),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "mutate",
+            "candidate": 3,
+            "expression": "ts_mean(ts_mean(returns,10),10)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 3,
+            "expression": "ts_mean(ts_mean(returns,10),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":3,\"expression\":\"ts_mean(ts_mean(returns,10),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": true
+        }
+      ],
+      "both_correct": false,
+      "action_changed": false
+    },
+    {
+      "pair_id": "dev:8:selection",
+      "task_id": "constructed-feedback-v2:dev:6008",
+      "family": "restricted_returns",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "select",
+            "candidate": 0
+          },
+          "predicted": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "stop"
+          },
+          "predicted": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        }
+      ],
+      "both_correct": false,
+      "action_changed": false
+    },
+    {
+      "pair_id": "dev:8:generation",
+      "task_id": "constructed-feedback-v2:dev:6008",
+      "family": "restricted_returns",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "propose",
+            "expression": "ts_mean(delta(returns,3),3)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 0,
+            "expression": "ts_mean(delta(returns,3),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":0,\"expression\":\"ts_mean(delta(returns,3),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "mutate",
+            "candidate": 0,
+            "expression": "ts_mean(delta(returns,3),10)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 0,
+            "expression": "ts_mean(delta(returns,3),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":0,\"expression\":\"ts_mean(delta(returns,3),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": true
+        }
+      ],
+      "both_correct": false,
+      "action_changed": false
+    },
+    {
+      "pair_id": "dev:9:selection",
+      "task_id": "constructed-feedback-v2:dev:6009",
+      "family": "restricted_returns",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "select",
+            "candidate": 1
+          },
+          "predicted": {
+            "action": "select",
+            "candidate": 1
+          },
+          "text": "{\"action\":\"select\",\"candidate\":1}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "stop"
+          },
+          "predicted": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        }
+      ],
+      "both_correct": true,
+      "action_changed": true
+    },
+    {
+      "pair_id": "dev:9:generation",
+      "task_id": "constructed-feedback-v2:dev:6009",
+      "family": "restricted_returns",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "propose",
+            "expression": "ts_mean(div(returns,ts_std(returns,10)),3)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 1,
+            "expression": "ts_mean(div(returns,ts_std(returns,10)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":1,\"expression\":\"ts_mean(div(returns,ts_std(returns,10)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "mutate",
+            "candidate": 1,
+            "expression": "ts_mean(div(returns,ts_std(returns,10)),10)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 1,
+            "expression": "ts_mean(div(returns,ts_std(returns,10)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":1,\"expression\":\"ts_mean(div(returns,ts_std(returns,10)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": true
+        }
+      ],
+      "both_correct": false,
+      "action_changed": false
+    },
+    {
+      "pair_id": "dev:10:selection",
+      "task_id": "constructed-feedback-v2:dev:6010",
+      "family": "restricted_returns",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "select",
+            "candidate": 2
+          },
+          "predicted": {
+            "action": "select",
+            "candidate": 2
+          },
+          "text": "{\"action\":\"select\",\"candidate\":2}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "stop"
+          },
+          "predicted": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        }
+      ],
+      "both_correct": true,
+      "action_changed": true
+    },
+    {
+      "pair_id": "dev:10:generation",
+      "task_id": "constructed-feedback-v2:dev:6010",
+      "family": "restricted_returns",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "propose",
+            "expression": "ts_mean(div(returns,ts_std(returns,10)),3)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 2,
+            "expression": "ts_mean(div(returns,ts_std(returns,10)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":2,\"expression\":\"ts_mean(div(returns,ts_std(returns,10)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "mutate",
+            "candidate": 2,
+            "expression": "ts_mean(div(returns,ts_std(returns,10)),10)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 2,
+            "expression": "ts_mean(div(returns,ts_std(returns,10)),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":2,\"expression\":\"ts_mean(div(returns,ts_std(returns,10)),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": true
+        }
+      ],
+      "both_correct": false,
+      "action_changed": false
+    },
+    {
+      "pair_id": "dev:11:selection",
+      "task_id": "constructed-feedback-v2:dev:6011",
+      "family": "restricted_returns",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "select",
+            "candidate": 3
+          },
+          "predicted": {
+            "action": "select",
+            "candidate": 3
+          },
+          "text": "{\"action\":\"select\",\"candidate\":3}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "stop"
+          },
+          "predicted": {
+            "action": "stop"
+          },
+          "text": "{\"action\":\"stop\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "selection",
+          "correct": true
+        }
+      ],
+      "both_correct": true,
+      "action_changed": true
+    },
+    {
+      "pair_id": "dev:11:generation",
+      "task_id": "constructed-feedback-v2:dev:6011",
+      "family": "restricted_returns",
+      "sides": [
+        {
+          "side": "left",
+          "expected": {
+            "action": "propose",
+            "expression": "ts_mean(delta(returns,3),3)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 3,
+            "expression": "ts_mean(delta(returns,3),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":3,\"expression\":\"ts_mean(delta(returns,3),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": false
+        },
+        {
+          "side": "right",
+          "expected": {
+            "action": "mutate",
+            "candidate": 3,
+            "expression": "ts_mean(delta(returns,3),10)"
+          },
+          "predicted": {
+            "action": "mutate",
+            "candidate": 3,
+            "expression": "ts_mean(delta(returns,3),10)"
+          },
+          "text": "{\"action\":\"mutate\",\"candidate\":3,\"expression\":\"ts_mean(delta(returns,3),10)\"}",
+          "terminated": true,
+          "json_object_valid": true,
+          "category": "generation",
+          "correct": true
+        }
+      ],
+      "both_correct": false,
+      "action_changed": false
+    }
+  ]
+}

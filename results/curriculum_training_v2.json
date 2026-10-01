@@ -1,0 +1,3356 @@
+{
+  "manifest": {
+    "created_utc": "2026-10-01T03:46:19.056137+00:00",
+    "python": "3.12.14",
+    "platform": "Windows",
+    "packages": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "torch": "2.8.0+cu128",
+      "transformers": "4.57.6",
+      "peft": "0.18.1"
+    },
+    "git_revision": "4b96a878cdd0658136c1d383ee7604eee41378ef",
+    "source_sha256": "2a0ecd6c2d27c1c08b7d135b2fa6635a258a8ead5c202d1235ce719bed0a5ae7",
+    "config": {
+      "study": "constructed-feedback-curriculum-v2",
+      "seed": 47,
+      "epochs": 2,
+      "learning_rate": 0.0001,
+      "grad_clip": 1.0,
+      "adamw_weight_decay": 0.01,
+      "adamw_betas": [
+        0.9,
+        0.999
+      ],
+      "dataset_sha256": "4e6e3d6b49f69275d244e52aec3d28ec58b74776419cfa82e4c77ebf2bbe4537",
+      "dataset_metadata": {
+        "version": "constructed-feedback-v2",
+        "split": "train",
+        "data_kind": "explicitly_constructed_feedback_curriculum",
+        "no_financial_or_discovery_evidence": true,
+        "teacher_inputs": "public observation only",
+        "seeds": [
+          5000,
+          5001,
+          5002,
+          5003,
+          5004,
+          5005,
+          5006,
+          5007,
+          5008,
+          5009,
+          5010,
+          5011,
+          5012,
+          5013,
+          5014,
+          5015,
+          5016,
+          5017,
+          5018,
+          5019,
+          5020,
+          5021,
+          5022,
+          5023,
+          5024,
+          5025,
+          5026,
+          5027,
+          5028,
+          5029,
+          5030,
+          5031
+        ],
+        "families": [
+          "return_levels",
+          "volume_changes",
+          "price_transforms",
+          "volatility"
+        ],
+        "partition_before_permutation": true,
+        "n_examples": 192,
+        "category_counts": {
+          "control": 64,
+          "selection": 64,
+          "generation": 64
+        },
+        "action_counts": {
+          "screen": 16,
+          "select": 32,
+          "stop": 64,
+          "propose": 32,
+          "mutate": 32,
+          "stability": 16
+        },
+        "select_threshold": 0.04,
+        "mutate_threshold": 0.14,
+        "diagnostic_std_threshold": 0.15,
+        "declared_feedback_dates": 80,
+        "valid_date_requirement": 64,
+        "propose_lookback": 3,
+        "mutate_lookback": 10,
+        "actor_prompt_fields": [
+          "observation"
+        ],
+        "limitations": [
+          "constructed scores have no associated panel or assessment labels",
+          "teacher is a transparent heuristic, not an optimal research policy",
+          "dev generation family/AST transfer is grammar transfer, not discovery"
+        ]
+      },
+      "claim": "constructed feedback conditioning, not financial research performance"
+    },
+    "actor": {
+      "base_model": {
+        "model_id": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "model_card_license": "apache-2.0",
+        "source": "https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca",
+        "weights_published_in_repository": false
+      },
+      "sampling_distribution": "untruncated autoregressive softmax",
+      "generation_config": {
+        "max_length": 20,
+        "max_new_tokens": null,
+        "min_length": 0,
+        "min_new_tokens": null,
+        "early_stopping": false,
+        "max_time": null,
+        "stop_strings": null,
+        "do_sample": true,
+        "num_beams": 1,
+        "use_cache": true,
+        "cache_implementation": null,
+        "cache_config": null,
+        "return_legacy_cache": null,
+        "prefill_chunk_size": null,
+        "temperature": 1.0,
+        "top_k": 0,
+        "top_p": 1.0,
+        "min_p": null,
+        "typical_p": 1.0,
+        "epsilon_cutoff": 0.0,
+        "eta_cutoff": 0.0,
+        "repetition_penalty": 1.0,
+        "encoder_repetition_penalty": 1.0,
+        "length_penalty": 1.0,
+        "no_repeat_ngram_size": 0,
+        "bad_words_ids": null,
+        "renormalize_logits": false,
+        "forced_bos_token_id": null,
+        "forced_eos_token_id": null,
+        "remove_invalid_values": false,
+        "exponential_decay_length_penalty": null,
+        "suppress_tokens": null,
+        "begin_suppress_tokens": null,
+        "sequence_bias": null,
+        "token_healing": false,
+        "guidance_scale": null,
+        "watermarking_config": null,
+        "num_return_sequences": 1,
+        "output_attentions": false,
+        "output_hidden_states": false,
+        "output_scores": false,
+        "output_logits": null,
+        "return_dict_in_generate": false,
+        "pad_token_id": 151645,
+        "bos_token_id": null,
+        "eos_token_id": [
+          151645,
+          151643
+        ],
+        "encoder_no_repeat_ngram_size": 0,
+        "decoder_start_token_id": null,
+        "is_assistant": false,
+        "num_assistant_tokens": 20,
+        "num_assistant_tokens_schedule": "constant",
+        "assistant_confidence_threshold": 0.4,
+        "prompt_lookup_num_tokens": null,
+        "max_matching_ngram_size": null,
+        "assistant_early_exit": null,
+        "assistant_lookbehind": 10,
+        "target_lookbehind": 10,
+        "disable_compile": false,
+        "low_memory": null,
+        "penalty_alpha": null,
+        "dola_layers": null,
+        "diversity_penalty": 0.0,
+        "num_beam_groups": 1,
+        "constraints": null,
+        "force_words_ids": null,
+        "_from_model_config": false,
+        "transformers_version": "4.57.6"
+      },
+      "max_prompt_tokens": 4096,
+      "lora_trainable": true,
+      "starting_adapter_name": "sft-v1"
+    }
+  },
+  "adapter_before": "46e89788c8bc2a8cef11ba401f8729ea94df2c103598319772b2919bf2047148",
+  "adapter_after": "de61809e546eaaa68052309ecf21e23b0f6841db1560584281977faaeb23e185",
+  "n_examples": 192,
+  "updates": [
+    {
+      "epoch": 0,
+      "step": 0,
+      "task_id": "constructed-feedback-v2:train:5004",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.5766327381134033,
+      "preclip_grad_norm": 18.047609329223633
+    },
+    {
+      "epoch": 0,
+      "step": 1,
+      "task_id": "constructed-feedback-v2:train:5027",
+      "family": "volatility",
+      "loss_per_completion_token": 0.255460649728775,
+      "preclip_grad_norm": 7.844301223754883
+    },
+    {
+      "epoch": 0,
+      "step": 2,
+      "task_id": "constructed-feedback-v2:train:5026",
+      "family": "volatility",
+      "loss_per_completion_token": 0.6704225540161133,
+      "preclip_grad_norm": 20.232280731201172
+    },
+    {
+      "epoch": 0,
+      "step": 3,
+      "task_id": "constructed-feedback-v2:train:5005",
+      "family": "return_levels",
+      "loss_per_completion_token": 1.441202998161316,
+      "preclip_grad_norm": 11.56510066986084
+    },
+    {
+      "epoch": 0,
+      "step": 4,
+      "task_id": "constructed-feedback-v2:train:5008",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.576026439666748,
+      "preclip_grad_norm": 17.578948974609375
+    },
+    {
+      "epoch": 0,
+      "step": 5,
+      "task_id": "constructed-feedback-v2:train:5006",
+      "family": "return_levels",
+      "loss_per_completion_token": 1.024912714958191,
+      "preclip_grad_norm": 8.83687686920166
+    },
+    {
+      "epoch": 0,
+      "step": 6,
+      "task_id": "constructed-feedback-v2:train:5018",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.8780435919761658,
+      "preclip_grad_norm": 5.377894401550293
+    },
+    {
+      "epoch": 0,
+      "step": 7,
+      "task_id": "constructed-feedback-v2:train:5003",
+      "family": "return_levels",
+      "loss_per_completion_token": 1.1884160041809082,
+      "preclip_grad_norm": 7.848007678985596
+    },
+    {
+      "epoch": 0,
+      "step": 8,
+      "task_id": "constructed-feedback-v2:train:5006",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.013507377356290817,
+      "preclip_grad_norm": 0.894383430480957
+    },
+    {
+      "epoch": 0,
+      "step": 9,
+      "task_id": "constructed-feedback-v2:train:5028",
+      "family": "volatility",
+      "loss_per_completion_token": 0.47526341676712036,
+      "preclip_grad_norm": 7.3579511642456055
+    },
+    {
+      "epoch": 0,
+      "step": 10,
+      "task_id": "constructed-feedback-v2:train:5030",
+      "family": "volatility",
+      "loss_per_completion_token": 0.7672311663627625,
+      "preclip_grad_norm": 8.190558433532715
+    },
+    {
+      "epoch": 0,
+      "step": 11,
+      "task_id": "constructed-feedback-v2:train:5028",
+      "family": "volatility",
+      "loss_per_completion_token": 0.8910301923751831,
+      "preclip_grad_norm": 7.773487091064453
+    },
+    {
+      "epoch": 0,
+      "step": 12,
+      "task_id": "constructed-feedback-v2:train:5002",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.5876752138137817,
+      "preclip_grad_norm": 8.19360637664795
+    },
+    {
+      "epoch": 0,
+      "step": 13,
+      "task_id": "constructed-feedback-v2:train:5014",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.009037586860358715,
+      "preclip_grad_norm": 0.48044025897979736
+    },
+    {
+      "epoch": 0,
+      "step": 14,
+      "task_id": "constructed-feedback-v2:train:5013",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.5842096209526062,
+      "preclip_grad_norm": 3.5612845420837402
+    },
+    {
+      "epoch": 0,
+      "step": 15,
+      "task_id": "constructed-feedback-v2:train:5029",
+      "family": "volatility",
+      "loss_per_completion_token": 1.0688661336898804,
+      "preclip_grad_norm": 6.194129467010498
+    },
+    {
+      "epoch": 0,
+      "step": 16,
+      "task_id": "constructed-feedback-v2:train:5014",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.3605053126811981,
+      "preclip_grad_norm": 5.102190971374512
+    },
+    {
+      "epoch": 0,
+      "step": 17,
+      "task_id": "constructed-feedback-v2:train:5014",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.15027529001235962,
+      "preclip_grad_norm": 5.026360988616943
+    },
+    {
+      "epoch": 0,
+      "step": 18,
+      "task_id": "constructed-feedback-v2:train:5016",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.6584928035736084,
+      "preclip_grad_norm": 5.7353925704956055
+    },
+    {
+      "epoch": 0,
+      "step": 19,
+      "task_id": "constructed-feedback-v2:train:5031",
+      "family": "volatility",
+      "loss_per_completion_token": 0.12332534044981003,
+      "preclip_grad_norm": 2.6088314056396484
+    },
+    {
+      "epoch": 0,
+      "step": 20,
+      "task_id": "constructed-feedback-v2:train:5006",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.4842384159564972,
+      "preclip_grad_norm": 5.573191165924072
+    },
+    {
+      "epoch": 0,
+      "step": 21,
+      "task_id": "constructed-feedback-v2:train:5024",
+      "family": "volatility",
+      "loss_per_completion_token": 0.3094732463359833,
+      "preclip_grad_norm": 8.154987335205078
+    },
+    {
+      "epoch": 0,
+      "step": 22,
+      "task_id": "constructed-feedback-v2:train:5007",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.24265079200267792,
+      "preclip_grad_norm": 2.6572601795196533
+    },
+    {
+      "epoch": 0,
+      "step": 23,
+      "task_id": "constructed-feedback-v2:train:5031",
+      "family": "volatility",
+      "loss_per_completion_token": 0.037813782691955566,
+      "preclip_grad_norm": 2.200897693634033
+    },
+    {
+      "epoch": 0,
+      "step": 24,
+      "task_id": "constructed-feedback-v2:train:5010",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.7806950807571411,
+      "preclip_grad_norm": 5.746199607849121
+    },
+    {
+      "epoch": 0,
+      "step": 25,
+      "task_id": "constructed-feedback-v2:train:5016",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.36451947689056396,
+      "preclip_grad_norm": 4.1544928550720215
+    },
+    {
+      "epoch": 0,
+      "step": 26,
+      "task_id": "constructed-feedback-v2:train:5011",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.28434547781944275,
+      "preclip_grad_norm": 2.4885778427124023
+    },
+    {
+      "epoch": 0,
+      "step": 27,
+      "task_id": "constructed-feedback-v2:train:5000",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.5031479597091675,
+      "preclip_grad_norm": 7.766475677490234
+    },
+    {
+      "epoch": 0,
+      "step": 28,
+      "task_id": "constructed-feedback-v2:train:5003",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.175214484333992,
+      "preclip_grad_norm": 2.6881988048553467
+    },
+    {
+      "epoch": 0,
+      "step": 29,
+      "task_id": "constructed-feedback-v2:train:5010",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.13824462890625,
+      "preclip_grad_norm": 5.94607400894165
+    },
+    {
+      "epoch": 0,
+      "step": 30,
+      "task_id": "constructed-feedback-v2:train:5021",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.4770437479019165,
+      "preclip_grad_norm": 3.575859308242798
+    },
+    {
+      "epoch": 0,
+      "step": 31,
+      "task_id": "constructed-feedback-v2:train:5003",
+      "family": "return_levels",
+      "loss_per_completion_token": 1.0417064428329468,
+      "preclip_grad_norm": 10.383505821228027
+    },
+    {
+      "epoch": 0,
+      "step": 32,
+      "task_id": "constructed-feedback-v2:train:5004",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.3246784806251526,
+      "preclip_grad_norm": 4.088006019592285
+    },
+    {
+      "epoch": 0,
+      "step": 33,
+      "task_id": "constructed-feedback-v2:train:5001",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.7222565412521362,
+      "preclip_grad_norm": 6.487640857696533
+    },
+    {
+      "epoch": 0,
+      "step": 34,
+      "task_id": "constructed-feedback-v2:train:5016",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.7928525805473328,
+      "preclip_grad_norm": 9.212318420410156
+    },
+    {
+      "epoch": 0,
+      "step": 35,
+      "task_id": "constructed-feedback-v2:train:5001",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.5458711385726929,
+      "preclip_grad_norm": 5.925830841064453
+    },
+    {
+      "epoch": 0,
+      "step": 36,
+      "task_id": "constructed-feedback-v2:train:5008",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.22257384657859802,
+      "preclip_grad_norm": 4.749607086181641
+    },
+    {
+      "epoch": 0,
+      "step": 37,
+      "task_id": "constructed-feedback-v2:train:5009",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.1896710842847824,
+      "preclip_grad_norm": 4.00439977645874
+    },
+    {
+      "epoch": 0,
+      "step": 38,
+      "task_id": "constructed-feedback-v2:train:5029",
+      "family": "volatility",
+      "loss_per_completion_token": 0.34535831212997437,
+      "preclip_grad_norm": 3.2121238708496094
+    },
+    {
+      "epoch": 0,
+      "step": 39,
+      "task_id": "constructed-feedback-v2:train:5007",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.2517581582069397,
+      "preclip_grad_norm": 3.6130597591400146
+    },
+    {
+      "epoch": 0,
+      "step": 40,
+      "task_id": "constructed-feedback-v2:train:5021",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.26432138681411743,
+      "preclip_grad_norm": 3.650630474090576
+    },
+    {
+      "epoch": 0,
+      "step": 41,
+      "task_id": "constructed-feedback-v2:train:5011",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.06345159560441971,
+      "preclip_grad_norm": 2.449720621109009
+    },
+    {
+      "epoch": 0,
+      "step": 42,
+      "task_id": "constructed-feedback-v2:train:5007",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.24152138829231262,
+      "preclip_grad_norm": 2.9324803352355957
+    },
+    {
+      "epoch": 0,
+      "step": 43,
+      "task_id": "constructed-feedback-v2:train:5022",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.18987879157066345,
+      "preclip_grad_norm": 3.120262622833252
+    },
+    {
+      "epoch": 0,
+      "step": 44,
+      "task_id": "constructed-feedback-v2:train:5005",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.2974412739276886,
+      "preclip_grad_norm": 3.264866828918457
+    },
+    {
+      "epoch": 0,
+      "step": 45,
+      "task_id": "constructed-feedback-v2:train:5020",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.12956352531909943,
+      "preclip_grad_norm": 2.994628429412842
+    },
+    {
+      "epoch": 0,
+      "step": 46,
+      "task_id": "constructed-feedback-v2:train:5022",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.2314113825559616,
+      "preclip_grad_norm": 2.8456103801727295
+    },
+    {
+      "epoch": 0,
+      "step": 47,
+      "task_id": "constructed-feedback-v2:train:5004",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.06437809765338898,
+      "preclip_grad_norm": 1.4613021612167358
+    },
+    {
+      "epoch": 0,
+      "step": 48,
+      "task_id": "constructed-feedback-v2:train:5020",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.39331474900245667,
+      "preclip_grad_norm": 3.1586976051330566
+    },
+    {
+      "epoch": 0,
+      "step": 49,
+      "task_id": "constructed-feedback-v2:train:5031",
+      "family": "volatility",
+      "loss_per_completion_token": 0.4450138807296753,
+      "preclip_grad_norm": 4.523111820220947
+    },
+    {
+      "epoch": 0,
+      "step": 50,
+      "task_id": "constructed-feedback-v2:train:5022",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.22901558876037598,
+      "preclip_grad_norm": 5.190836429595947
+    },
+    {
+      "epoch": 0,
+      "step": 51,
+      "task_id": "constructed-feedback-v2:train:5025",
+      "family": "volatility",
+      "loss_per_completion_token": 0.011249377392232418,
+      "preclip_grad_norm": 0.4953173100948334
+    },
+    {
+      "epoch": 0,
+      "step": 52,
+      "task_id": "constructed-feedback-v2:train:5023",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.04561081901192665,
+      "preclip_grad_norm": 1.073994755744934
+    },
+    {
+      "epoch": 0,
+      "step": 53,
+      "task_id": "constructed-feedback-v2:train:5026",
+      "family": "volatility",
+      "loss_per_completion_token": 0.17096583545207977,
+      "preclip_grad_norm": 2.568690061569214
+    },
+    {
+      "epoch": 0,
+      "step": 54,
+      "task_id": "constructed-feedback-v2:train:5025",
+      "family": "volatility",
+      "loss_per_completion_token": 0.13850969076156616,
+      "preclip_grad_norm": 2.365793466567993
+    },
+    {
+      "epoch": 0,
+      "step": 55,
+      "task_id": "constructed-feedback-v2:train:5018",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.5076401233673096,
+      "preclip_grad_norm": 5.310446739196777
+    },
+    {
+      "epoch": 0,
+      "step": 56,
+      "task_id": "constructed-feedback-v2:train:5017",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.36480358242988586,
+      "preclip_grad_norm": 3.543576717376709
+    },
+    {
+      "epoch": 0,
+      "step": 57,
+      "task_id": "constructed-feedback-v2:train:5004",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.3211881220340729,
+      "preclip_grad_norm": 2.3675012588500977
+    },
+    {
+      "epoch": 0,
+      "step": 58,
+      "task_id": "constructed-feedback-v2:train:5000",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.22627651691436768,
+      "preclip_grad_norm": 4.908474445343018
+    },
+    {
+      "epoch": 0,
+      "step": 59,
+      "task_id": "constructed-feedback-v2:train:5025",
+      "family": "volatility",
+      "loss_per_completion_token": 0.0030413256026804447,
+      "preclip_grad_norm": 0.13866755366325378
+    },
+    {
+      "epoch": 0,
+      "step": 60,
+      "task_id": "constructed-feedback-v2:train:5015",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.04135185852646828,
+      "preclip_grad_norm": 1.3553541898727417
+    },
+    {
+      "epoch": 0,
+      "step": 61,
+      "task_id": "constructed-feedback-v2:train:5012",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.5071700811386108,
+      "preclip_grad_norm": 4.072614669799805
+    },
+    {
+      "epoch": 0,
+      "step": 62,
+      "task_id": "constructed-feedback-v2:train:5029",
+      "family": "volatility",
+      "loss_per_completion_token": 0.021017152816057205,
+      "preclip_grad_norm": 1.6759965419769287
+    },
+    {
+      "epoch": 0,
+      "step": 63,
+      "task_id": "constructed-feedback-v2:train:5003",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.6775157451629639,
+      "preclip_grad_norm": 12.343170166015625
+    },
+    {
+      "epoch": 0,
+      "step": 64,
+      "task_id": "constructed-feedback-v2:train:5009",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0016773216193541884,
+      "preclip_grad_norm": 0.07739302515983582
+    },
+    {
+      "epoch": 0,
+      "step": 65,
+      "task_id": "constructed-feedback-v2:train:5026",
+      "family": "volatility",
+      "loss_per_completion_token": 0.23751643300056458,
+      "preclip_grad_norm": 2.206056594848633
+    },
+    {
+      "epoch": 0,
+      "step": 66,
+      "task_id": "constructed-feedback-v2:train:5021",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.045480381697416306,
+      "preclip_grad_norm": 1.8735718727111816
+    },
+    {
+      "epoch": 0,
+      "step": 67,
+      "task_id": "constructed-feedback-v2:train:5002",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.35424694418907166,
+      "preclip_grad_norm": 5.036376953125
+    },
+    {
+      "epoch": 0,
+      "step": 68,
+      "task_id": "constructed-feedback-v2:train:5002",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.22644461691379547,
+      "preclip_grad_norm": 1.8482478857040405
+    },
+    {
+      "epoch": 0,
+      "step": 69,
+      "task_id": "constructed-feedback-v2:train:5017",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.3060302734375,
+      "preclip_grad_norm": 6.219223499298096
+    },
+    {
+      "epoch": 0,
+      "step": 70,
+      "task_id": "constructed-feedback-v2:train:5023",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.29224759340286255,
+      "preclip_grad_norm": 2.3937599658966064
+    },
+    {
+      "epoch": 0,
+      "step": 71,
+      "task_id": "constructed-feedback-v2:train:5012",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0027113081887364388,
+      "preclip_grad_norm": 0.12842337787151337
+    },
+    {
+      "epoch": 0,
+      "step": 72,
+      "task_id": "constructed-feedback-v2:train:5024",
+      "family": "volatility",
+      "loss_per_completion_token": 0.6087855696678162,
+      "preclip_grad_norm": 6.999402046203613
+    },
+    {
+      "epoch": 0,
+      "step": 73,
+      "task_id": "constructed-feedback-v2:train:5009",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0009097973816096783,
+      "preclip_grad_norm": 0.04547792673110962
+    },
+    {
+      "epoch": 0,
+      "step": 74,
+      "task_id": "constructed-feedback-v2:train:5000",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.06529469043016434,
+      "preclip_grad_norm": 1.6918919086456299
+    },
+    {
+      "epoch": 0,
+      "step": 75,
+      "task_id": "constructed-feedback-v2:train:5015",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.003023305907845497,
+      "preclip_grad_norm": 0.166350856423378
+    },
+    {
+      "epoch": 0,
+      "step": 76,
+      "task_id": "constructed-feedback-v2:train:5027",
+      "family": "volatility",
+      "loss_per_completion_token": 0.19363826513290405,
+      "preclip_grad_norm": 3.0638837814331055
+    },
+    {
+      "epoch": 0,
+      "step": 77,
+      "task_id": "constructed-feedback-v2:train:5015",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.17755098640918732,
+      "preclip_grad_norm": 1.8534226417541504
+    },
+    {
+      "epoch": 0,
+      "step": 78,
+      "task_id": "constructed-feedback-v2:train:5022",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.3903709352016449,
+      "preclip_grad_norm": 4.667202472686768
+    },
+    {
+      "epoch": 0,
+      "step": 79,
+      "task_id": "constructed-feedback-v2:train:5013",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0037586414255201817,
+      "preclip_grad_norm": 0.2097538411617279
+    },
+    {
+      "epoch": 0,
+      "step": 80,
+      "task_id": "constructed-feedback-v2:train:5026",
+      "family": "volatility",
+      "loss_per_completion_token": 0.16833710670471191,
+      "preclip_grad_norm": 1.4885237216949463
+    },
+    {
+      "epoch": 0,
+      "step": 81,
+      "task_id": "constructed-feedback-v2:train:5018",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.1376703977584839,
+      "preclip_grad_norm": 1.5417540073394775
+    },
+    {
+      "epoch": 0,
+      "step": 82,
+      "task_id": "constructed-feedback-v2:train:5028",
+      "family": "volatility",
+      "loss_per_completion_token": 0.004259208682924509,
+      "preclip_grad_norm": 0.19833552837371826
+    },
+    {
+      "epoch": 0,
+      "step": 83,
+      "task_id": "constructed-feedback-v2:train:5023",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.19548824429512024,
+      "preclip_grad_norm": 4.0371222496032715
+    },
+    {
+      "epoch": 0,
+      "step": 84,
+      "task_id": "constructed-feedback-v2:train:5030",
+      "family": "volatility",
+      "loss_per_completion_token": 0.2484057992696762,
+      "preclip_grad_norm": 2.523252248764038
+    },
+    {
+      "epoch": 0,
+      "step": 85,
+      "task_id": "constructed-feedback-v2:train:5016",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.4919300973415375,
+      "preclip_grad_norm": 6.4988532066345215
+    },
+    {
+      "epoch": 0,
+      "step": 86,
+      "task_id": "constructed-feedback-v2:train:5028",
+      "family": "volatility",
+      "loss_per_completion_token": 0.2574054002761841,
+      "preclip_grad_norm": 3.3346822261810303
+    },
+    {
+      "epoch": 0,
+      "step": 87,
+      "task_id": "constructed-feedback-v2:train:5019",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.16279977560043335,
+      "preclip_grad_norm": 4.008435249328613
+    },
+    {
+      "epoch": 0,
+      "step": 88,
+      "task_id": "constructed-feedback-v2:train:5028",
+      "family": "volatility",
+      "loss_per_completion_token": 0.0016951046418398619,
+      "preclip_grad_norm": 0.07149612903594971
+    },
+    {
+      "epoch": 0,
+      "step": 89,
+      "task_id": "constructed-feedback-v2:train:5006",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.031767696142196655,
+      "preclip_grad_norm": 0.8259128332138062
+    },
+    {
+      "epoch": 0,
+      "step": 90,
+      "task_id": "constructed-feedback-v2:train:5011",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.08140742778778076,
+      "preclip_grad_norm": 2.745457172393799
+    },
+    {
+      "epoch": 0,
+      "step": 91,
+      "task_id": "constructed-feedback-v2:train:5020",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.28145381808280945,
+      "preclip_grad_norm": 5.146744251251221
+    },
+    {
+      "epoch": 0,
+      "step": 92,
+      "task_id": "constructed-feedback-v2:train:5030",
+      "family": "volatility",
+      "loss_per_completion_token": 0.06154341623187065,
+      "preclip_grad_norm": 2.3097119331359863
+    },
+    {
+      "epoch": 0,
+      "step": 93,
+      "task_id": "constructed-feedback-v2:train:5031",
+      "family": "volatility",
+      "loss_per_completion_token": 0.1915285736322403,
+      "preclip_grad_norm": 2.126148223876953
+    },
+    {
+      "epoch": 0,
+      "step": 94,
+      "task_id": "constructed-feedback-v2:train:5005",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.015198355540633202,
+      "preclip_grad_norm": 0.5293934941291809
+    },
+    {
+      "epoch": 0,
+      "step": 95,
+      "task_id": "constructed-feedback-v2:train:5002",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.3474116921424866,
+      "preclip_grad_norm": 5.802785396575928
+    },
+    {
+      "epoch": 0,
+      "step": 96,
+      "task_id": "constructed-feedback-v2:train:5007",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.01499837078154087,
+      "preclip_grad_norm": 0.7558457255363464
+    },
+    {
+      "epoch": 0,
+      "step": 97,
+      "task_id": "constructed-feedback-v2:train:5019",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.4691177308559418,
+      "preclip_grad_norm": 7.106374740600586
+    },
+    {
+      "epoch": 0,
+      "step": 98,
+      "task_id": "constructed-feedback-v2:train:5017",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.4107794463634491,
+      "preclip_grad_norm": 5.731967926025391
+    },
+    {
+      "epoch": 0,
+      "step": 99,
+      "task_id": "constructed-feedback-v2:train:5015",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.004494872875511646,
+      "preclip_grad_norm": 0.25812095403671265
+    },
+    {
+      "epoch": 0,
+      "step": 100,
+      "task_id": "constructed-feedback-v2:train:5029",
+      "family": "volatility",
+      "loss_per_completion_token": 0.00666414899751544,
+      "preclip_grad_norm": 0.42896026372909546
+    },
+    {
+      "epoch": 0,
+      "step": 101,
+      "task_id": "constructed-feedback-v2:train:5004",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.011585901491343975,
+      "preclip_grad_norm": 0.45878198742866516
+    },
+    {
+      "epoch": 0,
+      "step": 102,
+      "task_id": "constructed-feedback-v2:train:5010",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.00263414578512311,
+      "preclip_grad_norm": 0.1681864857673645
+    },
+    {
+      "epoch": 0,
+      "step": 103,
+      "task_id": "constructed-feedback-v2:train:5000",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.6399869322776794,
+      "preclip_grad_norm": 7.963311672210693
+    },
+    {
+      "epoch": 0,
+      "step": 104,
+      "task_id": "constructed-feedback-v2:train:5005",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.5810893774032593,
+      "preclip_grad_norm": 6.814797878265381
+    },
+    {
+      "epoch": 0,
+      "step": 105,
+      "task_id": "constructed-feedback-v2:train:5008",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.5587772727012634,
+      "preclip_grad_norm": 10.167847633361816
+    },
+    {
+      "epoch": 0,
+      "step": 106,
+      "task_id": "constructed-feedback-v2:train:5023",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.3981020748615265,
+      "preclip_grad_norm": 6.114957809448242
+    },
+    {
+      "epoch": 0,
+      "step": 107,
+      "task_id": "constructed-feedback-v2:train:5005",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.011201919987797737,
+      "preclip_grad_norm": 0.38253939151763916
+    },
+    {
+      "epoch": 0,
+      "step": 108,
+      "task_id": "constructed-feedback-v2:train:5019",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.3642222583293915,
+      "preclip_grad_norm": 5.781350612640381
+    },
+    {
+      "epoch": 0,
+      "step": 109,
+      "task_id": "constructed-feedback-v2:train:5018",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.039570048451423645,
+      "preclip_grad_norm": 1.6015384197235107
+    },
+    {
+      "epoch": 0,
+      "step": 110,
+      "task_id": "constructed-feedback-v2:train:5001",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.45392394065856934,
+      "preclip_grad_norm": 4.87774658203125
+    },
+    {
+      "epoch": 0,
+      "step": 111,
+      "task_id": "constructed-feedback-v2:train:5010",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.33061346411705017,
+      "preclip_grad_norm": 4.112560272216797
+    },
+    {
+      "epoch": 0,
+      "step": 112,
+      "task_id": "constructed-feedback-v2:train:5009",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.3921651244163513,
+      "preclip_grad_norm": 4.9048895835876465
+    },
+    {
+      "epoch": 0,
+      "step": 113,
+      "task_id": "constructed-feedback-v2:train:5025",
+      "family": "volatility",
+      "loss_per_completion_token": 0.09271377325057983,
+      "preclip_grad_norm": 2.9473462104797363
+    },
+    {
+      "epoch": 0,
+      "step": 114,
+      "task_id": "constructed-feedback-v2:train:5002",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.1066138967871666,
+      "preclip_grad_norm": 3.4018282890319824
+    },
+    {
+      "epoch": 0,
+      "step": 115,
+      "task_id": "constructed-feedback-v2:train:5013",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.3358491361141205,
+      "preclip_grad_norm": 4.682234287261963
+    },
+    {
+      "epoch": 0,
+      "step": 116,
+      "task_id": "constructed-feedback-v2:train:5024",
+      "family": "volatility",
+      "loss_per_completion_token": 0.0007080561481416225,
+      "preclip_grad_norm": 0.05285642668604851
+    },
+    {
+      "epoch": 0,
+      "step": 117,
+      "task_id": "constructed-feedback-v2:train:5031",
+      "family": "volatility",
+      "loss_per_completion_token": 0.07264426350593567,
+      "preclip_grad_norm": 2.317253351211548
+    },
+    {
+      "epoch": 0,
+      "step": 118,
+      "task_id": "constructed-feedback-v2:train:5015",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0013127750717103481,
+      "preclip_grad_norm": 0.09898145496845245
+    },
+    {
+      "epoch": 0,
+      "step": 119,
+      "task_id": "constructed-feedback-v2:train:5019",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.20038215816020966,
+      "preclip_grad_norm": 3.047375440597534
+    },
+    {
+      "epoch": 0,
+      "step": 120,
+      "task_id": "constructed-feedback-v2:train:5000",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.0508953258395195,
+      "preclip_grad_norm": 1.4229836463928223
+    },
+    {
+      "epoch": 0,
+      "step": 121,
+      "task_id": "constructed-feedback-v2:train:5001",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.042959388345479965,
+      "preclip_grad_norm": 1.242396354675293
+    },
+    {
+      "epoch": 0,
+      "step": 122,
+      "task_id": "constructed-feedback-v2:train:5025",
+      "family": "volatility",
+      "loss_per_completion_token": 0.2920132577419281,
+      "preclip_grad_norm": 3.604684829711914
+    },
+    {
+      "epoch": 0,
+      "step": 123,
+      "task_id": "constructed-feedback-v2:train:5012",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.3068387806415558,
+      "preclip_grad_norm": 3.860309600830078
+    },
+    {
+      "epoch": 0,
+      "step": 124,
+      "task_id": "constructed-feedback-v2:train:5021",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.01828492060303688,
+      "preclip_grad_norm": 0.6155231595039368
+    },
+    {
+      "epoch": 0,
+      "step": 125,
+      "task_id": "constructed-feedback-v2:train:5029",
+      "family": "volatility",
+      "loss_per_completion_token": 0.0004322481108829379,
+      "preclip_grad_norm": 0.023875953629612923
+    },
+    {
+      "epoch": 0,
+      "step": 126,
+      "task_id": "constructed-feedback-v2:train:5019",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.3323783278465271,
+      "preclip_grad_norm": 4.869111061096191
+    },
+    {
+      "epoch": 0,
+      "step": 127,
+      "task_id": "constructed-feedback-v2:train:5007",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.17457255721092224,
+      "preclip_grad_norm": 1.6699150800704956
+    },
+    {
+      "epoch": 0,
+      "step": 128,
+      "task_id": "constructed-feedback-v2:train:5028",
+      "family": "volatility",
+      "loss_per_completion_token": 0.013760482892394066,
+      "preclip_grad_norm": 0.5043303370475769
+    },
+    {
+      "epoch": 0,
+      "step": 129,
+      "task_id": "constructed-feedback-v2:train:5003",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.25692903995513916,
+      "preclip_grad_norm": 4.371161460876465
+    },
+    {
+      "epoch": 0,
+      "step": 130,
+      "task_id": "constructed-feedback-v2:train:5020",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.005469189491122961,
+      "preclip_grad_norm": 0.19799835979938507
+    },
+    {
+      "epoch": 0,
+      "step": 131,
+      "task_id": "constructed-feedback-v2:train:5030",
+      "family": "volatility",
+      "loss_per_completion_token": 0.0008415246265940368,
+      "preclip_grad_norm": 0.057962387800216675
+    },
+    {
+      "epoch": 0,
+      "step": 132,
+      "task_id": "constructed-feedback-v2:train:5027",
+      "family": "volatility",
+      "loss_per_completion_token": 0.00015387320308946073,
+      "preclip_grad_norm": 0.012006696313619614
+    },
+    {
+      "epoch": 0,
+      "step": 133,
+      "task_id": "constructed-feedback-v2:train:5006",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.3239966928958893,
+      "preclip_grad_norm": 3.8535354137420654
+    },
+    {
+      "epoch": 0,
+      "step": 134,
+      "task_id": "constructed-feedback-v2:train:5026",
+      "family": "volatility",
+      "loss_per_completion_token": 0.00019022237393073738,
+      "preclip_grad_norm": 0.016393544152379036
+    },
+    {
+      "epoch": 0,
+      "step": 135,
+      "task_id": "constructed-feedback-v2:train:5012",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.003110970137640834,
+      "preclip_grad_norm": 0.2329229712486267
+    },
+    {
+      "epoch": 0,
+      "step": 136,
+      "task_id": "constructed-feedback-v2:train:5001",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.2689104676246643,
+      "preclip_grad_norm": 3.3624231815338135
+    },
+    {
+      "epoch": 0,
+      "step": 137,
+      "task_id": "constructed-feedback-v2:train:5014",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.22160665690898895,
+      "preclip_grad_norm": 2.6113827228546143
+    },
+    {
+      "epoch": 0,
+      "step": 138,
+      "task_id": "constructed-feedback-v2:train:5017",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.30841487646102905,
+      "preclip_grad_norm": 3.3794143199920654
+    },
+    {
+      "epoch": 0,
+      "step": 139,
+      "task_id": "constructed-feedback-v2:train:5022",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.005066614132374525,
+      "preclip_grad_norm": 0.16713839769363403
+    },
+    {
+      "epoch": 0,
+      "step": 140,
+      "task_id": "constructed-feedback-v2:train:5008",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.16402587294578552,
+      "preclip_grad_norm": 2.48750376701355
+    },
+    {
+      "epoch": 0,
+      "step": 141,
+      "task_id": "constructed-feedback-v2:train:5016",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.0231959018856287,
+      "preclip_grad_norm": 0.709972083568573
+    },
+    {
+      "epoch": 0,
+      "step": 142,
+      "task_id": "constructed-feedback-v2:train:5017",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.1155783087015152,
+      "preclip_grad_norm": 1.928788661956787
+    },
+    {
+      "epoch": 0,
+      "step": 143,
+      "task_id": "constructed-feedback-v2:train:5011",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0032829090487211943,
+      "preclip_grad_norm": 0.26729923486709595
+    },
+    {
+      "epoch": 0,
+      "step": 144,
+      "task_id": "constructed-feedback-v2:train:5024",
+      "family": "volatility",
+      "loss_per_completion_token": 0.2603740692138672,
+      "preclip_grad_norm": 6.25233793258667
+    },
+    {
+      "epoch": 0,
+      "step": 145,
+      "task_id": "constructed-feedback-v2:train:5013",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0031294100917875767,
+      "preclip_grad_norm": 0.21234500408172607
+    },
+    {
+      "epoch": 0,
+      "step": 146,
+      "task_id": "constructed-feedback-v2:train:5005",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.3120071589946747,
+      "preclip_grad_norm": 5.461448669433594
+    },
+    {
+      "epoch": 0,
+      "step": 147,
+      "task_id": "constructed-feedback-v2:train:5024",
+      "family": "volatility",
+      "loss_per_completion_token": 0.21907629072666168,
+      "preclip_grad_norm": 5.724210739135742
+    },
+    {
+      "epoch": 0,
+      "step": 148,
+      "task_id": "constructed-feedback-v2:train:5023",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.049688275903463364,
+      "preclip_grad_norm": 1.0545977354049683
+    },
+    {
+      "epoch": 0,
+      "step": 149,
+      "task_id": "constructed-feedback-v2:train:5014",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.12553836405277252,
+      "preclip_grad_norm": 1.5076216459274292
+    },
+    {
+      "epoch": 0,
+      "step": 150,
+      "task_id": "constructed-feedback-v2:train:5009",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.24121107161045074,
+      "preclip_grad_norm": 4.518716335296631
+    },
+    {
+      "epoch": 0,
+      "step": 151,
+      "task_id": "constructed-feedback-v2:train:5029",
+      "family": "volatility",
+      "loss_per_completion_token": 0.02963920496404171,
+      "preclip_grad_norm": 0.6541292667388916
+    },
+    {
+      "epoch": 0,
+      "step": 152,
+      "task_id": "constructed-feedback-v2:train:5011",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.016902295872569084,
+      "preclip_grad_norm": 0.40305620431900024
+    },
+    {
+      "epoch": 0,
+      "step": 153,
+      "task_id": "constructed-feedback-v2:train:5010",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.6825022101402283,
+      "preclip_grad_norm": 12.112486839294434
+    },
+    {
+      "epoch": 0,
+      "step": 154,
+      "task_id": "constructed-feedback-v2:train:5010",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0010058722691610456,
+      "preclip_grad_norm": 0.08253687620162964
+    },
+    {
+      "epoch": 0,
+      "step": 155,
+      "task_id": "constructed-feedback-v2:train:5019",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.13739293813705444,
+      "preclip_grad_norm": 1.613044261932373
+    },
+    {
+      "epoch": 0,
+      "step": 156,
+      "task_id": "constructed-feedback-v2:train:5011",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.09221220761537552,
+      "preclip_grad_norm": 1.0170059204101562
+    },
+    {
+      "epoch": 0,
+      "step": 157,
+      "task_id": "constructed-feedback-v2:train:5026",
+      "family": "volatility",
+      "loss_per_completion_token": 0.0014417034108191729,
+      "preclip_grad_norm": 0.155681774020195
+    },
+    {
+      "epoch": 0,
+      "step": 158,
+      "task_id": "constructed-feedback-v2:train:5023",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.05089874938130379,
+      "preclip_grad_norm": 2.231769561767578
+    },
+    {
+      "epoch": 0,
+      "step": 159,
+      "task_id": "constructed-feedback-v2:train:5018",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.15091572701931,
+      "preclip_grad_norm": 2.7833902835845947
+    },
+    {
+      "epoch": 0,
+      "step": 160,
+      "task_id": "constructed-feedback-v2:train:5021",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.33601200580596924,
+      "preclip_grad_norm": 4.193443775177002
+    },
+    {
+      "epoch": 0,
+      "step": 161,
+      "task_id": "constructed-feedback-v2:train:5014",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0008868849836289883,
+      "preclip_grad_norm": 0.06126133352518082
+    },
+    {
+      "epoch": 0,
+      "step": 162,
+      "task_id": "constructed-feedback-v2:train:5020",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.21241645514965057,
+      "preclip_grad_norm": 2.575613498687744
+    },
+    {
+      "epoch": 0,
+      "step": 163,
+      "task_id": "constructed-feedback-v2:train:5000",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.09944695979356766,
+      "preclip_grad_norm": 5.746654033660889
+    },
+    {
+      "epoch": 0,
+      "step": 164,
+      "task_id": "constructed-feedback-v2:train:5008",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.06822346895933151,
+      "preclip_grad_norm": 1.5837868452072144
+    },
+    {
+      "epoch": 0,
+      "step": 165,
+      "task_id": "constructed-feedback-v2:train:5020",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.024854356423020363,
+      "preclip_grad_norm": 0.7524188160896301
+    },
+    {
+      "epoch": 0,
+      "step": 166,
+      "task_id": "constructed-feedback-v2:train:5027",
+      "family": "volatility",
+      "loss_per_completion_token": 0.9123627543449402,
+      "preclip_grad_norm": 10.890924453735352
+    },
+    {
+      "epoch": 0,
+      "step": 167,
+      "task_id": "constructed-feedback-v2:train:5027",
+      "family": "volatility",
+      "loss_per_completion_token": 0.0003085789503529668,
+      "preclip_grad_norm": 0.0295041985809803
+    },
+    {
+      "epoch": 0,
+      "step": 168,
+      "task_id": "constructed-feedback-v2:train:5016",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.6907459497451782,
+      "preclip_grad_norm": 8.888847351074219
+    },
+    {
+      "epoch": 0,
+      "step": 169,
+      "task_id": "constructed-feedback-v2:train:5024",
+      "family": "volatility",
+      "loss_per_completion_token": 0.0002176694106310606,
+      "preclip_grad_norm": 0.01824520342051983
+    },
+    {
+      "epoch": 0,
+      "step": 170,
+      "task_id": "constructed-feedback-v2:train:5006",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.10953431576490402,
+      "preclip_grad_norm": 3.6097562313079834
+    },
+    {
+      "epoch": 0,
+      "step": 171,
+      "task_id": "constructed-feedback-v2:train:5021",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.06267213076353073,
+      "preclip_grad_norm": 1.6492338180541992
+    },
+    {
+      "epoch": 0,
+      "step": 172,
+      "task_id": "constructed-feedback-v2:train:5007",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.006067443639039993,
+      "preclip_grad_norm": 0.21656383574008942
+    },
+    {
+      "epoch": 0,
+      "step": 173,
+      "task_id": "constructed-feedback-v2:train:5002",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.2497212439775467,
+      "preclip_grad_norm": 4.230201721191406
+    },
+    {
+      "epoch": 0,
+      "step": 174,
+      "task_id": "constructed-feedback-v2:train:5025",
+      "family": "volatility",
+      "loss_per_completion_token": 0.09528153389692307,
+      "preclip_grad_norm": 1.5560318231582642
+    },
+    {
+      "epoch": 0,
+      "step": 175,
+      "task_id": "constructed-feedback-v2:train:5012",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.04530072212219238,
+      "preclip_grad_norm": 1.0299792289733887
+    },
+    {
+      "epoch": 0,
+      "step": 176,
+      "task_id": "constructed-feedback-v2:train:5030",
+      "family": "volatility",
+      "loss_per_completion_token": 0.06382940709590912,
+      "preclip_grad_norm": 1.6087607145309448
+    },
+    {
+      "epoch": 0,
+      "step": 177,
+      "task_id": "constructed-feedback-v2:train:5004",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.026735808700323105,
+      "preclip_grad_norm": 0.5887506008148193
+    },
+    {
+      "epoch": 0,
+      "step": 178,
+      "task_id": "constructed-feedback-v2:train:5027",
+      "family": "volatility",
+      "loss_per_completion_token": 0.03859264403581619,
+      "preclip_grad_norm": 0.7711768746376038
+    },
+    {
+      "epoch": 0,
+      "step": 179,
+      "task_id": "constructed-feedback-v2:train:5008",
+      "family": "volume_changes",
+      "loss_per_completion_token": 3.192738222423941e-05,
+      "preclip_grad_norm": 0.0011744977673515677
+    },
+    {
+      "epoch": 0,
+      "step": 180,
+      "task_id": "constructed-feedback-v2:train:5001",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.26500561833381653,
+      "preclip_grad_norm": 6.4707207679748535
+    },
+    {
+      "epoch": 0,
+      "step": 181,
+      "task_id": "constructed-feedback-v2:train:5031",
+      "family": "volatility",
+      "loss_per_completion_token": 0.00012751757458318025,
+      "preclip_grad_norm": 0.00823954213410616
+    },
+    {
+      "epoch": 0,
+      "step": 182,
+      "task_id": "constructed-feedback-v2:train:5013",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.1592961996793747,
+      "preclip_grad_norm": 4.996371746063232
+    },
+    {
+      "epoch": 0,
+      "step": 183,
+      "task_id": "constructed-feedback-v2:train:5017",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.43626728653907776,
+      "preclip_grad_norm": 7.433621406555176
+    },
+    {
+      "epoch": 0,
+      "step": 184,
+      "task_id": "constructed-feedback-v2:train:5018",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.10355930775403976,
+      "preclip_grad_norm": 2.7932260036468506
+    },
+    {
+      "epoch": 0,
+      "step": 185,
+      "task_id": "constructed-feedback-v2:train:5013",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.008446989580988884,
+      "preclip_grad_norm": 0.2540730834007263
+    },
+    {
+      "epoch": 0,
+      "step": 186,
+      "task_id": "constructed-feedback-v2:train:5030",
+      "family": "volatility",
+      "loss_per_completion_token": 0.00011496857041493058,
+      "preclip_grad_norm": 0.007806197740137577
+    },
+    {
+      "epoch": 0,
+      "step": 187,
+      "task_id": "constructed-feedback-v2:train:5009",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.36811596155166626,
+      "preclip_grad_norm": 8.589827537536621
+    },
+    {
+      "epoch": 0,
+      "step": 188,
+      "task_id": "constructed-feedback-v2:train:5015",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.28545722365379333,
+      "preclip_grad_norm": 6.586642742156982
+    },
+    {
+      "epoch": 0,
+      "step": 189,
+      "task_id": "constructed-feedback-v2:train:5022",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.01220610924065113,
+      "preclip_grad_norm": 1.5372503995895386
+    },
+    {
+      "epoch": 0,
+      "step": 190,
+      "task_id": "constructed-feedback-v2:train:5012",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.048610251396894455,
+      "preclip_grad_norm": 2.9332149028778076
+    },
+    {
+      "epoch": 0,
+      "step": 191,
+      "task_id": "constructed-feedback-v2:train:5003",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.10981853306293488,
+      "preclip_grad_norm": 1.600999355316162
+    },
+    {
+      "epoch": 1,
+      "step": 0,
+      "task_id": "constructed-feedback-v2:train:5000",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.012756063602864742,
+      "preclip_grad_norm": 0.3485439717769623
+    },
+    {
+      "epoch": 1,
+      "step": 1,
+      "task_id": "constructed-feedback-v2:train:5006",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.10001730173826218,
+      "preclip_grad_norm": 1.4802206754684448
+    },
+    {
+      "epoch": 1,
+      "step": 2,
+      "task_id": "constructed-feedback-v2:train:5029",
+      "family": "volatility",
+      "loss_per_completion_token": 0.09109549224376678,
+      "preclip_grad_norm": 1.3405303955078125
+    },
+    {
+      "epoch": 1,
+      "step": 3,
+      "task_id": "constructed-feedback-v2:train:5009",
+      "family": "volume_changes",
+      "loss_per_completion_token": 2.2112848455435596e-05,
+      "preclip_grad_norm": 0.0008120235870592296
+    },
+    {
+      "epoch": 1,
+      "step": 4,
+      "task_id": "constructed-feedback-v2:train:5017",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.1016780287027359,
+      "preclip_grad_norm": 6.190384387969971
+    },
+    {
+      "epoch": 1,
+      "step": 5,
+      "task_id": "constructed-feedback-v2:train:5031",
+      "family": "volatility",
+      "loss_per_completion_token": 6.118814053479582e-05,
+      "preclip_grad_norm": 0.0039305915124714375
+    },
+    {
+      "epoch": 1,
+      "step": 6,
+      "task_id": "constructed-feedback-v2:train:5026",
+      "family": "volatility",
+      "loss_per_completion_token": 0.05932214483618736,
+      "preclip_grad_norm": 0.9989899396896362
+    },
+    {
+      "epoch": 1,
+      "step": 7,
+      "task_id": "constructed-feedback-v2:train:5016",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.0015914624091237783,
+      "preclip_grad_norm": 0.1542675495147705
+    },
+    {
+      "epoch": 1,
+      "step": 8,
+      "task_id": "constructed-feedback-v2:train:5031",
+      "family": "volatility",
+      "loss_per_completion_token": 0.06638751924037933,
+      "preclip_grad_norm": 6.158275127410889
+    },
+    {
+      "epoch": 1,
+      "step": 9,
+      "task_id": "constructed-feedback-v2:train:5011",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.001557588460855186,
+      "preclip_grad_norm": 0.15810540318489075
+    },
+    {
+      "epoch": 1,
+      "step": 10,
+      "task_id": "constructed-feedback-v2:train:5017",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.4305481016635895,
+      "preclip_grad_norm": 6.970729827880859
+    },
+    {
+      "epoch": 1,
+      "step": 11,
+      "task_id": "constructed-feedback-v2:train:5006",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.08204825967550278,
+      "preclip_grad_norm": 1.0132540464401245
+    },
+    {
+      "epoch": 1,
+      "step": 12,
+      "task_id": "constructed-feedback-v2:train:5012",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.08568263053894043,
+      "preclip_grad_norm": 1.2456952333450317
+    },
+    {
+      "epoch": 1,
+      "step": 13,
+      "task_id": "constructed-feedback-v2:train:5009",
+      "family": "volume_changes",
+      "loss_per_completion_token": 2.815242623910308e-05,
+      "preclip_grad_norm": 0.0011616736883297563
+    },
+    {
+      "epoch": 1,
+      "step": 14,
+      "task_id": "constructed-feedback-v2:train:5008",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.02195543609559536,
+      "preclip_grad_norm": 0.6926895976066589
+    },
+    {
+      "epoch": 1,
+      "step": 15,
+      "task_id": "constructed-feedback-v2:train:5018",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.028291000053286552,
+      "preclip_grad_norm": 0.5099719762802124
+    },
+    {
+      "epoch": 1,
+      "step": 16,
+      "task_id": "constructed-feedback-v2:train:5001",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.24750947952270508,
+      "preclip_grad_norm": 7.076420783996582
+    },
+    {
+      "epoch": 1,
+      "step": 17,
+      "task_id": "constructed-feedback-v2:train:5019",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.0007608643500134349,
+      "preclip_grad_norm": 0.07410408556461334
+    },
+    {
+      "epoch": 1,
+      "step": 18,
+      "task_id": "constructed-feedback-v2:train:5005",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.03578788787126541,
+      "preclip_grad_norm": 2.8013439178466797
+    },
+    {
+      "epoch": 1,
+      "step": 19,
+      "task_id": "constructed-feedback-v2:train:5018",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.2533573508262634,
+      "preclip_grad_norm": 4.082388877868652
+    },
+    {
+      "epoch": 1,
+      "step": 20,
+      "task_id": "constructed-feedback-v2:train:5016",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.7660613059997559,
+      "preclip_grad_norm": 11.425950050354004
+    },
+    {
+      "epoch": 1,
+      "step": 21,
+      "task_id": "constructed-feedback-v2:train:5012",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.14900976419448853,
+      "preclip_grad_norm": 8.445423126220703
+    },
+    {
+      "epoch": 1,
+      "step": 22,
+      "task_id": "constructed-feedback-v2:train:5029",
+      "family": "volatility",
+      "loss_per_completion_token": 0.0014993696240708232,
+      "preclip_grad_norm": 0.1266103833913803
+    },
+    {
+      "epoch": 1,
+      "step": 23,
+      "task_id": "constructed-feedback-v2:train:5006",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.007737491279840469,
+      "preclip_grad_norm": 0.6233906745910645
+    },
+    {
+      "epoch": 1,
+      "step": 24,
+      "task_id": "constructed-feedback-v2:train:5010",
+      "family": "volume_changes",
+      "loss_per_completion_token": 4.33704954048153e-05,
+      "preclip_grad_norm": 0.0020101997070014477
+    },
+    {
+      "epoch": 1,
+      "step": 25,
+      "task_id": "constructed-feedback-v2:train:5013",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0031751682981848717,
+      "preclip_grad_norm": 0.29437872767448425
+    },
+    {
+      "epoch": 1,
+      "step": 26,
+      "task_id": "constructed-feedback-v2:train:5030",
+      "family": "volatility",
+      "loss_per_completion_token": 0.0011922442354261875,
+      "preclip_grad_norm": 0.09346897155046463
+    },
+    {
+      "epoch": 1,
+      "step": 27,
+      "task_id": "constructed-feedback-v2:train:5011",
+      "family": "volume_changes",
+      "loss_per_completion_token": 3.689401637529954e-05,
+      "preclip_grad_norm": 0.001602645730599761
+    },
+    {
+      "epoch": 1,
+      "step": 28,
+      "task_id": "constructed-feedback-v2:train:5001",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.605875551700592,
+      "preclip_grad_norm": 20.336580276489258
+    },
+    {
+      "epoch": 1,
+      "step": 29,
+      "task_id": "constructed-feedback-v2:train:5030",
+      "family": "volatility",
+      "loss_per_completion_token": 0.49094873666763306,
+      "preclip_grad_norm": 9.11339282989502
+    },
+    {
+      "epoch": 1,
+      "step": 30,
+      "task_id": "constructed-feedback-v2:train:5008",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.4053228497505188,
+      "preclip_grad_norm": 8.65414810180664
+    },
+    {
+      "epoch": 1,
+      "step": 31,
+      "task_id": "constructed-feedback-v2:train:5016",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.009105861186981201,
+      "preclip_grad_norm": 0.4010438024997711
+    },
+    {
+      "epoch": 1,
+      "step": 32,
+      "task_id": "constructed-feedback-v2:train:5015",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0016703841974958777,
+      "preclip_grad_norm": 0.14349935948848724
+    },
+    {
+      "epoch": 1,
+      "step": 33,
+      "task_id": "constructed-feedback-v2:train:5024",
+      "family": "volatility",
+      "loss_per_completion_token": 0.00011672206164803356,
+      "preclip_grad_norm": 0.007454975973814726
+    },
+    {
+      "epoch": 1,
+      "step": 34,
+      "task_id": "constructed-feedback-v2:train:5011",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0001742540334817022,
+      "preclip_grad_norm": 0.012963763438165188
+    },
+    {
+      "epoch": 1,
+      "step": 35,
+      "task_id": "constructed-feedback-v2:train:5024",
+      "family": "volatility",
+      "loss_per_completion_token": 0.052713263779878616,
+      "preclip_grad_norm": 0.9367069005966187
+    },
+    {
+      "epoch": 1,
+      "step": 36,
+      "task_id": "constructed-feedback-v2:train:5004",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.0567929670214653,
+      "preclip_grad_norm": 0.8448202013969421
+    },
+    {
+      "epoch": 1,
+      "step": 37,
+      "task_id": "constructed-feedback-v2:train:5028",
+      "family": "volatility",
+      "loss_per_completion_token": 0.06621693819761276,
+      "preclip_grad_norm": 1.191702127456665
+    },
+    {
+      "epoch": 1,
+      "step": 38,
+      "task_id": "constructed-feedback-v2:train:5014",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.09319131821393967,
+      "preclip_grad_norm": 2.23915958404541
+    },
+    {
+      "epoch": 1,
+      "step": 39,
+      "task_id": "constructed-feedback-v2:train:5015",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.063003771007061,
+      "preclip_grad_norm": 1.6342873573303223
+    },
+    {
+      "epoch": 1,
+      "step": 40,
+      "task_id": "constructed-feedback-v2:train:5003",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.09592674672603607,
+      "preclip_grad_norm": 2.157965660095215
+    },
+    {
+      "epoch": 1,
+      "step": 41,
+      "task_id": "constructed-feedback-v2:train:5012",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.28332996368408203,
+      "preclip_grad_norm": 4.965235233306885
+    },
+    {
+      "epoch": 1,
+      "step": 42,
+      "task_id": "constructed-feedback-v2:train:5014",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0015947942156344652,
+      "preclip_grad_norm": 0.12022293359041214
+    },
+    {
+      "epoch": 1,
+      "step": 43,
+      "task_id": "constructed-feedback-v2:train:5002",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.11449342221021652,
+      "preclip_grad_norm": 2.976353168487549
+    },
+    {
+      "epoch": 1,
+      "step": 44,
+      "task_id": "constructed-feedback-v2:train:5000",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.2262444943189621,
+      "preclip_grad_norm": 4.139008522033691
+    },
+    {
+      "epoch": 1,
+      "step": 45,
+      "task_id": "constructed-feedback-v2:train:5020",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.06607066839933395,
+      "preclip_grad_norm": 1.6239925622940063
+    },
+    {
+      "epoch": 1,
+      "step": 46,
+      "task_id": "constructed-feedback-v2:train:5022",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.022138496860861778,
+      "preclip_grad_norm": 0.6841292381286621
+    },
+    {
+      "epoch": 1,
+      "step": 47,
+      "task_id": "constructed-feedback-v2:train:5023",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.0187386404722929,
+      "preclip_grad_norm": 0.5637536644935608
+    },
+    {
+      "epoch": 1,
+      "step": 48,
+      "task_id": "constructed-feedback-v2:train:5015",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.00011657593859126791,
+      "preclip_grad_norm": 0.006448558531701565
+    },
+    {
+      "epoch": 1,
+      "step": 49,
+      "task_id": "constructed-feedback-v2:train:5013",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.07037827372550964,
+      "preclip_grad_norm": 1.460507869720459
+    },
+    {
+      "epoch": 1,
+      "step": 50,
+      "task_id": "constructed-feedback-v2:train:5010",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.1465453952550888,
+      "preclip_grad_norm": 1.6297544240951538
+    },
+    {
+      "epoch": 1,
+      "step": 51,
+      "task_id": "constructed-feedback-v2:train:5005",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.17959044873714447,
+      "preclip_grad_norm": 8.085602760314941
+    },
+    {
+      "epoch": 1,
+      "step": 52,
+      "task_id": "constructed-feedback-v2:train:5012",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.05900632217526436,
+      "preclip_grad_norm": 1.3294925689697266
+    },
+    {
+      "epoch": 1,
+      "step": 53,
+      "task_id": "constructed-feedback-v2:train:5009",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.17659297585487366,
+      "preclip_grad_norm": 3.3356518745422363
+    },
+    {
+      "epoch": 1,
+      "step": 54,
+      "task_id": "constructed-feedback-v2:train:5029",
+      "family": "volatility",
+      "loss_per_completion_token": 0.03608643636107445,
+      "preclip_grad_norm": 0.9877539277076721
+    },
+    {
+      "epoch": 1,
+      "step": 55,
+      "task_id": "constructed-feedback-v2:train:5021",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.06824503093957901,
+      "preclip_grad_norm": 4.196139335632324
+    },
+    {
+      "epoch": 1,
+      "step": 56,
+      "task_id": "constructed-feedback-v2:train:5004",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.06329484283924103,
+      "preclip_grad_norm": 0.8788957595825195
+    },
+    {
+      "epoch": 1,
+      "step": 57,
+      "task_id": "constructed-feedback-v2:train:5028",
+      "family": "volatility",
+      "loss_per_completion_token": 0.06081906706094742,
+      "preclip_grad_norm": 1.069549322128296
+    },
+    {
+      "epoch": 1,
+      "step": 58,
+      "task_id": "constructed-feedback-v2:train:5018",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.016505105420947075,
+      "preclip_grad_norm": 0.4728280007839203
+    },
+    {
+      "epoch": 1,
+      "step": 59,
+      "task_id": "constructed-feedback-v2:train:5012",
+      "family": "volume_changes",
+      "loss_per_completion_token": 9.276559285353869e-05,
+      "preclip_grad_norm": 0.00595779437571764
+    },
+    {
+      "epoch": 1,
+      "step": 60,
+      "task_id": "constructed-feedback-v2:train:5003",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.39436548948287964,
+      "preclip_grad_norm": 5.7471842765808105
+    },
+    {
+      "epoch": 1,
+      "step": 61,
+      "task_id": "constructed-feedback-v2:train:5029",
+      "family": "volatility",
+      "loss_per_completion_token": 0.03989540785551071,
+      "preclip_grad_norm": 0.6384060978889465
+    },
+    {
+      "epoch": 1,
+      "step": 62,
+      "task_id": "constructed-feedback-v2:train:5013",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.042017824947834015,
+      "preclip_grad_norm": 0.6926827430725098
+    },
+    {
+      "epoch": 1,
+      "step": 63,
+      "task_id": "constructed-feedback-v2:train:5012",
+      "family": "volume_changes",
+      "loss_per_completion_token": 9.510999370831996e-05,
+      "preclip_grad_norm": 0.0062147947028279305
+    },
+    {
+      "epoch": 1,
+      "step": 64,
+      "task_id": "constructed-feedback-v2:train:5020",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.03100954182446003,
+      "preclip_grad_norm": 0.6645592451095581
+    },
+    {
+      "epoch": 1,
+      "step": 65,
+      "task_id": "constructed-feedback-v2:train:5018",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.0274185910820961,
+      "preclip_grad_norm": 0.516168475151062
+    },
+    {
+      "epoch": 1,
+      "step": 66,
+      "task_id": "constructed-feedback-v2:train:5019",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.01381004136055708,
+      "preclip_grad_norm": 0.4155493676662445
+    },
+    {
+      "epoch": 1,
+      "step": 67,
+      "task_id": "constructed-feedback-v2:train:5011",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.036093052476644516,
+      "preclip_grad_norm": 0.7698475122451782
+    },
+    {
+      "epoch": 1,
+      "step": 68,
+      "task_id": "constructed-feedback-v2:train:5026",
+      "family": "volatility",
+      "loss_per_completion_token": 0.000132284767460078,
+      "preclip_grad_norm": 0.0119716702029109
+    },
+    {
+      "epoch": 1,
+      "step": 69,
+      "task_id": "constructed-feedback-v2:train:5027",
+      "family": "volatility",
+      "loss_per_completion_token": 0.4358993172645569,
+      "preclip_grad_norm": 6.938709735870361
+    },
+    {
+      "epoch": 1,
+      "step": 70,
+      "task_id": "constructed-feedback-v2:train:5019",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.019870543852448463,
+      "preclip_grad_norm": 0.5077261328697205
+    },
+    {
+      "epoch": 1,
+      "step": 71,
+      "task_id": "constructed-feedback-v2:train:5010",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.00010527815902605653,
+      "preclip_grad_norm": 0.00892183929681778
+    },
+    {
+      "epoch": 1,
+      "step": 72,
+      "task_id": "constructed-feedback-v2:train:5001",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.6877861618995667,
+      "preclip_grad_norm": 5.640161514282227
+    },
+    {
+      "epoch": 1,
+      "step": 73,
+      "task_id": "constructed-feedback-v2:train:5031",
+      "family": "volatility",
+      "loss_per_completion_token": 0.007361534982919693,
+      "preclip_grad_norm": 0.26480233669281006
+    },
+    {
+      "epoch": 1,
+      "step": 74,
+      "task_id": "constructed-feedback-v2:train:5000",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.3327941298484802,
+      "preclip_grad_norm": 11.654570579528809
+    },
+    {
+      "epoch": 1,
+      "step": 75,
+      "task_id": "constructed-feedback-v2:train:5024",
+      "family": "volatility",
+      "loss_per_completion_token": 0.13404539227485657,
+      "preclip_grad_norm": 1.720921277999878
+    },
+    {
+      "epoch": 1,
+      "step": 76,
+      "task_id": "constructed-feedback-v2:train:5030",
+      "family": "volatility",
+      "loss_per_completion_token": 0.2627312242984772,
+      "preclip_grad_norm": 11.945455551147461
+    },
+    {
+      "epoch": 1,
+      "step": 77,
+      "task_id": "constructed-feedback-v2:train:5027",
+      "family": "volatility",
+      "loss_per_completion_token": 0.11903725564479828,
+      "preclip_grad_norm": 2.115617513656616
+    },
+    {
+      "epoch": 1,
+      "step": 78,
+      "task_id": "constructed-feedback-v2:train:5021",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.13885192573070526,
+      "preclip_grad_norm": 2.855985641479492
+    },
+    {
+      "epoch": 1,
+      "step": 79,
+      "task_id": "constructed-feedback-v2:train:5017",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.055578138679265976,
+      "preclip_grad_norm": 1.2376832962036133
+    },
+    {
+      "epoch": 1,
+      "step": 80,
+      "task_id": "constructed-feedback-v2:train:5023",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.01041949912905693,
+      "preclip_grad_norm": 0.26305997371673584
+    },
+    {
+      "epoch": 1,
+      "step": 81,
+      "task_id": "constructed-feedback-v2:train:5007",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.01307296846061945,
+      "preclip_grad_norm": 0.46273696422576904
+    },
+    {
+      "epoch": 1,
+      "step": 82,
+      "task_id": "constructed-feedback-v2:train:5031",
+      "family": "volatility",
+      "loss_per_completion_token": 0.03257356211543083,
+      "preclip_grad_norm": 0.8630580306053162
+    },
+    {
+      "epoch": 1,
+      "step": 83,
+      "task_id": "constructed-feedback-v2:train:5021",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.003481683786958456,
+      "preclip_grad_norm": 0.1382923126220703
+    },
+    {
+      "epoch": 1,
+      "step": 84,
+      "task_id": "constructed-feedback-v2:train:5001",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.07629320025444031,
+      "preclip_grad_norm": 1.2062976360321045
+    },
+    {
+      "epoch": 1,
+      "step": 85,
+      "task_id": "constructed-feedback-v2:train:5023",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.35650771856307983,
+      "preclip_grad_norm": 5.282986640930176
+    },
+    {
+      "epoch": 1,
+      "step": 86,
+      "task_id": "constructed-feedback-v2:train:5015",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.047798458486795425,
+      "preclip_grad_norm": 0.7236465215682983
+    },
+    {
+      "epoch": 1,
+      "step": 87,
+      "task_id": "constructed-feedback-v2:train:5019",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.3016374707221985,
+      "preclip_grad_norm": 3.565258741378784
+    },
+    {
+      "epoch": 1,
+      "step": 88,
+      "task_id": "constructed-feedback-v2:train:5016",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.015630386769771576,
+      "preclip_grad_norm": 0.6437380313873291
+    },
+    {
+      "epoch": 1,
+      "step": 89,
+      "task_id": "constructed-feedback-v2:train:5000",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.016474230214953423,
+      "preclip_grad_norm": 0.6937516331672668
+    },
+    {
+      "epoch": 1,
+      "step": 90,
+      "task_id": "constructed-feedback-v2:train:5025",
+      "family": "volatility",
+      "loss_per_completion_token": 0.05731065571308136,
+      "preclip_grad_norm": 0.7470126152038574
+    },
+    {
+      "epoch": 1,
+      "step": 91,
+      "task_id": "constructed-feedback-v2:train:5014",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0004377742006909102,
+      "preclip_grad_norm": 0.03366024047136307
+    },
+    {
+      "epoch": 1,
+      "step": 92,
+      "task_id": "constructed-feedback-v2:train:5004",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.2681869864463806,
+      "preclip_grad_norm": 4.190908908843994
+    },
+    {
+      "epoch": 1,
+      "step": 93,
+      "task_id": "constructed-feedback-v2:train:5002",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.08956234157085419,
+      "preclip_grad_norm": 1.7908296585083008
+    },
+    {
+      "epoch": 1,
+      "step": 94,
+      "task_id": "constructed-feedback-v2:train:5014",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.05498075485229492,
+      "preclip_grad_norm": 0.7625155448913574
+    },
+    {
+      "epoch": 1,
+      "step": 95,
+      "task_id": "constructed-feedback-v2:train:5007",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.0481456033885479,
+      "preclip_grad_norm": 1.130273699760437
+    },
+    {
+      "epoch": 1,
+      "step": 96,
+      "task_id": "constructed-feedback-v2:train:5008",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.19041991233825684,
+      "preclip_grad_norm": 4.3725762367248535
+    },
+    {
+      "epoch": 1,
+      "step": 97,
+      "task_id": "constructed-feedback-v2:train:5028",
+      "family": "volatility",
+      "loss_per_completion_token": 0.19032709300518036,
+      "preclip_grad_norm": 3.473323345184326
+    },
+    {
+      "epoch": 1,
+      "step": 98,
+      "task_id": "constructed-feedback-v2:train:5003",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.06355158984661102,
+      "preclip_grad_norm": 1.4668956995010376
+    },
+    {
+      "epoch": 1,
+      "step": 99,
+      "task_id": "constructed-feedback-v2:train:5005",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.08816048502922058,
+      "preclip_grad_norm": 2.101470470428467
+    },
+    {
+      "epoch": 1,
+      "step": 100,
+      "task_id": "constructed-feedback-v2:train:5009",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.10598555952310562,
+      "preclip_grad_norm": 2.270599365234375
+    },
+    {
+      "epoch": 1,
+      "step": 101,
+      "task_id": "constructed-feedback-v2:train:5031",
+      "family": "volatility",
+      "loss_per_completion_token": 8.057175728026778e-05,
+      "preclip_grad_norm": 0.0051917582750320435
+    },
+    {
+      "epoch": 1,
+      "step": 102,
+      "task_id": "constructed-feedback-v2:train:5011",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.10958985239267349,
+      "preclip_grad_norm": 5.776619911193848
+    },
+    {
+      "epoch": 1,
+      "step": 103,
+      "task_id": "constructed-feedback-v2:train:5028",
+      "family": "volatility",
+      "loss_per_completion_token": 0.00024074921384453773,
+      "preclip_grad_norm": 0.028455203399062157
+    },
+    {
+      "epoch": 1,
+      "step": 104,
+      "task_id": "constructed-feedback-v2:train:5014",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.01923941820859909,
+      "preclip_grad_norm": 0.8234314918518066
+    },
+    {
+      "epoch": 1,
+      "step": 105,
+      "task_id": "constructed-feedback-v2:train:5010",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.07152954488992691,
+      "preclip_grad_norm": 1.8920292854309082
+    },
+    {
+      "epoch": 1,
+      "step": 106,
+      "task_id": "constructed-feedback-v2:train:5007",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.041539937257766724,
+      "preclip_grad_norm": 0.7740926742553711
+    },
+    {
+      "epoch": 1,
+      "step": 107,
+      "task_id": "constructed-feedback-v2:train:5005",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.04895664379000664,
+      "preclip_grad_norm": 0.8861662745475769
+    },
+    {
+      "epoch": 1,
+      "step": 108,
+      "task_id": "constructed-feedback-v2:train:5022",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.35319003462791443,
+      "preclip_grad_norm": 5.341550827026367
+    },
+    {
+      "epoch": 1,
+      "step": 109,
+      "task_id": "constructed-feedback-v2:train:5025",
+      "family": "volatility",
+      "loss_per_completion_token": 2.7834728825837374e-05,
+      "preclip_grad_norm": 0.0010021105408668518
+    },
+    {
+      "epoch": 1,
+      "step": 110,
+      "task_id": "constructed-feedback-v2:train:5007",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.006899958476424217,
+      "preclip_grad_norm": 0.307448148727417
+    },
+    {
+      "epoch": 1,
+      "step": 111,
+      "task_id": "constructed-feedback-v2:train:5003",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.03297949209809303,
+      "preclip_grad_norm": 0.5281552672386169
+    },
+    {
+      "epoch": 1,
+      "step": 112,
+      "task_id": "constructed-feedback-v2:train:5023",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.3051283061504364,
+      "preclip_grad_norm": 4.705827713012695
+    },
+    {
+      "epoch": 1,
+      "step": 113,
+      "task_id": "constructed-feedback-v2:train:5002",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.020229391753673553,
+      "preclip_grad_norm": 0.38071513175964355
+    },
+    {
+      "epoch": 1,
+      "step": 114,
+      "task_id": "constructed-feedback-v2:train:5020",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.0156891830265522,
+      "preclip_grad_norm": 0.5513816475868225
+    },
+    {
+      "epoch": 1,
+      "step": 115,
+      "task_id": "constructed-feedback-v2:train:5005",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.1926083117723465,
+      "preclip_grad_norm": 2.6217739582061768
+    },
+    {
+      "epoch": 1,
+      "step": 116,
+      "task_id": "constructed-feedback-v2:train:5010",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.14210276305675507,
+      "preclip_grad_norm": 2.1963870525360107
+    },
+    {
+      "epoch": 1,
+      "step": 117,
+      "task_id": "constructed-feedback-v2:train:5005",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.0032623966690152884,
+      "preclip_grad_norm": 0.1601627767086029
+    },
+    {
+      "epoch": 1,
+      "step": 118,
+      "task_id": "constructed-feedback-v2:train:5004",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.12615256011486053,
+      "preclip_grad_norm": 1.677153468132019
+    },
+    {
+      "epoch": 1,
+      "step": 119,
+      "task_id": "constructed-feedback-v2:train:5013",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0062820808961987495,
+      "preclip_grad_norm": 0.1565755009651184
+    },
+    {
+      "epoch": 1,
+      "step": 120,
+      "task_id": "constructed-feedback-v2:train:5000",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.0773526132106781,
+      "preclip_grad_norm": 1.1463764905929565
+    },
+    {
+      "epoch": 1,
+      "step": 121,
+      "task_id": "constructed-feedback-v2:train:5019",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.34694525599479675,
+      "preclip_grad_norm": 7.381672382354736
+    },
+    {
+      "epoch": 1,
+      "step": 122,
+      "task_id": "constructed-feedback-v2:train:5022",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.0003912843530997634,
+      "preclip_grad_norm": 0.021784435957670212
+    },
+    {
+      "epoch": 1,
+      "step": 123,
+      "task_id": "constructed-feedback-v2:train:5026",
+      "family": "volatility",
+      "loss_per_completion_token": 0.0005659740418195724,
+      "preclip_grad_norm": 0.049254778772592545
+    },
+    {
+      "epoch": 1,
+      "step": 124,
+      "task_id": "constructed-feedback-v2:train:5018",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.6702867746353149,
+      "preclip_grad_norm": 11.989649772644043
+    },
+    {
+      "epoch": 1,
+      "step": 125,
+      "task_id": "constructed-feedback-v2:train:5023",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.16169576346874237,
+      "preclip_grad_norm": 1.8270832300186157
+    },
+    {
+      "epoch": 1,
+      "step": 126,
+      "task_id": "constructed-feedback-v2:train:5022",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.12959372997283936,
+      "preclip_grad_norm": 1.7122840881347656
+    },
+    {
+      "epoch": 1,
+      "step": 127,
+      "task_id": "constructed-feedback-v2:train:5008",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.0014725406654179096,
+      "preclip_grad_norm": 0.1234317198395729
+    },
+    {
+      "epoch": 1,
+      "step": 128,
+      "task_id": "constructed-feedback-v2:train:5002",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.06246834993362427,
+      "preclip_grad_norm": 1.903272032737732
+    },
+    {
+      "epoch": 1,
+      "step": 129,
+      "task_id": "constructed-feedback-v2:train:5018",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.057857152074575424,
+      "preclip_grad_norm": 1.70395827293396
+    },
+    {
+      "epoch": 1,
+      "step": 130,
+      "task_id": "constructed-feedback-v2:train:5010",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.6395515203475952,
+      "preclip_grad_norm": 7.5474443435668945
+    },
+    {
+      "epoch": 1,
+      "step": 131,
+      "task_id": "constructed-feedback-v2:train:5016",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.06926170736551285,
+      "preclip_grad_norm": 1.0533065795898438
+    },
+    {
+      "epoch": 1,
+      "step": 132,
+      "task_id": "constructed-feedback-v2:train:5017",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.2356039136648178,
+      "preclip_grad_norm": 3.5228021144866943
+    },
+    {
+      "epoch": 1,
+      "step": 133,
+      "task_id": "constructed-feedback-v2:train:5020",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.016662579029798508,
+      "preclip_grad_norm": 0.5750844478607178
+    },
+    {
+      "epoch": 1,
+      "step": 134,
+      "task_id": "constructed-feedback-v2:train:5022",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.04276753216981888,
+      "preclip_grad_norm": 0.5865231156349182
+    },
+    {
+      "epoch": 1,
+      "step": 135,
+      "task_id": "constructed-feedback-v2:train:5002",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.017032505944371223,
+      "preclip_grad_norm": 0.4439842402935028
+    },
+    {
+      "epoch": 1,
+      "step": 136,
+      "task_id": "constructed-feedback-v2:train:5020",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.01296278741210699,
+      "preclip_grad_norm": 0.24545802175998688
+    },
+    {
+      "epoch": 1,
+      "step": 137,
+      "task_id": "constructed-feedback-v2:train:5017",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.376119464635849,
+      "preclip_grad_norm": 3.163895606994629
+    },
+    {
+      "epoch": 1,
+      "step": 138,
+      "task_id": "constructed-feedback-v2:train:5009",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.05299533158540726,
+      "preclip_grad_norm": 3.6884257793426514
+    },
+    {
+      "epoch": 1,
+      "step": 139,
+      "task_id": "constructed-feedback-v2:train:5009",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.06004304811358452,
+      "preclip_grad_norm": 1.0650469064712524
+    },
+    {
+      "epoch": 1,
+      "step": 140,
+      "task_id": "constructed-feedback-v2:train:5001",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.07514273375272751,
+      "preclip_grad_norm": 1.162110447883606
+    },
+    {
+      "epoch": 1,
+      "step": 141,
+      "task_id": "constructed-feedback-v2:train:5008",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.05202877148985863,
+      "preclip_grad_norm": 1.0654501914978027
+    },
+    {
+      "epoch": 1,
+      "step": 142,
+      "task_id": "constructed-feedback-v2:train:5028",
+      "family": "volatility",
+      "loss_per_completion_token": 0.001288349274545908,
+      "preclip_grad_norm": 0.15677626430988312
+    },
+    {
+      "epoch": 1,
+      "step": 143,
+      "task_id": "constructed-feedback-v2:train:5017",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.03980021923780441,
+      "preclip_grad_norm": 0.6486845016479492
+    },
+    {
+      "epoch": 1,
+      "step": 144,
+      "task_id": "constructed-feedback-v2:train:5024",
+      "family": "volatility",
+      "loss_per_completion_token": 0.0007175250793807209,
+      "preclip_grad_norm": 0.06119057536125183
+    },
+    {
+      "epoch": 1,
+      "step": 145,
+      "task_id": "constructed-feedback-v2:train:5020",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.04962316155433655,
+      "preclip_grad_norm": 0.7888351082801819
+    },
+    {
+      "epoch": 1,
+      "step": 146,
+      "task_id": "constructed-feedback-v2:train:5003",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.024238720536231995,
+      "preclip_grad_norm": 0.39687350392341614
+    },
+    {
+      "epoch": 1,
+      "step": 147,
+      "task_id": "constructed-feedback-v2:train:5026",
+      "family": "volatility",
+      "loss_per_completion_token": 0.2678898572921753,
+      "preclip_grad_norm": 2.561014413833618
+    },
+    {
+      "epoch": 1,
+      "step": 148,
+      "task_id": "constructed-feedback-v2:train:5030",
+      "family": "volatility",
+      "loss_per_completion_token": 0.2354917973279953,
+      "preclip_grad_norm": 2.4471418857574463
+    },
+    {
+      "epoch": 1,
+      "step": 149,
+      "task_id": "constructed-feedback-v2:train:5021",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.025989899411797523,
+      "preclip_grad_norm": 0.9006622433662415
+    },
+    {
+      "epoch": 1,
+      "step": 150,
+      "task_id": "constructed-feedback-v2:train:5007",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.006600844208151102,
+      "preclip_grad_norm": 0.3207729160785675
+    },
+    {
+      "epoch": 1,
+      "step": 151,
+      "task_id": "constructed-feedback-v2:train:5025",
+      "family": "volatility",
+      "loss_per_completion_token": 0.060764770954847336,
+      "preclip_grad_norm": 0.9781025648117065
+    },
+    {
+      "epoch": 1,
+      "step": 152,
+      "task_id": "constructed-feedback-v2:train:5019",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.07760515064001083,
+      "preclip_grad_norm": 1.2343940734863281
+    },
+    {
+      "epoch": 1,
+      "step": 153,
+      "task_id": "constructed-feedback-v2:train:5027",
+      "family": "volatility",
+      "loss_per_completion_token": 0.08334960043430328,
+      "preclip_grad_norm": 1.281978726387024
+    },
+    {
+      "epoch": 1,
+      "step": 154,
+      "task_id": "constructed-feedback-v2:train:5027",
+      "family": "volatility",
+      "loss_per_completion_token": 0.0001088551216525957,
+      "preclip_grad_norm": 0.007809443399310112
+    },
+    {
+      "epoch": 1,
+      "step": 155,
+      "task_id": "constructed-feedback-v2:train:5007",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.09748165309429169,
+      "preclip_grad_norm": 1.5200947523117065
+    },
+    {
+      "epoch": 1,
+      "step": 156,
+      "task_id": "constructed-feedback-v2:train:5029",
+      "family": "volatility",
+      "loss_per_completion_token": 5.252739356365055e-05,
+      "preclip_grad_norm": 0.003425297560170293
+    },
+    {
+      "epoch": 1,
+      "step": 157,
+      "task_id": "constructed-feedback-v2:train:5027",
+      "family": "volatility",
+      "loss_per_completion_token": 0.04908242076635361,
+      "preclip_grad_norm": 0.7607902884483337
+    },
+    {
+      "epoch": 1,
+      "step": 158,
+      "task_id": "constructed-feedback-v2:train:5006",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.11480434983968735,
+      "preclip_grad_norm": 1.4407825469970703
+    },
+    {
+      "epoch": 1,
+      "step": 159,
+      "task_id": "constructed-feedback-v2:train:5024",
+      "family": "volatility",
+      "loss_per_completion_token": 0.06518863141536713,
+      "preclip_grad_norm": 1.221786379814148
+    },
+    {
+      "epoch": 1,
+      "step": 160,
+      "task_id": "constructed-feedback-v2:train:5002",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.04765494912862778,
+      "preclip_grad_norm": 0.9380517601966858
+    },
+    {
+      "epoch": 1,
+      "step": 161,
+      "task_id": "constructed-feedback-v2:train:5008",
+      "family": "volume_changes",
+      "loss_per_completion_token": 3.3457101380918175e-05,
+      "preclip_grad_norm": 0.0015396132366731763
+    },
+    {
+      "epoch": 1,
+      "step": 162,
+      "task_id": "constructed-feedback-v2:train:5013",
+      "family": "volume_changes",
+      "loss_per_completion_token": 2.7238675102125853e-05,
+      "preclip_grad_norm": 0.0010792132234200835
+    },
+    {
+      "epoch": 1,
+      "step": 163,
+      "task_id": "constructed-feedback-v2:train:5000",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.0003888240025844425,
+      "preclip_grad_norm": 0.03358731046319008
+    },
+    {
+      "epoch": 1,
+      "step": 164,
+      "task_id": "constructed-feedback-v2:train:5014",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.030300408601760864,
+      "preclip_grad_norm": 1.618241786956787
+    },
+    {
+      "epoch": 1,
+      "step": 165,
+      "task_id": "constructed-feedback-v2:train:5004",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.0015883678570389748,
+      "preclip_grad_norm": 0.07496066391468048
+    },
+    {
+      "epoch": 1,
+      "step": 166,
+      "task_id": "constructed-feedback-v2:train:5023",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.0003973518905695528,
+      "preclip_grad_norm": 0.025959676131606102
+    },
+    {
+      "epoch": 1,
+      "step": 167,
+      "task_id": "constructed-feedback-v2:train:5015",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.008333717472851276,
+      "preclip_grad_norm": 0.23050431907176971
+    },
+    {
+      "epoch": 1,
+      "step": 168,
+      "task_id": "constructed-feedback-v2:train:5025",
+      "family": "volatility",
+      "loss_per_completion_token": 2.1338069927878678e-05,
+      "preclip_grad_norm": 0.00074245675932616
+    },
+    {
+      "epoch": 1,
+      "step": 169,
+      "task_id": "constructed-feedback-v2:train:5021",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.004669265355914831,
+      "preclip_grad_norm": 0.13257922232151031
+    },
+    {
+      "epoch": 1,
+      "step": 170,
+      "task_id": "constructed-feedback-v2:train:5025",
+      "family": "volatility",
+      "loss_per_completion_token": 0.38997331261634827,
+      "preclip_grad_norm": 3.7744898796081543
+    },
+    {
+      "epoch": 1,
+      "step": 171,
+      "task_id": "constructed-feedback-v2:train:5028",
+      "family": "volatility",
+      "loss_per_completion_token": 0.40307101607322693,
+      "preclip_grad_norm": 3.0895683765411377
+    },
+    {
+      "epoch": 1,
+      "step": 172,
+      "task_id": "constructed-feedback-v2:train:5015",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.2212693840265274,
+      "preclip_grad_norm": 14.566512107849121
+    },
+    {
+      "epoch": 1,
+      "step": 173,
+      "task_id": "constructed-feedback-v2:train:5006",
+      "family": "return_levels",
+      "loss_per_completion_token": 7.900231139501557e-05,
+      "preclip_grad_norm": 0.0057824235409498215
+    },
+    {
+      "epoch": 1,
+      "step": 174,
+      "task_id": "constructed-feedback-v2:train:5001",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.008428327739238739,
+      "preclip_grad_norm": 0.19286483526229858
+    },
+    {
+      "epoch": 1,
+      "step": 175,
+      "task_id": "constructed-feedback-v2:train:5027",
+      "family": "volatility",
+      "loss_per_completion_token": 2.562950612627901e-05,
+      "preclip_grad_norm": 0.0009640136267989874
+    },
+    {
+      "epoch": 1,
+      "step": 176,
+      "task_id": "constructed-feedback-v2:train:5006",
+      "family": "return_levels",
+      "loss_per_completion_token": 8.009601151570678e-05,
+      "preclip_grad_norm": 0.00592453870922327
+    },
+    {
+      "epoch": 1,
+      "step": 177,
+      "task_id": "constructed-feedback-v2:train:5024",
+      "family": "volatility",
+      "loss_per_completion_token": 0.24702517688274384,
+      "preclip_grad_norm": 2.115128993988037
+    },
+    {
+      "epoch": 1,
+      "step": 178,
+      "task_id": "constructed-feedback-v2:train:5025",
+      "family": "volatility",
+      "loss_per_completion_token": 0.017224358394742012,
+      "preclip_grad_norm": 0.3422289490699768
+    },
+    {
+      "epoch": 1,
+      "step": 179,
+      "task_id": "constructed-feedback-v2:train:5030",
+      "family": "volatility",
+      "loss_per_completion_token": 2.9582850402221084e-05,
+      "preclip_grad_norm": 0.0012810130137950182
+    },
+    {
+      "epoch": 1,
+      "step": 180,
+      "task_id": "constructed-feedback-v2:train:5031",
+      "family": "volatility",
+      "loss_per_completion_token": 0.030833706259727478,
+      "preclip_grad_norm": 0.6251020431518555
+    },
+    {
+      "epoch": 1,
+      "step": 181,
+      "task_id": "constructed-feedback-v2:train:5016",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.07004617899656296,
+      "preclip_grad_norm": 1.082625389099121
+    },
+    {
+      "epoch": 1,
+      "step": 182,
+      "task_id": "constructed-feedback-v2:train:5013",
+      "family": "volume_changes",
+      "loss_per_completion_token": 2.6861080186790787e-05,
+      "preclip_grad_norm": 0.001185164786875248
+    },
+    {
+      "epoch": 1,
+      "step": 183,
+      "task_id": "constructed-feedback-v2:train:5003",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.1959041804075241,
+      "preclip_grad_norm": 7.333609104156494
+    },
+    {
+      "epoch": 1,
+      "step": 184,
+      "task_id": "constructed-feedback-v2:train:5011",
+      "family": "volume_changes",
+      "loss_per_completion_token": 0.16058166325092316,
+      "preclip_grad_norm": 1.6249916553497314
+    },
+    {
+      "epoch": 1,
+      "step": 185,
+      "task_id": "constructed-feedback-v2:train:5004",
+      "family": "return_levels",
+      "loss_per_completion_token": 0.0012818044051527977,
+      "preclip_grad_norm": 0.058815933763980865
+    },
+    {
+      "epoch": 1,
+      "step": 186,
+      "task_id": "constructed-feedback-v2:train:5029",
+      "family": "volatility",
+      "loss_per_completion_token": 4.152223846176639e-05,
+      "preclip_grad_norm": 0.0019186647841706872
+    },
+    {
+      "epoch": 1,
+      "step": 187,
+      "task_id": "constructed-feedback-v2:train:5030",
+      "family": "volatility",
+      "loss_per_completion_token": 0.022769935429096222,
+      "preclip_grad_norm": 0.5278626084327698
+    },
+    {
+      "epoch": 1,
+      "step": 188,
+      "task_id": "constructed-feedback-v2:train:5026",
+      "family": "volatility",
+      "loss_per_completion_token": 0.12310614436864853,
+      "preclip_grad_norm": 1.3197364807128906
+    },
+    {
+      "epoch": 1,
+      "step": 189,
+      "task_id": "constructed-feedback-v2:train:5022",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.06523104012012482,
+      "preclip_grad_norm": 0.953332781791687
+    },
+    {
+      "epoch": 1,
+      "step": 190,
+      "task_id": "constructed-feedback-v2:train:5026",
+      "family": "volatility",
+      "loss_per_completion_token": 0.07632366567850113,
+      "preclip_grad_norm": 1.5221904516220093
+    },
+    {
+      "epoch": 1,
+      "step": 191,
+      "task_id": "constructed-feedback-v2:train:5021",
+      "family": "price_transforms",
+      "loss_per_completion_token": 0.08364883065223694,
+      "preclip_grad_norm": 1.0387548208236694
+    }
+  ],
+  "frozen_development_evaluation": {
+    "gate": {
+      "required_both_correct_rate": 0.8,
+      "required_correct_pairs": 20,
+      "observed_correct_pairs": 8,
+      "n_pairs": 24,
+      "passed": false,
+      "decision": "stop curriculum training; no extra epochs or RL continuation"
+    },
+    "sft_parent": {
+      "n_pairs": 24,
+      "n_examples": 48,
+      "both_correct_rate": 0.0,
+      "action_changed_rate": 0.0,
+      "example_accuracy": 0.0,
+      "terminated_rate": 1.0,
+      "json_object_valid_rate": 1.0,
+      "by_family": {
+        "mixed_composition": {
+          "pairs": 12,
+          "both_correct_rate": 0.0
+        },
+        "restricted_returns": {
+          "pairs": 12,
+          "both_correct_rate": 0.0
+        }
+      },
+      "by_category": {
+        "generation": {
+          "examples": 24,
+          "accuracy": 0.0
+        },
+        "selection": {
+          "examples": 24,
+          "accuracy": 0.0
+        }
+      }
+    },
+    "trained_curriculum": {
+      "n_pairs": 24,
+      "n_examples": 48,
+      "both_correct_rate": 0.3333333333333333,
+      "action_changed_rate": 0.5,
+      "example_accuracy": 0.625,
+      "terminated_rate": 1.0,
+      "json_object_valid_rate": 1.0,
+      "by_family": {
+        "mixed_composition": {
+          "pairs": 12,
+          "both_correct_rate": 0.25
+        },
+        "restricted_returns": {
+          "pairs": 12,
+          "both_correct_rate": 0.4166666666666667
+        }
+      },
+      "by_category": {
+        "generation": {
+          "examples": 24,
+          "accuracy": 0.4166666666666667
+        },
+        "selection": {
+          "examples": 24,
+          "accuracy": 0.8333333333333334
+        }
+      }
+    },
+    "dataset_sha256": "a1fe071ed154334fbc3040fb036e732a5fb3ff48fb689caf7170531b5a950f40",
+    "evaluation_sources": {
+      "parent": "b40eb696185570f4cf1286255d6b682b92ca855fffa601822065f162d02f6ef9",
+      "trained": "76855be96adb70643ed99ce56d3ed625358d973045cf2855efa01768e888c964"
+    },
+    "source_difference_note": "Independent financial/probe modules changed the package hash; root confirmed actor/curriculum/evaluator unchanged between corrected runs",
+    "json_vs_dsl_note": "All48 trained outputs are terminated JSON objects;21of24 generated expressions pass bounded DSL validation",
+    "artifacts": {
+      "parent": "artifacts/development/sft-curriculum-probe-v2.json",
+      "trained": "artifacts/development/trained-curriculum-probe-v2.json",
+      "interpretation": "docs/curriculum-results-v2.md"
+    }
+  },
+  "interpretation_limits": [
+    "Explicit constructed feedback only; no associated market or assessment targets",
+    "Partial selection conditioning; generation branch failed; no RL improvement or financial discovery claim",
+    "Teacher-forced SFT updates do not use sampling; corrected evaluations exclude the preserved overridden-sampler attempt",
+    "BF16 cached/full-forward likelihood differences remain a separately measured finite-precision limitation"
+  ]
+}

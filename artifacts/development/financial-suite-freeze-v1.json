@@ -1,0 +1,59 @@
+{
+  "study": "financial-proposal-v1",
+  "frozen_utc": "2026-10-01T04:13:02.878561+00:00",
+  "checkpoints": {
+    "financial-sft-v1": {
+      "adapter_name": "financial-sft-v1",
+      "files": [
+        {
+          "file": "adapter_config.json",
+          "sha256": "1d2ce245257ca545da1369b02b4ce1bde04cc2f75428654e186db38791efacc7",
+          "bytes": 1039
+        },
+        {
+          "file": "adapter_model.safetensors",
+          "sha256": "be860bc2dd4dfc9a1f2e25f1532bfdcbf63ac4cd664a2cff1de8993aacb7db3b",
+          "bytes": 9204512
+        }
+      ],
+      "combined_sha256": "d95793e5192be85fe4ceb15109a481c86ad13e804ffc01c56815683b1f21e360"
+    },
+    "financial-rloo23-v1": {
+      "adapter_name": "financial-rloo23-v1",
+      "files": [
+        {
+          "file": "adapter_config.json",
+          "sha256": "f40d007be9ba3ce18bfa06050caf9e9ddf6850e9b538595604aa39ea28a260ab",
+          "bytes": 1039
+        },
+        {
+          "file": "adapter_model.safetensors",
+          "sha256": "32e075f906b32374c2c153c01bd83930ff31f89f370aa2b261c84b0ac3e0342d",
+          "bytes": 9204512
+        }
+      ],
+      "combined_sha256": "595d8270efc5f035618e5682624e10db0037d3842df4d21b451fd85cc8ae2a05"
+    },
+    "financial-rloo29-v1": {
+      "adapter_name": "financial-rloo29-v1",
+      "files": [
+        {
+          "file": "adapter_config.json",
+          "sha256": "97c936b99ed86575a60885e6dcde9a7fcb66cb6d405fe62a881eb8a53ea7b459",
+          "bytes": 1039
+        },
+        {
+          "file": "adapter_model.safetensors",
+          "sha256": "8084784c7bfa8ae41fc52c3b9d45862ed42491cecac348676f8faa8d84fdadf0",
+          "bytes": 9204512
+        }
+      ],
+      "combined_sha256": "98e40d8f19f2cf88cde123097952866b90c9d4bb50210827f80ef0f7a57586c5"
+    }
+  },
+  "fixed_reference": "delay(returns,1)",
+  "fixed_reference_selection": "best mean reward on 2002-2017 training grid, frozen before transfer",
+  "seed_rule": "80000 + task_index*100 + draw; greedy draw=99; identical across checkpoints/conditions",
+  "stochastic_draws_per_task_condition": 8,
+  "greedy_draws_per_task_condition": 1
+}

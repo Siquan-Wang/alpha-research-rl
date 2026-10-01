@@ -1,8 +1,10 @@
 # Source-first financial proposal-policy review, 2026-10-01
 
-Status: in progress. This independent review reads implementation and tests before
-the training-only financial preflight results. It does not run GPU training,
-modify implementation, or certify outcomes that have not been inspected.
+Status: source review complete; financial training and transfer outcomes are not
+certified by this audit. This independent review read implementation and tests
+before the training-only financial preflight results. It did not run GPU training
+or modify implementation. Numerical preflight artifacts were inspected after
+their failures and corrections were reported.
 
 Scope: `financial_tasks.py`, its tests, the registered
 `docs/next-research-study.md` protocol, the actor sampling boundary in `llm.py`,
@@ -161,6 +163,9 @@ difference `2.0981e-5`. Those values were inspected from
 large numerical mismatch for that probe, with a finite numerical tolerance; it
 does not prove equality on all future prompts or trained adapters.
 
+The recomputed likelihood field is now accurately named
+`recomputed_preupdate_completion_logp` in the inspected trainer source.
+
 The evaluator owner was also warned that the shared `adapter_digest` hashes only
 parameters with `requires_grad=True`. Frozen evaluation adapters would therefore
 produce an empty-set digest through that helper. Evaluation checkpoint identity
@@ -200,9 +205,57 @@ addition before transfer evaluation. It cheaply distinguishes a useful formula
 prior from improvement over an especially weak feedback heuristic. It is not
 chosen from the later reported comparison.
 
-## Remaining audit work
+## Frozen evaluation source review
 
-Verify the trainer provenance fixes and the separate financial evaluation source,
-including checkpoint identities, sample coupling, frozen comparison boundaries,
-and aggregation before marking this review complete. No financial RL result has
-been inspected or asserted at this stage.
+`financial_evaluation.py` and its focused tests were subsequently inspected.
+The runner creates fresh completions in both true and exchanged-evidence
+conditions. It reseeds each task/draw with `80000 + task_index*100 + draw`, uses
+draw 99 for the separate greedy output, and shares that rule across checkpoints
+and conditions. There is no best-of-N selection or continuation after receiving
+an assessment result. Eight stochastic outcomes are averaged within each task;
+the primary overall reward averages task means. Failed proposals remain in that
+denominator. Valid-only IC is explicitly named and carries its sample counts.
+
+Strict JSON remains primary. The secondary exact-fence parser reparses saved
+text and does not generate more candidates. Evidence exchange, by contrast,
+causes a fresh model call. Fake-actor tests specifically distinguish these two
+operations and check that metadata stays outside the actor observation.
+
+The evaluator hashes saved adapter weights and adapter configuration rather than
+the frozen model's `requires_grad` parameters, resolving the empty-digest risk.
+Transfer requires the checkpoint hash and draw count to agree with a supplied
+suite freeze. A run manifest is written before model evaluation, and checkpoint
+files are checked again after it. The actor constructor enforces the separately
+declared float32 arithmetic. Root still must actually write the shared freeze
+for all completed checkpoints before starting the first transfer run; a function
+capable of checking that file is not evidence it was executed.
+
+Fixed lag-1, exact uniform-grid expectation, and feedback-greedy grid references
+are evaluated under the same scoring contract. The last reference's extra
+feedback information is labeled. Per-task and yearly summaries are retained.
+Final across-checkpoint paired RL-minus-SFT and grounding-interaction tables must
+be calculated from these saved reports; inspecting only one actor's aggregate
+would not complete the comparison.
+
+One nonblocking reporting refinement was requested: attempted-expression and
+canonical-AST frequency counts initially included parseable but unsupported
+expressions. Keep attempted frequencies for debugging, but separate usable-only
+frequencies before describing accepted generation or reserved-form usage. This
+does not affect reward, validity, or the RL quality gate, which use evaluator
+status. Economic rank equivalence is not implemented by canonical AST counting;
+do not treat syntax diversity as factor diversity.
+
+## Disposition and next action
+
+No unresolved source-level blocker remains to the registered financial SFT/RLOO
+run. The important corrections were model-default merging, local numerical
+precision, start-of-run provenance, and frozen-checkpoint identity. All are
+separate from evidence of improved research performance.
+
+Proceed with the registered finite run and freeze the complete comparison suite.
+The strongest additional control identified by this review, the training-selected
+fixed lag-1 formula, is already integrated. Do not alter the teacher or grammar
+because the training feedback-greedy baseline is weak. Publish the paired
+SFT/RLOO/fixed-reference outcomes and evidence intervention even if every result
+is null. This audit does not assert unseen results, checkpoint round-trip success,
+or useful market transfer before those measurements exist.
