@@ -110,6 +110,7 @@ class LocalActor:
         source = json.loads(source_path.read_text(encoding="utf-8")) if source_path.exists() else None
         self.provenance = {"base_model": source, "sampling_distribution": "untruncated autoregressive softmax",
                            "generation_config": self.sampling_config.to_dict(),
+                           "use_model_defaults": False,
                            "max_prompt_tokens": 4096, "lora_trainable": trainable,
                            "starting_adapter_name": Path(adapter_path).parent.name if adapter_path else None}
 
@@ -128,7 +129,10 @@ class LocalActor:
             raise ValueError("Prompt exceeds the explicit 4096-token study limit")
         tokens = torch.tensor([prompt], device=self.model.device)
         options = {"generation_config": self.sampling_config if stochastic else self.greedy_config,
+                   "use_model_defaults": False, "do_sample": stochastic,
                    "max_new_tokens": max_tokens}
+        if stochastic:
+            options.update(temperature=1.0, top_p=1.0, top_k=0)
         with torch.no_grad():
             output = self.model.generate(input_ids=tokens, attention_mask=torch.ones_like(tokens), **options)
         completion = output[0, len(prompt):].tolist()
